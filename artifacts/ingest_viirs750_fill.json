@@ -1,0 +1,145 @@
+{
+  "product": "viirs-750m",
+  "resolution_m": 750.0,
+  "cube_root": "data/processed/cubes_viirs-750m",
+  "generated": "2026-08-28T23:49:45",
+  "lakes": [
+    {
+      "lake_id": "balaton",
+      "status": "ok",
+      "grid": [
+        98,
+        97
+      ],
+      "resolution_m": 750.0,
+      "days": 425,
+      "record": [
+        "2016-01-01",
+        "2025-08-18"
+      ],
+      "requests": 10,
+      "chunk_days": 157,
+      "seconds": 211.0
+    },
+    {
+      "lake_id": "erie_west",
+      "status": "ok",
+      "grid": [
+        124,
+        124
+      ],
+      "resolution_m": 750.0,
+      "days": 346,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 97,
+      "seconds": 256.1
+    },
+    {
+      "lake_id": "kasumigaura",
+      "status": "ok",
+      "grid": [
+        55,
+        55
+      ],
+      "resolution_m": 750.0,
+      "days": 387,
+      "record": [
+        "2016-01-01",
+        "2025-08-18"
+      ],
+      "requests": 18,
+      "chunk_days": 180,
+      "seconds": 358.9
+    },
+    {
+      "lake_id": "neagh",
+      "status": "ok",
+      "grid": [
+        56,
+        56
+      ],
+      "resolution_m": 750.0,
+      "days": 211,
+      "record": [
+        "2016-01-01",
+        "2025-08-18"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 394.8
+    },
+    {
+      "lake_id": "okeechobee",
+      "status": "ok",
+      "grid": [
+        81,
+        81
+      ],
+      "resolution_m": 750.0,
+      "days": 634,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 18,
+      "chunk_days": 180,
+      "seconds": 323.1
+    },
+    {
+      "lake_id": "poyang",
+      "status": "ok",
+      "grid": [
+        122,
+        122
+      ],
+      "resolution_m": 750.0,
+      "days": 151,
+      "record": [
+        "2016-01-01",
+        "2025-08-18"
+      ],
+      "requests": 29,
+      "chunk_days": 100,
+      "seconds": 274.2
+    },
+    {
+      "lake_id": "taihu",
+      "status": "ok",
+      "grid": [
+        97,
+        97
+      ],
+      "resolution_m": 750.0,
+      "days": 48,
+      "record": [
+        "2016-01-01",
+        "2025-08-18"
+      ],
+      "requests": 19,
+      "chunk_days": 159,
+      "seconds": 145.6
+    },
+    {
+      "lake_id": "winnipeg",
+      "status": "ok",
+      "grid": [
+        165,
+        165
+      ],
+      "resolution_m": 750.0,
+      "days": 1055,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 29,
+      "chunk_days": 55,
+      "seconds": 518.0
+    }
+  ],
+  "total_days": 3257
+}

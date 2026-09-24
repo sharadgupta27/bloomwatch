@@ -1,0 +1,77 @@
+{
+  "type": "FeatureCollection",
+  "name": "habforecast_aoi_v1",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "erie_west",
+        "name": "Lake Erie (Western Basin)",
+        "country": "US/CA",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [6, 10],
+        "utm_epsg": 32617,
+        "notes": "Microcystis blooms; 2014 Toledo drinking-water shutdown. NOAA GLERL publishes an operational HAB bulletin here - the external baseline."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[-83.55,41.35],[-82.50,41.35],[-82.50,42.05],[-83.55,42.05],[-83.55,41.35]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "okeechobee",
+        "name": "Lake Okeechobee",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [4, 10],
+        "utm_epsg": 32617,
+        "notes": "Shallow, wind-driven resuspension; discharges seed coastal blooms in the Caloosahatchee and St. Lucie estuaries."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[-81.12,26.65],[-80.58,26.65],[-80.58,27.22],[-81.12,27.22],[-81.12,26.65]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "taihu",
+        "name": "Lake Taihu",
+        "country": "CN",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [5, 11],
+        "utm_epsg": 32651,
+        "notes": "Drinking water for ~10M people; 2007 Wuxi crisis. Heavily studied, strong literature baseline."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[119.88,30.90],[120.65,30.90],[120.65,31.60],[119.88,31.60],[119.88,30.90]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "balaton",
+        "name": "Lake Balaton",
+        "country": "HU",
+        "split": "val",
+        "trophic_state": "mesotrophic",
+        "bloom_season": [6, 9],
+        "utm_epsg": 32633,
+        "notes": "Held out for validation. Narrow elongated basin - tests the model on a very different lake morphology."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[17.20,46.68],[18.20,46.68],[18.20,47.10],[17.20,47.10],[17.20,46.68]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "victoria_ne",
+        "name": "Lake Victoria (NE / Winam Gulf)",
+        "country": "KE/UG",
+        "split": "test",
+        "trophic_state": "eutrophic",
+        "bloom_season": [1, 12],
+        "utm_epsg": 32736,
+        "notes": "HELD OUT for geographic domain-shift evaluation. Tropical, year-round blooms, no seasonal cycle - the hardest generalisation target. ~40M people depend on this lake."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[33.90,-0.60],[34.90,-0.60],[34.90,0.35],[33.90,0.35],[33.90,-0.60]]] }
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+# Full local stack. Everything the project needs runs here -- no host Python required.
+#
+#   docker compose up mlflow -d              # tracking server on :5000
+#   docker compose run --rm ingest           # build the Zarr cubes
+#   docker compose run --rm train            # GPU training (needs NVIDIA runtime)
+#   docker compose up api                    # forecast API + map on :8000
+#
+# Bind mounts, not named volumes. Named volumes are tidier and faster for Zarr's
+# many-small-files pattern on Windows, but they hide data you already have: an ingest run
+# on the host would be invisible to the container and vice versa. Since the whole point is
+# to work with the cubes and checkpoints already on disk, visibility wins. The read volume
+# is small (tens of MB), so the filesystem overhead does not matter here.
+
+# Containers and networks are named bloom-watch-*, not after the checkout folder.
+name: bloom-watch
+
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.19.0
+    # --serve-artifacts makes the tracking server itself store the artifacts, and clients
+    # upload over HTTP. Without it, `--default-artifact-root /mlflow/artifacts` is
+    # interpreted by the *client* as a local filesystem path: the training container
+    # dutifully created /mlflow inside itself and wrote the checkpoint there, where it
+    # vanished when the container exited. It looked like it worked because nothing
+    # errored -- until the training image stopped running as root, at which point the
+    # same code failed loudly with EACCES on /mlflow. Artifacts logged before this fix
+    # were never actually stored.
+    command: >
+      mlflow server
+      --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --serve-artifacts
+      --artifacts-destination /mlflow/artifacts
+      --default-artifact-root mlflow-artifacts:/
+    ports: ["5000:5000"]
+    volumes: ["mlflow:/mlflow"]
+    healthcheck:
+      # Probed with python, not curl: the official mlflow image ships neither curl nor
+      # wget, so a curl healthcheck can never report healthy -- and `train` depends on
+      # `service_healthy`, which meant `make train` blocked forever on a server that was
+      # in fact up and serving.
+      test: ["CMD", "python", "-c",
+             "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:5000/health', timeout=4).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  ingest:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: ingest
+    volumes:
+      - ./data:/app/data
+    environment:
+      HAB_CUBES: /app/data/processed/cubes
+    command: ["--start", "2018-01-01", "--end", "2025-12-31", "--workers", "12",
+              "--cube-root", "/app/data/processed/cubes",
+              "--report", "/app/data/processed/ingest_report.json"]
+
+  train:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.gpu
+    depends_on:
+      mlflow: {condition: service_healthy}
+    volumes:
+      # Source mounted for the same reason as `tools`: iterating on a model should not
+      # cost an image rebuild.
+      - ./src:/app/src
+      - ./pipelines:/app/pipelines
+      - ./scripts:/app/scripts
+      - ./conf:/app/conf
+      - ./data:/app/data
+      - ./models:/models
+      - ./artifacts:/app/artifacts
+      - ./outputs:/app/outputs
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    command: ["paths.cubes=/app/data/processed/cubes", "paths.mlflow_uri=http://mlflow:5000"]
+    # Requires the NVIDIA Container Toolkit. Without it this block is ignored and the
+    # image's startup check reports CPU-only.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # Tests, linting, and the offline renderers. No mlflow dependency: `docker compose run
+  # train` waits on a healthy tracking server, which is right for a training run and
+  # pure obstruction for a test run.
+  tools:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: tools
+    volumes:
+      # Source is mounted, not baked. The image is built once; editing a test or a model
+      # then runs immediately instead of costing a rebuild, which is the difference
+      # between running the suite constantly and running it rarely.
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./scripts:/app/scripts
+      - ./pipelines:/app/pipelines
+      - ./monitoring:/app/monitoring
+      - ./serving:/app/serving
+      - ./conf:/app/conf
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./data:/app/data
+      - ./models:/models
+      - ./artifacts:/app/artifacts
+    environment:
+      HAB_CUBES: /app/data/processed/cubes
+
+  # The scheduled forecast. Runs once and exits; wire it to cron, a CI schedule, or
+  # `make advisory`. Writes artifacts/advisory/{advisory.geojson,feed.xml} plus dated
+  # copies, the same feed the API serves live at /advisory and /advisory/feed.xml.
+  #   0 6 * * *  cd /path/to/Harmful_Algal_Blooms && docker compose run --rm advisory
+  advisory:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: serve
+    volumes:
+      - ./src:/app/src:ro
+      - ./pipelines:/app/pipelines:ro
+      - ./data:/app/data:ro
+      # The operational cube copy is the one thing this job writes: --refresh-days
+      # appends the newest Data Store days to it.
+      - ./data/processed/cubes_live:/app/data/processed/cubes_live
+      # EUMETSAT consumer key/secret, read-only; written on the host by
+      # `eumdac set-credentials KEY SECRET`. Never baked into the image.
+      - ${USERPROFILE:-${HOME}}/.eumdac:/home/hab/.eumdac:ro
+      - ./models:/models:ro
+      - ./artifacts:/app/artifacts
+    entrypoint: ["python", "pipelines/advisory.py"]
+    # Refreshes the operational cube copy from the EUMETSAT Data Store before forecasting
+    # (needs `eumdac set-credentials` once on the host; see src/habforecast/data/eumetsat.py).
+    command: ["--checkpoint", "/models/best.ckpt", "--prob-checkpoint", "/models/ens_met",
+              "--cubes", "/app/data/processed/cubes_live", "--refresh-days", "14",
+              "--out", "/app/artifacts/advisory", "--allow-live"]
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: serve
+    ports: ["8000:8000"]
+    volumes:
+      # Source mounted read-only for the same reason as `tools` and `train`: editing the
+      # app's stylesheet and rebuilding a 2 GB image to see the change is how front-end
+      # fixes silently fail to take effect.
+      - ./serving:/app/serving:ro
+      - ./src:/app/src:ro
+      - ./scripts:/app/scripts:ro
+      - ./data:/app/data:ro
+      - ./models:/models:ro
+      - ./artifacts:/app/artifacts:ro
+    environment:
+      HAB_CUBES: /app/data/processed/cubes
+      HAB_CHECKPOINT: /models/best.ckpt
+      HAB_PROB_CHECKPOINT: /models/ens_met
+      # The router pairs a checkpoint with the water body, so the process serves more than
+      # one. They all live in the mounted model directory; this is where it is mounted.
+      HAB_MODEL_ROOT: /models
+      HAB_ARTIFACTS: /app/artifacts
+      # Public in-situ measurements for the click-a-pixel time series. Optional: without
+      # it the app says so instead of failing. Build with scripts/build_insitu_index.py.
+      HAB_INSITU: /app/data/validation/insitu.csv.gz
+    restart: unless-stopped
+
+volumes:
+  mlflow:   # tracking server state is the one thing with no useful host representation

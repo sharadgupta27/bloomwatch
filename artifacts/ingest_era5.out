@@ -1,0 +1,553 @@
+2026-09-22 14:03:11,097 INFO    erie_west: 8 chunks (months 05,06,07,08,09,10, 3-hourly)
+2026-09-22 14:03:11,098 INFO    erie_west 2018 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:03:11,099 INFO    erie_west 2019 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:03:11,099 INFO    erie_west 2020 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:03:11,561 INFO Request ID is 1a5f329b-cfc3-420a-b28c-2575f142b1f2
+2026-09-22 14:03:11,561 INFO    Request ID is 1a5f329b-cfc3-420a-b28c-2575f142b1f2
+2026-09-22 14:03:11,787 INFO status has been updated to accepted
+2026-09-22 14:03:11,787 INFO    status has been updated to accepted
+2026-09-22 14:03:12,045 INFO Request ID is fbab70ea-c655-4692-8b0f-ff3551ff8bbf
+2026-09-22 14:03:12,045 INFO    Request ID is fbab70ea-c655-4692-8b0f-ff3551ff8bbf
+2026-09-22 14:03:12,120 INFO status has been updated to accepted
+2026-09-22 14:03:12,120 INFO    status has been updated to accepted
+2026-09-22 14:03:14,089 INFO Request ID is b24a1510-e36b-4a9b-9df2-36dc06728979
+2026-09-22 14:03:14,089 INFO    Request ID is b24a1510-e36b-4a9b-9df2-36dc06728979
+2026-09-22 14:03:14,160 INFO status has been updated to accepted
+2026-09-22 14:03:14,160 INFO    status has been updated to accepted
+2026-09-22 14:03:45,501 INFO status has been updated to running
+2026-09-22 14:03:45,501 INFO    status has been updated to running
+2026-09-22 14:11:32,950 INFO status has been updated to running
+2026-09-22 14:11:32,950 INFO    status has been updated to running
+2026-09-22 14:11:33,198 INFO status has been updated to successful
+2026-09-22 14:11:33,198 INFO    status has been updated to successful
+2026-09-22 14:11:33,359 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/5d858b612736ee0f6580ec5ab571e5d7.zip
+5d858b612736ee0f6580ec5ab571e5d7.zip:   0%|          | 0.00/1.03M [00:00<?, ?B/s]5d858b612736ee0f6580ec5ab571e5d7.zip:  97%|█████████▋| 1.00M/1.03M [00:00<00:00, 2.03MB/s]                                                                                          2026-09-22 14:11:34,105 INFO    erie_west 2018: wrote erie_west_2018_05-10.nc (1.1 MB) in 503s
+2026-09-22 14:11:34,106 INFO    erie_west 2021 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:11:34,825 INFO Request ID is e9fef9f0-4591-4115-855c-ba6a52351efa
+2026-09-22 14:11:34,825 INFO    Request ID is e9fef9f0-4591-4115-855c-ba6a52351efa
+2026-09-22 14:11:34,931 INFO status has been updated to accepted
+2026-09-22 14:11:34,931 INFO    status has been updated to accepted
+2026-09-22 14:17:38,513 INFO status has been updated to successful
+2026-09-22 14:17:38,513 INFO    status has been updated to successful
+2026-09-22 14:17:38,670 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/405291efb23739d56fbdcfbd99130be4.zip
+405291efb23739d56fbdcfbd99130be4.zip:   0%|          | 0.00/1.01M [00:00<?, ?B/s]2026-09-22 14:17:38,993 INFO status has been updated to running
+2026-09-22 14:17:38,993 INFO    status has been updated to running
+405291efb23739d56fbdcfbd99130be4.zip:  99%|█████████▊| 1.00M/1.01M [00:00<00:00, 2.32MB/s]                                                                                          2026-09-22 14:17:39,371 INFO    erie_west 2020: wrote erie_west_2020_05-10.nc (1.1 MB) in 868s
+2026-09-22 14:17:39,371 INFO    erie_west 2022 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:17:39,869 INFO Request ID is a088ae6a-d33c-4425-8ce7-6af0adad9af1
+2026-09-22 14:17:39,869 INFO    Request ID is a088ae6a-d33c-4425-8ce7-6af0adad9af1
+2026-09-22 14:17:40,232 INFO status has been updated to accepted
+2026-09-22 14:17:40,232 INFO    status has been updated to accepted
+2026-09-22 14:23:43,476 INFO status has been updated to successful
+2026-09-22 14:23:43,476 INFO    status has been updated to successful
+2026-09-22 14:23:43,645 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/f398ac94c5e896706202db491c6af3f5.zip
+f398ac94c5e896706202db491c6af3f5.zip:   0%|          | 0.00/1.03M [00:00<?, ?B/s]f398ac94c5e896706202db491c6af3f5.zip:  97%|█████████▋| 1.00M/1.03M [00:00<00:00, 2.16MB/s]                                                                                          2026-09-22 14:23:44,410 INFO    erie_west 2019: wrote erie_west_2019_05-10.nc (1.1 MB) in 1233s
+2026-09-22 14:23:44,411 INFO    erie_west 2023 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:23:44,855 INFO Request ID is e3d2b31a-5799-45dc-8d3e-68e99c13fe45
+2026-09-22 14:23:44,855 INFO    Request ID is e3d2b31a-5799-45dc-8d3e-68e99c13fe45
+2026-09-22 14:23:44,937 INFO status has been updated to accepted
+2026-09-22 14:23:44,937 INFO    status has been updated to accepted
+2026-09-22 14:23:54,384 INFO status has been updated to running
+2026-09-22 14:23:54,384 INFO    status has been updated to running
+2026-09-22 14:29:55,474 INFO status has been updated to successful
+2026-09-22 14:29:55,474 INFO    status has been updated to successful
+2026-09-22 14:29:55,843 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/df47f3093ee530b23e690e048ca063c1.zip
+df47f3093ee530b23e690e048ca063c1.zip:   0%|          | 0.00/1.03M [00:00<?, ?B/s]df47f3093ee530b23e690e048ca063c1.zip:  97%|█████████▋| 1.00M/1.03M [00:00<00:00, 1.79MB/s]                                                                                          2026-09-22 14:29:56,743 INFO    erie_west 2021: wrote erie_west_2021_05-10.nc (1.1 MB) in 1103s
+2026-09-22 14:29:56,744 INFO    erie_west 2024 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:29:57,130 INFO Request ID is d4ad3fc3-5b61-41f2-8175-398ca4701103
+2026-09-22 14:29:57,130 INFO    Request ID is d4ad3fc3-5b61-41f2-8175-398ca4701103
+2026-09-22 14:29:57,640 INFO status has been updated to accepted
+2026-09-22 14:29:57,640 INFO    status has been updated to accepted
+2026-09-22 14:30:00,260 INFO status has been updated to running
+2026-09-22 14:30:00,260 INFO    status has been updated to running
+2026-09-22 14:36:00,815 INFO status has been updated to successful
+2026-09-22 14:36:00,815 INFO    status has been updated to successful
+2026-09-22 14:36:00,973 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/e87711d14d878e3ab6246fa8307e8229.zip
+e87711d14d878e3ab6246fa8307e8229.zip:   0%|          | 0.00/1.01M [00:00<?, ?B/s]e87711d14d878e3ab6246fa8307e8229.zip:  99%|█████████▉| 1.00M/1.01M [00:00<00:00, 2.01MB/s]                                                                                          2026-09-22 14:36:01,729 INFO    erie_west 2022: wrote erie_west_2022_05-10.nc (1.1 MB) in 1102s
+2026-09-22 14:36:01,730 INFO    erie_west 2025 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-22 14:36:04,516 INFO Request ID is d0ee3539-5a70-40f9-bb86-0c4a1c2913fa
+2026-09-22 14:36:04,516 INFO    Request ID is d0ee3539-5a70-40f9-bb86-0c4a1c2913fa
+2026-09-22 14:36:04,607 INFO status has been updated to accepted
+2026-09-22 14:36:04,607 INFO    status has been updated to accepted
+2026-09-22 14:36:06,028 INFO status has been updated to running
+2026-09-22 14:36:06,028 INFO    status has been updated to running
+2026-09-22 14:42:07,357 INFO status has been updated to successful
+2026-09-22 14:42:07,357 INFO    status has been updated to successful
+2026-09-22 14:42:07,620 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/cca3f6e61aced316614280f11eaf884d.zip
+cca3f6e61aced316614280f11eaf884d.zip:   0%|          | 0.00/1.02M [00:00<?, ?B/s]cca3f6e61aced316614280f11eaf884d.zip:  98%|█████████▊| 1.00M/1.02M [00:00<00:00, 2.05MB/s]                                                                                          2026-09-22 14:42:08,344 INFO    erie_west 2023: wrote erie_west_2023_05-10.nc (1.1 MB) in 1104s
+2026-09-22 14:42:19,516 INFO status has been updated to running
+2026-09-22 14:42:19,516 INFO    status has been updated to running
+2026-09-22 14:48:21,556 INFO status has been updated to successful
+2026-09-22 14:48:21,556 INFO    status has been updated to successful
+2026-09-22 14:48:22,585 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/16136532756ffc69f6b74f2aabf087da.zip
+16136532756ffc69f6b74f2aabf087da.zip:   0%|          | 0.00/1.02M [00:00<?, ?B/s]16136532756ffc69f6b74f2aabf087da.zip:  98%|█████████▊| 1.00M/1.02M [00:00<00:00, 2.03MB/s]                                                                                          2026-09-22 14:48:23,344 INFO    erie_west 2024: wrote erie_west_2024_05-10.nc (1.1 MB) in 1107s
+2026-09-22 14:48:27,129 INFO status has been updated to running
+2026-09-22 14:48:27,129 INFO    status has been updated to running
+2026-09-22 14:54:29,459 INFO status has been updated to successful
+2026-09-22 14:54:29,459 INFO    status has been updated to successful
+2026-09-22 14:54:29,600 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/f615064775d79be93131d6f64eb74f50.zip
+f615064775d79be93131d6f64eb74f50.zip:   0%|          | 0.00/1.01M [00:00<?, ?B/s]f615064775d79be93131d6f64eb74f50.zip:  99%|█████████▊| 1.00M/1.01M [00:00<00:00, 2.32MB/s]                                                                                          2026-09-22 14:54:30,299 INFO    erie_west 2025: wrote erie_west_2025_05-10.nc (1.1 MB) in 1109s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-22 14:54:32,906 INFO    erie_west: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\erie_west.zarr -- 1472 days 2018-05-01 to 2025-10-31, 1.79 MB
+2026-09-22 14:54:32,922 INFO    okeechobee: 8 chunks (months 03,04,05,06,07,08,09,10, 3-hourly)
+2026-09-22 14:54:32,923 INFO    okeechobee 2018 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 14:54:32,923 INFO    okeechobee 2019 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 14:54:32,924 INFO    okeechobee 2020 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 14:54:33,496 INFO Request ID is 4f9991ef-0d05-4bc2-baec-26ca5a405097
+2026-09-22 14:54:33,496 INFO    Request ID is 4f9991ef-0d05-4bc2-baec-26ca5a405097
+2026-09-22 14:54:33,510 INFO Request ID is 5264806c-8dab-46b9-8adc-552bc0a8dc00
+2026-09-22 14:54:33,510 INFO    Request ID is 5264806c-8dab-46b9-8adc-552bc0a8dc00
+2026-09-22 14:54:33,562 INFO status has been updated to accepted
+2026-09-22 14:54:33,562 INFO    status has been updated to accepted
+2026-09-22 14:54:33,591 INFO Request ID is 69e0ba89-78c8-4f57-bb8d-aefad09d1d4a
+2026-09-22 14:54:33,591 INFO    Request ID is 69e0ba89-78c8-4f57-bb8d-aefad09d1d4a
+2026-09-22 14:54:33,673 INFO status has been updated to accepted
+2026-09-22 14:54:33,673 INFO    status has been updated to accepted
+2026-09-22 14:54:33,819 INFO status has been updated to accepted
+2026-09-22 14:54:33,819 INFO    status has been updated to accepted
+2026-09-22 14:54:55,087 INFO status has been updated to running
+2026-09-22 14:54:55,087 INFO    status has been updated to running
+2026-09-22 15:04:57,164 INFO status has been updated to successful
+2026-09-22 15:04:57,164 INFO    status has been updated to successful
+2026-09-22 15:04:57,310 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/bcdf8d000ccd4edbb5f5e69cfaf3465c.zip
+bcdf8d000ccd4edbb5f5e69cfaf3465c.zip:   0%|          | 0.00/951k [00:00<?, ?B/s]2026-09-22 15:04:57,656 INFO status has been updated to running
+2026-09-22 15:04:57,656 INFO    status has been updated to running
+bcdf8d000ccd4edbb5f5e69cfaf3465c.zip: 100%|██████████| 951k/951k [00:00<00:00, 2.09MB/s]                                                                                        2026-09-22 15:04:58,017 INFO    okeechobee 2020: wrote okeechobee_2020_03-10.nc (1.0 MB) in 625s
+2026-09-22 15:04:58,018 INFO    okeechobee 2021 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 15:04:58,352 INFO Request ID is c2f91e2e-9693-4871-b501-f1df87c70384
+2026-09-22 15:04:58,352 INFO    Request ID is c2f91e2e-9693-4871-b501-f1df87c70384
+2026-09-22 15:04:58,418 INFO status has been updated to accepted
+2026-09-22 15:04:58,418 INFO    status has been updated to accepted
+2026-09-22 15:14:58,822 INFO status has been updated to running
+2026-09-22 15:14:58,822 INFO    status has been updated to running
+2026-09-22 15:15:00,798 INFO status has been updated to successful
+2026-09-22 15:15:00,798 INFO    status has been updated to successful
+2026-09-22 15:15:00,945 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/32c5b19f0d9e9687af0b967a6a2e47c9.zip
+32c5b19f0d9e9687af0b967a6a2e47c9.zip:   0%|          | 0.00/951k [00:00<?, ?B/s]32c5b19f0d9e9687af0b967a6a2e47c9.zip: 100%|██████████| 951k/951k [00:00<00:00, 2.10MB/s]                                                                                        2026-09-22 15:15:01,649 INFO    okeechobee 2019: wrote okeechobee_2019_03-10.nc (1.0 MB) in 1229s
+2026-09-22 15:15:01,649 INFO    okeechobee 2022 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 15:15:02,268 INFO Request ID is b0e9208d-9634-4061-b025-64c71a6b683b
+2026-09-22 15:15:02,268 INFO    Request ID is b0e9208d-9634-4061-b025-64c71a6b683b
+2026-09-22 15:15:02,349 INFO status has been updated to accepted
+2026-09-22 15:15:02,349 INFO    status has been updated to accepted
+2026-09-22 15:23:20,495 INFO status has been updated to running
+2026-09-22 15:23:20,495 INFO    status has been updated to running
+2026-09-22 15:25:00,256 INFO status has been updated to accepted
+2026-09-22 15:25:00,256 INFO    status has been updated to accepted
+2026-09-22 15:33:21,693 INFO status has been updated to successful
+2026-09-22 15:33:21,693 INFO    status has been updated to successful
+2026-09-22 15:33:23,296 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/b3980d5d48ecd1a125e4b96adaea7534.zip
+b3980d5d48ecd1a125e4b96adaea7534.zip:   0%|          | 0.00/951k [00:00<?, ?B/s]2026-09-22 15:33:23,816 INFO status has been updated to running
+2026-09-22 15:33:23,816 INFO    status has been updated to running
+b3980d5d48ecd1a125e4b96adaea7534.zip: 100%|██████████| 951k/951k [00:00<00:00, 2.30MB/s]                                                                                        2026-09-22 15:33:23,981 INFO    okeechobee 2021: wrote okeechobee_2021_03-10.nc (1.0 MB) in 1706s
+2026-09-22 15:33:23,981 INFO    okeechobee 2023 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 15:33:24,560 INFO Request ID is b32d1237-71ed-4a01-8ca6-ee3e6122a1c4
+2026-09-22 15:33:24,560 INFO    Request ID is b32d1237-71ed-4a01-8ca6-ee3e6122a1c4
+2026-09-22 15:33:24,755 INFO status has been updated to accepted
+2026-09-22 15:33:24,755 INFO    status has been updated to accepted
+2026-09-22 15:41:26,885 INFO status has been updated to successful
+2026-09-22 15:41:26,885 INFO    status has been updated to successful
+2026-09-22 15:41:27,040 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/7209f8eb27a7d5b415e4920095563a13.zip
+7209f8eb27a7d5b415e4920095563a13.zip:   0%|          | 0.00/953k [00:00<?, ?B/s]7209f8eb27a7d5b415e4920095563a13.zip: 100%|██████████| 953k/953k [00:00<00:00, 1.96MB/s]                                                                                        2026-09-22 15:41:27,817 INFO    okeechobee 2022: wrote okeechobee_2022_03-10.nc (1.0 MB) in 1586s
+2026-09-22 15:41:27,818 INFO    okeechobee 2024 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 15:41:28,380 INFO Request ID is c5bb0713-06a9-4ce1-ab0a-5f4643294428
+2026-09-22 15:41:28,380 INFO    Request ID is c5bb0713-06a9-4ce1-ab0a-5f4643294428
+2026-09-22 15:41:28,471 INFO status has been updated to accepted
+2026-09-22 15:41:28,471 INFO    status has been updated to accepted
+2026-09-22 15:43:05,821 INFO status has been updated to running
+2026-09-22 15:43:05,821 INFO    status has been updated to running
+2026-09-22 15:51:50,479 INFO status has been updated to running
+2026-09-22 15:51:50,479 INFO    status has been updated to running
+2026-09-22 15:53:07,477 INFO status has been updated to successful
+2026-09-22 15:53:07,477 INFO    status has been updated to successful
+2026-09-22 15:53:07,627 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/4c8a0a98f1338d267faf9ee221064126.zip
+4c8a0a98f1338d267faf9ee221064126.zip:   0%|          | 0.00/951k [00:00<?, ?B/s]4c8a0a98f1338d267faf9ee221064126.zip: 100%|██████████| 951k/951k [00:02<00:00, 443kB/s]                                                                                       2026-09-22 15:53:10,205 INFO    okeechobee 2018: wrote okeechobee_2018_03-10.nc (1.0 MB) in 3517s
+2026-09-22 15:53:10,206 INFO    okeechobee 2025 months 03+04+05+06+07+08+09+10: requesting (9800 fields)
+2026-09-22 15:53:10,691 INFO Request ID is de5733b2-d038-46d2-9790-ade558f14fab
+2026-09-22 15:53:10,691 INFO    Request ID is de5733b2-d038-46d2-9790-ade558f14fab
+2026-09-22 15:53:10,769 INFO status has been updated to accepted
+2026-09-22 15:53:10,769 INFO    status has been updated to accepted
+2026-09-22 16:01:50,497 INFO status has been updated to running
+2026-09-22 16:01:50,497 INFO    status has been updated to running
+2026-09-22 16:01:53,932 INFO status has been updated to successful
+2026-09-22 16:01:53,932 INFO    status has been updated to successful
+2026-09-22 16:01:54,071 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/25b15c99a41ac1995cd205815921220e.zip
+25b15c99a41ac1995cd205815921220e.zip:   0%|          | 0.00/950k [00:00<?, ?B/s]25b15c99a41ac1995cd205815921220e.zip: 100%|██████████| 950k/950k [00:00<00:00, 1.79MB/s]                                                                                        2026-09-22 16:01:54,876 INFO    okeechobee 2023: wrote okeechobee_2023_03-10.nc (1.0 MB) in 1711s
+2026-09-22 16:11:44,492 INFO status has been updated to running
+2026-09-22 16:11:44,492 INFO    status has been updated to running
+2026-09-22 16:11:52,255 INFO status has been updated to successful
+2026-09-22 16:11:52,255 INFO    status has been updated to successful
+2026-09-22 16:11:53,075 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/4b968b57f63995ff938b529a5b5d3ef2.zip
+4b968b57f63995ff938b529a5b5d3ef2.zip:   0%|          | 0.00/949k [00:00<?, ?B/s]4b968b57f63995ff938b529a5b5d3ef2.zip: 100%|██████████| 949k/949k [00:00<00:00, 1.34MB/s]                                                                                        2026-09-22 16:11:54,139 INFO    okeechobee 2024: wrote okeechobee_2024_03-10.nc (1.0 MB) in 1826s
+2026-09-22 16:17:45,498 INFO status has been updated to successful
+2026-09-22 16:17:45,498 INFO    status has been updated to successful
+2026-09-22 16:17:45,740 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/dbe862f865239b986a7220db54e096c8.zip
+dbe862f865239b986a7220db54e096c8.zip:   0%|          | 0.00/949k [00:00<?, ?B/s]dbe862f865239b986a7220db54e096c8.zip: 100%|██████████| 949k/949k [00:00<00:00, 1.08MB/s]                                                                                        2026-09-22 16:17:46,909 INFO    okeechobee 2025: wrote okeechobee_2025_03-10.nc (1.0 MB) in 1477s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-22 16:17:49,863 INFO    okeechobee: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\okeechobee.zarr -- 1960 days 2018-03-01 to 2025-10-31, 1.41 MB
+2026-09-22 16:17:50,172 INFO    taihu: 8 chunks (months 04,05,06,07,08,09,10,11, 3-hourly)
+2026-09-22 16:17:50,174 INFO    taihu 2018 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:17:50,174 INFO    taihu 2019 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:17:50,174 INFO    taihu 2020 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:17:50,903 INFO Request ID is 842c5754-34b5-49e1-95e0-75f353237e63
+2026-09-22 16:17:50,903 INFO    Request ID is 842c5754-34b5-49e1-95e0-75f353237e63
+2026-09-22 16:17:50,909 INFO Request ID is 025fb015-e89b-4f58-a5f1-42157ef9c146
+2026-09-22 16:17:50,909 INFO    Request ID is 025fb015-e89b-4f58-a5f1-42157ef9c146
+2026-09-22 16:17:50,969 INFO status has been updated to accepted
+2026-09-22 16:17:50,969 INFO    status has been updated to accepted
+2026-09-22 16:17:50,970 INFO status has been updated to accepted
+2026-09-22 16:17:50,970 INFO    status has been updated to accepted
+2026-09-22 16:17:52,461 INFO Request ID is 72c49825-aa23-4959-8618-2db7fc9086ba
+2026-09-22 16:17:52,461 INFO    Request ID is 72c49825-aa23-4959-8618-2db7fc9086ba
+2026-09-22 16:17:52,519 INFO status has been updated to accepted
+2026-09-22 16:17:52,519 INFO    status has been updated to accepted
+2026-09-22 16:18:12,600 INFO status has been updated to running
+2026-09-22 16:18:12,600 INFO    status has been updated to running
+2026-09-22 16:28:12,061 INFO status has been updated to successful
+2026-09-22 16:28:12,061 INFO    status has been updated to successful
+2026-09-22 16:28:13,931 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/1a0578e42d2a66c6c7cdaaf1f5046729.zip
+1a0578e42d2a66c6c7cdaaf1f5046729.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]1a0578e42d2a66c6c7cdaaf1f5046729.zip:  91%|█████████ | 1.00M/1.10M [00:00<00:00, 1.79MB/s]                                                                                          2026-09-22 16:28:14,759 INFO    taihu 2018: wrote taihu_2018_04-11.nc (1.1 MB) in 625s
+2026-09-22 16:28:14,760 INFO    taihu 2021 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:28:15,078 INFO Request ID is 8ee85d34-fff1-41ce-a7e3-b4b4d61fc429
+2026-09-22 16:28:15,078 INFO    Request ID is 8ee85d34-fff1-41ce-a7e3-b4b4d61fc429
+2026-09-22 16:28:15,666 INFO status has been updated to accepted
+2026-09-22 16:28:15,666 INFO    status has been updated to accepted
+2026-09-22 16:28:17,356 INFO status has been updated to running
+2026-09-22 16:28:17,356 INFO    status has been updated to running
+2026-09-22 16:36:12,956 INFO status has been updated to running
+2026-09-22 16:36:12,956 INFO    status has been updated to running
+2026-09-22 16:36:17,687 INFO status has been updated to successful
+2026-09-22 16:36:17,687 INFO    status has been updated to successful
+2026-09-22 16:36:19,284 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/f2564b7a57e5509ce576f09cdac9f913.zip
+f2564b7a57e5509ce576f09cdac9f913.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]f2564b7a57e5509ce576f09cdac9f913.zip:  91%|█████████ | 1.00M/1.10M [00:00<00:00, 2.12MB/s]                                                                                          2026-09-22 16:36:20,054 INFO    taihu 2020: wrote taihu_2020_04-11.nc (1.2 MB) in 1110s
+2026-09-22 16:36:20,055 INFO    taihu 2022 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:36:20,753 INFO Request ID is c170fe60-c84b-484c-acc7-5b924b0b9c74
+2026-09-22 16:36:20,753 INFO    Request ID is c170fe60-c84b-484c-acc7-5b924b0b9c74
+2026-09-22 16:36:20,822 INFO status has been updated to accepted
+2026-09-22 16:36:20,822 INFO    status has been updated to accepted
+2026-09-22 16:44:13,938 INFO status has been updated to successful
+2026-09-22 16:44:13,938 INFO    status has been updated to successful
+2026-09-22 16:44:14,090 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/2e6cb4aa89dd668aa95ec14d9dc32552.zip
+2e6cb4aa89dd668aa95ec14d9dc32552.zip:   0%|          | 0.00/1.09M [00:00<?, ?B/s]2e6cb4aa89dd668aa95ec14d9dc32552.zip:  92%|█████████▏| 1.00M/1.09M [00:00<00:00, 2.10MB/s]                                                                                          2026-09-22 16:44:14,810 INFO    taihu 2019: wrote taihu_2019_04-11.nc (1.1 MB) in 1585s
+2026-09-22 16:44:14,811 INFO    taihu 2023 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:44:15,317 INFO Request ID is ed7cd337-0814-4fcf-845d-4d21663c589a
+2026-09-22 16:44:15,317 INFO    Request ID is ed7cd337-0814-4fcf-845d-4d21663c589a
+2026-09-22 16:44:15,396 INFO status has been updated to accepted
+2026-09-22 16:44:15,396 INFO    status has been updated to accepted
+2026-09-22 16:46:39,725 INFO status has been updated to running
+2026-09-22 16:46:39,725 INFO    status has been updated to running
+2026-09-22 16:56:40,523 INFO status has been updated to running
+2026-09-22 16:56:40,523 INFO    status has been updated to running
+2026-09-22 16:56:42,272 INFO status has been updated to successful
+2026-09-22 16:56:42,272 INFO    status has been updated to successful
+2026-09-22 16:56:42,414 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/51486c3b709faee713c7ec1c0f6f8888.zip
+51486c3b709faee713c7ec1c0f6f8888.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]51486c3b709faee713c7ec1c0f6f8888.zip:  91%|█████████ | 1.00M/1.10M [00:00<00:00, 2.03MB/s]                                                                                          2026-09-22 16:56:43,170 INFO    taihu 2021: wrote taihu_2021_04-11.nc (1.2 MB) in 1708s
+2026-09-22 16:56:43,170 INFO    taihu 2024 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 16:56:43,540 INFO Request ID is f6deb70b-7b45-4fc4-90d2-1d8eb2881401
+2026-09-22 16:56:43,540 INFO    Request ID is f6deb70b-7b45-4fc4-90d2-1d8eb2881401
+2026-09-22 16:56:43,611 INFO status has been updated to accepted
+2026-09-22 16:56:43,611 INFO    status has been updated to accepted
+2026-09-22 17:04:39,563 INFO status has been updated to running
+2026-09-22 17:04:39,563 INFO    status has been updated to running
+2026-09-22 17:04:42,264 INFO status has been updated to successful
+2026-09-22 17:04:42,264 INFO    status has been updated to successful
+2026-09-22 17:04:43,721 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/48713ef82a9c740869cc03769dd72f25.zip
+48713ef82a9c740869cc03769dd72f25.zip:   0%|          | 0.00/1.09M [00:00<?, ?B/s]48713ef82a9c740869cc03769dd72f25.zip:  92%|█████████▏| 1.00M/1.09M [00:00<00:00, 1.79MB/s]                                                                                          2026-09-22 17:04:44,535 INFO    taihu 2022: wrote taihu_2022_04-11.nc (1.1 MB) in 1704s
+2026-09-22 17:04:44,535 INFO    taihu 2025 months 04+05+06+07+08+09+10+11: requesting (9760 fields)
+2026-09-22 17:04:44,976 INFO Request ID is 0bdfa900-22a6-4e22-b93c-b01906797222
+2026-09-22 17:04:44,976 INFO    Request ID is 0bdfa900-22a6-4e22-b93c-b01906797222
+2026-09-22 17:04:45,689 INFO status has been updated to accepted
+2026-09-22 17:04:45,689 INFO    status has been updated to accepted
+2026-09-22 17:16:42,012 INFO status has been updated to successful
+2026-09-22 17:16:42,012 INFO    status has been updated to successful
+2026-09-22 17:16:42,171 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/6649f1d7d7d29bea2ca0d7b3e5b5f56c.zip
+6649f1d7d7d29bea2ca0d7b3e5b5f56c.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]6649f1d7d7d29bea2ca0d7b3e5b5f56c.zip:  91%|█████████ | 1.00M/1.10M [00:00<00:00, 1.65MB/s]                                                                                          2026-09-22 17:16:43,039 INFO    taihu 2023: wrote taihu_2023_04-11.nc (1.2 MB) in 1948s
+2026-09-22 17:17:09,371 INFO status has been updated to running
+2026-09-22 17:17:09,371 INFO    status has been updated to running
+2026-09-22 17:25:05,945 INFO status has been updated to running
+2026-09-22 17:25:05,945 INFO    status has been updated to running
+2026-09-22 17:25:12,746 INFO status has been updated to successful
+2026-09-22 17:25:12,746 INFO    status has been updated to successful
+2026-09-22 17:25:14,614 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/3b677440eab9b43145f2f834b9ea2479.zip
+3b677440eab9b43145f2f834b9ea2479.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]3b677440eab9b43145f2f834b9ea2479.zip:  91%|█████████ | 1.00M/1.10M [00:00<00:00, 2.06MB/s]                                                                                          2026-09-22 17:25:15,329 INFO    taihu 2024: wrote taihu_2024_04-11.nc (1.2 MB) in 1712s
+2026-09-22 17:33:08,744 INFO status has been updated to successful
+2026-09-22 17:33:08,744 INFO    status has been updated to successful
+2026-09-22 17:33:09,252 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/aec49187106fa376998a63ec16477141.zip
+aec49187106fa376998a63ec16477141.zip:   0%|          | 0.00/1.10M [00:00<?, ?B/s]aec49187106fa376998a63ec16477141.zip:  91%|█████████▏| 1.00M/1.10M [00:00<00:00, 1.80MB/s]                                                                                          2026-09-22 17:33:10,082 INFO    taihu 2025: wrote taihu_2025_04-11.nc (1.1 MB) in 1706s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-22 17:33:13,089 INFO    taihu: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\taihu.zarr -- 1952 days 2018-04-01 to 2025-11-30, 1.87 MB
+2026-09-22 17:33:13,237 INFO    balaton: 8 chunks (months 05,06,07,08,09, 3-hourly)
+2026-09-22 17:33:13,239 INFO    balaton 2018 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:33:13,240 INFO    balaton 2019 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:33:13,240 INFO    balaton 2020 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:33:13,771 INFO Request ID is 21f54bce-584f-4d45-ba24-62c299f4a85a
+2026-09-22 17:33:13,771 INFO    Request ID is 21f54bce-584f-4d45-ba24-62c299f4a85a
+2026-09-22 17:33:13,853 INFO status has been updated to accepted
+2026-09-22 17:33:13,853 INFO    status has been updated to accepted
+2026-09-22 17:33:14,304 INFO Request ID is 59f4119e-c4ba-4bac-83ff-6a86e1b80823
+2026-09-22 17:33:14,304 INFO    Request ID is 59f4119e-c4ba-4bac-83ff-6a86e1b80823
+2026-09-22 17:33:14,362 INFO status has been updated to accepted
+2026-09-22 17:33:14,362 INFO    status has been updated to accepted
+2026-09-22 17:33:14,468 INFO Request ID is 91734b1a-8738-4f03-bd4d-c627d07d8f59
+2026-09-22 17:33:14,468 INFO    Request ID is 91734b1a-8738-4f03-bd4d-c627d07d8f59
+2026-09-22 17:33:14,535 INFO status has been updated to accepted
+2026-09-22 17:33:14,535 INFO    status has been updated to accepted
+2026-09-22 17:33:35,167 INFO status has been updated to running
+2026-09-22 17:33:35,167 INFO    status has been updated to running
+2026-09-22 17:39:34,136 INFO status has been updated to successful
+2026-09-22 17:39:34,136 INFO    status has been updated to successful
+2026-09-22 17:39:34,149 INFO status has been updated to running
+2026-09-22 17:39:34,149 INFO    status has been updated to running
+2026-09-22 17:39:34,788 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/d1e5073b79398b072ed34340ea9c592.zip
+d1e5073b79398b072ed34340ea9c592.zip:   0%|          | 0.00/758k [00:00<?, ?B/s]d1e5073b79398b072ed34340ea9c592.zip: 100%|██████████| 758k/758k [00:00<00:00, 1.36MB/s]                                                                                       2026-09-22 17:39:35,595 INFO    balaton 2018: wrote balaton_2018_05-09.nc (0.8 MB) in 382s
+2026-09-22 17:39:35,596 INFO    balaton 2021 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:39:36,133 INFO Request ID is 81865559-48f7-4048-a722-9c4207276b6b
+2026-09-22 17:39:36,133 INFO    Request ID is 81865559-48f7-4048-a722-9c4207276b6b
+2026-09-22 17:39:36,206 INFO status has been updated to accepted
+2026-09-22 17:39:36,206 INFO    status has been updated to accepted
+2026-09-22 17:43:34,687 INFO status has been updated to successful
+2026-09-22 17:43:34,687 INFO    status has been updated to successful
+2026-09-22 17:43:34,906 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/90c9f89ceb8d189cb7b66135e973a937.zip
+90c9f89ceb8d189cb7b66135e973a937.zip:   0%|          | 0.00/757k [00:00<?, ?B/s]90c9f89ceb8d189cb7b66135e973a937.zip: 100%|██████████| 757k/757k [00:00<00:00, 1.74MB/s]                                                                                        2026-09-22 17:43:35,597 INFO    balaton 2019: wrote balaton_2019_05-09.nc (0.8 MB) in 622s
+2026-09-22 17:43:35,598 INFO    balaton 2022 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:43:35,938 INFO Request ID is 2ce18605-acd2-47f1-8dd5-01c3fdac2de7
+2026-09-22 17:43:35,938 INFO    Request ID is 2ce18605-acd2-47f1-8dd5-01c3fdac2de7
+2026-09-22 17:43:36,028 INFO status has been updated to accepted
+2026-09-22 17:43:36,028 INFO    status has been updated to accepted
+2026-09-22 17:47:34,954 INFO status has been updated to running
+2026-09-22 17:47:34,954 INFO    status has been updated to running
+2026-09-22 17:51:35,783 INFO status has been updated to successful
+2026-09-22 17:51:35,783 INFO    status has been updated to successful
+2026-09-22 17:51:35,929 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/811ba53a5b9379340bfb26a786add48a.zip
+811ba53a5b9379340bfb26a786add48a.zip:   0%|          | 0.00/756k [00:00<?, ?B/s]811ba53a5b9379340bfb26a786add48a.zip: 100%|██████████| 756k/756k [00:00<00:00, 1.55MB/s]                                                                                        2026-09-22 17:51:36,687 INFO    balaton 2020: wrote balaton_2020_05-09.nc (0.8 MB) in 1103s
+2026-09-22 17:51:36,687 INFO    balaton 2023 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:51:37,627 INFO Request ID is eb1826ab-9c22-4cac-9b7b-b2aaa5ca7b27
+2026-09-22 17:51:37,627 INFO    Request ID is eb1826ab-9c22-4cac-9b7b-b2aaa5ca7b27
+2026-09-22 17:51:37,728 INFO status has been updated to accepted
+2026-09-22 17:51:37,728 INFO    status has been updated to accepted
+2026-09-22 17:51:55,400 INFO status has been updated to running
+2026-09-22 17:51:55,400 INFO    status has been updated to running
+2026-09-22 17:57:56,032 INFO status has been updated to successful
+2026-09-22 17:57:56,032 INFO    status has been updated to successful
+2026-09-22 17:57:56,212 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/64e4056126b066862b08cd194278bf5a.zip
+64e4056126b066862b08cd194278bf5a.zip:   0%|          | 0.00/752k [00:00<?, ?B/s]64e4056126b066862b08cd194278bf5a.zip: 100%|██████████| 752k/752k [00:00<00:00, 1.64MB/s]                                                                                        2026-09-22 17:57:56,948 INFO    balaton 2021: wrote balaton_2021_05-09.nc (0.8 MB) in 1101s
+2026-09-22 17:57:56,949 INFO    balaton 2024 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 17:57:59,473 INFO Request ID is 40e6de68-054b-4d72-bb33-62b6419be9c5
+2026-09-22 17:57:59,473 INFO    Request ID is 40e6de68-054b-4d72-bb33-62b6419be9c5
+2026-09-22 17:58:00,750 INFO status has been updated to accepted
+2026-09-22 17:58:00,750 INFO    status has been updated to accepted
+2026-09-22 17:59:56,235 INFO status has been updated to running
+2026-09-22 17:59:56,235 INFO    status has been updated to running
+2026-09-22 18:03:57,011 INFO status has been updated to successful
+2026-09-22 18:03:57,011 INFO    status has been updated to successful
+2026-09-22 18:03:57,168 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/1c619464b02013d85d3e67371486da00.zip
+1c619464b02013d85d3e67371486da00.zip:   0%|          | 0.00/756k [00:00<?, ?B/s]1c619464b02013d85d3e67371486da00.zip: 100%|██████████| 756k/756k [00:00<00:00, 1.54MB/s]                                                                                        2026-09-22 18:03:57,892 INFO    balaton 2022: wrote balaton_2022_05-09.nc (0.8 MB) in 1222s
+2026-09-22 18:03:57,892 INFO    balaton 2025 months 05+06+07+08+09: requesting (6120 fields)
+2026-09-22 18:03:57,914 INFO status has been updated to running
+2026-09-22 18:03:57,914 INFO    status has been updated to running
+2026-09-22 18:03:58,500 INFO Request ID is 95fbcea6-8d80-4882-a141-7a6d69208d84
+2026-09-22 18:03:58,500 INFO    Request ID is 95fbcea6-8d80-4882-a141-7a6d69208d84
+2026-09-22 18:03:58,575 INFO status has been updated to accepted
+2026-09-22 18:03:58,575 INFO    status has been updated to accepted
+2026-09-22 18:07:58,667 INFO status has been updated to successful
+2026-09-22 18:07:58,667 INFO    status has been updated to successful
+2026-09-22 18:07:58,807 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/d437eaf62bc4358a357f64b1065b0b1b.zip
+d437eaf62bc4358a357f64b1065b0b1b.zip:   0%|          | 0.00/755k [00:00<?, ?B/s]d437eaf62bc4358a357f64b1065b0b1b.zip: 100%|██████████| 755k/755k [00:00<00:00, 1.52MB/s]                                                                                        2026-09-22 18:07:59,546 INFO    balaton 2023: wrote balaton_2023_05-09.nc (0.8 MB) in 983s
+2026-09-22 18:10:20,683 INFO status has been updated to running
+2026-09-22 18:10:20,683 INFO    status has been updated to running
+2026-09-22 18:14:18,046 INFO status has been updated to running
+2026-09-22 18:14:18,046 INFO    status has been updated to running
+2026-09-22 18:14:21,771 INFO status has been updated to successful
+2026-09-22 18:14:21,771 INFO    status has been updated to successful
+2026-09-22 18:14:21,959 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/bd50b699a8ac00d8b1bd6c748f0df8b9.zip
+bd50b699a8ac00d8b1bd6c748f0df8b9.zip:   0%|          | 0.00/754k [00:00<?, ?B/s]bd50b699a8ac00d8b1bd6c748f0df8b9.zip: 100%|██████████| 754k/754k [00:00<00:00, 1.50MB/s]                                                                                        2026-09-22 18:14:22,761 INFO    balaton 2024: wrote balaton_2024_05-09.nc (0.8 MB) in 986s
+2026-09-22 18:18:19,017 INFO status has been updated to successful
+2026-09-22 18:18:19,017 INFO    status has been updated to successful
+2026-09-22 18:18:19,221 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/f526945d88b0c67142d5b09c2c145f0.zip
+f526945d88b0c67142d5b09c2c145f0.zip:   0%|          | 0.00/747k [00:00<?, ?B/s]f526945d88b0c67142d5b09c2c145f0.zip: 100%|██████████| 747k/747k [00:00<00:00, 1.21MB/s]                                                                                       2026-09-22 18:18:20,094 INFO    balaton 2025: wrote balaton_2025_05-09.nc (0.8 MB) in 862s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-22 18:18:22,276 INFO    balaton: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\balaton.zarr -- 1224 days 2018-05-01 to 2025-09-30, 1.14 MB
+2026-09-22 18:18:22,822 INFO    victoria_ne: 16 chunks (months 01,02,03,04,05,06,07,08,09,10,11,12, 3-hourly)
+2026-09-22 18:18:22,823 INFO    victoria_ne 2018 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 18:18:22,824 INFO    victoria_ne 2018 months 10+11+12: requesting (3680 fields)
+2026-09-22 18:18:22,824 INFO    victoria_ne 2019 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 18:18:23,188 INFO Request ID is fd20afcf-8c8c-4d5d-b997-9e124954e634
+2026-09-22 18:18:23,188 INFO    Request ID is fd20afcf-8c8c-4d5d-b997-9e124954e634
+2026-09-22 18:18:23,281 INFO status has been updated to accepted
+2026-09-22 18:18:23,281 INFO    status has been updated to accepted
+2026-09-22 18:18:23,352 INFO Request ID is e83eca8b-1e39-46f7-9f0f-c73950f15c28
+2026-09-22 18:18:23,352 INFO    Request ID is e83eca8b-1e39-46f7-9f0f-c73950f15c28
+2026-09-22 18:18:23,420 INFO status has been updated to accepted
+2026-09-22 18:18:23,420 INFO    status has been updated to accepted
+2026-09-22 18:18:25,070 INFO Request ID is e5d3e9af-2423-4892-a61e-148ac6245510
+2026-09-22 18:18:25,070 INFO    Request ID is e5d3e9af-2423-4892-a61e-148ac6245510
+2026-09-22 18:18:25,159 INFO status has been updated to accepted
+2026-09-22 18:18:25,159 INFO    status has been updated to accepted
+2026-09-22 18:22:45,001 INFO status has been updated to running
+2026-09-22 18:22:45,001 INFO    status has been updated to running
+2026-09-22 18:30:46,893 INFO status has been updated to running
+2026-09-22 18:30:46,893 INFO    status has been updated to running
+2026-09-22 18:30:46,964 INFO status has been updated to successful
+2026-09-22 18:30:46,964 INFO    status has been updated to successful
+2026-09-22 18:30:48,916 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/6d5e4cf60fd60d1528b27145bb1e956d.zip
+6d5e4cf60fd60d1528b27145bb1e956d.zip:   0%|          | 0.00/1.57M [00:00<?, ?B/s]6d5e4cf60fd60d1528b27145bb1e956d.zip:  64%|██████▎   | 1.00M/1.57M [00:00<00:00, 2.00MB/s]                                                                                          2026-09-22 18:30:49,771 INFO    victoria_ne 2018: wrote victoria_ne_2018_01-09.nc (1.6 MB) in 747s
+2026-09-22 18:30:49,772 INFO    victoria_ne 2019 months 10+11+12: requesting (3680 fields)
+2026-09-22 18:30:50,241 INFO Request ID is 0ddf61ec-939b-4d23-a179-ccbbbdb5a634
+2026-09-22 18:30:50,241 INFO    Request ID is 0ddf61ec-939b-4d23-a179-ccbbbdb5a634
+2026-09-22 18:30:50,331 INFO status has been updated to accepted
+2026-09-22 18:30:50,331 INFO    status has been updated to accepted
+2026-09-22 18:34:47,427 INFO status has been updated to successful
+2026-09-22 18:34:47,427 INFO    status has been updated to successful
+2026-09-22 18:34:47,592 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/45b2572720817a0c38edae58a75d4ab.zip
+45b2572720817a0c38edae58a75d4ab.zip:   0%|          | 0.00/604k [00:00<?, ?B/s]45b2572720817a0c38edae58a75d4ab.zip: 100%|██████████| 604k/604k [00:00<00:00, 1.18MB/s]                                                                                       2026-09-22 18:34:48,317 INFO    victoria_ne 2018: wrote victoria_ne_2018_10-12.nc (0.6 MB) in 985s
+2026-09-22 18:34:48,318 INFO    victoria_ne 2020 months 01+02+03+04+05+06+07+08+09: requesting (10960 fields)
+2026-09-22 18:34:48,875 INFO Request ID is 204f0272-0849-4d79-bd48-1db0449c9e15
+2026-09-22 18:34:48,875 INFO    Request ID is 204f0272-0849-4d79-bd48-1db0449c9e15
+2026-09-22 18:34:48,978 INFO status has been updated to accepted
+2026-09-22 18:34:48,978 INFO    status has been updated to accepted
+2026-09-22 18:34:49,025 INFO status has been updated to running
+2026-09-22 18:34:49,025 INFO    status has been updated to running
+2026-09-22 18:44:51,044 INFO status has been updated to successful
+2026-09-22 18:44:51,044 INFO    status has been updated to successful
+2026-09-22 18:44:51,488 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/812484666782eda1e5a1711c9a7c484e.zip
+812484666782eda1e5a1711c9a7c484e.zip:   0%|          | 0.00/1.57M [00:00<?, ?B/s]812484666782eda1e5a1711c9a7c484e.zip:  64%|██████▍   | 1.00M/1.57M [00:00<00:00, 1.98MB/s]                                                                                          2026-09-22 18:44:52,352 INFO    victoria_ne 2019: wrote victoria_ne_2019_01-09.nc (1.6 MB) in 1590s
+2026-09-22 18:44:52,352 INFO    victoria_ne 2020 months 10+11+12: requesting (3680 fields)
+2026-09-22 18:44:52,969 INFO Request ID is 9809f183-2ecf-43a1-8ae4-cd8e0883cfe1
+2026-09-22 18:44:52,969 INFO    Request ID is 9809f183-2ecf-43a1-8ae4-cd8e0883cfe1
+2026-09-22 18:44:53,029 INFO status has been updated to accepted
+2026-09-22 18:44:53,029 INFO    status has been updated to accepted
+2026-09-22 18:49:14,134 INFO status has been updated to running
+2026-09-22 18:49:14,134 INFO    status has been updated to running
+2026-09-22 18:51:14,208 INFO status has been updated to successful
+2026-09-22 18:51:14,208 INFO    status has been updated to successful
+2026-09-22 18:51:14,360 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/5c261cac8995258385517c12012b1d0.zip
+5c261cac8995258385517c12012b1d0.zip:   0%|          | 0.00/613k [00:00<?, ?B/s]5c261cac8995258385517c12012b1d0.zip: 100%|██████████| 613k/613k [00:00<00:00, 1.38MB/s]                                                                                       2026-09-22 18:51:15,059 INFO    victoria_ne 2019: wrote victoria_ne_2019_10-12.nc (0.6 MB) in 1225s
+2026-09-22 18:51:15,060 INFO    victoria_ne 2021 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 18:51:15,240 INFO status has been updated to running
+2026-09-22 18:51:15,240 INFO    status has been updated to running
+2026-09-22 18:51:17,267 INFO Request ID is 6d5c01a2-84f1-453e-b3a6-78060bc38597
+2026-09-22 18:51:17,267 INFO    Request ID is 6d5c01a2-84f1-453e-b3a6-78060bc38597
+2026-09-22 18:51:17,335 INFO status has been updated to accepted
+2026-09-22 18:51:17,335 INFO    status has been updated to accepted
+2026-09-22 18:55:15,309 INFO status has been updated to running
+2026-09-22 18:55:15,309 INFO    status has been updated to running
+2026-09-22 18:55:15,398 INFO status has been updated to successful
+2026-09-22 18:55:15,398 INFO    status has been updated to successful
+2026-09-22 18:55:17,565 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/63148a7d8505973dd7df8b6b0bc59826.zip
+63148a7d8505973dd7df8b6b0bc59826.zip:   0%|          | 0.00/605k [00:00<?, ?B/s]63148a7d8505973dd7df8b6b0bc59826.zip: 100%|██████████| 605k/605k [00:00<00:00, 1.33MB/s]                                                                                        2026-09-22 18:55:18,222 INFO    victoria_ne 2020: wrote victoria_ne_2020_10-12.nc (0.6 MB) in 626s
+2026-09-22 18:55:18,222 INFO    victoria_ne 2021 months 10+11+12: requesting (3680 fields)
+2026-09-22 18:55:18,618 INFO Request ID is 0bbc673a-6a8e-4a4a-af19-c25d2e7d1445
+2026-09-22 18:55:18,618 INFO    Request ID is 0bbc673a-6a8e-4a4a-af19-c25d2e7d1445
+2026-09-22 18:55:18,686 INFO status has been updated to accepted
+2026-09-22 18:55:18,686 INFO    status has been updated to accepted
+2026-09-22 19:03:18,540 INFO status has been updated to successful
+2026-09-22 19:03:18,540 INFO    status has been updated to successful
+2026-09-22 19:03:19,394 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/bd0fa90e1ad166a109f2599edfe2d257.zip
+bd0fa90e1ad166a109f2599edfe2d257.zip:   0%|          | 0.00/1.59M [00:00<?, ?B/s]bd0fa90e1ad166a109f2599edfe2d257.zip:  63%|██████▎   | 1.00M/1.59M [00:00<00:00, 1.67MB/s]                                                                                          2026-09-22 19:03:20,349 INFO    victoria_ne 2020: wrote victoria_ne_2020_01-09.nc (1.7 MB) in 1712s
+2026-09-22 19:03:20,351 INFO    victoria_ne 2022 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 19:03:20,737 INFO Request ID is f9bbdae4-4423-4112-a7f0-e950b98a7d03
+2026-09-22 19:03:20,737 INFO    Request ID is f9bbdae4-4423-4112-a7f0-e950b98a7d03
+2026-09-22 19:03:20,822 INFO status has been updated to accepted
+2026-09-22 19:03:20,822 INFO    status has been updated to accepted
+2026-09-22 19:15:39,894 INFO status has been updated to running
+2026-09-22 19:15:39,894 INFO    status has been updated to running
+2026-09-22 19:19:40,487 INFO status has been updated to successful
+2026-09-22 19:19:40,487 INFO    status has been updated to successful
+2026-09-22 19:19:40,690 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/a96c73b2151b0c0ac0d0d4def28e8f4d.zip
+a96c73b2151b0c0ac0d0d4def28e8f4d.zip:   0%|          | 0.00/597k [00:00<?, ?B/s]a96c73b2151b0c0ac0d0d4def28e8f4d.zip: 100%|██████████| 597k/597k [00:00<00:00, 925kB/s]                                                                                       2026-09-22 19:19:41,674 INFO    victoria_ne 2021: wrote victoria_ne_2021_10-12.nc (0.6 MB) in 1463s
+2026-09-22 19:19:41,675 INFO    victoria_ne 2022 months 10+11+12: requesting (3680 fields)
+2026-09-22 19:19:42,241 INFO Request ID is daa7c22e-877c-490c-afd0-cd2d4f8c8422
+2026-09-22 19:19:42,241 INFO    Request ID is daa7c22e-877c-490c-afd0-cd2d4f8c8422
+2026-09-22 19:19:42,385 INFO status has been updated to accepted
+2026-09-22 19:19:42,385 INFO    status has been updated to accepted
+2026-09-22 19:41:48,834 INFO status has been updated to running
+2026-09-22 19:41:48,834 INFO    status has been updated to running
+2026-09-22 19:49:49,238 INFO status has been updated to successful
+2026-09-22 19:49:49,238 INFO    status has been updated to successful
+2026-09-22 19:49:50,602 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/2a109bb780fcc62e3da54216fea7d5f.zip
+2a109bb780fcc62e3da54216fea7d5f.zip:   0%|          | 0.00/1.56M [00:00<?, ?B/s]2a109bb780fcc62e3da54216fea7d5f.zip:  64%|██████▍   | 1.00M/1.56M [00:00<00:00, 1.93MB/s]                                                                                         2026-09-22 19:49:51,498 INFO    victoria_ne 2022: wrote victoria_ne_2022_01-09.nc (1.6 MB) in 2791s
+2026-09-22 19:49:51,498 INFO    victoria_ne 2023 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 19:49:53,460 INFO Request ID is 51ab7ab4-9a93-49b5-bab8-b7ece77a783b
+2026-09-22 19:49:53,460 INFO    Request ID is 51ab7ab4-9a93-49b5-bab8-b7ece77a783b
+2026-09-22 19:49:53,555 INFO status has been updated to accepted
+2026-09-22 19:49:53,555 INFO    status has been updated to accepted
+2026-09-22 20:15:52,447 INFO status has been updated to running
+2026-09-22 20:15:52,447 INFO    status has been updated to running
+2026-09-22 20:23:53,514 INFO status has been updated to successful
+2026-09-22 20:23:53,514 INFO    status has been updated to successful
+2026-09-22 20:23:53,712 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/f69f316c5b3e840bfb97034413c72ad3.zip
+f69f316c5b3e840bfb97034413c72ad3.zip:   0%|          | 0.00/1.57M [00:00<?, ?B/s]f69f316c5b3e840bfb97034413c72ad3.zip:  64%|██████▎   | 1.00M/1.57M [00:00<00:00, 1.96MB/s]                                                                                          2026-09-22 20:23:54,543 INFO    victoria_ne 2021: wrote victoria_ne_2021_01-09.nc (1.6 MB) in 5559s
+2026-09-22 20:23:54,544 INFO    victoria_ne 2023 months 10+11+12: requesting (3680 fields)
+2026-09-22 20:23:54,888 INFO Request ID is 7da61227-8517-4422-bf37-abcf06b6ac79
+2026-09-22 20:23:54,888 INFO    Request ID is 7da61227-8517-4422-bf37-abcf06b6ac79
+2026-09-22 20:23:54,966 INFO status has been updated to accepted
+2026-09-22 20:23:54,966 INFO    status has been updated to accepted
+2026-09-22 20:38:16,186 INFO status has been updated to running
+2026-09-22 20:38:16,186 INFO    status has been updated to running
+2026-09-22 20:40:16,383 INFO status has been updated to successful
+2026-09-22 20:40:16,383 INFO    status has been updated to successful
+2026-09-22 20:40:16,558 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/665dbf6eac01c5961f8e32937da70d00.zip
+665dbf6eac01c5961f8e32937da70d00.zip:   0%|          | 0.00/602k [00:00<?, ?B/s]665dbf6eac01c5961f8e32937da70d00.zip: 100%|██████████| 602k/602k [00:00<00:00, 1.32MB/s]                                                                                        2026-09-22 20:40:17,323 INFO    victoria_ne 2022: wrote victoria_ne_2022_10-12.nc (0.6 MB) in 4836s
+2026-09-22 20:40:17,323 INFO    victoria_ne 2024 months 01+02+03+04+05+06+07+08+09: requesting (10960 fields)
+2026-09-22 20:40:17,713 INFO Request ID is 553ece6a-2156-4cef-96c0-922a83f1eb42
+2026-09-22 20:40:17,713 INFO    Request ID is 553ece6a-2156-4cef-96c0-922a83f1eb42
+2026-09-22 20:40:17,942 INFO status has been updated to accepted
+2026-09-22 20:40:17,942 INFO    status has been updated to accepted
+2026-09-22 20:58:22,527 INFO status has been updated to running
+2026-09-22 20:58:22,527 INFO    status has been updated to running
+2026-09-22 21:06:23,358 INFO status has been updated to successful
+2026-09-22 21:06:23,358 INFO    status has been updated to successful
+2026-09-22 21:06:23,995 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/4701243b6d5e6c0941ccea2a29b9552d.zip
+4701243b6d5e6c0941ccea2a29b9552d.zip:   0%|          | 0.00/1.56M [00:00<?, ?B/s]4701243b6d5e6c0941ccea2a29b9552d.zip:  64%|██████▍   | 1.00M/1.56M [00:00<00:00, 1.68MB/s]                                                                                          2026-09-22 21:06:24,957 INFO    victoria_ne 2023: wrote victoria_ne_2023_01-09.nc (1.6 MB) in 4593s
+2026-09-22 21:06:24,958 INFO    victoria_ne 2024 months 10+11+12: requesting (3680 fields)
+2026-09-22 21:06:25,380 INFO Request ID is 789ffd36-b9e5-48a7-b8ab-41b76b49f12d
+2026-09-22 21:06:25,380 INFO    Request ID is 789ffd36-b9e5-48a7-b8ab-41b76b49f12d
+2026-09-22 21:06:25,471 INFO status has been updated to accepted
+2026-09-22 21:06:25,471 INFO    status has been updated to accepted
+2026-09-22 21:26:29,347 INFO status has been updated to running
+2026-09-22 21:26:29,347 INFO    status has been updated to running
+2026-09-22 21:30:32,314 INFO status has been updated to successful
+2026-09-22 21:30:32,314 INFO    status has been updated to successful
+2026-09-22 21:30:34,112 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/c5ff8f9fb9092a946d851bce83724315.zip
+c5ff8f9fb9092a946d851bce83724315.zip:   0%|          | 0.00/611k [00:00<?, ?B/s]c5ff8f9fb9092a946d851bce83724315.zip: 100%|██████████| 611k/611k [00:00<00:00, 1.16MB/s]                                                                                        2026-09-22 21:30:34,870 INFO    victoria_ne 2023: wrote victoria_ne_2023_10-12.nc (0.6 MB) in 4000s
+2026-09-22 21:30:34,871 INFO    victoria_ne 2025 months 01+02+03+04+05+06+07+08+09: requesting (10920 fields)
+2026-09-22 21:30:35,486 INFO Request ID is 5d781e7b-9553-4f14-9921-364b7071b74f
+2026-09-22 21:30:35,486 INFO    Request ID is 5d781e7b-9553-4f14-9921-364b7071b74f
+2026-09-22 21:30:36,957 INFO status has been updated to accepted
+2026-09-22 21:30:36,957 INFO    status has been updated to accepted
+2026-09-22 21:56:54,613 INFO status has been updated to running
+2026-09-22 21:56:54,613 INFO    status has been updated to running
+2026-09-22 22:06:56,761 INFO status has been updated to successful
+2026-09-22 22:06:56,761 INFO    status has been updated to successful
+2026-09-22 22:06:56,896 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/5464416271e82c1092641aebd5693ee3.zip
+5464416271e82c1092641aebd5693ee3.zip:   0%|          | 0.00/1.58M [00:00<?, ?B/s]5464416271e82c1092641aebd5693ee3.zip:  63%|██████▎   | 1.00M/1.58M [00:00<00:00, 2.06MB/s]                                                                                          2026-09-22 22:06:57,672 INFO    victoria_ne 2024: wrote victoria_ne_2024_01-09.nc (1.7 MB) in 5200s
+2026-09-22 22:06:57,672 INFO    victoria_ne 2025 months 10+11+12: requesting (3680 fields)
+2026-09-22 22:06:58,001 INFO Request ID is 152272c7-1b33-485d-b661-6249ba8502a2
+2026-09-22 22:06:58,001 INFO    Request ID is 152272c7-1b33-485d-b661-6249ba8502a2
+2026-09-22 22:06:58,063 INFO status has been updated to accepted
+2026-09-22 22:06:58,063 INFO    status has been updated to accepted
+2026-09-22 22:08:57,186 INFO status has been updated to running
+2026-09-22 22:08:57,186 INFO    status has been updated to running
+2026-09-22 22:12:57,788 INFO status has been updated to successful
+2026-09-22 22:12:57,788 INFO    status has been updated to successful
+2026-09-22 22:12:57,945 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/1202af8d9cf2cb1c1dc86751dec5ade6.zip
+1202af8d9cf2cb1c1dc86751dec5ade6.zip:   0%|          | 0.00/604k [00:00<?, ?B/s]1202af8d9cf2cb1c1dc86751dec5ade6.zip: 100%|██████████| 604k/604k [00:00<00:00, 1.44MB/s]                                                                                        2026-09-22 22:12:58,655 INFO    victoria_ne 2024: wrote victoria_ne_2024_10-12.nc (0.6 MB) in 3994s
+2026-09-22 23:03:09,525 INFO status has been updated to running
+2026-09-22 23:03:09,525 INFO    status has been updated to running
+2026-09-22 23:11:13,863 INFO status has been updated to successful
+2026-09-22 23:11:13,863 INFO    status has been updated to successful
+2026-09-22 23:11:14,029 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/b5b90fbcd502fcb34080dee5ecbd4cf7.zip
+b5b90fbcd502fcb34080dee5ecbd4cf7.zip:   0%|          | 0.00/1.56M [00:00<?, ?B/s]b5b90fbcd502fcb34080dee5ecbd4cf7.zip:  64%|██████▍   | 1.00M/1.56M [00:00<00:00, 1.93MB/s]                                                                                          2026-09-22 23:11:14,870 INFO    victoria_ne 2025: wrote victoria_ne_2025_01-09.nc (1.6 MB) in 6040s
+2026-09-22 23:29:34,816 INFO status has been updated to running
+2026-09-22 23:29:34,816 INFO    status has been updated to running
+2026-09-22 23:31:35,101 INFO status has been updated to successful
+2026-09-22 23:31:35,101 INFO    status has been updated to successful
+2026-09-22 23:31:37,397 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/6c065fb34f999064321c96236b030795.zip
+6c065fb34f999064321c96236b030795.zip:   0%|          | 0.00/597k [00:00<?, ?B/s]6c065fb34f999064321c96236b030795.zip: 100%|██████████| 597k/597k [00:00<00:00, 1.26MB/s]                                                                                        2026-09-22 23:31:38,253 INFO    victoria_ne 2025: wrote victoria_ne_2025_10-12.nc (0.6 MB) in 5081s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-22 23:31:43,183 INFO    victoria_ne: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\victoria_ne.zarr -- 2922 days 2018-01-01 to 2025-12-31, 3.71 MB
+2026-09-22 23:31:43,185 INFO    built 5/5 met stores in C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met

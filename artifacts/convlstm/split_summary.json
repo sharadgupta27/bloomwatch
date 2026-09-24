@@ -1,0 +1,29 @@
+{
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492
+    },
+    "samples": 1475
+  },
+  "val": {
+    "lakes": [
+      "balaton"
+    ],
+    "days": {
+      "balaton": 399
+    },
+    "samples": 340
+  },
+  "test": {
+    "lakes": [],
+    "days": {},
+    "samples": 0
+  }
+}

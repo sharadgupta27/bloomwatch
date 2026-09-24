@@ -1,0 +1,106 @@
+Seed set to 1337
+[2026-09-22 01:58:50,409][habforecast.features.dataset][INFO] - erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+[2026-09-22 01:58:50,870][habforecast.features.dataset][INFO] - okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+[2026-09-22 01:58:51,468][habforecast.features.dataset][INFO] - taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+[2026-09-22 01:58:51,834][habforecast.features.dataset][INFO] - balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+[2026-09-22 01:58:53,333][habforecast.features.dataset][INFO] - victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+[2026-09-22 01:58:54,491][habforecast.features.datamodule][INFO] - normalisation (train lakes only): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+[2026-09-22 01:58:54,884][habforecast.features.dataset][INFO] - SequenceDataset: 1475 samples from 3 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-22 01:58:54,949][habforecast.features.dataset][INFO] - SequenceDataset: 340 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-22 01:58:55,434][habforecast.features.dataset][INFO] - SequenceDataset: 916 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-22 01:58:55,435][__main__][INFO] - split composition: {
+  "split_mode": "lake",
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492
+    },
+    "samples": 1475
+  },
+  "val": {
+    "lakes": [
+      "balaton"
+    ],
+    "days": {
+      "balaton": 399
+    },
+    "samples": 340
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne"
+    ],
+    "days": {
+      "victoria_ne": 1087
+    },
+    "samples": 916
+  }
+}
+[2026-09-22 01:58:55,454][__main__][INFO] - model=anomaly params: 0.34M total, 0.34M trainable
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:242: Precision 16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+┌───┬───────┬───────────────────┬────────┬───────┬───────┐
+│   │ Name  │ Type              │ Params │ Mode  │ FLOPs │
+├───┼───────┼───────────────────┼────────┼───────┼───────┤
+│ 0 │ model │ AnomalyForecaster │  335 K │ train │     0 │
+└───┴───────┴───────────────────┴────────┴───────┴───────┘
+Trainable params: 335 K                                                        
+Non-trainable params: 0                                                        
+Total params: 335 K                                                            
+Total estimated model params size (MB): 1.342                                  
+Modules in train mode: 40                                                      
+Modules in eval mode: 0                                                        
+Total FLOPs: 0                                                                 
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Epoch 28/59 ---------------- 184/184 0:00:20 •       8.77it/s v_num: 2b78      
+                                     0:00:00                  train/loss: 0.140
+                                                              train/rmse: 0.529
+                                                              val/skill_d7:    
+                                                              0.316            
+                                                              val/skill_overal…
+                                                              0.301 val/rmse:  
+                                                              0.674            
+                                                              val/skill_d1:    
+                                                              0.183            
+                                                              val/skill_d3:    
+                                                              0.267            
+                                                              val/skill_d5:    
+                                                              0.287            
+[2026-09-22 02:19:24,063][__main__][INFO] - evaluating on held-out lake(s): ['victoria_ne']
+Restoring states from the checkpoint path at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\artifacts\anomaly_clim\checkpoints\best-16-0.3276.ckpt
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\fabric\utilities\cloud_io.py:73: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\artifacts\anomaly_clim\checkpoints\best-16-0.3276.ckpt
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+┌───────────────────────────┬───────────────────────────┐
+│        Test metric        │       DataLoader 0        │
+├───────────────────────────┼───────────────────────────┤
+│         test/loss         │    0.13041409850120544    │
+│         test/rmse         │    0.4954454302787781     │
+│       test/rmse_d1        │    0.48062461614608765    │
+│       test/rmse_d3        │    0.48498889803886414    │
+│       test/rmse_d5        │    0.4887290894985199     │
+│       test/rmse_d7        │    0.5003142952919006     │
+│   test/rmse_persist_d1    │    0.5537580847740173     │
+│   test/rmse_persist_d3    │    0.5662055015563965     │
+│   test/rmse_persist_d5    │    0.5801786780357361     │
+│   test/rmse_persist_d7    │    0.5936710834503174     │
+│       test/skill_d1       │    0.18785005807876587    │
+│       test/skill_d3       │    0.20105181634426117    │
+│       test/skill_d5       │    0.24211223423480988    │
+│       test/skill_d7       │    0.23451225459575653    │
+│    test/skill_overall     │    0.24871453642845154    │
+└───────────────────────────┴───────────────────────────┘
+Testing ---------------------------------- 916/916 0:03:59 • 0:00:00 2.81it/s 
+[2026-09-22 02:23:25,128][__main__][INFO] - best val/skill_overall = tensor(0.3276) (C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\artifacts\anomaly_clim\checkpoints\best-16-0.3276.ckpt)

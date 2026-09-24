@@ -1,0 +1,48 @@
+# GPU image: training only.
+#
+# Based on the official PyTorch CUDA runtime image so the CUDA wheel question is settled
+# by the base image rather than by pip resolution -- the failure mode that silently
+# installed a CPU-only torch when `--extra-index-url` was used.
+#
+# Requires the NVIDIA Container Toolkit on the host. On Windows that means Docker Desktop
+# with the WSL2 backend; `--gpus all` is a no-op without it and training falls back to CPU.
+FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libexpat1 libgomp1 git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY pyproject.toml README.md ./
+COPY src/habforecast/__init__.py src/habforecast/__init__.py
+# torch already present in the base image; --no-deps on it keeps pip from replacing the
+# CUDA build with a PyPI CPU wheel while resolving the rest.
+# [train,monitor] -- deliberately not [dev], which pulls jupyterlab and matplotlib into
+# a container whose only job is to run pipelines/train.py.
+RUN pip install --no-cache-dir -e ".[train,monitor]"
+
+COPY src/ src/
+COPY conf/ conf/
+COPY pipelines/ pipelines/
+COPY scripts/ scripts/
+COPY data/aoi/ data/aoi/
+
+ENV PYTHONPATH=/app/src
+
+# Same uid as the serving image, and not root. Training writes checkpoints onto a shared
+# bind mount that the API then reads; as root those land 0600 root:root and the non-root
+# serving container cannot open them at all. The handoff this whole project depends on --
+# train a model, serve it -- silently did not work between containers.
+RUN useradd --create-home --uid 10001 hab && chown -R hab:hab /app
+USER hab
+
+# Fail fast and loudly if the container cannot see the GPU, rather than silently
+# training on CPU for six hours.
+RUN python -c "import torch; print('torch', torch.__version__, 'cuda build', torch.version.cuda)"
+
+ENTRYPOINT ["python", "pipelines/train.py"]

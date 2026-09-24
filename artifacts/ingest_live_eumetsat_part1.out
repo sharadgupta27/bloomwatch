@@ -1,0 +1,81 @@
+10:55:41 INFO    ========================================================================
+10:55:41 INFO    erie_west -- Lake Erie (Western Basin) (split=train, season=(6, 10))
+10:55:46 INFO    erie_west: 59 OLCI overpasses on the Data Store between 2026-06-01 and 2026-06-30 (59 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:59:33 INFO    erie_west: wrote 19 new daily frames to data\processed\cubes_live\erie_west.zarr
+10:59:33 INFO    erie_west 2026-06: 24 scenes -> 19 days (19 written)
+10:59:35 INFO    erie_west: 60 OLCI overpasses on the Data Store between 2026-07-01 and 2026-07-31 (60 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:04:26 INFO    erie_west: wrote 20 new daily frames to data\processed\cubes_live\erie_west.zarr
+11:04:26 INFO    erie_west 2026-07: 24 scenes -> 20 days (20 written)
+11:04:32 INFO    erie_west: 59 OLCI overpasses on the Data Store between 2026-08-01 and 2026-08-31 (82 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:07:43 INFO    erie_west: wrote 16 new daily frames to data\processed\cubes_live\erie_west.zarr
+11:07:43 INFO    erie_west 2026-08: 23 scenes -> 16 days (16 written)
+11:07:47 INFO    erie_west: 42 OLCI overpasses on the Data Store between 2026-09-01 and 2026-09-22 (83 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:10:47 INFO    erie_west: wrote 12 new daily frames to data\processed\cubes_live\erie_west.zarr
+11:10:47 INFO    erie_west 2026-09: 17 scenes -> 12 days (12 written)
+11:10:48 INFO    erie_west: 88/220 scenes read (132 low-coverage, 0 failed) -> 67 daily frames
+11:10:48 INFO    erie_west finished in 15.1 min
+11:10:48 INFO    ========================================================================
+11:10:48 INFO    okeechobee -- Lake Okeechobee (split=train, season=(4, 10))
+11:10:52 INFO    okeechobee: 35 OLCI overpasses on the Data Store between 2026-04-01 and 2026-04-30 (35 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:12:54 INFO    okeechobee: wrote 17 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:12:54 INFO    okeechobee 2026-04: 17 scenes -> 17 days (17 written)
+11:12:56 INFO    okeechobee: 36 OLCI overpasses on the Data Store between 2026-05-01 and 2026-05-31 (36 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:15:57 INFO    okeechobee: wrote 17 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:15:57 INFO    okeechobee 2026-05: 17 scenes -> 17 days (17 written)
+11:16:02 INFO    okeechobee: 35 OLCI overpasses on the Data Store between 2026-06-01 and 2026-06-30 (35 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:18:34 INFO    okeechobee: wrote 18 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:18:34 INFO    okeechobee 2026-06: 18 scenes -> 18 days (18 written)
+11:18:39 INFO    okeechobee: 35 OLCI overpasses on the Data Store between 2026-07-01 and 2026-07-31 (35 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:21:36 INFO    okeechobee: wrote 20 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:21:36 INFO    okeechobee 2026-07: 20 scenes -> 20 days (20 written)
+11:21:56 WARNING Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/os?format=json&pi=EO%3AEUM%3ADAT%3A0407&si=0&c=100&bbox=-81.12169222246756%2C26.64919903596143%2C-80.57938336542367%2C27.221330342601274&dtend=2026-09-01T00%3A00%3A00&dtstart=2026-08-01T00%3A00%3A00 due to error: "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+11:21:56 WARNING Retrying (RetryAndLog(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /data/search-products/1.0.0/os?format=json&pi=EO%3AEUM%3ADAT%3A0407&si=0&c=100&bbox=-81.12169222246756%2C26.64919903596143%2C-80.57938336542367%2C27.221330342601274&dtend=2026-09-01T00%3A00%3A00&dtstart=2026-08-01T00%3A00%3A00
+11:21:58 INFO    okeechobee: 36 OLCI overpasses on the Data Store between 2026-08-01 and 2026-08-31 (49 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:24:57 INFO    okeechobee: wrote 18 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:24:57 INFO    okeechobee 2026-08: 18 scenes -> 18 days (18 written)
+11:24:59 INFO    okeechobee: 25 OLCI overpasses on the Data Store between 2026-09-01 and 2026-09-22 (48 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:27:56 INFO    okeechobee: wrote 14 new daily frames to data\processed\cubes_live\okeechobee.zarr
+11:27:56 INFO    okeechobee 2026-09: 14 scenes -> 14 days (14 written)
+11:27:57 INFO    okeechobee: 104/202 scenes read (98 low-coverage, 0 failed) -> 104 daily frames
+11:27:57 INFO    okeechobee finished in 17.1 min
+11:27:57 INFO    ========================================================================
+11:27:57 INFO    taihu -- Lake Taihu (split=train, season=(5, 11))
+11:27:59 INFO    taihu: 50 OLCI overpasses on the Data Store between 2026-05-01 and 2026-05-31 (50 granules)
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+Traceback (most recent call last):
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 171, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 109, in main
+    rep = ingest_lake(
+          ^^^^^^^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\ingest.py", line 145, in ingest_lake
+    result = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\shara\miniforge3\envs\lidar\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shara\miniforge3\envs\lidar\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.

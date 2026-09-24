@@ -1,0 +1,20 @@
+# The served `anomaly_clim` forecaster plus a per-threshold exceedance head on the same
+# trunk (see ExceedanceHead in src/habforecast/models/anomaly.py), trained with focal loss
+# beside the regression. The regression stays the map; the head supplies p(exceed) for the
+# advisory levels, which is what an operator acts on.
+#
+#   python pipelines/train.py model=anomaly_exceed
+#
+# Compose ERA5 forcing on top with `'+data.met=[...]'`, exactly as for anomaly_met.
+name: anomaly
+base: 24
+use_doy: true
+delta_scale: 0.5
+n_scales: 3
+dropout: 0.1
+use_clim: true
+clim_gate_init: -2.0
+met_channels: 8
+met_future: false
+exceed_thresholds: [10.0, 20.0, 50.0]   # must match eval.metrics.BLOOM_THRESHOLDS_MG_M3
+exceed_hidden: 16

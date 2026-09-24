@@ -1,0 +1,61 @@
+{
+  "split_mode": "temporal",
+  "val_years": [
+    2023
+  ],
+  "test_years": [
+    2024,
+    2025
+  ],
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "balaton",
+      "victoria_ne"
+    ],
+    "days": {
+      "erie_west": 428,
+      "okeechobee": 585,
+      "taihu": 385,
+      "balaton": 329,
+      "victoria_ne": 815
+    },
+    "samples": 2304
+  },
+  "val": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "balaton",
+      "victoria_ne"
+    ],
+    "days": {
+      "erie_west": 46,
+      "okeechobee": 73,
+      "taihu": 39,
+      "balaton": 30,
+      "victoria_ne": 141
+    },
+    "samples": 241
+  },
+  "test": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "balaton",
+      "victoria_ne"
+    ],
+    "days": {
+      "erie_west": 66,
+      "okeechobee": 77,
+      "taihu": 68,
+      "balaton": 40,
+      "victoria_ne": 131
+    },
+    "samples": 184
+  }
+}

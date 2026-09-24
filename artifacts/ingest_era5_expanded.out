@@ -1,0 +1,415 @@
+2026-09-23 00:50:39,066 INFO    winnipeg: 8 chunks (months 05,06,07,08,09,10, 3-hourly)
+2026-09-23 00:50:39,068 INFO    winnipeg 2018 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 00:50:39,068 INFO    winnipeg 2019 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 00:50:39,068 INFO    winnipeg 2020 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 00:50:39,069 INFO    winnipeg 2021 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 00:50:39,754 INFO Request ID is db0ef953-b380-4dd5-8db1-833a0ba1134d
+2026-09-23 00:50:39,754 INFO    Request ID is db0ef953-b380-4dd5-8db1-833a0ba1134d
+2026-09-23 00:50:39,862 INFO status has been updated to accepted
+2026-09-23 00:50:39,862 INFO    status has been updated to accepted
+2026-09-23 00:50:40,223 INFO Request ID is a966c0a5-2ec2-4349-846b-a661d3f469fa
+2026-09-23 00:50:40,223 INFO    Request ID is a966c0a5-2ec2-4349-846b-a661d3f469fa
+2026-09-23 00:50:40,306 INFO status has been updated to accepted
+2026-09-23 00:50:40,306 INFO    status has been updated to accepted
+2026-09-23 00:50:40,386 INFO Request ID is 1efcd8b9-a82d-4b63-bc18-6bc7010fea81
+2026-09-23 00:50:40,386 INFO    Request ID is 1efcd8b9-a82d-4b63-bc18-6bc7010fea81
+2026-09-23 00:50:40,456 INFO Request ID is 9277dc05-1f6d-4081-b870-eb6a49d5e7ff
+2026-09-23 00:50:40,456 INFO    Request ID is 9277dc05-1f6d-4081-b870-eb6a49d5e7ff
+2026-09-23 00:50:40,522 INFO status has been updated to accepted
+2026-09-23 00:50:40,522 INFO    status has been updated to accepted
+2026-09-23 00:50:41,384 INFO status has been updated to accepted
+2026-09-23 00:50:41,384 INFO    status has been updated to accepted
+2026-09-23 00:51:03,328 INFO status has been updated to running
+2026-09-23 00:51:03,328 INFO    status has been updated to running
+2026-09-23 00:59:02,773 INFO status has been updated to successful
+2026-09-23 00:59:02,773 INFO    status has been updated to successful
+2026-09-23 00:59:03,044 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/dc169706ff1806cd99f2c5f8e4e717a5.zip
+dc169706ff1806cd99f2c5f8e4e717a5.zip:   0%|          | 0.00/1.32M [00:00<?, ?B/s]dc169706ff1806cd99f2c5f8e4e717a5.zip:  76%|#######5  | 1.00M/1.32M [00:00<00:00, 1.36MB/s]                                                                                          2026-09-23 00:59:04,357 INFO    winnipeg 2019: wrote winnipeg_2019_05-10.nc (1.4 MB) in 505s
+2026-09-23 00:59:04,360 INFO    winnipeg 2022 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 00:59:04,709 INFO Request ID is 6254c9a4-4b35-410b-a550-78b2a106ed10
+2026-09-23 00:59:04,709 INFO    Request ID is 6254c9a4-4b35-410b-a550-78b2a106ed10
+2026-09-23 00:59:04,786 INFO status has been updated to accepted
+2026-09-23 00:59:04,786 INFO    status has been updated to accepted
+2026-09-23 01:27:17,111 INFO status has been updated to running
+2026-09-23 01:27:17,111 INFO    status has been updated to running
+2026-09-23 01:29:17,144 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/a966c0a5-2ec2-4349-846b-a661d3f469fa?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 01:29:17,144 WARNING Retrying in 120 seconds
+2026-09-23 01:29:18,142 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/1efcd8b9-a82d-4b63-bc18-6bc7010fea81?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 01:29:18,142 WARNING Retrying in 120 seconds
+2026-09-23 01:29:37,768 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 01:29:37,769 WARNING Retrying in 120 seconds
+2026-09-23 01:29:40,627 WARNING Recovering from connection error [('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))], attempt 1 of 500
+2026-09-23 01:29:40,628 WARNING Retrying in 120 seconds
+2026-09-23 01:31:17,145 INFO    Retrying now...
+2026-09-23 01:31:17,160 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/a966c0a5-2ec2-4349-846b-a661d3f469fa?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 01:31:17,161 WARNING Retrying in 120 seconds
+2026-09-23 01:31:18,143 INFO    Retrying now...
+2026-09-23 01:31:18,146 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/1efcd8b9-a82d-4b63-bc18-6bc7010fea81?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 01:31:18,146 WARNING Retrying in 120 seconds
+2026-09-23 01:31:37,770 INFO    Retrying now...
+2026-09-23 01:31:37,781 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 01:31:37,781 WARNING Retrying in 120 seconds
+2026-09-23 01:31:40,629 INFO    Retrying now...
+2026-09-23 01:31:40,640 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/9277dc05-1f6d-4081-b870-eb6a49d5e7ff?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 01:31:40,641 WARNING Retrying in 120 seconds
+2026-09-23 01:33:17,164 INFO    Retrying now...
+2026-09-23 01:33:17,495 INFO status has been updated to successful
+2026-09-23 01:33:17,495 INFO    status has been updated to successful
+2026-09-23 01:33:18,147 INFO    Retrying now...
+2026-09-23 01:33:18,303 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-22/558ffaf39323b0ec846fc24eb1cac1eb.zip
+558ffaf39323b0ec846fc24eb1cac1eb.zip:   0%|          | 0.00/1.31M [00:00<?, ?B/s]558ffaf39323b0ec846fc24eb1cac1eb.zip:  76%|#######6  | 1.00M/1.31M [00:00<00:00, 1.96MB/s]                                                                                          2026-09-23 01:33:19,114 INFO    winnipeg 2021: wrote winnipeg_2021_05-10.nc (1.4 MB) in 2560s
+2026-09-23 01:33:19,118 INFO    winnipeg 2023 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 01:33:19,502 INFO Request ID is 00a2a2c1-1030-4bc0-a4a2-98c685e52694
+2026-09-23 01:33:19,502 INFO    Request ID is 00a2a2c1-1030-4bc0-a4a2-98c685e52694
+2026-09-23 01:33:19,656 INFO status has been updated to accepted
+2026-09-23 01:33:19,656 INFO    status has been updated to accepted
+2026-09-23 01:33:37,782 INFO    Retrying now...
+2026-09-23 01:33:40,642 INFO    Retrying now...
+2026-09-23 01:35:40,779 INFO status has been updated to running
+2026-09-23 01:35:40,779 INFO    status has been updated to running
+2026-09-23 01:41:41,006 INFO status has been updated to successful
+2026-09-23 01:41:41,006 INFO    status has been updated to successful
+2026-09-23 01:41:41,812 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-22/45d44241374540565e314a64d7939c81.zip
+45d44241374540565e314a64d7939c81.zip:   0%|          | 0.00/1.32M [00:00<?, ?B/s]45d44241374540565e314a64d7939c81.zip:  76%|#######5  | 1.00M/1.32M [00:00<00:00, 2.33MB/s]                                                                                          2026-09-23 01:41:42,527 INFO    winnipeg 2018: wrote winnipeg_2018_05-10.nc (1.4 MB) in 3063s
+2026-09-23 01:41:42,529 INFO    winnipeg 2024 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 01:41:43,050 INFO Request ID is 19f89b02-2098-422e-86c5-6f83f8e1c705
+2026-09-23 01:41:43,050 INFO    Request ID is 19f89b02-2098-422e-86c5-6f83f8e1c705
+2026-09-23 01:41:43,117 INFO status has been updated to accepted
+2026-09-23 01:41:43,117 INFO    status has been updated to accepted
+2026-09-23 01:49:20,499 INFO status has been updated to running
+2026-09-23 01:49:20,499 INFO    status has been updated to running
+2026-09-23 01:57:21,623 INFO status has been updated to successful
+2026-09-23 01:57:21,623 INFO    status has been updated to successful
+2026-09-23 01:57:21,877 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-22/ecc597e62c7015cccee68ea084574a44.zip
+ecc597e62c7015cccee68ea084574a44.zip:   0%|          | 0.00/1.33M [00:00<?, ?B/s]ecc597e62c7015cccee68ea084574a44.zip:  75%|#######5  | 1.00M/1.33M [00:00<00:00, 2.13MB/s]                                                                                          2026-09-23 01:57:22,677 INFO    winnipeg 2020: wrote winnipeg_2020_05-10.nc (1.4 MB) in 4004s
+2026-09-23 01:57:22,682 INFO    winnipeg 2025 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 01:57:23,073 INFO Request ID is 582ee008-5172-48d6-b48b-74981afe4ba3
+2026-09-23 01:57:23,073 INFO    Request ID is 582ee008-5172-48d6-b48b-74981afe4ba3
+2026-09-23 01:57:23,131 INFO status has been updated to accepted
+2026-09-23 01:57:23,131 INFO    status has been updated to accepted
+2026-09-23 02:13:54,058 WARNING Recovering from connection error [('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))], attempt 1 of 500
+2026-09-23 02:13:54,058 WARNING Retrying in 120 seconds
+2026-09-23 02:13:55,819 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 02:13:55,819 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 02:13:55,819 WARNING Retrying in 120 seconds
+2026-09-23 02:13:55,819 WARNING Retrying in 120 seconds
+2026-09-23 02:14:18,916 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 1 of 500
+2026-09-23 02:14:18,917 WARNING Retrying in 120 seconds
+2026-09-23 02:15:54,059 INFO    Retrying now...
+2026-09-23 02:15:54,063 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 02:15:54,063 WARNING Retrying in 120 seconds
+2026-09-23 02:15:55,821 INFO    Retrying now...
+2026-09-23 02:15:55,821 INFO    Retrying now...
+2026-09-23 02:15:55,826 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 02:15:55,826 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 02:15:55,826 WARNING Retrying in 120 seconds
+2026-09-23 02:15:55,828 WARNING Retrying in 120 seconds
+2026-09-23 02:16:18,917 INFO    Retrying now...
+2026-09-23 02:16:30,023 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 2 of 500
+2026-09-23 02:16:30,023 WARNING Retrying in 120 seconds
+2026-09-23 02:17:54,064 INFO    Retrying now...
+2026-09-23 02:17:55,828 INFO    Retrying now...
+2026-09-23 02:17:55,828 INFO    Retrying now...
+2026-09-23 02:18:06,126 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 3 of 500
+2026-09-23 02:18:06,126 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 3 of 500
+2026-09-23 02:18:06,126 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 3 of 500
+2026-09-23 02:18:06,126 WARNING Retrying in 120 seconds
+2026-09-23 02:18:06,127 WARNING Retrying in 120 seconds
+2026-09-23 02:18:06,127 WARNING Retrying in 120 seconds
+2026-09-23 02:18:30,024 INFO    Retrying now...
+2026-09-23 02:18:42,071 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 3 of 500
+2026-09-23 02:18:42,072 WARNING Retrying in 120 seconds
+2026-09-23 02:20:06,128 INFO    Retrying now...
+2026-09-23 02:20:06,128 INFO    Retrying now...
+2026-09-23 02:20:06,128 INFO    Retrying now...
+2026-09-23 02:20:06,134 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 4 of 500
+2026-09-23 02:20:06,134 WARNING Retrying in 120 seconds
+2026-09-23 02:20:06,134 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 4 of 500
+2026-09-23 02:20:06,135 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 4 of 500
+2026-09-23 02:20:06,135 WARNING Retrying in 120 seconds
+2026-09-23 02:20:06,135 WARNING Retrying in 120 seconds
+2026-09-23 02:20:42,072 INFO    Retrying now...
+2026-09-23 02:20:42,076 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 4 of 500
+2026-09-23 02:20:42,076 WARNING Retrying in 120 seconds
+2026-09-23 02:22:06,136 INFO    Retrying now...
+2026-09-23 02:22:06,136 INFO    Retrying now...
+2026-09-23 02:22:06,136 INFO    Retrying now...
+2026-09-23 02:22:18,177 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 5 of 500
+2026-09-23 02:22:18,177 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 5 of 500
+2026-09-23 02:22:18,177 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 5 of 500
+2026-09-23 02:22:18,178 WARNING Retrying in 120 seconds
+2026-09-23 02:22:18,178 WARNING Retrying in 120 seconds
+2026-09-23 02:22:18,178 WARNING Retrying in 120 seconds
+2026-09-23 02:22:42,077 INFO    Retrying now...
+2026-09-23 02:22:42,081 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 5 of 500
+2026-09-23 02:22:42,081 WARNING Retrying in 120 seconds
+2026-09-23 02:24:18,179 INFO    Retrying now...
+2026-09-23 02:24:18,179 INFO    Retrying now...
+2026-09-23 02:24:18,179 INFO    Retrying now...
+2026-09-23 02:24:18,208 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/00a2a2c1-1030-4bc0-a4a2-98c685e52694?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 6 of 500
+2026-09-23 02:24:18,208 WARNING Retrying in 120 seconds
+2026-09-23 02:24:18,208 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/6254c9a4-4b35-410b-a550-78b2a106ed10?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 6 of 500
+2026-09-23 02:24:18,238 WARNING Retrying in 120 seconds
+2026-09-23 02:24:18,241 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/582ee008-5172-48d6-b48b-74981afe4ba3?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 6 of 500
+2026-09-23 02:24:18,241 WARNING Retrying in 120 seconds
+2026-09-23 02:24:42,083 INFO    Retrying now...
+2026-09-23 02:24:54,125 WARNING Recovering from connection error [HTTPSConnectionPool(host='cds.climate.copernicus.eu', port=443): Max retries exceeded with url: /api/retrieve/v1/jobs/19f89b02-2098-422e-86c5-6f83f8e1c705?log=True&request=True (Caused by NameResolutionError("HTTPSConnection(host='cds.climate.copernicus.eu', port=443): Failed to resolve 'cds.climate.copernicus.eu' ([Errno 11001] getaddrinfo failed)"))], attempt 6 of 500
+2026-09-23 02:24:54,125 WARNING Retrying in 120 seconds
+2026-09-23 02:26:18,208 INFO    Retrying now...
+2026-09-23 02:26:18,242 INFO    Retrying now...
+2026-09-23 02:26:18,242 INFO    Retrying now...
+2026-09-23 02:26:18,475 INFO status has been updated to successful
+2026-09-23 02:26:18,475 INFO    status has been updated to successful
+2026-09-23 02:26:18,615 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/c1eed70097f75afb415c9bcb0f6f53a3.zip
+c1eed70097f75afb415c9bcb0f6f53a3.zip:   0%|          | 0.00/1.32M [00:00<?, ?B/s]c1eed70097f75afb415c9bcb0f6f53a3.zip:  76%|#######5  | 1.00M/1.32M [00:00<00:00, 2.37MB/s]                                                                                          2026-09-23 02:26:19,331 INFO    winnipeg 2022: wrote winnipeg_2022_05-10.nc (1.4 MB) in 5235s
+2026-09-23 02:26:54,126 INFO    Retrying now...
+2026-09-23 02:56:23,052 INFO status has been updated to running
+2026-09-23 02:56:23,052 INFO    status has been updated to running
+2026-09-23 03:04:24,090 INFO status has been updated to successful
+2026-09-23 03:04:24,090 INFO    status has been updated to successful
+2026-09-23 03:04:24,256 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-23/9e10a745b037c110f99ecde59616e8e1.zip
+9e10a745b037c110f99ecde59616e8e1.zip:   0%|          | 0.00/1.32M [00:00<?, ?B/s]9e10a745b037c110f99ecde59616e8e1.zip:  76%|#######5  | 1.00M/1.32M [00:00<00:00, 2.13MB/s]                                                                                          2026-09-23 03:04:25,016 INFO    winnipeg 2023: wrote winnipeg_2023_05-10.nc (1.4 MB) in 5466s
+2026-09-23 03:09:03,430 INFO status has been updated to running
+2026-09-23 03:09:03,430 INFO    status has been updated to running
+2026-09-23 03:16:29,230 INFO status has been updated to running
+2026-09-23 03:16:29,230 INFO    status has been updated to running
+2026-09-23 03:17:03,787 INFO status has been updated to successful
+2026-09-23 03:17:03,787 INFO    status has been updated to successful
+2026-09-23 03:17:03,924 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/10a8e142ee4919a2b086a693dcf61f41.zip
+10a8e142ee4919a2b086a693dcf61f41.zip:   0%|          | 0.00/1.32M [00:00<?, ?B/s]10a8e142ee4919a2b086a693dcf61f41.zip:  76%|#######5  | 1.00M/1.32M [00:00<00:00, 2.32MB/s]                                                                                          2026-09-23 03:17:04,666 INFO    winnipeg 2024: wrote winnipeg_2024_05-10.nc (1.4 MB) in 5722s
+2026-09-23 03:24:30,568 INFO status has been updated to successful
+2026-09-23 03:24:30,568 INFO    status has been updated to successful
+2026-09-23 03:24:30,741 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/22dee3feaea94424e9edde5fbab3414e.zip
+22dee3feaea94424e9edde5fbab3414e.zip:   0%|          | 0.00/1.31M [00:00<?, ?B/s]22dee3feaea94424e9edde5fbab3414e.zip:  76%|#######6  | 1.00M/1.31M [00:00<00:00, 2.19MB/s]                                                                                          2026-09-23 03:24:31,500 INFO    winnipeg 2025: wrote winnipeg_2025_05-10.nc (1.4 MB) in 5229s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-23 03:24:40,894 INFO    winnipeg: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\winnipeg.zarr -- 1472 days 2018-05-01 to 2025-10-31, 2.49 MB
+2026-09-23 03:24:40,897 INFO    st_clair: 8 chunks (months 05,06,07,08,09,10, 3-hourly)
+2026-09-23 03:24:40,899 INFO    st_clair 2018 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 03:24:40,900 INFO    st_clair 2019 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 03:24:40,901 INFO    st_clair 2020 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 03:24:40,901 INFO    st_clair 2021 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 03:24:41,375 INFO Request ID is 851ecf1d-6ec4-46d7-9354-80a57feedef0
+2026-09-23 03:24:41,375 INFO    Request ID is 851ecf1d-6ec4-46d7-9354-80a57feedef0
+2026-09-23 03:24:41,441 INFO Request ID is c6644407-4d19-427d-96c0-99efc6cc67ff
+2026-09-23 03:24:41,441 INFO    Request ID is c6644407-4d19-427d-96c0-99efc6cc67ff
+2026-09-23 03:24:41,446 INFO Request ID is 5626410b-59cb-468a-90ea-117052174e27
+2026-09-23 03:24:41,446 INFO    Request ID is 5626410b-59cb-468a-90ea-117052174e27
+2026-09-23 03:24:41,453 INFO status has been updated to accepted
+2026-09-23 03:24:41,453 INFO    status has been updated to accepted
+2026-09-23 03:24:41,503 INFO status has been updated to accepted
+2026-09-23 03:24:41,503 INFO    status has been updated to accepted
+2026-09-23 03:24:41,515 INFO status has been updated to accepted
+2026-09-23 03:24:41,515 INFO    status has been updated to accepted
+2026-09-23 03:24:41,627 INFO Request ID is f4966b2c-9efc-4f65-b941-dffaa46b2122
+2026-09-23 03:24:41,627 INFO    Request ID is f4966b2c-9efc-4f65-b941-dffaa46b2122
+2026-09-23 03:24:41,694 INFO status has been updated to accepted
+2026-09-23 03:24:41,694 INFO    status has been updated to accepted
+2026-09-23 04:29:45,460 INFO status has been updated to running
+2026-09-23 04:29:45,460 INFO    status has been updated to running
+2026-09-23 04:37:45,959 INFO status has been updated to successful
+2026-09-23 04:37:45,959 INFO    status has been updated to successful
+2026-09-23 04:37:46,779 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/d1e464740bec0825ab4736616060da1d.zip
+d1e464740bec0825ab4736616060da1d.zip:   0%|          | 0.00/733k [00:00<?, ?B/s]d1e464740bec0825ab4736616060da1d.zip: 100%|##########| 733k/733k [00:00<00:00, 824kB/s]                                                                                       2026-09-23 04:37:48,148 INFO    st_clair 2018: wrote st_clair_2018_05-10.nc (0.8 MB) in 4387s
+2026-09-23 04:37:48,149 INFO    st_clair 2022 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 04:37:48,611 INFO Request ID is 2d3f97a9-4ed0-43be-9988-7e67c932ae3f
+2026-09-23 04:37:48,611 INFO    Request ID is 2d3f97a9-4ed0-43be-9988-7e67c932ae3f
+2026-09-23 04:37:48,718 INFO status has been updated to accepted
+2026-09-23 04:37:48,718 INFO    status has been updated to accepted
+2026-09-23 05:05:26,103 INFO status has been updated to running
+2026-09-23 05:05:26,103 INFO    status has been updated to running
+2026-09-23 05:13:27,482 INFO status has been updated to successful
+2026-09-23 05:13:27,482 INFO    status has been updated to successful
+2026-09-23 05:13:29,509 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/cae24bd7bc2c9a3c16ba1a3dae0ca198.zip
+cae24bd7bc2c9a3c16ba1a3dae0ca198.zip:   0%|          | 0.00/725k [00:00<?, ?B/s]cae24bd7bc2c9a3c16ba1a3dae0ca198.zip: 100%|##########| 725k/725k [00:00<00:00, 1.75MB/s]                                                                                        2026-09-23 05:13:30,235 INFO    st_clair 2020: wrote st_clair_2020_05-10.nc (0.7 MB) in 6529s
+2026-09-23 05:13:30,236 INFO    st_clair 2023 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 05:13:30,600 INFO Request ID is 41bf3a5c-4f3e-40b5-ade0-a51e0badcac8
+2026-09-23 05:13:30,600 INFO    Request ID is 41bf3a5c-4f3e-40b5-ade0-a51e0badcac8
+2026-09-23 05:13:30,686 INFO status has been updated to accepted
+2026-09-23 05:13:30,686 INFO    status has been updated to accepted
+2026-09-23 05:22:07,201 INFO status has been updated to running
+2026-09-23 05:22:07,201 INFO    status has been updated to running
+2026-09-23 05:29:50,332 INFO status has been updated to running
+2026-09-23 05:29:50,332 INFO    status has been updated to running
+2026-09-23 05:30:08,660 INFO status has been updated to successful
+2026-09-23 05:30:08,660 INFO    status has been updated to successful
+2026-09-23 05:30:08,820 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-23/1b6ceb4717462d973b7bd9a7f6b36844.zip
+1b6ceb4717462d973b7bd9a7f6b36844.zip:   0%|          | 0.00/735k [00:00<?, ?B/s]1b6ceb4717462d973b7bd9a7f6b36844.zip: 100%|##########| 735k/735k [00:00<00:00, 1.72MB/s]                                                                                        2026-09-23 05:30:09,557 INFO    st_clair 2021: wrote st_clair_2021_05-10.nc (0.8 MB) in 7529s
+2026-09-23 05:30:09,561 INFO    st_clair 2024 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 05:30:10,030 INFO Request ID is 8d323669-3c08-4c52-afb5-f22a490d329c
+2026-09-23 05:30:10,030 INFO    Request ID is 8d323669-3c08-4c52-afb5-f22a490d329c
+2026-09-23 05:30:10,105 INFO status has been updated to accepted
+2026-09-23 05:30:10,105 INFO    status has been updated to accepted
+2026-09-23 05:37:51,718 INFO status has been updated to successful
+2026-09-23 05:37:51,718 INFO    status has been updated to successful
+2026-09-23 05:37:51,889 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/7e4db15313676b263216cab687f7383e.zip
+7e4db15313676b263216cab687f7383e.zip:   0%|          | 0.00/732k [00:00<?, ?B/s]7e4db15313676b263216cab687f7383e.zip: 100%|##########| 732k/732k [00:00<00:00, 1.70MB/s]                                                                                        2026-09-23 05:37:52,625 INFO    st_clair 2019: wrote st_clair_2019_05-10.nc (0.7 MB) in 7992s
+2026-09-23 05:37:52,631 INFO    st_clair 2025 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 05:37:54,741 INFO Request ID is d037ae34-d68c-4924-a62b-096d1165c05b
+2026-09-23 05:37:54,741 INFO    Request ID is d037ae34-d68c-4924-a62b-096d1165c05b
+2026-09-23 05:37:54,828 INFO status has been updated to accepted
+2026-09-23 05:37:54,828 INFO    status has been updated to accepted
+2026-09-23 05:52:18,303 INFO status has been updated to running
+2026-09-23 05:52:18,303 INFO    status has been updated to running
+2026-09-23 05:58:18,555 INFO status has been updated to successful
+2026-09-23 05:58:18,555 INFO    status has been updated to successful
+2026-09-23 05:58:18,725 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-23/2d91a6cd392d6429714c22ec0d82fb01.zip
+2d91a6cd392d6429714c22ec0d82fb01.zip:   0%|          | 0.00/725k [00:00<?, ?B/s]2d91a6cd392d6429714c22ec0d82fb01.zip: 100%|##########| 725k/725k [00:00<00:00, 1.64MB/s]                                                                                        2026-09-23 05:58:19,456 INFO    st_clair 2022: wrote st_clair_2022_05-10.nc (0.7 MB) in 4831s
+2026-09-23 06:22:11,487 INFO status has been updated to running
+2026-09-23 06:22:11,487 INFO    status has been updated to running
+2026-09-23 06:28:09,905 INFO status has been updated to successful
+2026-09-23 06:28:09,905 INFO    status has been updated to successful
+2026-09-23 06:28:10,045 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/1c5a6859efd97914716032c256dbab26.zip
+1c5a6859efd97914716032c256dbab26.zip:   0%|          | 0.00/728k [00:00<?, ?B/s]1c5a6859efd97914716032c256dbab26.zip: 100%|##########| 728k/728k [00:00<00:00, 1.77MB/s]                                                                                        2026-09-23 06:28:10,697 INFO    st_clair 2023: wrote st_clair_2023_05-10.nc (0.7 MB) in 4480s
+2026-09-23 06:48:40,295 INFO status has been updated to running
+2026-09-23 06:48:40,295 INFO    status has been updated to running
+2026-09-23 06:54:40,788 INFO status has been updated to successful
+2026-09-23 06:54:40,788 INFO    status has been updated to successful
+2026-09-23 06:54:41,489 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/b5e7e571c7c0b292a34a49a451351d68.zip
+b5e7e571c7c0b292a34a49a451351d68.zip:   0%|          | 0.00/727k [00:00<?, ?B/s]b5e7e571c7c0b292a34a49a451351d68.zip: 100%|##########| 727k/727k [00:00<00:00, 1.35MB/s]                                                                                        2026-09-23 06:54:42,292 INFO    st_clair 2024: wrote st_clair_2024_05-10.nc (0.7 MB) in 5073s
+2026-09-23 06:56:33,450 INFO status has been updated to running
+2026-09-23 06:56:33,450 INFO    status has been updated to running
+2026-09-23 07:00:34,002 INFO status has been updated to successful
+2026-09-23 07:00:34,002 INFO    status has been updated to successful
+2026-09-23 07:00:34,159 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/f743b7f9d969a370835a177819c701ab.zip
+f743b7f9d969a370835a177819c701ab.zip:   0%|          | 0.00/725k [00:00<?, ?B/s]f743b7f9d969a370835a177819c701ab.zip: 100%|##########| 725k/725k [00:00<00:00, 1.67MB/s]                                                                                        2026-09-23 07:00:34,867 INFO    st_clair 2025: wrote st_clair_2025_05-10.nc (0.7 MB) in 4962s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-23 07:00:40,685 INFO    st_clair: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\st_clair.zarr -- 1472 days 2018-05-01 to 2025-10-31, 1.04 MB
+2026-09-23 07:00:40,687 INFO    saginaw: 8 chunks (months 05,06,07,08,09,10, 3-hourly)
+2026-09-23 07:00:40,689 INFO    saginaw 2018 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 07:00:40,690 INFO    saginaw 2019 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 07:00:40,690 INFO    saginaw 2020 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 07:00:40,692 INFO    saginaw 2021 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 07:00:41,086 INFO Request ID is db71666a-d3bb-42a7-bd91-e09412e17b81
+2026-09-23 07:00:41,086 INFO    Request ID is db71666a-d3bb-42a7-bd91-e09412e17b81
+2026-09-23 07:00:41,249 INFO Request ID is 93b76173-d7ed-42cf-91fc-12510906b008
+2026-09-23 07:00:41,249 INFO    Request ID is 93b76173-d7ed-42cf-91fc-12510906b008
+2026-09-23 07:00:41,315 INFO status has been updated to accepted
+2026-09-23 07:00:41,315 INFO    status has been updated to accepted
+2026-09-23 07:00:41,500 INFO status has been updated to accepted
+2026-09-23 07:00:41,500 INFO    status has been updated to accepted
+2026-09-23 07:00:41,642 INFO Request ID is c3f5592c-9e4b-4aa2-bc6f-02c2e4e9fa3d
+2026-09-23 07:00:41,642 INFO    Request ID is c3f5592c-9e4b-4aa2-bc6f-02c2e4e9fa3d
+2026-09-23 07:00:41,729 INFO status has been updated to accepted
+2026-09-23 07:00:41,729 INFO    status has been updated to accepted
+2026-09-23 07:00:42,531 INFO Request ID is 3dc35861-b1c7-449b-96fc-4fdbf6a13f16
+2026-09-23 07:00:42,531 INFO    Request ID is 3dc35861-b1c7-449b-96fc-4fdbf6a13f16
+2026-09-23 07:00:42,613 INFO status has been updated to accepted
+2026-09-23 07:00:42,613 INFO    status has been updated to accepted
+2026-09-23 08:25:13,443 INFO status has been updated to running
+2026-09-23 08:25:13,443 INFO    status has been updated to running
+2026-09-23 08:31:14,286 INFO status has been updated to successful
+2026-09-23 08:31:14,286 INFO    status has been updated to successful
+2026-09-23 08:31:15,130 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/94c627185c026388a09a4fa9bc036b97.zip
+94c627185c026388a09a4fa9bc036b97.zip:   0%|          | 0.00/804k [00:00<?, ?B/s]94c627185c026388a09a4fa9bc036b97.zip: 100%|##########| 804k/804k [00:00<00:00, 1.90MB/s]                                                                                        2026-09-23 08:31:15,864 INFO    saginaw 2018: wrote saginaw_2018_05-10.nc (0.8 MB) in 5435s
+2026-09-23 08:31:15,866 INFO    saginaw 2022 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 08:31:17,134 INFO Request ID is 7a1488f4-2500-4bde-92d0-ea07fe497e60
+2026-09-23 08:31:17,134 INFO    Request ID is 7a1488f4-2500-4bde-92d0-ea07fe497e60
+2026-09-23 08:31:17,288 INFO status has been updated to accepted
+2026-09-23 08:31:17,288 INFO    status has been updated to accepted
+2026-09-23 08:37:16,122 INFO status has been updated to running
+2026-09-23 08:37:16,122 INFO    status has been updated to running
+2026-09-23 08:43:17,021 INFO status has been updated to successful
+2026-09-23 08:43:17,021 INFO    status has been updated to successful
+2026-09-23 08:43:17,156 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/747cb42afb34004ce5bbf84566d9ced.zip
+747cb42afb34004ce5bbf84566d9ced.zip:   0%|          | 0.00/803k [00:00<?, ?B/s]747cb42afb34004ce5bbf84566d9ced.zip: 100%|##########| 803k/803k [00:00<00:00, 1.80MB/s]                                                                                       2026-09-23 08:43:17,902 INFO    saginaw 2019: wrote saginaw_2019_05-10.nc (0.8 MB) in 6157s
+2026-09-23 08:43:17,907 INFO    saginaw 2023 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 08:43:18,250 INFO Request ID is e37412fa-3198-4555-9c7d-205a9564cf05
+2026-09-23 08:43:18,250 INFO    Request ID is e37412fa-3198-4555-9c7d-205a9564cf05
+2026-09-23 08:43:18,327 INFO status has been updated to accepted
+2026-09-23 08:43:18,327 INFO    status has been updated to accepted
+2026-09-23 08:49:17,799 INFO status has been updated to running
+2026-09-23 08:49:17,799 INFO    status has been updated to running
+2026-09-23 08:53:18,313 INFO status has been updated to successful
+2026-09-23 08:53:18,313 INFO    status has been updated to successful
+2026-09-23 08:53:18,914 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/885cac1a01cd5c6119b66766ae446766.zip
+885cac1a01cd5c6119b66766ae446766.zip:   0%|          | 0.00/798k [00:00<?, ?B/s]885cac1a01cd5c6119b66766ae446766.zip: 100%|##########| 798k/798k [00:00<00:00, 1.78MB/s]                                                                                        2026-09-23 08:53:19,642 INFO    saginaw 2020: wrote saginaw_2020_05-10.nc (0.8 MB) in 6759s
+2026-09-23 08:53:19,643 INFO    saginaw 2024 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 08:53:20,787 INFO Request ID is f6b5ac5c-aa51-4e76-9c05-d2b5bb935f15
+2026-09-23 08:53:20,787 INFO    Request ID is f6b5ac5c-aa51-4e76-9c05-d2b5bb935f15
+2026-09-23 08:53:20,856 INFO status has been updated to accepted
+2026-09-23 08:53:20,856 INFO    status has been updated to accepted
+2026-09-23 08:55:22,353 INFO status has been updated to running
+2026-09-23 08:55:22,353 INFO    status has been updated to running
+2026-09-23 09:01:24,069 INFO status has been updated to successful
+2026-09-23 09:01:24,069 INFO    status has been updated to successful
+2026-09-23 09:01:24,687 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-23/fba8e34d7ef0296156f4eed079f3f39a.zip
+fba8e34d7ef0296156f4eed079f3f39a.zip:   0%|          | 0.00/805k [00:00<?, ?B/s]fba8e34d7ef0296156f4eed079f3f39a.zip: 100%|##########| 805k/805k [00:00<00:00, 2.02MB/s]                                                                                        2026-09-23 09:01:25,390 INFO    saginaw 2021: wrote saginaw_2021_05-10.nc (0.8 MB) in 7245s
+2026-09-23 09:01:25,394 INFO    saginaw 2025 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 09:01:26,047 INFO Request ID is b4cc106e-2ca9-4343-88a9-40d921624b9f
+2026-09-23 09:01:26,047 INFO    Request ID is b4cc106e-2ca9-4343-88a9-40d921624b9f
+2026-09-23 09:01:26,135 INFO status has been updated to accepted
+2026-09-23 09:01:26,135 INFO    status has been updated to accepted
+2026-09-23 10:03:54,827 INFO status has been updated to running
+2026-09-23 10:03:54,827 INFO    status has been updated to running
+2026-09-23 10:07:55,012 INFO status has been updated to successful
+2026-09-23 10:07:55,012 INFO    status has been updated to successful
+2026-09-23 10:07:55,136 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/c66b500fcba1b2298d9781c71acc0c71.zip
+c66b500fcba1b2298d9781c71acc0c71.zip:   0%|          | 0.00/796k [00:00<?, ?B/s]c66b500fcba1b2298d9781c71acc0c71.zip: 100%|##########| 796k/796k [00:00<00:00, 2.00MB/s]                                                                                        2026-09-23 10:07:55,809 INFO    saginaw 2022: wrote saginaw_2022_05-10.nc (0.8 MB) in 5800s
+2026-09-23 10:13:48,667 INFO status has been updated to running
+2026-09-23 10:13:48,667 INFO    status has been updated to running
+2026-09-23 10:19:50,019 INFO status has been updated to successful
+2026-09-23 10:19:50,019 INFO    status has been updated to successful
+2026-09-23 10:19:50,159 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/c2aaca6270db8101c9bf90d4c3383494.zip
+c2aaca6270db8101c9bf90d4c3383494.zip:   0%|          | 0.00/800k [00:00<?, ?B/s]c2aaca6270db8101c9bf90d4c3383494.zip: 100%|##########| 800k/800k [00:00<00:00, 1.74MB/s]                                                                                        2026-09-23 10:19:50,846 INFO    saginaw 2023: wrote saginaw_2023_05-10.nc (0.8 MB) in 5793s
+2026-09-23 10:27:56,658 INFO status has been updated to running
+2026-09-23 10:27:56,658 INFO    status has been updated to running
+2026-09-23 10:31:57,691 INFO status has been updated to successful
+2026-09-23 10:31:57,691 INFO    status has been updated to successful
+2026-09-23 10:31:57,861 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/bffe126c0648fbaba9f5eab3387c172c.zip
+bffe126c0648fbaba9f5eab3387c172c.zip:   0%|          | 0.00/797k [00:00<?, ?B/s]bffe126c0648fbaba9f5eab3387c172c.zip: 100%|##########| 797k/797k [00:00<00:00, 1.95MB/s]                                                                                        2026-09-23 10:31:58,521 INFO    saginaw 2024: wrote saginaw_2024_05-10.nc (0.8 MB) in 5919s
+2026-09-23 10:54:08,811 INFO status has been updated to running
+2026-09-23 10:54:08,811 INFO    status has been updated to running
+2026-09-23 11:00:10,807 INFO status has been updated to successful
+2026-09-23 11:00:10,807 INFO    status has been updated to successful
+2026-09-23 11:00:10,972 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-1/2026-09-23/f1d5016045c07ba605921848bc828b23.zip
+f1d5016045c07ba605921848bc828b23.zip:   0%|          | 0.00/795k [00:00<?, ?B/s]f1d5016045c07ba605921848bc828b23.zip: 100%|##########| 795k/795k [00:00<00:00, 1.97MB/s]                                                                                        2026-09-23 11:00:11,627 INFO    saginaw 2025: wrote saginaw_2025_05-10.nc (0.8 MB) in 7126s
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-23 11:00:16,508 INFO    saginaw: met store C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\saginaw.zarr -- 1472 days 2018-05-01 to 2025-10-31, 1.21 MB
+2026-09-23 11:00:16,511 INFO    green_bay: 8 chunks (months 05,06,07,08,09,10, 3-hourly)
+2026-09-23 11:00:16,522 INFO    green_bay 2018 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 11:00:16,523 INFO    green_bay 2019 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 11:00:16,526 INFO    green_bay 2020 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 11:00:16,527 INFO    green_bay 2021 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 11:00:17,022 INFO Request ID is ddb1c421-75ca-4da5-b68b-235f65359284
+2026-09-23 11:00:17,022 INFO    Request ID is ddb1c421-75ca-4da5-b68b-235f65359284
+2026-09-23 11:00:17,073 INFO Request ID is cb5dd0c4-2199-4c51-a26f-d3c2e6d75e1b
+2026-09-23 11:00:17,073 INFO    Request ID is cb5dd0c4-2199-4c51-a26f-d3c2e6d75e1b
+2026-09-23 11:00:17,129 INFO status has been updated to accepted
+2026-09-23 11:00:17,129 INFO    status has been updated to accepted
+2026-09-23 11:00:17,421 INFO Request ID is 20829960-4eda-40a6-8bb2-d97ea0678f36
+2026-09-23 11:00:17,421 INFO    Request ID is 20829960-4eda-40a6-8bb2-d97ea0678f36
+2026-09-23 11:00:17,620 INFO status has been updated to accepted
+2026-09-23 11:00:17,620 INFO    status has been updated to accepted
+2026-09-23 11:00:18,039 INFO Request ID is 6a0d0e09-6a4b-4824-aa70-712a1831c65a
+2026-09-23 11:00:18,039 INFO    Request ID is 6a0d0e09-6a4b-4824-aa70-712a1831c65a
+2026-09-23 11:00:18,138 INFO status has been updated to accepted
+2026-09-23 11:00:18,138 INFO    status has been updated to accepted
+2026-09-23 11:00:18,989 INFO status has been updated to accepted
+2026-09-23 11:00:18,989 INFO    status has been updated to accepted
+2026-09-23 13:47:15,954 INFO status has been updated to running
+2026-09-23 13:47:15,954 INFO    status has been updated to running
+2026-09-23 13:51:16,443 INFO status has been updated to successful
+2026-09-23 13:51:16,443 INFO    status has been updated to successful
+2026-09-23 13:51:16,677 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-2/2026-09-23/25b4d547d512cd40db941ec030db0c49.zip
+25b4d547d512cd40db941ec030db0c49.zip:   0%|          | 0.00/881k [00:00<?, ?B/s]25b4d547d512cd40db941ec030db0c49.zip: 100%|##########| 881k/881k [00:00<00:00, 1.59MB/s]                                                                                        2026-09-23 13:51:17,541 INFO    green_bay 2018: wrote green_bay_2018_05-10.nc (0.9 MB) in 10261s
+2026-09-23 13:51:17,546 INFO    green_bay 2022 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 13:51:23,594 INFO Request ID is dfa072a0-e27c-41bc-9128-d33ed2f3b20e
+2026-09-23 13:51:23,594 INFO    Request ID is dfa072a0-e27c-41bc-9128-d33ed2f3b20e
+2026-09-23 13:51:23,667 INFO status has been updated to accepted
+2026-09-23 13:51:23,667 INFO    status has been updated to accepted
+2026-09-23 13:53:32,434 INFO status has been updated to running
+2026-09-23 13:53:32,434 INFO    status has been updated to running
+2026-09-23 13:57:32,584 INFO status has been updated to successful
+2026-09-23 13:57:32,584 INFO    status has been updated to successful
+2026-09-23 13:57:32,725 INFO    Downloading https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-cache-3/2026-09-23/e191d4fc73397097711d8d23c7ab4368.zip
+e191d4fc73397097711d8d23c7ab4368.zip:   0%|          | 0.00/878k [00:00<?, ?B/s]e191d4fc73397097711d8d23c7ab4368.zip: 100%|##########| 878k/878k [00:00<00:00, 2.33MB/s]                                                                                        2026-09-23 13:57:33,343 INFO    green_bay 2020: wrote green_bay_2020_05-10.nc (0.9 MB) in 10637s
+2026-09-23 13:57:33,347 INFO    green_bay 2023 months 05+06+07+08+09+10: requesting (7360 fields)
+2026-09-23 13:57:33,740 INFO Request ID is d8a92542-3ea9-417f-9402-bc6905bb61f8
+2026-09-23 13:57:33,740 INFO    Request ID is d8a92542-3ea9-417f-9402-bc6905bb61f8
+2026-09-23 13:57:33,849 INFO status has been updated to accepted
+2026-09-23 13:57:33,849 INFO    status has been updated to accepted
+2026-09-23 14:03:23,474 INFO status has been updated to running
+2026-09-23 14:03:23,474 INFO    status has been updated to running

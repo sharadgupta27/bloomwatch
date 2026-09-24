@@ -1,0 +1,4 @@
+- model=anomaly
+- paths.cubes=/app/data/processed/cubes
+- paths.mlflow_uri=http://mlflow:5000
+- run_name=anomaly-v1

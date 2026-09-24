@@ -1,0 +1,120 @@
+{
+  "passed": false,
+  "lakes": [
+    "victoria_ne"
+  ],
+  "checks": [
+    {
+      "lead_days": 1,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.21854764063629373,
+      "incumbent": 0.25531733540639523,
+      "margin": -0.0367696947701015,
+      "tolerance": 0.01,
+      "ok": false
+    },
+    {
+      "lead_days": 1,
+      "metric": "pr_auc_20",
+      "candidate": 0.6590722459654244,
+      "incumbent": 0.6161198526427546,
+      "margin": 0.04295239332266976,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 1,
+      "metric": "r2",
+      "candidate": 0.667471401870361,
+      "incumbent": 0.683117877191662,
+      "margin": -0.015646475321300923,
+      "tolerance": 0.02,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.275794527491248,
+      "incumbent": 0.2828289364246107,
+      "margin": -0.0070344089333627124,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "pr_auc_20",
+      "candidate": 0.6223594247904009,
+      "incumbent": 0.5759259498681477,
+      "margin": 0.04643347492225314,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "r2",
+      "candidate": 0.6609208649347973,
+      "incumbent": 0.6642144347673433,
+      "margin": -0.0032935698325460283,
+      "tolerance": 0.02,
+      "ok": true
+    },
+    {
+      "lead_days": 5,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.24585807787319058,
+      "incumbent": 0.2978624405465631,
+      "margin": -0.052004362673372495,
+      "tolerance": 0.01,
+      "ok": false
+    },
+    {
+      "lead_days": 5,
+      "metric": "pr_auc_20",
+      "candidate": 0.6072044538075267,
+      "incumbent": 0.5439496424022273,
+      "margin": 0.06325481140529943,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 5,
+      "metric": "r2",
+      "candidate": 0.6380300396840121,
+      "incumbent": 0.6629908813251344,
+      "margin": -0.024960841641122333,
+      "tolerance": 0.02,
+      "ok": false
+    },
+    {
+      "lead_days": 7,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.283988136826799,
+      "incumbent": 0.31781830040894854,
+      "margin": -0.03383016358214952,
+      "tolerance": 0.01,
+      "ok": false
+    },
+    {
+      "lead_days": 7,
+      "metric": "pr_auc_20",
+      "candidate": 0.5946487888585616,
+      "incumbent": 0.5406120313277961,
+      "margin": 0.05403675753076553,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 7,
+      "metric": "r2",
+      "candidate": 0.6310758835587105,
+      "incumbent": 0.6485068282825828,
+      "margin": -0.0174309447238723,
+      "tolerance": 0.02,
+      "ok": true
+    }
+  ],
+  "candidate_scores": "artifacts\\eval_ens_met\\scores.json",
+  "incumbent_scores": "models\\best.scores.json",
+  "split": "test",
+  "evaluated_utc": "2026-09-23T01:59:43+00:00"
+}

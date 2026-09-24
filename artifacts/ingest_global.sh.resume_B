@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Resume of ingest job B (Planetary Computer 2017-11..2025-12, the 25 new lakes) after it died at
+# hongze on 2026-09-23 14:34 (WinError 5 renaming hongze.zarr.tmp; store.py now retries).
+# dianchi and geneva finished and are not re-downloaded.
+# The filename deliberately contains "ingest_global.sh": run_global.sh waits while any process
+# matching that is alive, and needs the C and D reports before merging.
+set -u
+cd "$(dirname "$0")/.."
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+PY=.venv/Scripts/python.exe
+name=ingest_global_B
+echo "$(date -Is) start ${name} (resume from hongze)" >> artifacts/ingest_global.log
+$PY pipelines/ingest.py --aoi data/aoi/lakes_global.geojson --cube-root data/processed/cubes_global_new \
+    --source planetary-computer --all-year --start 2017-11-01 --end 2025-12-31 --workers 7 \
+    --lakes hongze erhai biwa laguna_de_bay kinneret peipsi vortsjarv malaren szczecin_lagoon ladoga_south garda lake_george_ug \
+            tana upper_klamath winnebago lake_of_the_woods tahoe valencia_ve maracaibo titicaca_puno guaiba taupo te_waihora \
+    --report artifacts/$name.json > artifacts/${name}_resume.out 2>&1
+rc=$?
+echo "$(date -Is) done ${name} (resume) exit=$rc" >> artifacts/ingest_global.log

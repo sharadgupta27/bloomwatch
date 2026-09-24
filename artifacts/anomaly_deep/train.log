@@ -1,0 +1,45 @@
+[2026-08-28 00:34:13,540][habforecast.features.dataset][INFO] - erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+[2026-08-28 00:34:14,344][habforecast.features.dataset][INFO] - okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+[2026-08-28 00:34:15,739][habforecast.features.dataset][INFO] - taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+[2026-08-28 00:34:16,333][habforecast.features.dataset][INFO] - balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+[2026-08-28 00:34:25,745][habforecast.features.dataset][INFO] - victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+[2026-08-28 00:34:26,822][habforecast.features.datamodule][INFO] - normalisation (train lakes only): {'mean': 0.8475953340530396, 'std': 0.5003179907798767}
+[2026-08-28 00:34:26,974][habforecast.features.dataset][INFO] - SequenceDataset: 1475 samples from 3 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-08-28 00:34:27,002][habforecast.features.dataset][INFO] - SequenceDataset: 340 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-08-28 00:34:27,184][habforecast.features.dataset][INFO] - SequenceDataset: 916 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-08-28 00:34:27,186][__main__][INFO] - split composition: {
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492
+    },
+    "samples": 1475
+  },
+  "val": {
+    "lakes": [
+      "balaton"
+    ],
+    "days": {
+      "balaton": 399
+    },
+    "samples": 340
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne"
+    ],
+    "days": {
+      "victoria_ne": 1087
+    },
+    "samples": 916
+  }
+}
+[2026-08-28 00:34:27,291][__main__][INFO] - model=anomaly_deep params: 5.85M total, 5.85M trainable
+[2026-08-28 00:51:00,664][__main__][INFO] - evaluating on held-out lake(s): ['victoria_ne']
+[2026-08-28 00:51:40,664][__main__][INFO] - best val/skill_overall = tensor(0.0960) (/app/artifacts/anomaly_deep/checkpoints/best-21-0.0960.ckpt)

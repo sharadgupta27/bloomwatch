@@ -1,0 +1,254 @@
+{
+  "args": {
+    "aoi": "C:\\Users\\shara\\Desktop\\New_Ideas\\mlops-proj\\Harmful_Algal_Blooms\\data\\aoi\\lakes.geojson",
+    "cube_root": "data\\processed\\cubes_live",
+    "lakes": [
+      "taihu",
+      "balaton",
+      "victoria_ne"
+    ],
+    "start": "2026-03-01",
+    "end": "2026-09-22",
+    "workers": 12,
+    "min_valid": 0.02,
+    "all_year": false,
+    "aux": "",
+    "source": "eumetsat",
+    "report": "artifacts\\ingest_live_eumetsat.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 2855.6,
+  "lakes": {
+    "taihu": {
+      "scenes_found": 237,
+      "scenes_read": 48,
+      "scenes_rejected": 130,
+      "scenes_failed": 59,
+      "days_written": 40,
+      "read_success_rate": 0.2025,
+      "elapsed_s": 742.7,
+      "failures": [
+        [
+          "S3B_OL_2_WFR____20260818T014240_20260818T014540_20260819T070823_0179_123_288_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 48-1048623 of S3B_OL_2_WFR____20260818T014240_20260818T014540_20260819T070823_0179_123_288_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260823T015125_20260823T015425_20260824T063253_0179_143_117_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260823T015125_20260823T015425_20260824T063253_0179_143_117_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260823T015425_20260823T015725_20260824T063310_0179_143_117_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-1048575 of S3A_OL_2_WFR____20260823T015425_20260823T015725_20260824T063310_0179_143_117_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260822T014156_20260822T014456_20260823T075227_0179_123_345_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-1048575 of S3B_OL_2_WFR____20260822T014156_20260822T014456_20260823T075227_0179_123_345_2520_MAR_O_NT_004.SEN3/chl_nn.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260824T022733_20260824T023033_20260825T075329_0179_123_374_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 48-1048623 of S3B_OL_2_WFR____20260824T022733_20260824T023033_20260825T075329_0179_123_374_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260821T020507_20260821T020807_20260822T080722_0179_123_331_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 48-1048623 of S3B_OL_2_WFR____20260821T020507_20260821T020807_20260822T080722_0179_123_331_2340_MAR_O_NT_004.SEN3/geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260825T020122_20260825T020422_20260826T063707_0180_124_003_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260825T020122_20260825T020422_20260826T063707_0180_124_003_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260822T021736_20260822T022036_20260823T072259_0179_143_103_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260822T021736_20260822T022036_20260823T072259_0179_143_103_2340_MAR_O_NT_004.SEN3/chl_nn.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260826T013511_20260826T013811_20260827T065820_0179_124_017_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260826T013511_20260826T013811_20260827T065820_0179_124_017_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260826T013811_20260826T014111_20260827T065834_0179_124_017_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260826T013811_20260826T014111_20260827T065834_0179_124_017_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260826T021351_20260826T021651_20260827T073334_0179_143_160_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260826T021351_20260826T021651_20260827T073334_0179_143_160_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260827T014741_20260827T015041_20260828T074510_0179_143_174_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260827T014741_20260827T015041_20260828T074510_0179_143_174_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260827T015041_20260827T015341_20260828T074523_0180_143_174_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260827T015041_20260827T015341_20260828T074523_0180_143_174_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260828T022348_20260828T022648_20260829T074844_0179_124_046_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260828T022348_20260828T022648_20260829T074844_0179_124_046_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260829T015738_20260829T020038_20260830T073639_0179_124_060_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260829T015738_20260829T020038_20260830T073639_0179_124_060_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260810T015009_20260810T015309_20260811T070920_0179_123_174_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 48-1048623 of S3B_OL_2_WFR____20260810T015009_20260810T015309_20260811T070920_0179_123_174_2340_MAR_O_NT_004.SEN3/chl_nn.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260830T021008_20260830T021308_20260831T063842_0179_143_217_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260830T021008_20260830T021308_20260831T063842_0179_143_217_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260831T014357_20260831T014657_20260901T060259_0180_143_231_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260831T014357_20260831T014657_20260901T060259_0180_143_231_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260831T014657_20260831T014957_20260901T060314_0179_143_231_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260831T014657_20260831T014957_20260901T060314_0179_143_231_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260820T023117_20260820T023417_20260821T065330_0179_123_317_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-1048575 of S3B_OL_2_WFR____20260820T023117_20260820T023417_20260821T065330_0179_123_317_2340_MAR_O_NT_004.SEN3/chl_nn.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260818T014540_20260818T014840_20260819T070843_0179_123_288_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 8956-1057531 of S3B_OL_2_WFR____20260818T014540_20260818T014840_20260819T070843_0179_123_288_2520_MAR_O_NT_004.SEN3/geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260819T015510_20260819T015810_20260820T072344_0179_143_060_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 9680-1058255 of S3A_OL_2_WFR____20260819T015510_20260819T015810_20260820T072344_0179_143_060_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260901T022004_20260901T022304_20260902T065123_0179_124_103_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260901T022004_20260901T022304_20260902T065123_0179_124_103_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260904T014313_20260904T014613_20260905T070019_0179_143_288_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260904T014313_20260904T014613_20260905T070019_0179_143_288_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260902T015654_20260902T015954_20260903T065059_0179_124_117_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260902T015654_20260902T015954_20260903T065059_0179_124_117_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260902T015354_20260902T015654_20260903T065046_0179_124_117_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260902T015354_20260902T015654_20260903T065046_0179_124_117_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260904T014013_20260904T014313_20260905T070004_0179_143_288_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260904T014013_20260904T014313_20260905T070004_0179_143_288_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260902T023234_20260902T023534_20260903T075304_0179_143_260_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260902T023234_20260902T023534_20260903T075304_0179_143_260_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260903T020624_20260903T020924_20260904T071642_0179_143_274_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260903T020624_20260903T020924_20260904T071642_0179_143_274_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260905T021620_20260905T021920_20260906T073850_0179_124_160_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260905T021620_20260905T021920_20260906T073850_0179_124_160_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260906T022850_20260906T023150_20260907T065247_0179_143_317_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260906T022850_20260906T023150_20260907T065247_0179_143_317_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260907T020239_20260907T020539_20260908T072050_0179_143_331_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260907T020239_20260907T020539_20260908T072050_0179_143_331_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260906T015310_20260906T015610_20260907T070418_0179_124_174_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260906T015310_20260906T015610_20260907T070418_0179_124_174_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260906T015010_20260906T015310_20260907T070405_0179_124_174_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260906T015010_20260906T015310_20260907T070405_0179_124_174_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260908T013629_20260908T013929_20260909T071649_0179_143_345_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260908T013629_20260908T013929_20260909T071649_0179_143_345_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260908T013929_20260908T014229_20260909T071706_0179_143_345_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260908T013929_20260908T014229_20260909T071706_0179_143_345_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260910T014625_20260910T014925_20260911T061234_0179_124_231_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260910T014625_20260910T014925_20260911T061234_0179_124_231_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260909T021236_20260909T021536_20260910T064630_0179_124_217_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260909T021236_20260909T021536_20260910T064630_0179_124_217_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260910T014925_20260910T015225_20260911T061248_0179_124_231_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260910T014925_20260910T015225_20260911T061248_0179_124_231_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260914T014241_20260914T014541_20260915T065053_0179_124_288_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260914T014241_20260914T014541_20260915T065053_0179_124_288_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260911T015855_20260911T020155_20260912T071420_0179_144_003_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260911T015855_20260911T020155_20260912T071420_0179_144_003_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260910T022506_20260910T022806_20260911T073100_0180_143_374_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260910T022506_20260910T022806_20260911T073100_0180_143_374_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260913T020852_20260913T021152_20260914T080812_0179_124_274_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260913T020852_20260913T021152_20260914T080812_0179_124_274_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260914T014541_20260914T014841_20260915T065108_0179_124_288_2520_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260914T014541_20260914T014841_20260915T065108_0179_124_288_2520_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260912T023503_20260912T023803_20260913T073207_0179_124_260_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260912T023503_20260912T023803_20260913T073207_0179_124_260_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260914T022122_20260914T022422_20260915T063541_0179_144_046_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260914T022122_20260914T022422_20260915T063541_0179_144_046_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260915T015511_20260915T015811_20260916T084621_0179_144_060_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260915T015511_20260915T015811_20260916T084621_0179_144_060_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260916T023118_20260916T023418_20260917T073815_0179_124_317_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260916T023118_20260916T023418_20260917T073815_0179_124_317_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3B_OL_2_WFR____20260917T020507_20260917T020807_20260918T064358_0179_124_331_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260917T020507_20260917T020807_20260918T064358_0179_124_331_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ],
+        [
+          "S3A_OL_2_WFR____20260919T015127_20260919T015427_20260920T075123_0179_144_117_2340_MAR_O_NT_004.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260919T015127_20260919T015427_20260920T075123_0179_144_117_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: 'AccessToken' object has no attribute 'refresh'"
+        ]
+      ]
+    },
+    "balaton": {
+      "scenes_found": 169,
+      "scenes_read": 78,
+      "scenes_rejected": 91,
+      "scenes_failed": 0,
+      "days_written": 71,
+      "read_success_rate": 0.4615,
+      "elapsed_s": 831.4,
+      "failures": []
+    },
+    "victoria_ne": {
+      "scenes_found": 268,
+      "scenes_read": 148,
+      "scenes_rejected": 120,
+      "scenes_failed": 0,
+      "days_written": 135,
+      "read_success_rate": 0.5522,
+      "elapsed_s": 1281.5,
+      "failures": []
+    }
+  }
+}

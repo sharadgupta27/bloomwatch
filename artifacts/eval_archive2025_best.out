@@ -1,0 +1,37 @@
+2026-09-23 11:21:09,550 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=False on cuda
+2026-09-23 11:21:10,865 INFO    erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+2026-09-23 11:21:11,013 INFO    erie_west: temporal split train=474 val=31 test=35 frames
+2026-09-23 11:21:11,211 INFO    okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+2026-09-23 11:21:11,308 INFO    okeechobee: temporal split train=658 val=44 test=33 frames
+2026-09-23 11:21:11,610 INFO    taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+2026-09-23 11:21:11,719 INFO    taihu: temporal split train=424 val=32 test=36 frames
+2026-09-23 11:21:11,849 INFO    balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+2026-09-23 11:21:11,902 INFO    balaton: temporal split train=359 val=23 test=17 frames
+2026-09-23 11:21:12,989 INFO    victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+2026-09-23 11:21:13,488 INFO    victoria_ne: temporal split train=956 val=67 test=64 frames
+2026-09-23 11:21:13,505 INFO    normalisation (from checkpoint): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+2026-09-23 11:21:14,006 INFO    SequenceDataset: 2547 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:21:14,038 INFO    SequenceDataset: 97 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:21:14,068 INFO    SequenceDataset: 87 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:21:31,510 INFO    lake           split   lead     rmse  skill_p  skill_c   csi@20   auc@20 prauc@20
+2026-09-23 11:21:31,510 INFO    balaton        test       1   0.2660    0.357    0.099      nan      nan      nan
+2026-09-23 11:21:31,510 INFO    balaton        test       3   0.3916    0.216   -0.041      nan      nan      nan
+2026-09-23 11:21:31,510 INFO    balaton        test       5      nan      nan      nan      nan      nan      nan
+2026-09-23 11:21:31,510 INFO    balaton        test       7   0.2802    0.249    0.374      nan      nan      nan
+2026-09-23 11:21:31,510 INFO    erie_west      test       1   0.1960    0.068    0.330    0.017    0.933    0.416
+2026-09-23 11:21:31,510 INFO    erie_west      test       3   0.1685    0.434   -0.112    0.087    0.931    0.157
+2026-09-23 11:21:31,510 INFO    erie_west      test       5   0.1586    0.395    0.093    0.093    0.920    0.234
+2026-09-23 11:21:31,510 INFO    erie_west      test       7   0.1776    0.431    0.137    0.089    0.912    0.143
+2026-09-23 11:21:31,510 INFO    okeechobee     test       1   0.1281    0.769    0.813    0.905    0.925    0.990
+2026-09-23 11:21:31,511 INFO    okeechobee     test       3   0.1334    0.826    0.771    0.933    0.918    0.993
+2026-09-23 11:21:31,511 INFO    okeechobee     test       5   0.2168    0.733    0.624    0.936    0.919    0.987
+2026-09-23 11:21:31,511 INFO    okeechobee     test       7   0.2770   -0.510    0.616    0.774    0.895    0.988
+2026-09-23 11:21:31,511 INFO    taihu          test       1   0.1676    0.406    0.150    0.131    0.690    0.162
+2026-09-23 11:21:31,511 INFO    taihu          test       3   0.1148    0.504    0.288    0.133    0.828    0.135
+2026-09-23 11:21:31,511 INFO    taihu          test       5   0.1770    0.476   -0.018    0.043    0.524    0.093
+2026-09-23 11:21:31,511 INFO    taihu          test       7   0.1712    0.383    0.119    0.005    0.499    0.272
+2026-09-23 11:21:31,511 INFO    victoria_ne    test       1   0.3054    0.283   -0.783    0.240    0.899    0.571
+2026-09-23 11:21:31,511 INFO    victoria_ne    test       3   0.2187    0.489    0.085    0.265    0.884    0.469
+2026-09-23 11:21:31,511 INFO    victoria_ne    test       5   0.2173    0.398    0.113    0.250    0.885    0.437
+2026-09-23 11:21:31,511 INFO    victoria_ne    test       7   0.1963    0.427    0.136    0.344    0.928    0.496
+2026-09-23 11:21:31,511 INFO    wrote artifacts\eval_archive2025_best\scores.json

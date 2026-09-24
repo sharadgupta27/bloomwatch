@@ -1,0 +1,31 @@
+{
+  "args": {
+    "aoi": "C:\\Users\\shara\\Desktop\\New_Ideas\\mlops-proj\\Harmful_Algal_Blooms\\data\\aoi\\lakes.geojson",
+    "cube_root": "data\\processed\\cubes_live",
+    "lakes": [
+      "taihu"
+    ],
+    "start": "2026-03-01",
+    "end": "2026-09-22",
+    "workers": 12,
+    "min_valid": 0.02,
+    "all_year": false,
+    "aux": "",
+    "source": "eumetsat",
+    "report": "artifacts\\ingest_live_taihu_retry.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 703.1,
+  "lakes": {
+    "taihu": {
+      "scenes_found": 237,
+      "scenes_read": 24,
+      "scenes_rejected": 145,
+      "scenes_failed": 0,
+      "days_written": 19,
+      "read_success_rate": 0.1013,
+      "elapsed_s": 703.1,
+      "failures": []
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "args": {
+    "aoi": "data\\aoi\\lakes_expanded.geojson",
+    "cube_root": "data\\processed\\cubes_expanded",
+    "lakes": [
+      "poyang",
+      "kasumigaura",
+      "victoria_mwanza",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "start": "2018-01-01",
+    "end": "2025-12-31",
+    "workers": 12,
+    "min_valid": 0.02,
+    "all_year": false,
+    "aux": "",
+    "report": "artifacts\\ingest_expanded.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 2088.5,
+  "lakes": {
+    "poyang": {
+      "scenes_found": 1730,
+      "scenes_read": 43,
+      "scenes_rejected": 1312,
+      "scenes_failed": 0,
+      "days_written": 42,
+      "read_success_rate": 0.0249,
+      "elapsed_s": 233.4,
+      "failures": []
+    },
+    "kasumigaura": {
+      "scenes_found": 1238,
+      "scenes_read": 284,
+      "scenes_rejected": 954,
+      "scenes_failed": 0,
+      "days_written": 277,
+      "read_success_rate": 0.2294,
+      "elapsed_s": 323.5,
+      "failures": []
+    },
+    "victoria_mwanza": {
+      "scenes_found": 2424,
+      "scenes_read": 946,
+      "scenes_rejected": 1478,
+      "scenes_failed": 0,
+      "days_written": 925,
+      "read_success_rate": 0.3903,
+      "elapsed_s": 548.1,
+      "failures": []
+    },
+    "hartbeespoort": {
+      "scenes_found": 2165,
+      "scenes_read": 79,
+      "scenes_rejected": 2086,
+      "scenes_failed": 0,
+      "days_written": 79,
+      "read_success_rate": 0.0365,
+      "elapsed_s": 322.2,
+      "failures": []
+    },
+    "alexandrina": {
+      "scenes_found": 1204,
+      "scenes_read": 547,
+      "scenes_rejected": 657,
+      "scenes_failed": 0,
+      "days_written": 424,
+      "read_success_rate": 0.4543,
+      "elapsed_s": 336.8,
+      "failures": []
+    },
+    "chapala": {
+      "scenes_found": 1564,
+      "scenes_read": 790,
+      "scenes_rejected": 774,
+      "scenes_failed": 0,
+      "days_written": 731,
+      "read_success_rate": 0.5051,
+      "elapsed_s": 324.5,
+      "failures": []
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Deeper anomaly forecaster: 4 downsampling stages, 2 residual blocks each, bottleneck
+# self-attention, width 32 -- roughly 8x the parameters of `anomaly`, with the same four
+# structural guarantees.
+#
+# Check the held-out numbers before preferring this over `anomaly`. On this dataset
+# capacity has so far correlated NEGATIVELY with generalisation: three training lakes is
+# very little to constrain a deep network.
+name: anomaly_deep
+base: 32
+depth: 4
+blocks: 2
+use_doy: true
+use_attention: true
+delta_scale: 0.5
+n_scales: 3
+dropout: 0.1

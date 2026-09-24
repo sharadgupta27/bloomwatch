@@ -1,0 +1,41 @@
+# Root Hydra config. Compose with e.g.
+#   python pipelines/train.py model=unet train.max_epochs=80
+#   python pipelines/train.py -m model=unet,convlstm train.lr=1e-4,3e-4
+#   python pipelines/train.py data.split_mode=temporal          # the second split
+# Default model is `anomaly_clim`: the level-invariant anomaly forecaster with the lake's
+# own seasonal climatology as an input and as a second anchor. Measured leave-lake-out on
+# the HELD-OUT lake it scores +0.26 to +0.32 against persistence and +0.16 to +0.21 against
+# climatology at 1-7 days (artifacts/eval_anomaly_clim_tta). The plain `anomaly` it extends
+# scored +0.04 to +0.06 and lost to climatology at every lead; the ConvLSTM and U-Net are
+# worse than persistence on that lake. `anomaly` remains the right choice for water with
+# no archive to build a climatology from -- see habforecast.routing.
+defaults:
+  - data: default
+  - model: anomaly_clim
+  - train: default
+  - _self_
+
+seed: 1337
+# Bumped when the tracking server moved to --serve-artifacts. An MLflow experiment stores
+# its artifact location in the backend DB at creation time, so the original `hab-forecast`
+# experiment is permanently pinned to a path only the server container can write; runs
+# logged there upload nothing. A new experiment picks up the working root.
+experiment_name: hab-forecast-v2
+run_name: null          # null -> MLflow generates one
+
+paths:
+  repo_root: ${hydra:runtime.cwd}
+  aoi: ${paths.repo_root}/data/aoi/lakes.geojson
+  cubes: ${paths.repo_root}/data/processed/cubes
+  met: ${paths.repo_root}/data/processed/met
+  artifacts: ${paths.repo_root}/artifacts
+  # MLflow 3.x retired the filesystem tracking backend; SQLite is the supported local
+  # store. In Docker this is overridden to the compose tracking server.
+  mlflow_uri: sqlite:///${paths.repo_root}/mlruns/mlflow.db
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}

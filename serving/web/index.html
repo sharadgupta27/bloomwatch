@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom Watch</title>
+<style>
+  :root {
+    --bg: #0f1419; --panel: #161d24; --line: #253039;
+    --fg: #e6edf3; --muted: #8b98a5; --accent: #4fc3f7;
+    --ok: #4caf50; --warn: #ffb74d; --bad: #ef5350;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f6f8fa; --panel:#fff; --line:#d8dee4; --fg:#1f2328; --muted:#656d76; --accent:#0969da; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+         background:var(--bg); color:var(--fg); }
+  header { padding:18px 24px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:17px; letter-spacing:-.01em; }
+  h1 span { color:var(--muted); font-weight:400; }
+  .sub { color:var(--muted); font-size:12.5px; margin-top:4px; }
+  main { display:grid; grid-template-columns: 320px 1fr; gap:0; min-height:calc(100vh - 78px); }
+  @media (max-width:860px){ main{grid-template-columns:1fr;} }
+  aside { padding:20px 24px; border-right:1px solid var(--line); }
+  section { padding:20px 24px; overflow-x:auto; }
+  label { display:block; font-size:12px; color:var(--muted); margin:14px 0 5px; text-transform:uppercase; letter-spacing:.04em; }
+  select, input, button { width:100%; padding:8px 10px; background:var(--panel); color:var(--fg);
+    border:1px solid var(--line); border-radius:6px; font:inherit; }
+  button { margin-top:16px; cursor:pointer; border-color:var(--accent); color:var(--accent); font-weight:600; }
+  button:hover { background:var(--accent); color:var(--bg); }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  table { border-collapse:collapse; width:100%; min-width:520px; margin-top:6px; }
+  th,td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; }
+  th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .muted { color:var(--muted); }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; }
+  .pill.cube { background:rgba(79,195,247,.15); color:var(--accent); }
+  .pill.live { background:rgba(255,183,77,.15); color:var(--warn); }
+  .imgwrap { display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; }
+  figure { margin:0; }
+  figure img { display:block; image-rendering:pixelated; width:230px; border:1px solid var(--line);
+               border-radius:6px; background:#0a0d10; }
+  figcaption { font-size:12px; color:var(--muted); margin-top:5px; text-align:center; }
+  .scale { display:flex; align-items:center; gap:8px; margin-top:14px; font-size:11.5px; color:var(--muted); }
+  .ramp { height:10px; width:200px; border-radius:3px;
+          background:linear-gradient(90deg,#264696,#28a08c,#b4d23c,#f0b428,#c82828); }
+  .err { color:var(--bad); }
+  .disclaimer { font-size:11.5px; color:var(--muted); border-left:2px solid var(--warn);
+                padding-left:10px; margin-top:18px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Bloom Watch <span>— cyanobacterial bloom forecasting</span></h1>
+  <div class="sub">Predicted chlorophyll-a at 300&nbsp;m, 1–7 day lead. Advisory only. &middot; <a href="/app" style="color:var(--accent)">forecast any location &rarr;</a>
+  &middot; <a href="/dashboard" style="color:var(--accent)">results dashboard &rarr;</a></div>
+</header>
+
+<main>
+  <aside>
+    <label for="lake">Lake</label>
+    <select id="lake"><option>loading…</option></select>
+
+    <label for="anchor">Anchor date</label>
+    <input id="anchor" type="date">
+
+    <button id="go">Forecast</button>
+
+    <div class="scale">
+      <div class="ramp"></div>
+      <span>1 → 100 mg/m³</span>
+    </div>
+
+    <div class="disclaimer">
+      Satellite chlorophyll is not a direct cyanotoxin measurement. Confirm with in-situ
+      sampling before any public-health action.
+    </div>
+  </aside>
+
+  <section>
+    <div id="status" class="muted">Select a lake and press Forecast.</div>
+    <div id="out"></div>
+  </section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+
+async function loadLakes() {
+  try {
+    const lakes = await (await fetch('/lakes')).json();
+    $('lake').innerHTML = lakes.map(l =>
+      `<option value="${l.lake_id}">${l.name} — ${l.split}${l.archived_days ? ` (${l.archived_days}d)` : ''}</option>`
+    ).join('');
+  } catch (e) {
+    $('lake').innerHTML = '<option>failed to load</option>';
+    $('status').innerHTML = `<span class="err">Could not reach /lakes: ${e.message}</span>`;
+  }
+}
+
+function fmt(v, d = 1) { return v == null ? '—' : Number(v).toFixed(d); }
+
+async function forecast() {
+  const lake = $('lake').value, anchor = $('anchor').value;
+  $('go').disabled = true;
+  $('status').textContent = 'Running forecast…';
+  $('out').innerHTML = '';
+  try {
+    const url = `/forecast?lake_id=${encodeURIComponent(lake)}` + (anchor ? `&anchor=${anchor}` : '');
+    const r = await fetch(url);
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || r.statusText);
+
+    const rows = d.forecasts.map(f => `
+      <tr>
+        <td>+${f.lead_days} d</td>
+        <td>${f.valid_date}</td>
+        <td>${fmt(f.median_chl_mg_m3)}</td>
+        <td>${fmt(f.p90_chl_mg_m3)}</td>
+        <td>${fmt(f.bloom_area_km2['20'])}</td>
+        <td>${fmt(f.bloom_area_km2['50'])}</td>
+      </tr>`).join('');
+
+    const imgs = d.forecasts.map(f => `
+      <figure>
+        <img alt="predicted bloom, +${f.lead_days} days"
+             src="/forecast/image?lake_id=${encodeURIComponent(lake)}&lead_days=${f.lead_days}${anchor ? `&anchor=${anchor}` : ''}">
+        <figcaption>+${f.lead_days} d · ${f.valid_date}</figcaption>
+      </figure>`).join('');
+
+    $('status').textContent = '';
+    $('out').innerHTML = `
+      <div class="card">
+        <strong>${d.lake_name}</strong>
+        <span class="pill ${d.source}">${d.source === 'cube' ? 'archive' : 'live fetch'}</span>
+        <div class="muted" style="margin-top:6px">
+          Anchor ${d.anchor_date} · model <code>${d.model_version}</code> ·
+          water area ${fmt(d.water_area_km2, 0)} km²<br>
+          Input window: <strong>${d.input_observed_days.length}</strong> observed day(s)
+          ${d.input_observed_days.length < 3 ? '<span class="err">— sparse input, treat with caution</span>' : ''}
+        </div>
+      </div>
+      <table>
+        <thead><tr>
+          <th>Lead</th><th>Valid date</th><th>Median mg/m³</th><th>P90 mg/m³</th>
+          <th>Area &gt;20</th><th>Area &gt;50</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div class="imgwrap">${imgs}</div>
+      <p class="muted" style="font-size:12px;margin-top:16px">${d.disclaimer}</p>`;
+  } catch (e) {
+    $('status').innerHTML = `<span class="err">${e.message}</span>`;
+  } finally {
+    $('go').disabled = false;
+  }
+}
+
+$('go').addEventListener('click', forecast);
+loadLakes();
+</script>
+</body>
+</html>

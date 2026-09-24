@@ -1,0 +1,5 @@
+- model=unet
+- train.max_epochs=60
+- paths.aoi=C:/Users/shara/AppData/Local/Temp/claude/c--Users-shara-Desktop-New-Ideas-mlops-proj/d3e8b3af-9647-496b-866d-215cd1560ba6/scratchpad/aoi_trainval.geojson
+- experiment_name=hab-forecast
+- run_name=unet-v1

@@ -1,0 +1,28 @@
+2026-09-23 04:01:22,077 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=False on cuda
+2026-09-23 04:01:23,946 INFO    balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+2026-09-23 04:01:24,091 INFO    balaton: met forcing 1224 days 2018-05-01 to 2025-09-30 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 04:01:25,920 INFO    victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+2026-09-23 04:01:26,119 INFO    victoria_ne: met forcing 2922 days 2018-01-01 to 2025-12-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 04:01:26,876 INFO    normalisation (from checkpoint): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+2026-09-23 04:01:26,893 INFO    met normalisation (train lakes only): {'wind_u': (0.25912195444107056, 1.2230700254440308), 'wind_v': (-0.688957691192627, 2.0677907466888428), 't2m': (19.986347198486328, 4.1894612312316895), 'ssrd': (19.446847915649414, 5.721787452697754), 'tp': (2.460505247116089, 4.521953105926514), 'wind_speed': (2.7186994552612305, 1.034576416015625)}
+2026-09-23 04:01:26,961 INFO    SequenceDataset: 340 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 04:01:27,559 INFO    SequenceDataset: 916 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 04:09:52,377 INFO    lake           split   lead     rmse  skill_p  skill_c   csi@20   auc@20 prauc@20
+2026-09-23 04:09:52,377 INFO    exceedance head: PR-AUC@20 (regression / head / persistence), BSS@20, ECE@20
+2026-09-23 04:09:52,377 INFO    balaton        val        1   0.3062    0.316    0.142    0.005    0.830    0.137
+2026-09-23 04:09:52,377 INFO        head balaton  lead 1  prauc@20 0.137 / 0.158 / 0.099   bss@20 0.067  ece@20 0.004  spread 0.053 vs rmse 0.306
+2026-09-23 04:09:52,377 INFO    balaton        val        3   0.3448    0.382   -0.040    0.003    0.796    0.098
+2026-09-23 04:09:52,377 INFO        head balaton  lead 3  prauc@20 0.098 / 0.113 / 0.082   bss@20 0.047  ece@20 0.003  spread 0.060 vs rmse 0.345
+2026-09-23 04:09:52,377 INFO    balaton        val        5   0.3422    0.408   -0.074    0.004    0.792    0.092
+2026-09-23 04:09:52,377 INFO        head balaton  lead 5  prauc@20 0.092 / 0.096 / 0.069   bss@20 0.037  ece@20 0.002  spread 0.064 vs rmse 0.342
+2026-09-23 04:09:52,377 INFO    balaton        val        7   0.3622    0.446   -0.129    0.004    0.787    0.105
+2026-09-23 04:09:52,377 INFO        head balaton  lead 7  prauc@20 0.105 / 0.107 / 0.082   bss@20 0.041  ece@20 0.003  spread 0.067 vs rmse 0.362
+2026-09-23 04:09:52,379 INFO    victoria_ne    test       1   0.2471    0.219    0.174    0.420    0.937    0.645
+2026-09-23 04:09:52,379 INFO        head victoria_ne lead 1  prauc@20 0.645 / 0.662 / 0.611   bss@20 0.351  ece@20 0.032  spread 0.065 vs rmse 0.247
+2026-09-23 04:09:52,379 INFO    victoria_ne    test       3   0.2430    0.276    0.181    0.390    0.934    0.608
+2026-09-23 04:09:52,379 INFO        head victoria_ne lead 3  prauc@20 0.608 / 0.624 / 0.571   bss@20 0.310  ece@20 0.032  spread 0.079 vs rmse 0.243
+2026-09-23 04:09:52,379 INFO    victoria_ne    test       5   0.2548    0.246    0.117    0.390    0.934    0.591
+2026-09-23 04:09:52,379 INFO        head victoria_ne lead 5  prauc@20 0.591 / 0.609 / 0.545   bss@20 0.291  ece@20 0.031  spread 0.088 vs rmse 0.255
+2026-09-23 04:09:52,379 INFO    victoria_ne    test       7   0.2543    0.284    0.121    0.377    0.935    0.578
+2026-09-23 04:09:52,379 INFO        head victoria_ne lead 7  prauc@20 0.578 / 0.597 / 0.545   bss@20 0.294  ece@20 0.030  spread 0.090 vs rmse 0.254
+2026-09-23 04:09:52,379 INFO    wrote artifacts\eval_ens_met_cal\scores.json

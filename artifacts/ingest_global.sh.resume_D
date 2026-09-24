@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Resume of ingest job D (EUMETSAT 2016-05..2017-10, the 21 existing lakes) after it died at
+# utah_lake on 2026-09-24 19:16 (WinError 5 renaming utah_lake.zarr.tmp; store.py now retries).
+# The first 9 lakes (erie_west .. green_bay) finished and are not re-downloaded.
+# The filename deliberately contains "ingest_global.sh": run_global.sh waits while any process
+# matching that is alive, and needs artifacts/ingest_global_s3a_old.json before merging.
+set -u
+cd "$(dirname "$0")/.."
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+PY=.venv/Scripts/python.exe
+name=ingest_global_s3a_old
+echo "$(date -Is) start ${name} (resume from utah_lake)" >> artifacts/ingest_global.log
+$PY pipelines/ingest.py --aoi data/aoi/lakes_global.geojson --cube-root data/processed/cubes_global_s3a \
+    --source eumetsat-reprocessed --all-year --start 2016-05-01 --end 2017-10-31 --workers 5 \
+    --lakes utah_lake pontchartrain ijsselmeer curonian neagh chaohu poyang kasumigaura \
+            victoria_mwanza hartbeespoort alexandrina chapala \
+    --report artifacts/$name.json > artifacts/${name}_resume.out 2>&1
+rc=$?
+echo "$(date -Is) done ${name} (resume) exit=$rc" >> artifacts/ingest_global.log

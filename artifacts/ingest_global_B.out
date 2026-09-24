@@ -1,0 +1,954 @@
+14:03:52 INFO    ========================================================================
+14:03:52 INFO    dianchi -- Lake Dianchi (split=val, season=(5, 11))
+14:03:54 INFO    dianchi: 16 OLCI scenes between 2017-11-01 and 2017-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:08 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:08 INFO    dianchi 2017-11: 5 scenes -> 5 days (5 written)
+14:04:09 INFO    dianchi: 16 OLCI scenes between 2017-12-01 and 2017-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:14 INFO    dianchi: wrote 8 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:14 INFO    dianchi 2017-12: 8 scenes -> 8 days (8 written)
+14:04:14 INFO    dianchi: 1 OLCI scenes between 2018-01-01 and 2018-01-31
+14:04:15 INFO    dianchi: 0 OLCI scenes between 2018-02-01 and 2018-02-28
+14:04:15 INFO    dianchi: 1 OLCI scenes between 2018-03-01 and 2018-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:17 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:17 INFO    dianchi 2018-03: 1 scenes -> 1 days (1 written)
+14:04:17 INFO    dianchi: 6 OLCI scenes between 2018-04-01 and 2018-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:19 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:19 INFO    dianchi 2018-04: 4 scenes -> 4 days (4 written)
+14:04:19 INFO    dianchi: 13 OLCI scenes between 2018-05-01 and 2018-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:23 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:23 INFO    dianchi 2018-05: 4 scenes -> 4 days (4 written)
+14:04:23 INFO    dianchi: 15 OLCI scenes between 2018-06-01 and 2018-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:25 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:25 INFO    dianchi 2018-06: 1 scenes -> 1 days (1 written)
+14:04:25 INFO    dianchi: 15 OLCI scenes between 2018-07-01 and 2018-07-31
+14:04:27 INFO    dianchi: 16 OLCI scenes between 2018-08-01 and 2018-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:31 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:31 INFO    dianchi 2018-08: 3 scenes -> 3 days (3 written)
+14:04:31 INFO    dianchi: 16 OLCI scenes between 2018-09-01 and 2018-09-30
+14:04:33 INFO    dianchi: 16 OLCI scenes between 2018-10-01 and 2018-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:36 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:36 INFO    dianchi 2018-10: 4 scenes -> 4 days (4 written)
+14:04:36 INFO    dianchi: 15 OLCI scenes between 2018-11-01 and 2018-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:42 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:42 INFO    dianchi 2018-11: 7 scenes -> 7 days (7 written)
+14:04:42 INFO    dianchi: 16 OLCI scenes between 2018-12-01 and 2018-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:46 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:46 INFO    dianchi 2018-12: 4 scenes -> 4 days (4 written)
+14:04:46 INFO    dianchi: 16 OLCI scenes between 2019-01-01 and 2019-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:04:54 INFO    dianchi: wrote 11 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:04:54 INFO    dianchi 2019-01: 11 scenes -> 11 days (11 written)
+14:04:55 INFO    dianchi: 15 OLCI scenes between 2019-02-01 and 2019-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:05 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:05 INFO    dianchi 2019-02: 12 scenes -> 12 days (12 written)
+14:05:05 INFO    dianchi: 22 OLCI scenes between 2019-03-01 and 2019-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:12 INFO    dianchi: wrote 13 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:12 INFO    dianchi 2019-03: 13 scenes -> 13 days (13 written)
+14:05:12 INFO    dianchi: 30 OLCI scenes between 2019-04-01 and 2019-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:21 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:21 INFO    dianchi 2019-04: 12 scenes -> 12 days (12 written)
+14:05:21 INFO    dianchi: 32 OLCI scenes between 2019-05-01 and 2019-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:29 INFO    dianchi: wrote 15 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:29 INFO    dianchi 2019-05: 15 scenes -> 15 days (15 written)
+14:05:30 INFO    dianchi: 30 OLCI scenes between 2019-06-01 and 2019-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:38 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:38 INFO    dianchi 2019-06: 4 scenes -> 4 days (4 written)
+14:05:39 INFO    dianchi: 34 OLCI scenes between 2019-07-01 and 2019-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:45 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:45 INFO    dianchi 2019-07: 2 scenes -> 2 days (2 written)
+14:05:45 INFO    dianchi: 33 OLCI scenes between 2019-08-01 and 2019-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:05:53 INFO    dianchi: wrote 8 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:05:53 INFO    dianchi 2019-08: 8 scenes -> 8 days (8 written)
+14:05:54 INFO    dianchi: 32 OLCI scenes between 2019-09-01 and 2019-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:03 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:06:03 INFO    dianchi 2019-09: 7 scenes -> 7 days (7 written)
+14:06:03 INFO    dianchi: 33 OLCI scenes between 2019-10-01 and 2019-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:13 INFO    dianchi: wrote 8 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:06:13 INFO    dianchi 2019-10: 8 scenes -> 8 days (8 written)
+14:06:13 INFO    dianchi: 32 OLCI scenes between 2019-11-01 and 2019-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:22 INFO    dianchi: wrote 9 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:06:22 INFO    dianchi 2019-11: 9 scenes -> 9 days (9 written)
+14:06:22 INFO    dianchi: 32 OLCI scenes between 2019-12-01 and 2019-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:34 INFO    dianchi: wrote 21 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:06:34 INFO    dianchi 2019-12: 21 scenes -> 21 days (21 written)
+14:06:34 INFO    dianchi: 33 OLCI scenes between 2020-01-01 and 2020-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:54 INFO    dianchi: wrote 21 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:06:54 INFO    dianchi 2020-01: 21 scenes -> 21 days (21 written)
+14:06:54 INFO    dianchi: 32 OLCI scenes between 2020-02-01 and 2020-02-29
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:06 INFO    dianchi: wrote 17 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:06 INFO    dianchi 2020-02: 17 scenes -> 17 days (17 written)
+14:07:07 INFO    dianchi: 34 OLCI scenes between 2020-03-01 and 2020-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:18 INFO    dianchi: wrote 17 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:18 INFO    dianchi 2020-03: 17 scenes -> 17 days (17 written)
+14:07:18 INFO    dianchi: 31 OLCI scenes between 2020-04-01 and 2020-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:24 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:24 INFO    dianchi 2020-04: 5 scenes -> 5 days (5 written)
+14:07:25 INFO    dianchi: 33 OLCI scenes between 2020-05-01 and 2020-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:33 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:33 INFO    dianchi 2020-05: 12 scenes -> 12 days (12 written)
+14:07:34 INFO    dianchi: 32 OLCI scenes between 2020-06-01 and 2020-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:41 INFO    dianchi: wrote 6 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:41 INFO    dianchi 2020-06: 6 scenes -> 6 days (6 written)
+14:07:41 INFO    dianchi: 34 OLCI scenes between 2020-07-01 and 2020-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:47 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:47 INFO    dianchi 2020-07: 4 scenes -> 4 days (4 written)
+14:07:47 INFO    dianchi: 33 OLCI scenes between 2020-08-01 and 2020-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:07:59 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:07:59 INFO    dianchi 2020-08: 5 scenes -> 5 days (5 written)
+14:08:00 INFO    dianchi: 31 OLCI scenes between 2020-09-01 and 2020-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:06 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:06 INFO    dianchi 2020-09: 2 scenes -> 2 days (2 written)
+14:08:07 INFO    dianchi: 34 OLCI scenes between 2020-10-01 and 2020-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:13 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:13 INFO    dianchi 2020-10: 7 scenes -> 7 days (7 written)
+14:08:14 INFO    dianchi: 32 OLCI scenes between 2020-11-01 and 2020-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:24 INFO    dianchi: wrote 15 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:24 INFO    dianchi 2020-11: 15 scenes -> 15 days (15 written)
+14:08:25 INFO    dianchi: 33 OLCI scenes between 2020-12-01 and 2020-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:36 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:36 INFO    dianchi 2020-12: 13 scenes -> 12 days (12 written)
+14:08:36 INFO    dianchi: 33 OLCI scenes between 2021-01-01 and 2021-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:47 INFO    dianchi: wrote 17 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:47 INFO    dianchi 2021-01: 17 scenes -> 17 days (17 written)
+14:08:47 INFO    dianchi: 30 OLCI scenes between 2021-02-01 and 2021-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:08:58 INFO    dianchi: wrote 16 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:08:58 INFO    dianchi 2021-02: 18 scenes -> 16 days (16 written)
+14:08:58 INFO    dianchi: 33 OLCI scenes between 2021-03-01 and 2021-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:09 INFO    dianchi: wrote 20 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:09 INFO    dianchi 2021-03: 21 scenes -> 20 days (20 written)
+14:09:10 INFO    dianchi: 31 OLCI scenes between 2021-04-01 and 2021-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:19 INFO    dianchi: wrote 14 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:19 INFO    dianchi 2021-04: 14 scenes -> 14 days (14 written)
+14:09:20 INFO    dianchi: 32 OLCI scenes between 2021-05-01 and 2021-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:31 INFO    dianchi: wrote 14 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:31 INFO    dianchi 2021-05: 14 scenes -> 14 days (14 written)
+14:09:32 INFO    dianchi: 33 OLCI scenes between 2021-06-01 and 2021-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:39 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:39 INFO    dianchi 2021-06: 4 scenes -> 4 days (4 written)
+14:09:40 INFO    dianchi: 34 OLCI scenes between 2021-07-01 and 2021-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:46 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:46 INFO    dianchi 2021-07: 3 scenes -> 3 days (3 written)
+14:09:46 INFO    dianchi: 33 OLCI scenes between 2021-08-01 and 2021-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:09:53 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:09:53 INFO    dianchi 2021-08: 5 scenes -> 5 days (5 written)
+14:09:53 INFO    dianchi: 32 OLCI scenes between 2021-09-01 and 2021-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:04 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:04 INFO    dianchi 2021-09: 5 scenes -> 5 days (5 written)
+14:10:04 INFO    dianchi: 33 OLCI scenes between 2021-10-01 and 2021-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:11 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:11 INFO    dianchi 2021-10: 5 scenes -> 5 days (5 written)
+14:10:11 INFO    dianchi: 33 OLCI scenes between 2021-11-01 and 2021-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:25 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:25 INFO    dianchi 2021-11: 14 scenes -> 12 days (12 written)
+14:10:25 INFO    dianchi: 33 OLCI scenes between 2021-12-01 and 2021-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:31 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:31 INFO    dianchi 2021-12: 12 scenes -> 12 days (12 written)
+14:10:32 INFO    dianchi: 33 OLCI scenes between 2022-01-01 and 2022-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:42 INFO    dianchi: wrote 17 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:42 INFO    dianchi 2022-01: 19 scenes -> 17 days (17 written)
+14:10:43 INFO    dianchi: 30 OLCI scenes between 2022-02-01 and 2022-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:10:54 INFO    dianchi: wrote 18 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:10:54 INFO    dianchi 2022-02: 19 scenes -> 18 days (18 written)
+14:10:54 INFO    dianchi: 34 OLCI scenes between 2022-03-01 and 2022-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:07 INFO    dianchi: wrote 21 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:07 INFO    dianchi 2022-03: 21 scenes -> 21 days (21 written)
+14:11:08 INFO    dianchi: 32 OLCI scenes between 2022-04-01 and 2022-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:17 INFO    dianchi: wrote 12 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:17 INFO    dianchi 2022-04: 12 scenes -> 12 days (12 written)
+14:11:18 INFO    dianchi: 33 OLCI scenes between 2022-05-01 and 2022-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:27 INFO    dianchi: wrote 6 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:27 INFO    dianchi 2022-05: 6 scenes -> 6 days (6 written)
+14:11:28 INFO    dianchi: 32 OLCI scenes between 2022-06-01 and 2022-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:33 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:33 INFO    dianchi 2022-06: 2 scenes -> 2 days (2 written)
+14:11:34 INFO    dianchi: 34 OLCI scenes between 2022-07-01 and 2022-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:43 INFO    dianchi: wrote 10 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:43 INFO    dianchi 2022-07: 10 scenes -> 10 days (10 written)
+14:11:43 INFO    dianchi: 32 OLCI scenes between 2022-08-01 and 2022-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:49 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:49 INFO    dianchi 2022-08: 4 scenes -> 4 days (4 written)
+14:11:50 INFO    dianchi: 30 OLCI scenes between 2022-09-01 and 2022-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:56 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:11:56 INFO    dianchi 2022-09: 4 scenes -> 4 days (4 written)
+14:11:57 INFO    dianchi: 34 OLCI scenes between 2022-10-01 and 2022-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:12:05 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:12:05 INFO    dianchi 2022-10: 7 scenes -> 7 days (7 written)
+14:12:05 INFO    dianchi: 32 OLCI scenes between 2022-11-01 and 2022-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:12:21 INFO    dianchi: wrote 27 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:12:21 INFO    dianchi 2022-11: 30 scenes -> 27 days (27 written)
+14:12:22 INFO    dianchi: 32 OLCI scenes between 2022-12-01 and 2022-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:12:31 INFO    dianchi: wrote 15 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:12:31 INFO    dianchi 2022-12: 16 scenes -> 15 days (15 written)
+14:12:32 INFO    dianchi: 33 OLCI scenes between 2023-01-01 and 2023-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:12:43 INFO    dianchi: wrote 21 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:12:43 INFO    dianchi 2023-01: 23 scenes -> 21 days (21 written)
+14:12:44 INFO    dianchi: 30 OLCI scenes between 2023-02-01 and 2023-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:12:54 INFO    dianchi: wrote 15 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:12:54 INFO    dianchi 2023-02: 17 scenes -> 15 days (15 written)
+14:12:55 INFO    dianchi: 34 OLCI scenes between 2023-03-01 and 2023-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:06 INFO    dianchi: wrote 14 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:06 INFO    dianchi 2023-03: 14 scenes -> 14 days (14 written)
+14:13:06 INFO    dianchi: 43 OLCI scenes between 2023-04-01 and 2023-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:18 INFO    dianchi: wrote 16 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:18 INFO    dianchi 2023-04: 16 scenes -> 16 days (16 written)
+14:13:18 INFO    dianchi: 52 OLCI scenes between 2023-05-01 and 2023-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:30 INFO    dianchi: wrote 14 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:30 INFO    dianchi 2023-05: 14 scenes -> 14 days (14 written)
+14:13:30 INFO    dianchi: 32 OLCI scenes between 2023-06-01 and 2023-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:38 INFO    dianchi: wrote 5 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:38 INFO    dianchi 2023-06: 5 scenes -> 5 days (5 written)
+14:13:38 INFO    dianchi: 12 OLCI scenes between 2023-07-01 and 2023-07-31
+14:13:41 INFO    dianchi: 4 OLCI scenes between 2023-08-01 and 2023-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:44 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:44 INFO    dianchi 2023-08: 1 scenes -> 1 days (1 written)
+14:13:44 INFO    dianchi: 5 OLCI scenes between 2023-09-01 and 2023-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:47 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:47 INFO    dianchi 2023-09: 1 scenes -> 1 days (1 written)
+14:13:47 INFO    dianchi: 9 OLCI scenes between 2023-10-01 and 2023-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:51 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:51 INFO    dianchi 2023-10: 3 scenes -> 3 days (3 written)
+14:13:51 INFO    dianchi: 13 OLCI scenes between 2023-11-01 and 2023-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:13:56 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:13:56 INFO    dianchi 2023-11: 8 scenes -> 7 days (7 written)
+14:13:56 INFO    dianchi: 11 OLCI scenes between 2023-12-01 and 2023-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:00 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:00 INFO    dianchi 2023-12: 2 scenes -> 2 days (2 written)
+14:14:00 INFO    dianchi: 12 OLCI scenes between 2024-01-01 and 2024-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:08 INFO    dianchi: wrote 6 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:08 INFO    dianchi 2024-01: 7 scenes -> 6 days (6 written)
+14:14:08 INFO    dianchi: 4 OLCI scenes between 2024-02-01 and 2024-02-29
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:16 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:16 INFO    dianchi 2024-02: 2 scenes -> 2 days (2 written)
+14:14:16 INFO    dianchi: 5 OLCI scenes between 2024-03-01 and 2024-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:20 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:20 INFO    dianchi 2024-03: 3 scenes -> 3 days (3 written)
+14:14:20 INFO    dianchi: 18 OLCI scenes between 2024-04-01 and 2024-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:31 INFO    dianchi: wrote 9 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:31 INFO    dianchi 2024-04: 9 scenes -> 9 days (9 written)
+14:14:32 INFO    dianchi: 10 OLCI scenes between 2024-05-01 and 2024-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:35 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:35 INFO    dianchi 2024-05: 3 scenes -> 3 days (3 written)
+14:14:35 INFO    dianchi: 7 OLCI scenes between 2024-06-01 and 2024-06-30
+14:14:37 INFO    dianchi: 6 OLCI scenes between 2024-07-01 and 2024-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:39 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:14:39 INFO    dianchi 2024-07: 1 scenes -> 1 days (1 written)
+14:14:39 INFO    dianchi: 13 OLCI scenes between 2024-08-01 and 2024-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:00 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:00 INFO    dianchi 2024-08: 4 scenes -> 4 days (4 written)
+14:15:01 INFO    dianchi: 11 OLCI scenes between 2024-09-01 and 2024-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:03 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:03 INFO    dianchi 2024-09: 2 scenes -> 2 days (2 written)
+14:15:03 INFO    dianchi: 10 OLCI scenes between 2024-10-01 and 2024-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:06 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:06 INFO    dianchi 2024-10: 2 scenes -> 2 days (2 written)
+14:15:06 INFO    dianchi: 13 OLCI scenes between 2024-11-01 and 2024-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:09 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:09 INFO    dianchi 2024-11: 3 scenes -> 3 days (3 written)
+14:15:09 INFO    dianchi: 10 OLCI scenes between 2024-12-01 and 2024-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:14 INFO    dianchi: wrote 7 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:14 INFO    dianchi 2024-12: 7 scenes -> 7 days (7 written)
+14:15:14 INFO    dianchi: 8 OLCI scenes between 2025-01-01 and 2025-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:19 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:19 INFO    dianchi 2025-01: 4 scenes -> 4 days (4 written)
+14:15:19 INFO    dianchi: 5 OLCI scenes between 2025-02-01 and 2025-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:23 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:23 INFO    dianchi 2025-02: 2 scenes -> 2 days (2 written)
+14:15:23 INFO    dianchi: 14 OLCI scenes between 2025-03-01 and 2025-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:27 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:27 INFO    dianchi 2025-03: 4 scenes -> 4 days (4 written)
+14:15:28 INFO    dianchi: 8 OLCI scenes between 2025-04-01 and 2025-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:31 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:31 INFO    dianchi 2025-04: 1 scenes -> 1 days (1 written)
+14:15:31 INFO    dianchi: 7 OLCI scenes between 2025-05-01 and 2025-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:35 INFO    dianchi: wrote 3 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:35 INFO    dianchi 2025-05: 3 scenes -> 3 days (3 written)
+14:15:35 INFO    dianchi: 10 OLCI scenes between 2025-06-01 and 2025-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:38 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:38 INFO    dianchi 2025-06: 1 scenes -> 1 days (1 written)
+14:15:39 INFO    dianchi: 6 OLCI scenes between 2025-07-01 and 2025-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:41 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:41 INFO    dianchi 2025-07: 1 scenes -> 1 days (1 written)
+14:15:41 INFO    dianchi: 5 OLCI scenes between 2025-08-01 and 2025-08-31
+14:15:42 INFO    dianchi: 7 OLCI scenes between 2025-09-01 and 2025-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:44 INFO    dianchi: wrote 1 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:44 INFO    dianchi 2025-09: 1 scenes -> 1 days (1 written)
+14:15:45 INFO    dianchi: 7 OLCI scenes between 2025-10-01 and 2025-10-31
+14:15:46 INFO    dianchi: 9 OLCI scenes between 2025-11-01 and 2025-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:49 INFO    dianchi: wrote 4 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:49 INFO    dianchi 2025-11: 4 scenes -> 4 days (4 written)
+14:15:49 INFO    dianchi: 11 OLCI scenes between 2025-12-01 and 2025-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:15:54 INFO    dianchi: wrote 6 new daily frames to data\processed\cubes_global_new\dianchi.zarr
+14:15:54 INFO    dianchi 2025-12: 6 scenes -> 6 days (6 written)
+14:15:55 INFO    dianchi: 743/2167 scenes read (1424 low-coverage, 0 failed) -> 724 daily frames
+14:15:55 INFO    dianchi finished in 12.0 min
+14:15:55 INFO    ========================================================================
+14:15:55 INFO    geneva -- Lake Geneva (split=val, season=(6, 10))
+14:15:55 INFO    geneva: 23 OLCI scenes between 2017-11-01 and 2017-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:16:08 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:16:08 INFO    geneva 2017-11: 7 scenes -> 7 days (7 written)
+14:16:08 INFO    geneva: 23 OLCI scenes between 2017-12-01 and 2017-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:16:11 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:16:11 INFO    geneva 2017-12: 1 scenes -> 1 days (1 written)
+14:16:11 INFO    geneva: 2 OLCI scenes between 2018-01-01 and 2018-01-31
+14:16:12 INFO    geneva: 0 OLCI scenes between 2018-02-01 and 2018-02-28
+14:16:12 INFO    geneva: 1 OLCI scenes between 2018-03-01 and 2018-03-31
+14:16:13 INFO    geneva: 7 OLCI scenes between 2018-04-01 and 2018-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:16:15 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:16:15 INFO    geneva 2018-04: 2 scenes -> 2 days (2 written)
+14:16:16 INFO    geneva: 16 OLCI scenes between 2018-05-01 and 2018-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:16:20 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:16:20 INFO    geneva 2018-05: 7 scenes -> 7 days (7 written)
+14:16:21 INFO    geneva: 23 OLCI scenes between 2018-06-01 and 2018-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:16:27 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:16:27 INFO    geneva 2018-06: 11 scenes -> 11 days (11 written)
+14:16:27 INFO    geneva: 23 OLCI scenes between 2018-07-01 and 2018-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:00 INFO    geneva: wrote 14 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:00 INFO    geneva 2018-07: 14 scenes -> 14 days (14 written)
+14:17:00 INFO    geneva: 23 OLCI scenes between 2018-08-01 and 2018-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:21 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:21 INFO    geneva 2018-08: 11 scenes -> 11 days (11 written)
+14:17:21 INFO    geneva: 22 OLCI scenes between 2018-09-01 and 2018-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:28 INFO    geneva: wrote 14 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:28 INFO    geneva 2018-09: 14 scenes -> 14 days (14 written)
+14:17:29 INFO    geneva: 23 OLCI scenes between 2018-10-01 and 2018-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:35 INFO    geneva: wrote 10 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:35 INFO    geneva 2018-10: 10 scenes -> 10 days (10 written)
+14:17:36 INFO    geneva: 22 OLCI scenes between 2018-11-01 and 2018-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:40 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:40 INFO    geneva 2018-11: 1 scenes -> 1 days (1 written)
+14:17:41 INFO    geneva: 23 OLCI scenes between 2018-12-01 and 2018-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:45 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:45 INFO    geneva 2018-12: 2 scenes -> 2 days (2 written)
+14:17:45 INFO    geneva: 23 OLCI scenes between 2019-01-01 and 2019-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:49 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:49 INFO    geneva 2019-01: 4 scenes -> 4 days (4 written)
+14:17:50 INFO    geneva: 21 OLCI scenes between 2019-02-01 and 2019-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:17:55 INFO    geneva: wrote 6 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:17:55 INFO    geneva 2019-02: 6 scenes -> 6 days (6 written)
+14:17:56 INFO    geneva: 30 OLCI scenes between 2019-03-01 and 2019-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:18:11 INFO    geneva: wrote 13 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:18:11 INFO    geneva 2019-03: 15 scenes -> 13 days (13 written)
+14:18:11 INFO    geneva: 39 OLCI scenes between 2019-04-01 and 2019-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:18:32 INFO    geneva: wrote 13 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:18:32 INFO    geneva 2019-04: 16 scenes -> 13 days (13 written)
+14:18:32 INFO    geneva: 45 OLCI scenes between 2019-05-01 and 2019-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:18:44 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:18:44 INFO    geneva 2019-05: 12 scenes -> 11 days (11 written)
+14:18:44 INFO    geneva: 42 OLCI scenes between 2019-06-01 and 2019-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:18:58 INFO    geneva: wrote 15 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:18:58 INFO    geneva 2019-06: 17 scenes -> 15 days (15 written)
+14:18:59 INFO    geneva: 43 OLCI scenes between 2019-07-01 and 2019-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:19:09 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:19:09 INFO    geneva 2019-07: 18 scenes -> 17 days (17 written)
+14:19:10 INFO    geneva: 46 OLCI scenes between 2019-08-01 and 2019-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:19:27 INFO    geneva: wrote 18 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:19:27 INFO    geneva 2019-08: 18 scenes -> 18 days (18 written)
+14:19:27 INFO    geneva: 43 OLCI scenes between 2019-09-01 and 2019-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:19:42 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:19:42 INFO    geneva 2019-09: 21 scenes -> 17 days (17 written)
+14:19:42 INFO    geneva: 46 OLCI scenes between 2019-10-01 and 2019-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:19:55 INFO    geneva: wrote 9 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:19:55 INFO    geneva 2019-10: 10 scenes -> 9 days (9 written)
+14:19:56 INFO    geneva: 44 OLCI scenes between 2019-11-01 and 2019-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:20:06 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:20:06 INFO    geneva 2019-11: 4 scenes -> 3 days (3 written)
+14:20:06 INFO    geneva: 46 OLCI scenes between 2019-12-01 and 2019-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:20:16 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:20:16 INFO    geneva 2019-12: 1 scenes -> 1 days (1 written)
+14:20:17 INFO    geneva: 45 OLCI scenes between 2020-01-01 and 2020-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:20:29 INFO    geneva: wrote 14 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:20:29 INFO    geneva 2020-01: 15 scenes -> 14 days (14 written)
+14:20:29 INFO    geneva: 43 OLCI scenes between 2020-02-01 and 2020-02-29
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:20:42 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:20:42 INFO    geneva 2020-02: 15 scenes -> 11 days (11 written)
+14:20:43 INFO    geneva: 46 OLCI scenes between 2020-03-01 and 2020-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:20:59 INFO    geneva: wrote 19 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:20:59 INFO    geneva 2020-03: 22 scenes -> 19 days (19 written)
+14:21:00 INFO    geneva: 45 OLCI scenes between 2020-04-01 and 2020-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:21:23 INFO    geneva: wrote 22 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:21:23 INFO    geneva 2020-04: 28 scenes -> 22 days (22 written)
+14:21:24 INFO    geneva: 44 OLCI scenes between 2020-05-01 and 2020-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:21:39 INFO    geneva: wrote 15 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:21:39 INFO    geneva 2020-05: 16 scenes -> 15 days (15 written)
+14:21:40 INFO    geneva: 45 OLCI scenes between 2020-06-01 and 2020-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:21:55 INFO    geneva: wrote 16 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:21:55 INFO    geneva 2020-06: 17 scenes -> 16 days (16 written)
+14:21:56 INFO    geneva: 46 OLCI scenes between 2020-07-01 and 2020-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:22:11 INFO    geneva: wrote 19 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:22:11 INFO    geneva 2020-07: 19 scenes -> 19 days (19 written)
+14:22:12 INFO    geneva: 46 OLCI scenes between 2020-08-01 and 2020-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:22:28 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:22:28 INFO    geneva 2020-08: 20 scenes -> 17 days (17 written)
+14:22:28 INFO    geneva: 44 OLCI scenes between 2020-09-01 and 2020-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:22:44 INFO    geneva: wrote 19 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:22:44 INFO    geneva 2020-09: 24 scenes -> 19 days (19 written)
+14:22:44 INFO    geneva: 46 OLCI scenes between 2020-10-01 and 2020-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:23:00 INFO    geneva: wrote 6 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:23:00 INFO    geneva 2020-10: 9 scenes -> 6 days (6 written)
+14:23:01 INFO    geneva: 44 OLCI scenes between 2020-11-01 and 2020-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:23:15 INFO    geneva: wrote 9 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:23:15 INFO    geneva 2020-11: 11 scenes -> 9 days (9 written)
+14:23:16 INFO    geneva: 46 OLCI scenes between 2020-12-01 and 2020-12-31
+14:23:23 INFO    geneva: 46 OLCI scenes between 2021-01-01 and 2021-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:23:32 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:23:32 INFO    geneva 2021-01: 3 scenes -> 3 days (3 written)
+14:23:32 INFO    geneva: 42 OLCI scenes between 2021-02-01 and 2021-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:23:46 INFO    geneva: wrote 10 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:23:46 INFO    geneva 2021-02: 12 scenes -> 10 days (10 written)
+14:23:46 INFO    geneva: 45 OLCI scenes between 2021-03-01 and 2021-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:24:09 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:24:09 INFO    geneva 2021-03: 23 scenes -> 17 days (17 written)
+14:24:09 INFO    geneva: 44 OLCI scenes between 2021-04-01 and 2021-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:24:35 INFO    geneva: wrote 22 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:24:35 INFO    geneva 2021-04: 24 scenes -> 22 days (22 written)
+14:24:36 INFO    geneva: 43 OLCI scenes between 2021-05-01 and 2021-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:24:47 INFO    geneva: wrote 10 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:24:47 INFO    geneva 2021-05: 10 scenes -> 10 days (10 written)
+14:24:48 INFO    geneva: 44 OLCI scenes between 2021-06-01 and 2021-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:25:02 INFO    geneva: wrote 15 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:25:02 INFO    geneva 2021-06: 16 scenes -> 15 days (15 written)
+14:25:02 INFO    geneva: 46 OLCI scenes between 2021-07-01 and 2021-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:25:17 INFO    geneva: wrote 12 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:25:17 INFO    geneva 2021-07: 15 scenes -> 12 days (12 written)
+14:25:17 INFO    geneva: 46 OLCI scenes between 2021-08-01 and 2021-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:25:40 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:25:40 INFO    geneva 2021-08: 17 scenes -> 17 days (17 written)
+14:25:40 INFO    geneva: 45 OLCI scenes between 2021-09-01 and 2021-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:25:54 INFO    geneva: wrote 13 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:25:54 INFO    geneva 2021-09: 17 scenes -> 13 days (13 written)
+14:25:55 INFO    geneva: 46 OLCI scenes between 2021-10-01 and 2021-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:26:09 INFO    geneva: wrote 17 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:26:09 INFO    geneva 2021-10: 21 scenes -> 17 days (17 written)
+14:26:10 INFO    geneva: 44 OLCI scenes between 2021-11-01 and 2021-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:26:18 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:26:18 INFO    geneva 2021-11: 5 scenes -> 4 days (4 written)
+14:26:18 INFO    geneva: 46 OLCI scenes between 2021-12-01 and 2021-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:26:26 INFO    geneva: wrote 5 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:26:26 INFO    geneva 2021-12: 6 scenes -> 5 days (5 written)
+14:26:26 INFO    geneva: 46 OLCI scenes between 2022-01-01 and 2022-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:26:44 INFO    geneva: wrote 13 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:26:44 INFO    geneva 2022-01: 16 scenes -> 13 days (13 written)
+14:26:45 INFO    geneva: 41 OLCI scenes between 2022-02-01 and 2022-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:26:56 INFO    geneva: wrote 14 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:26:56 INFO    geneva 2022-02: 17 scenes -> 14 days (14 written)
+14:26:56 INFO    geneva: 44 OLCI scenes between 2022-03-01 and 2022-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:27:12 INFO    geneva: wrote 20 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:27:12 INFO    geneva 2022-03: 25 scenes -> 20 days (20 written)
+14:27:13 INFO    geneva: 45 OLCI scenes between 2022-04-01 and 2022-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:27:29 INFO    geneva: wrote 16 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:27:29 INFO    geneva 2022-04: 19 scenes -> 16 days (16 written)
+14:27:30 INFO    geneva: 46 OLCI scenes between 2022-05-01 and 2022-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:27:46 INFO    geneva: wrote 18 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:27:46 INFO    geneva 2022-05: 20 scenes -> 18 days (18 written)
+14:27:46 INFO    geneva: 44 OLCI scenes between 2022-06-01 and 2022-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:28:02 INFO    geneva: wrote 15 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:28:02 INFO    geneva 2022-06: 17 scenes -> 15 days (15 written)
+14:28:03 INFO    geneva: 46 OLCI scenes between 2022-07-01 and 2022-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:28:21 INFO    geneva: wrote 22 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:28:21 INFO    geneva 2022-07: 24 scenes -> 22 days (22 written)
+14:28:22 INFO    geneva: 45 OLCI scenes between 2022-08-01 and 2022-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:28:38 INFO    geneva: wrote 18 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:28:38 INFO    geneva 2022-08: 19 scenes -> 18 days (18 written)
+14:28:38 INFO    geneva: 41 OLCI scenes between 2022-09-01 and 2022-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:28:52 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:28:52 INFO    geneva 2022-09: 13 scenes -> 11 days (11 written)
+14:28:53 INFO    geneva: 46 OLCI scenes between 2022-10-01 and 2022-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:29:12 INFO    geneva: wrote 16 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:29:12 INFO    geneva 2022-10: 22 scenes -> 16 days (16 written)
+14:29:12 INFO    geneva: 43 OLCI scenes between 2022-11-01 and 2022-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:29:26 INFO    geneva: wrote 6 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:29:26 INFO    geneva 2022-11: 7 scenes -> 6 days (6 written)
+14:29:27 INFO    geneva: 46 OLCI scenes between 2022-12-01 and 2022-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:29:37 INFO    geneva: wrote 5 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:29:37 INFO    geneva 2022-12: 7 scenes -> 5 days (5 written)
+14:29:38 INFO    geneva: 46 OLCI scenes between 2023-01-01 and 2023-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:29:48 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:29:48 INFO    geneva 2023-01: 8 scenes -> 7 days (7 written)
+14:29:48 INFO    geneva: 41 OLCI scenes between 2023-02-01 and 2023-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:30:02 INFO    geneva: wrote 18 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:30:02 INFO    geneva 2023-02: 22 scenes -> 18 days (18 written)
+14:30:03 INFO    geneva: 46 OLCI scenes between 2023-03-01 and 2023-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:30:16 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:30:16 INFO    geneva 2023-03: 11 scenes -> 7 days (7 written)
+14:30:17 INFO    geneva: 57 OLCI scenes between 2023-04-01 and 2023-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:30:28 INFO    geneva: wrote 10 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:30:28 INFO    geneva 2023-04: 10 scenes -> 10 days (10 written)
+14:30:29 INFO    geneva: 64 OLCI scenes between 2023-05-01 and 2023-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:30:43 INFO    geneva: wrote 10 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:30:43 INFO    geneva 2023-05: 12 scenes -> 10 days (10 written)
+14:30:43 INFO    geneva: 44 OLCI scenes between 2023-06-01 and 2023-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:24 INFO    geneva: wrote 19 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:24 INFO    geneva 2023-06: 19 scenes -> 19 days (19 written)
+14:31:24 INFO    geneva: 17 OLCI scenes between 2023-07-01 and 2023-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:28 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:28 INFO    geneva 2023-07: 2 scenes -> 2 days (2 written)
+14:31:28 INFO    geneva: 12 OLCI scenes between 2023-08-01 and 2023-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:32 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:32 INFO    geneva 2023-08: 3 scenes -> 3 days (3 written)
+14:31:33 INFO    geneva: 6 OLCI scenes between 2023-09-01 and 2023-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:40 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:40 INFO    geneva 2023-09: 4 scenes -> 4 days (4 written)
+14:31:40 INFO    geneva: 12 OLCI scenes between 2023-10-01 and 2023-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:45 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:45 INFO    geneva 2023-10: 3 scenes -> 3 days (3 written)
+14:31:45 INFO    geneva: 7 OLCI scenes between 2023-11-01 and 2023-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:49 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:49 INFO    geneva 2023-11: 2 scenes -> 2 days (2 written)
+14:31:49 INFO    geneva: 18 OLCI scenes between 2023-12-01 and 2023-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:54 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:54 INFO    geneva 2023-12: 3 scenes -> 3 days (3 written)
+14:31:55 INFO    geneva: 10 OLCI scenes between 2024-01-01 and 2024-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:57 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:31:57 INFO    geneva 2024-01: 1 scenes -> 1 days (1 written)
+14:31:58 INFO    geneva: 9 OLCI scenes between 2024-02-01 and 2024-02-29
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:01 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:01 INFO    geneva 2024-02: 3 scenes -> 3 days (3 written)
+14:32:01 INFO    geneva: 15 OLCI scenes between 2024-03-01 and 2024-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:07 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:07 INFO    geneva 2024-03: 4 scenes -> 4 days (4 written)
+14:32:07 INFO    geneva: 28 OLCI scenes between 2024-04-01 and 2024-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:15 INFO    geneva: wrote 8 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:15 INFO    geneva 2024-04: 8 scenes -> 8 days (8 written)
+14:32:15 INFO    geneva: 12 OLCI scenes between 2024-05-01 and 2024-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:18 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:18 INFO    geneva 2024-05: 2 scenes -> 2 days (2 written)
+14:32:18 INFO    geneva: 14 OLCI scenes between 2024-06-01 and 2024-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:22 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:22 INFO    geneva 2024-06: 4 scenes -> 4 days (4 written)
+14:32:22 INFO    geneva: 15 OLCI scenes between 2024-07-01 and 2024-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:27 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:27 INFO    geneva 2024-07: 7 scenes -> 7 days (7 written)
+14:32:27 INFO    geneva: 16 OLCI scenes between 2024-08-01 and 2024-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:32 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:32 INFO    geneva 2024-08: 8 scenes -> 7 days (7 written)
+14:32:33 INFO    geneva: 10 OLCI scenes between 2024-09-01 and 2024-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:36 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:36 INFO    geneva 2024-09: 3 scenes -> 3 days (3 written)
+14:32:37 INFO    geneva: 14 OLCI scenes between 2024-10-01 and 2024-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:43 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:43 INFO    geneva 2024-10: 1 scenes -> 1 days (1 written)
+14:32:44 INFO    geneva: 18 OLCI scenes between 2024-11-01 and 2024-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:48 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:48 INFO    geneva 2024-11: 4 scenes -> 4 days (4 written)
+14:32:49 INFO    geneva: 14 OLCI scenes between 2024-12-01 and 2024-12-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:32:54 INFO    geneva: wrote 1 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:32:54 INFO    geneva 2024-12: 1 scenes -> 1 days (1 written)
+14:32:54 INFO    geneva: 13 OLCI scenes between 2025-01-01 and 2025-01-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:00 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:00 INFO    geneva 2025-01: 3 scenes -> 3 days (3 written)
+14:33:01 INFO    geneva: 12 OLCI scenes between 2025-02-01 and 2025-02-28
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:05 INFO    geneva: wrote 2 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:05 INFO    geneva 2025-02: 2 scenes -> 2 days (2 written)
+14:33:05 INFO    geneva: 23 OLCI scenes between 2025-03-01 and 2025-03-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:19 INFO    geneva: wrote 12 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:19 INFO    geneva 2025-03: 13 scenes -> 12 days (12 written)
+14:33:19 INFO    geneva: 9 OLCI scenes between 2025-04-01 and 2025-04-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:24 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:24 INFO    geneva 2025-04: 5 scenes -> 4 days (4 written)
+14:33:24 INFO    geneva: 13 OLCI scenes between 2025-05-01 and 2025-05-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:32 INFO    geneva: wrote 7 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:32 INFO    geneva 2025-05: 7 scenes -> 7 days (7 written)
+14:33:32 INFO    geneva: 13 OLCI scenes between 2025-06-01 and 2025-06-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:37 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:37 INFO    geneva 2025-06: 3 scenes -> 3 days (3 written)
+14:33:38 INFO    geneva: 10 OLCI scenes between 2025-07-01 and 2025-07-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:43 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:43 INFO    geneva 2025-07: 3 scenes -> 3 days (3 written)
+14:33:43 INFO    geneva: 9 OLCI scenes between 2025-08-01 and 2025-08-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:47 INFO    geneva: wrote 3 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:47 INFO    geneva 2025-08: 3 scenes -> 3 days (3 written)
+14:33:47 INFO    geneva: 11 OLCI scenes between 2025-09-01 and 2025-09-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:52 INFO    geneva: wrote 6 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:52 INFO    geneva 2025-09: 6 scenes -> 6 days (6 written)
+14:33:52 INFO    geneva: 11 OLCI scenes between 2025-10-01 and 2025-10-31
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:33:56 INFO    geneva: wrote 4 new daily frames to data\processed\cubes_global_new\geneva.zarr
+14:33:56 INFO    geneva 2025-10: 4 scenes -> 4 days (4 written)
+14:33:57 INFO    geneva: 12 OLCI scenes between 2025-11-01 and 2025-11-30
+14:33:59 INFO    geneva: 12 OLCI scenes between 2025-12-01 and 2025-12-31
+14:34:03 INFO    geneva: 987/3002 scenes read (2015 low-coverage, 0 failed) -> 873 daily frames
+14:34:03 INFO    geneva finished in 18.1 min
+14:34:03 INFO    ========================================================================
+14:34:03 INFO    hongze -- Hongze Lake (split=train, season=(5, 10))
+14:34:04 INFO    hongze: 17 OLCI scenes between 2017-11-01 and 2017-11-30
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+Traceback (most recent call last):
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 187, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 124, in main
+    rep = ingest_lake(
+          ^^^^^^^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\ingest.py", line 201, in ingest_lake
+    written = cube.write(frames)
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\store.py", line 257, in write
+    self._write_fresh(ds.chunk(chunks))
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\store.py", line 378, in _write_fresh
+    tmp.rename(self.path)
+  File "C:\Users\shara\miniforge3\envs\lidar\Lib\pathlib.py", line 1175, in rename
+    os.rename(self, target)
+PermissionError: [WinError 5] Access is denied: 'data\\processed\\cubes_global_new\\hongze.zarr.tmp' -> 'data\\processed\\cubes_global_new\\hongze.zarr'

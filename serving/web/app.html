@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Bloom Watch</title>
+<meta name="description" content="Short-range cyanobacterial bloom forecasts for any lake, reservoir or coastal bay, from Sentinel-3 OLCI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/static/app.css">
+<style>
+  /* Vector styling lives with the page rather than in map.js: these are choices about
+     how the *application* looks, not about how a map works. */
+  .aoi { fill: color-mix(in srgb, var(--accent) 16%, transparent); stroke: var(--accent);
+         stroke-width: 2; stroke-dasharray: 7 5; }
+  /* Only `.aoi-grab` takes pointer events, and it is applied by the tool rather than by
+     the shape: a filled area of interest that always swallowed clicks would make the
+     inspect tool useless in exactly the place there is something to inspect. */
+  .aoi-grab { pointer-events: auto; cursor: move; }
+  .aoi-pin { fill: var(--accent); stroke: #fff; stroke-width: 2; }
+  .aoi-vertex { fill: var(--accent); stroke: #fff; stroke-width: 1.6; }
+  .measure-line { fill: none; stroke: #f0b428; stroke-width: 2.5; stroke-linejoin: round;
+                  stroke-linecap: round; }
+  .measure-pt { fill: #f0b428; stroke: #241a05; stroke-width: 1.5; }
+  .grat { stroke: var(--grat); stroke-width: 1; stroke-dasharray: 4 5; fill: none; }
+  .grat-txt { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10px;
+              fill: var(--grat-ink); }
+  .probe-ring { fill: none; stroke: #fff; stroke-width: 3.4; }
+  .probe-ring-in { fill: none; stroke: #10222a; stroke-width: 1.5; }
+  .vlabel { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+            fill: var(--text); text-anchor: middle; dominant-baseline: middle;
+            font-variant-numeric: tabular-nums; }
+  .vlabel-bg { fill: var(--panel-solid); stroke: var(--line); opacity: .93; }
+  .vlabel.total { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<input type="file" id="geomfile" accept=".geojson,.json,.kml,.kmz,.zip,application/geo+json,application/vnd.google-earth.kml+xml,application/zip" hidden>
+
+<div id="map" role="application" aria-label="Interactive world map. Arrow keys pan, plus and minus zoom."></div>
+
+<!-- ------------------------------------------------------------------ top bar -- -->
+<div class="topbar">
+  <div class="brand panel">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div class="brand-txt">
+      <b>Bloom Watch</b>
+    </div>
+  </div>
+
+  <div class="search">
+    <div class="search-in panel">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/>
+      </svg>
+      <input id="q" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Search a lake, or paste 41.75, -83.3"
+             aria-label="Search for a water body or enter coordinates">
+    </div>
+    <div class="hits panel" id="hits" role="listbox" aria-label="Search results"></div>
+  </div>
+</div>
+
+
+<!-- ------------------------------------------------- validation sites sidebar -- -->
+<!-- Water bodies where somebody has put a bottle in the water. The list is the answer to
+     "where can I check this model against reality", so it is ordered by how much has been
+     measured, and the lakes the model was actually built on come first. -->
+<button class="sites-tab panel" id="sites-toggle" aria-expanded="false" aria-controls="sites"
+        title="Water bodies with field data (S)">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M3 6h13M3 12h13M3 18h9"/><circle cx="20" cy="6" r="1.6" fill="currentColor" stroke="none"/>
+  </svg>
+  <span>Field data</span>
+</button>
+
+<aside class="sites panel" id="sites" hidden aria-label="Water bodies with field data">
+  <div class="sites-head">
+    <h2>Field data available</h2>
+    <button class="iconbtn" id="sites-close" aria-label="Close the list">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="sites-filter">
+    <input id="sites-q" type="text" autocomplete="off" spellcheck="false"
+           placeholder="Filter by name" aria-label="Filter the list of water bodies">
+  </div>
+  <p class="sites-note" id="sites-note">Loading…</p>
+  <div class="sites-list" id="sites-list" role="listbox" aria-label="Water bodies"></div>
+  <p class="sites-foot">
+    In-situ measurements from GLORIA (PANGAEA, CC-BY 4.0) and the US EPA Water Quality
+    Portal. <a href="/docs#/app/insitu_api_insitu_get">API</a>
+  </p>
+</aside>
+
+<!-- --------------------------------------------------------------- tool rail -- -->
+<div class="rail panel" role="toolbar" aria-label="Map tools">
+  <div class="btnstack">
+    <button class="iconbtn" id="tool-pan" aria-pressed="true" title="Explore — pan and zoom, draw nothing (V)" aria-label="Explore: pan and zoom without drawing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+        <path d="M5 3l14 8.2-6.1 1.6-2.3 6.1z" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="tool-probe" aria-pressed="false" title="Inspect a forecast value (I)" aria-label="Inspect a forecast value">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+        <circle cx="12" cy="12" r="6"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4"/>
+        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+    <hr>
+    <button class="iconbtn" id="tool-place" aria-pressed="false" title="Place a point (P)" aria-label="Place a point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="tool-circle" aria-pressed="false" title="Draw a circle (C)" aria-label="Draw a circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="8" stroke-dasharray="4 3"/><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="tool-rect" aria-pressed="false" title="Draw a rectangle (R)" aria-label="Draw a rectangle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="4" y="6" width="16" height="12" rx="1" stroke-dasharray="4 3"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="tool-poly" aria-pressed="false" title="Draw a polygon (G)" aria-label="Draw a polygon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 3l8 5.5-3 9.5H7L4 8.5z" stroke-dasharray="4 3" stroke-linejoin="round"/>
+        <circle cx="12" cy="3" r="1.6" fill="currentColor" stroke="none"/>
+        <circle cx="20" cy="8.5" r="1.6" fill="currentColor" stroke="none"/>
+        <circle cx="4" cy="8.5" r="1.6" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="btn-upload" title="Upload a shape (GeoJSON, KML, shapefile)" aria-label="Upload a shape">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 20V8M7 12l5-5 5 5M4 4h16"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="tool-measure" aria-pressed="false" title="Measure distance (M)" aria-label="Measure distance">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M3 17L17 3l4 4L7 21z"/><path d="M7 13l2 2M11 9l2 2M15 5l2 2"/>
+      </svg>
+    </button>
+    <hr>
+    <button class="iconbtn" id="btn-erase" title="Remove the selected area (Delete)" aria-label="Remove the selected area" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 7h16M9 7V4.6h6V7M6.5 7l1 12.4h9L17.5 7"/><path d="M10 11v5M14 11v5"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="btn-locate" title="Use my location" aria-label="Use my location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2" fill="currentColor"/>
+        <path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------------ right controls -- -->
+<div class="rightstack">
+  <div class="panel btnstack">
+    <button class="iconbtn" id="btn-layers" aria-pressed="false" title="Basemap" aria-label="Basemap options">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="btn-info" aria-pressed="false" title="About this forecast" aria-label="About this forecast">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r="1.1" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="btn-theme" title="Theme" aria-label="Change theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </svg>
+    </button>
+  </div>
+  <div class="panel btnstack">
+    <button class="iconbtn" id="btn-zin" title="Zoom in" aria-label="Zoom in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button class="iconbtn" id="btn-zout" title="Zoom out" aria-label="Zoom out">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------------ layers popover -- -->
+<div class="pop panel" id="pop-layers" hidden role="dialog" aria-label="Basemap">
+  <button class="iconbtn pop-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <h2>Basemap</h2>
+  <div class="tiles-choice">
+    <button class="tile-opt on" data-base="satellite"><span class="swatch sw-satellite"></span>Satellite</button>
+    <button class="tile-opt" data-base="streets"><span class="swatch sw-streets"></span>Streets</button>
+    <button class="tile-opt" data-base="terrain"><span class="swatch sw-terrain"></span>Terrain</button>
+    <button class="tile-opt" data-base="ocean"><span class="swatch sw-ocean"></span>Ocean</button>
+  </div>
+
+  <div class="field">
+    <label>Map furniture</label>
+    <label class="check"><input type="checkbox" id="opt-grat"> Coordinate grid</label>
+    <p style="margin-top:5px">A labelled latitude/longitude graticule. Always drawn on an
+      exported sheet, whether or not it is shown here.</p>
+  </div>
+</div>
+
+<!-- -------------------------------------------------------------- info popover -- -->
+<div class="pop panel" id="pop-info" hidden role="dialog" aria-label="About this forecast">
+  <button class="iconbtn pop-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <h2>About this forecast</h2>
+
+  <h3>What you are looking at</h3>
+  <p>Predicted chlorophyll-a concentration at 300 m resolution, 1 to 7 days ahead, for the
+     area you select. Chlorophyll-a is a proxy for algal biomass — the standard satellite
+     signal for tracking cyanobacterial blooms.</p>
+
+  <h3>Where the data comes from</h3>
+  <p>Sentinel-3 OLCI Level-2 water products. <strong>The mission itself is near-real
+     time</strong> — EUMETSAT publishes NRT products within about 3 hours of acquisition,
+     and consolidated NTC products within 30 days. What lags is the free Microsoft
+     Planetary Computer mirror this build reads, which republishes the same products
+     roughly 6–7 months later (measured August 2026). So a forecast here is anchored on the
+     most recent day that mirror actually holds, never on today, and that date is always
+     shown. Operational latency is a matter of changing the ingest source to Copernicus
+     Data Space, not of changing the model.</p>
+
+  <h3>How to read the map</h3>
+  <p>Colour runs from 1 mg/m³ (deep blue) to 100 mg/m³ (red) on a fixed scale, so two
+     different lakes are directly comparable. <strong>Grey means water the sensor could
+     not see through cloud</strong> — it is missing data, not clean water. Two thirds of a
+     typical day is grey, which is why a forecast is built from a fortnight of passes. The
+     <strong>inspect</strong> tool reads the predicted value under a click, at every lead
+     time at once.</p>
+
+  <h3>How good is it?</h3>
+  <p>Measured lake-by-lake against both "tomorrow looks like today" and a seasonal
+     climatology. On a lake it has never seen it beats persistence by a small margin and
+     still loses to climatology. The full evaluation, including the failures, is on the
+     <a href="/dashboard">results dashboard</a>.</p>
+
+  <h3>Limits worth knowing</h3>
+  <p>300 m pixels cannot resolve small ponds or narrow rivers. The water mask is derived
+     from the fortnight being fetched, so a cloudy period maps less water than really
+     exists. The forecast is computed on a local UTM grid and drawn onto a Web Mercator
+     basemap; selections are capped at 80 km partly because below that the difference
+     between the two projections stays under one pixel. And satellite chlorophyll is
+     <strong>not</strong> a cyanotoxin measurement: confirm with in-situ sampling before
+     any public-health decision.</p>
+
+  <h3>Keyboard</h3>
+  <p><kbd>V</kbd> explore · <kbd>I</kbd> inspect · <kbd>P</kbd> point · <kbd>C</kbd> circle ·
+     <kbd>R</kbd> rectangle · <kbd>G</kbd> polygon · <kbd>M</kbd> measure ·
+     <kbd>Del</kbd> remove area ·
+     <kbd>Esc</kbd> cancel · arrows pan · <kbd>+</kbd>/<kbd>−</kbd> zoom</p>
+</div>
+
+<!-- ---------------------------------------------------------------- left dock --- -->
+<div class="leftdock" id="leftdock">
+<div class="pop panel" id="measure-panel" hidden role="region" aria-label="Measurement">
+  <h2>Measure</h2>
+  <div class="measure-out">
+    <div class="big mono" id="measure-total">—</div>
+    <div style="color:var(--muted);font-size:11.5px">total distance</div>
+    <div style="margin-top:8px" class="mono" id="measure-area">—</div>
+    <div style="color:var(--muted);font-size:11.5px">enclosed area</div>
+    <div style="margin-top:8px;color:var(--faint);font-size:11px"><span id="measure-pts">0</span> points</div>
+  </div>
+  <button class="act ghost" id="measure-toaoi">Use as forecast area</button>
+  <button class="act ghost" id="measure-clear">Clear</button>
+</div>
+
+<!-- ------------------------------------------------------------- probe readout -- -->
+<div class="pop panel" id="probe-panel" hidden role="region" aria-label="Inspected value">
+  <button class="iconbtn pop-close" id="probe-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <h2>Value at point</h2>
+  <div class="mono probe-coord" id="probe-coord">—</div>
+  <div class="probe-big mono" id="probe-value">—</div>
+  <div class="probe-unit" id="probe-unit">click the forecast to read a pixel</div>
+  <table class="probe-table"><tbody id="probe-rows"></tbody></table>
+
+  <div id="probe-series" hidden>
+    <h3 class="probe-sechead">Chlorophyll-a through time</h3>
+    <div id="probe-chart"></div>
+    <div class="probe-sechead probe-sechead-row">
+      <h3>Measured in the water</h3>
+      <label class="probe-km">within
+        <select id="probe-km" aria-label="How far from this point to look for in-situ measurements">
+          <option value="10" selected>10 km</option>
+          <option value="25">25 km</option>
+          <option value="50">50 km</option>
+        </select>
+      </label>
+    </div>
+    <div id="probe-situ"></div>
+  </div>
+
+  <p id="probe-note"></p>
+</div>
+
+<div class="pop panel" id="action">
+  <div class="panel-head" id="action-head" role="button" tabindex="0" aria-expanded="true"
+       title="Click to collapse, drag to move">
+    <svg class="chev" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    <h2>Forecast area</h2>
+    <button class="iconbtn panel-redock" hidden title="Return to the dock" aria-label="Return this panel to the dock">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 4h7v7H4zM20 20v-6h-6"/><path d="M20 20l-7-7"/>
+      </svg>
+    </button>
+  </div>
+  <div class="panel-body">
+  <div id="aoi-label" class="aoi-label">Search for a lake above, or pick a drawing tool and
+    click the map. Zoom out to see the whole world.</div>
+  <div id="aoi-warn"></div>
+
+  <!-- What this area *is*, and therefore what will be fetched and run on it. Filled in
+       from /api/route the moment a shape exists, because the choice is worth knowing
+       before spending half a minute finding out. -->
+  <div id="route-preview" class="routebox" hidden></div>
+
+  <div class="field" id="model-field" hidden>
+    <label for="model">Model</label>
+    <select id="model"></select>
+    <p style="margin-top:6px" id="model-note"></p>
+  </div>
+
+  <div class="field">
+    <label for="radius">Radius for a placed point</label>
+    <div class="row"><input id="radius" type="range" min="4" max="35" step="1" value="12">
+      <span class="val mono" id="radiusval">12 km</span></div>
+  </div>
+
+  <div class="field">
+    <label for="anchor">Forecast from</label>
+    <input id="anchor" type="date">
+    <p style="margin-top:6px">Leave empty for the newest usable imagery.</p>
+  </div>
+
+  <div class="field">
+    <label for="source">Imagery source</label>
+    <select id="source">
+      <option value="auto">Automatic — newest available</option>
+      <option value="nrt">Near-real-time (NOAA CoastWatch)</option>
+      <option value="archive">Archive (Planetary Computer)</option>
+    </select>
+    <p style="margin-top:6px">Near-real-time reaches yesterday but keeps only 90 days.
+      The archive goes back to 2018 and currently ends in February 2026.</p>
+  </div>
+
+  <p id="toolhint" class="toolhint"></p>
+  <div class="actrow">
+    <button class="act" id="go" disabled>
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <path d="M5 12h13M13 6l6 6-6 6"/>
+      </svg>
+      Generate forecast
+    </button>
+    <button class="act ghost narrow" id="clear-aoi" disabled title="Remove the selected area (Delete)">Clear</button>
+  </div>
+  </div><!-- /panel-body -->
+</div>
+<!-- ------------------------------------------------------------------- drawer -- -->
+<div class="drawer panel" id="drawer" hidden>
+  <div class="drawer-head" id="drawer-head" role="button" tabindex="0" aria-expanded="true">
+    <svg class="chev" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    <h2 id="drawer-title">Forecast</h2>
+    <button class="iconbtn panel-redock" hidden title="Return to the dock" aria-label="Return this panel to the dock">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 4h7v7H4zM20 20v-6h-6"/><path d="M20 20l-7-7"/>
+      </svg>
+    </button>
+    <button class="iconbtn" id="btn-download" disabled title="Export a map sheet as PNG" aria-label="Export a map sheet as PNG">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 3v12M7 11l5 5 5-5M4 20h16"/>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <div class="leadtabs" id="leadtabs" role="radiogroup" aria-label="Forecast lead time"></div>
+    <div class="stats" id="stats"></div>
+    <table>
+      <thead><tr><th class="n">Lead</th><th>Valid</th><th class="n">Median</th><th class="n">P90</th><th class="n">&gt;20 km²</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="legend">
+      <span class="ramp"></span><span>1 → 100 mg/m³</span>
+      <span><span class="nodata"></span> no retrieval</span>
+    </div>
+    <div class="field">
+      <label for="opacity">Overlay opacity</label>
+      <div class="row"><input id="opacity" type="range" min="20" max="100" value="90">
+        <span class="val mono" id="opacityval">90%</span></div>
+    </div>
+    <div id="routeinfo" class="routebox"></div>
+    <div id="caveats"></div>
+    <div class="foot" id="resfoot"></div>
+  </div>
+</div>
+</div><!-- /leftdock -->
+
+<!-- ------------------------------------------------------------------- status -- -->
+<div class="pill panel" id="pill" hidden role="status" aria-live="polite">
+  <div class="spin" id="pill-spin"></div>
+  <span id="pill-text"></span>
+  <div class="bar" id="pill-bar"><i id="pill-fill"></i></div>
+</div>
+
+<!-- ------------------------------------------------------------------ readout -- -->
+<div class="bottombar">
+  <div class="watermark" aria-hidden="true">
+    <span class="wm-mark"></span><span class="wm-txt">Bloom Watch</span>
+  </div>
+  <div class="readout panel mono">
+    <span><b>lat lon</b> <span id="coords">—</span></span>
+    <span><b>z</b> <span id="zoomval">—</span></span>
+    <span class="scalebar"><span class="scalebar-line" id="scaleline" style="width:80px"></span>
+      <span id="scaletext" style="font-size:10px">—</span></span>
+  </div>
+  <div class="attrib panel" id="attrib"></div>
+</div>
+
+
+
+<script type="module" src="/static/app.js"></script>
+<noscript>
+  <div class="pop panel" style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%)">
+    <h2>JavaScript required</h2>
+    <p>This is an interactive map application. The
+      <a href="/dashboard">results dashboard</a> and the
+      <a href="/docs">API documentation</a> work without it.</p>
+  </div>
+</noscript>
+</body>
+</html>

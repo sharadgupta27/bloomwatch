@@ -1,0 +1,24 @@
+# The exceedance forecaster (anomaly_exceed) plus lake-group conditioning: one network,
+# with learned offsets per trophic class, thermal regime and continent that modulate its
+# trunk (GroupFiLM in src/habforecast/models/anomaly.py, levels in habforecast/groups.py).
+# Partial pooling rather than one model per group -- a group of three lakes cannot train a
+# network on its own. Train on the global registry with ERA5 forcing:
+#
+#   python pipelines/train.py model=anomaly_multilevel '+data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]' \
+#       'paths.aoi=${paths.repo_root}/data/aoi/lakes_global.geojson' \
+#       'paths.cubes=${paths.repo_root}/data/processed/cubes_global' \
+#       'paths.met=${paths.repo_root}/data/processed/met_global' \
+#       '+paths.mmap=${paths.repo_root}/data/cache/mmap'
+name: anomaly
+base: 24
+use_doy: true
+delta_scale: 0.5
+n_scales: 3
+dropout: 0.1
+use_clim: true
+clim_gate_init: -2.0
+met_channels: 8
+met_future: false
+exceed_thresholds: [10.0, 20.0, 50.0]   # must match eval.metrics.BLOOM_THRESHOLDS_MG_M3
+exceed_hidden: 16
+group_dim: 8

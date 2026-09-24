@@ -1,0 +1,712 @@
+/* Bloom Watch — application chrome.
+ *
+ * Design direction: a monitoring instrument, not a website. The map is the whole surface
+ * and every control floats over it in a translucent shell, the way an operations console
+ * puts readouts over the thing being watched. Type is IBM Plex (Sans for prose, Mono for
+ * every number, coordinate and measurement) because it was drawn for exactly that job and
+ * because it is what the rest of this project already uses.
+ *
+ * Dark is the default: the primary basemap is satellite imagery, which is dark and
+ * saturated, and light chrome over it either washes out or fights the data. Light is fully
+ * supported for the street and terrain basemaps, and follows the viewer's preference
+ * unless they pick a theme explicitly.
+ *
+ * The one saturated accent is a deep cyan. It has to stay clear of the chlorophyll ramp
+ * (navy -> teal -> lime -> amber -> red), which is the only other colour on screen that
+ * carries meaning, so the accent sits bluer and lighter than the ramp's teal step and is
+ * never used for data.
+ */
+
+:root {
+  --accent: #0b7f92;
+  --accent-ink: #ffffff;
+  --surface: #eef3f4;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-solid: #ffffff;
+  --sunk: #e2eaec;
+  --line: rgba(11, 32, 38, 0.14);
+  --line-strong: rgba(11, 32, 38, 0.28);
+  --text: #08151a;
+  --muted: #4a6065;
+  --faint: #74898f;
+  --good: #077d3f;
+  --warn: #b4521c;
+  --bad: #c0332f;
+  --shadow: 0 6px 24px rgba(8, 24, 30, 0.16), 0 1px 3px rgba(8, 24, 30, 0.1);
+  --radius: 12px;
+  --blur: saturate(140%) blur(14px);
+  /* The graticule is drawn over imagery, not over the page, so it takes its contrast
+     from the tiles rather than from the panel palette. */
+  --series-sat: #3f4fa8;
+  --series-situ: #a4306e;
+  --grat: rgba(12, 30, 36, 0.42);
+  --grat-ink: rgba(12, 30, 36, 0.8);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #2fbdd4;
+    --accent-ink: #04191d;
+    --surface: #060d0f;
+    --panel: rgba(10, 20, 23, 0.82);
+    --panel-solid: #0c1719;
+    --sunk: #0a1416;
+    --line: rgba(190, 224, 230, 0.16);
+    --line-strong: rgba(190, 224, 230, 0.32);
+    --text: #e8f2f3;
+    --muted: #9db4ba;
+    --faint: #74898f;
+    --good: #47c47a;
+    --warn: #ef8a4c;
+    --bad: #ef6b66;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.4);
+    --series-sat: #6f7fdb;
+    --series-situ: #d76aa5;
+    --grat: rgba(232, 246, 250, 0.34);
+    --grat-ink: rgba(232, 246, 250, 0.86);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --accent: #2fbdd4;
+  --accent-ink: #04191d;
+  --surface: #060d0f;
+  --panel: rgba(10, 20, 23, 0.82);
+  --panel-solid: #0c1719;
+  --sunk: #0a1416;
+  --line: rgba(190, 224, 230, 0.16);
+  --line-strong: rgba(190, 224, 230, 0.32);
+  --text: #e8f2f3;
+  --muted: #9db4ba;
+  --faint: #74898f;
+  --good: #47c47a;
+  --warn: #ef8a4c;
+  --bad: #ef6b66;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --series-sat: #6f7fdb;
+  --series-situ: #d76aa5;
+  --grat: rgba(232, 246, 250, 0.34);
+  --grat-ink: rgba(232, 246, 250, 0.86);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font: 14px/1.5 "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+.mono, .num {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* ------------------------------------------------------------------ map engine --- */
+.mv { position: absolute; inset: 0; overflow: hidden; background: var(--sunk); touch-action: none; cursor: grab; }
+.mv.mv-dragging { cursor: grabbing; }
+/* Any tool other than "explore" makes a click mean something, so the cursor stops
+   promising a pan. While a geometry is being dragged the whole map shows the move
+   cursor, even where the pointer has left the shape behind. */
+.mv.crosshair { cursor: crosshair; }
+.mv.mv-editing, .mv.mv-editing.crosshair { cursor: move; }
+.mv-tiles, .mv-overlays, .mv-markers { position: absolute; inset: 0; }
+.mv-overlays, .mv-markers { pointer-events: none; }
+.mv-vectors { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.mv-tile {
+  position: absolute; user-select: none; opacity: 0; transition: opacity .28s ease;
+}
+.mv-tile-in { opacity: 1; }
+.mv-tile-missing { display: none; }
+.mv-image-overlay { position: absolute; image-rendering: pixelated; pointer-events: none; }
+
+/* ----------------------------------------------------------------- app shell ----- */
+#map { position: fixed; inset: 0; }
+.shell { position: fixed; inset: 0; pointer-events: none; display: grid; }
+.shell > * { pointer-events: auto; }
+
+.panel {
+  background: var(--panel);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* --- top bar --- */
+.topbar {
+  position: fixed; top: 12px; left: 12px; right: 12px;
+  display: flex; gap: 10px; align-items: flex-start; pointer-events: none;
+}
+.topbar > * { pointer-events: auto; }
+.brand {
+  display: flex; align-items: center; gap: 10px; padding: 9px 14px; flex: 0 0 auto;
+}
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 7px; flex: 0 0 auto;
+  background:
+    radial-gradient(circle at 32% 34%, #b4d23c 0 22%, transparent 23%),
+    radial-gradient(circle at 68% 62%, #f0b428 0 18%, transparent 19%),
+    linear-gradient(140deg, #123a6b, #1d7f74);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+}
+.brand-txt { line-height: 1.15; }
+.brand-txt b { display: block; font-size: 14px; font-weight: 650; letter-spacing: -.01em; }
+
+/* --- search --- */
+.search { position: relative; flex: 1 1 380px; max-width: 460px; }
+.search-in { display: flex; align-items: center; gap: 8px; padding: 0 12px; }
+.search input {
+  flex: 1; border: 0; background: none; color: var(--text); font: inherit; font-size: 14px;
+  padding: 12px 0; min-width: 0;
+}
+.search input::placeholder { color: var(--faint); }
+.search input:focus { outline: none; }
+.search-in svg { flex: 0 0 auto; color: var(--muted); }
+.hits { position: absolute; top: calc(100% + 6px); left: 0; right: 0; overflow: hidden; max-height: 46vh; overflow-y: auto; }
+.hits:empty { display: none; }
+.hit {
+  display: block; width: 100%; text-align: left; border: 0; background: none; color: var(--text);
+  padding: 9px 13px; font: inherit; font-size: 13.5px; cursor: pointer; border-bottom: 1px solid var(--line);
+}
+.hit:last-child { border-bottom: 0; }
+.hit:hover, .hit.sel { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.hit small { display: block; color: var(--faint); font-size: 11px; margin-top: 1px; }
+.hit-empty { padding: 11px 13px; color: var(--muted); font-size: 12.5px; }
+
+/* --- generic icon button --- */
+.iconbtn {
+  width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: none;
+  color: var(--text); cursor: pointer; border-radius: 9px; flex: 0 0 auto;
+}
+.iconbtn:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.iconbtn[aria-pressed="true"], .iconbtn.on { background: var(--accent); color: var(--accent-ink); }
+.iconbtn svg { width: 18px; height: 18px; }
+.btnstack { display: flex; flex-direction: column; padding: 4px; gap: 2px; }
+.btnrow { display: flex; padding: 4px; gap: 2px; }
+.btnstack hr, .btnrow hr { border: 0; border-top: 1px solid var(--line); margin: 2px 4px; }
+
+/* --- left tool rail --- */
+.rail { position: fixed; left: 12px; top: 50%; transform: translateY(-50%); }
+
+/* --- right controls --- */
+.rightstack { position: fixed; right: 12px; top: 68px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+
+/* --- bottom bar --- */
+.bottombar {
+  position: fixed; right: 12px; bottom: 12px; display: flex; gap: 8px; align-items: flex-end;
+  flex-direction: column;
+}
+.readout { padding: 7px 12px; font-size: 11px; display: flex; gap: 14px; align-items: center; }
+.readout b { font-weight: 500; color: var(--muted); }
+.scalebar { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
+.scalebar-line { height: 7px; border: 1px solid var(--text); border-top: 0; }
+.attrib { font-size: 10px; color: var(--muted); padding: 4px 9px; max-width: 60vw; }
+.attrib a { color: var(--muted); }
+
+/* --- popovers (layers / info / measure) --- */
+.pop {
+  position: fixed; width: min(330px, calc(100vw - 24px)); padding: 14px 16px; z-index: 30;
+  max-height: min(70vh, 640px); overflow-y: auto;
+}
+.pop[hidden] { display: none; }
+.pop h2 {
+  margin: 0 0 10px; font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.pop h3 { margin: 14px 0 5px; font-size: 13px; font-weight: 650; }
+.pop p { margin: 6px 0; font-size: 12.5px; color: var(--muted); }
+.pop-close { position: absolute; top: 8px; right: 8px; }
+
+.tiles-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tile-opt {
+  border: 1px solid var(--line); background: var(--sunk); color: var(--text); border-radius: 9px;
+  padding: 8px; cursor: pointer; font: inherit; font-size: 12px; text-align: left;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tile-opt .swatch { height: 38px; border-radius: 6px; background-size: cover; background-position: center; }
+.tile-opt.on { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.sw-satellite { background: linear-gradient(135deg,#1d3b22,#3f5a2a 45%,#6b7b45); }
+.sw-streets  { background: linear-gradient(135deg,#eef0e6,#dfe3d4 60%,#cfd8c4); }
+.sw-terrain  { background: linear-gradient(135deg,#e8e2d2,#cfd6bd 55%,#a9bfa0); }
+.sw-ocean    { background: linear-gradient(135deg,#0e3a5c,#1d6c96 60%,#57a7c4); }
+
+.field { margin-top: 12px; }
+.field > label {
+  display: block; font-size: 10px; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.field .row { display: flex; gap: 10px; align-items: center; }
+input[type=range] { flex: 1; accent-color: var(--accent); }
+input[type=date] {
+  width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--sunk); color: var(--text); font: inherit; font-size: 13px;
+}
+.val { min-width: 54px; text-align: right; font-size: 12px; color: var(--muted); }
+/* A checkbox row is a control, not a section heading, so it opts out of the uppercase
+   mono treatment `.field > label` gives the headings above it. */
+.field > label.check {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 0;
+  font-family: inherit; font-size: 12.5px; letter-spacing: 0; text-transform: none;
+  color: var(--text); cursor: pointer;
+}
+.check input { accent-color: var(--accent); width: 15px; height: 15px; }
+
+/* --- primary action --- */
+.act {
+  display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%;
+  margin-top: 14px; padding: 11px 14px; border-radius: 9px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 650;
+  font-size: 13.5px; cursor: pointer;
+}
+.act:hover:not(:disabled) { filter: brightness(1.08); }
+.act:disabled { opacity: .45; cursor: not-allowed; }
+.act.ghost { background: none; color: var(--text); border-color: var(--line-strong); font-weight: 500; }
+.actrow { display: flex; gap: 8px; align-items: stretch; }
+.actrow .act { margin-top: 14px; }
+.act.narrow { width: auto; flex: 0 0 auto; padding-left: 16px; padding-right: 16px; }
+
+/* --- selection / status pill --- */
+.pill {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: 16px;
+  padding: 9px 16px; display: flex; align-items: center; gap: 11px; font-size: 12.5px;
+  max-width: min(560px, calc(100vw - 24px));
+}
+.pill[hidden] { display: none; }
+.spin {
+  width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--line-strong);
+  border-top-color: var(--accent); animation: spin .8s linear infinite; flex: 0 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.pill .bar { flex: 1; height: 4px; border-radius: 99px; background: var(--sunk); overflow: hidden; min-width: 90px; }
+.pill .bar i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .4s ease; }
+
+/* --- results drawer --- */
+.drawer {
+  position: static; width: 100%; min-height: 0; flex: 0 1 auto;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.drawer[hidden] { display: none; }
+.drawer-head {
+  display: flex; align-items: center; gap: 10px; padding: 11px 14px;
+  border-bottom: 1px solid var(--line); cursor: grab; user-select: none;
+}
+.drawer-head:active { cursor: grabbing; }
+.drawer-head h2 { margin: 0; font-size: 13.5px; font-weight: 650; flex: 1; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.drawer-body { overflow-y: auto; padding: 14px; }
+.drawer.collapsed .drawer-body { display: none; }
+.chev { transition: transform .2s ease; }
+.drawer.collapsed .chev { transform: rotate(-90deg); }
+
+.leadtabs { display: flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; margin-bottom: 12px; }
+.leadtabs button {
+  flex: 1; border: 0; border-right: 1px solid var(--line); background: var(--sunk); color: var(--muted);
+  padding: 8px 4px; font: inherit; font-size: 12.5px; cursor: pointer;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.leadtabs button:last-child { border-right: 0; }
+.leadtabs button.on { background: var(--accent); color: var(--accent-ink); }
+
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+.stat { background: var(--sunk); border-radius: 9px; padding: 9px 11px; }
+.stat h4 {
+  margin: 0; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  font-weight: 500; font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.stat .v { font-size: 20px; font-weight: 600; margin-top: 3px; letter-spacing: -.02em;
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.stat .u { font-size: 10.5px; color: var(--faint); }
+
+table { border-collapse: collapse; width: 100%; margin-top: 12px; font-size: 12px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { font-size: 9.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 500;
+     font-family: "IBM Plex Mono", ui-monospace, monospace; }
+td.n, th.n { text-align: right; font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+tbody tr { cursor: pointer; }
+tbody tr.on { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+
+.legend { display: flex; align-items: center; gap: 9px; margin-top: 12px; font-size: 10.5px; color: var(--muted);
+  font-family: "IBM Plex Mono", ui-monospace, monospace; flex-wrap: wrap; }
+.ramp { height: 9px; flex: 1; min-width: 120px; border-radius: 3px;
+  background: linear-gradient(90deg,#264696,#28a08c,#b4d23c,#f0b428,#c82828); }
+.nodata { width: 15px; height: 9px; border-radius: 3px; background: #7c888c; display: inline-block; }
+
+.note {
+  border-radius: 9px; padding: 9px 12px; margin-top: 12px; font-size: 12px;
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--warn) 32%, transparent);
+}
+.note.bad { background: color-mix(in srgb, var(--bad) 12%, transparent);
+            border-color: color-mix(in srgb, var(--bad) 34%, transparent); }
+.note strong { color: var(--text); }
+.note ul { margin: 5px 0 0; padding-left: 17px; color: var(--muted); }
+.note li { margin: 2px 0; }
+.foot { color: var(--faint); font-size: 11px; margin-top: 12px; }
+.foot code { font-size: 10.5px; }
+.foot a { color: var(--accent); }
+
+/* --- docked panels: positioned here, never inline, so the mobile media query can
+       actually override them. Inline styles win over media queries, which is how a
+       bottom bar ends up sitting on top of the zoom buttons on a phone. --- */
+/* One dock, one column. The forecast-area panel and the results drawer are both
+   anchored to the bottom-left corner; as separate fixed elements they overlapped the
+   moment a result appeared. Stacking them in a flex column means the layout cannot
+   produce that collision at any viewport size. */
+.leftdock {
+  position: fixed; left: 64px; bottom: 12px; z-index: 5;
+  width: min(420px, calc(100vw - 88px));
+  /* The top of the dock stops below the "Field data" tab (top 68px, ~32px tall), so
+     that tab can never sit on top of the panel header. */
+  max-height: calc(100dvh - 124px);
+  display: flex; flex-direction: column; gap: 8px; justify-content: flex-end;
+  pointer-events: none;
+}
+.leftdock > * { pointer-events: auto; }
+/* Scoped to the docked state. `.floating` below sets a 360 px width, but a bare
+   `#action` selector outsells it 1-0-0 to 0-1-0, so a dragged panel kept `width: 100%`
+   and -- now that it was also `position: fixed` -- resolved that against the viewport
+   and stretched across the whole screen. */
+/* It must also be allowed to shrink. At `flex: 0 0 auto` a tall panel (model note +
+   source note) outgrew the dock, and because the dock is bottom-anchored the overflow
+   went off the *top* of the screen -- taking the collapse header with it. Shrinking
+   lets the header stay put while the body scrolls. */
+#action:not(.floating) { position: static; width: 100%; max-height: none; flex: 0 1 auto; min-height: 0; }
+/* The measure and probe panels live inside the dock in the DOM but are lifted out of its
+   flow on wide screens, where there is room for them beside the map. On a phone the
+   media query drops them back into the column -- being a sibling in the same flex
+   container is the only arrangement that cannot land on top of the action panel. */
+#measure-panel {
+  position: fixed; left: 64px; top: 50%; transform: translateY(-50%); width: 230px;
+}
+#measure-panel .act { margin-top: 8px; }
+.toolhint { margin-top: 8px; font-size: 11.5px; }
+.aoi-label { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+.aoi-label b { color: var(--text); }
+
+
+/* --- validation sites sidebar ---
+   Docked against the tool rail, full height, and it *moves* the forecast dock rather than
+   covering it: both are things the user works with at the same time -- pick a lake here,
+   set the date there -- and a panel that hides the controls it feeds is a panel that has
+   to be closed to be used. */
+.sites-tab {
+  position: fixed; left: 64px; top: 68px; z-index: 6;
+  display: flex; align-items: center; gap: 7px; padding: 7px 12px 7px 10px;
+  font: inherit; font-size: 12px; font-weight: 600; color: var(--text);
+  border: 1px solid var(--line); border-radius: 99px; cursor: pointer;
+  background: var(--panel);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+}
+.sites-tab:hover { border-color: var(--line-strong); }
+.sites-tab[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); }
+body.sites-open .sites-tab { display: none; }
+
+.sites {
+  position: fixed; left: 64px; top: 68px; bottom: 12px; width: 312px; z-index: 6;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.sites[hidden] { display: none; }
+.sites-head {
+  display: flex; align-items: center; gap: 8px; padding: 11px 8px 11px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.sites-head h2 {
+  margin: 0; flex: 1; font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.sites-filter { padding: 10px 12px 6px; }
+.sites-filter input {
+  width: 100%; padding: 7px 10px; font: inherit; font-size: 12.5px; color: var(--text);
+  background: var(--sunk); border: 1px solid var(--line); border-radius: 8px;
+}
+.sites-filter input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+p.sites-note { margin: 4px 12px 6px; font-size: 11px; color: var(--faint); line-height: 1.45; }
+.sites-list { flex: 1; overflow-y: auto; padding: 2px 8px 8px; }
+.sites-foot {
+  margin: 0; padding: 9px 12px; border-top: 1px solid var(--line);
+  font-size: 10.5px; color: var(--faint); line-height: 1.45;
+}
+.sites-foot a { color: var(--muted); }
+
+.site {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  padding: 8px 10px; margin-bottom: 2px; border: 1px solid transparent; border-radius: 9px;
+  background: none; color: var(--text); font: inherit;
+}
+.site:hover { background: var(--sunk); }
+.site[aria-selected="true"] { border-color: var(--accent); background: var(--sunk); }
+.site-top { display: flex; align-items: baseline; gap: 6px; }
+.site-name { flex: 1; min-width: 0; font-size: 12.5px; font-weight: 600; }
+.site-tag {
+  flex: 0 0 auto; font-size: 9.5px; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--faint); border: 1px solid var(--line); border-radius: 99px; padding: 1px 6px;
+}
+.site-tag.on { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.site-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.site-meta.faint { color: var(--faint); font-size: 10.5px; }
+
+body.sites-open .leftdock { left: 388px; }
+body.sites-open #measure-panel { left: 388px; }
+
+@media (max-width: 900px) {
+  .sites { left: 8px; right: 8px; width: auto; }
+  body.sites-open .leftdock, body.sites-open #measure-panel { left: 64px; }
+}
+
+/* --- panel headers: collapse and move ---
+   The two docked panels share one header treatment. `.floating` is what a dragged panel
+   becomes: positioned from the viewport instead of from the dock's flex column, because
+   a panel the user has placed somewhere must not be re-stacked by its neighbour. */
+.panel-head {
+  display: flex; align-items: center; gap: 9px; padding: 10px 12px;
+  border-bottom: 1px solid var(--line); cursor: grab; user-select: none;
+}
+.panel-head:active { cursor: grabbing; }
+.panel-head h2 { margin: 0; flex: 1; min-width: 0; }
+.panel-head .chev { transition: transform .2s ease; flex: 0 0 auto; color: var(--muted); }
+.collapsed > .panel-head .chev, .drawer.collapsed .chev { transform: rotate(-90deg); }
+.panel-body { padding: 12px 16px 14px; }
+#action.collapsed .panel-body { display: none; }
+.panel-redock { width: 28px; height: 28px; }
+.panel-redock svg { width: 15px; height: 15px; }
+
+.floating {
+  position: fixed !important;
+  width: min(360px, calc(100vw - 16px));
+  max-height: calc(100dvh - 16px);
+  z-index: 40;
+  overflow: auto;
+}
+/* #action carries panel padding of its own; with a header it belongs to the body. */
+#action { padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+#action[hidden] { display: none; }
+#action > .panel-head { flex: 0 0 auto; }
+#action > .panel-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+/* A floating panel is dragged by its header and is not a layout box any more: it must
+   not inherit the dock's stretch, and it needs a resting size of its own. */
+#action.floating { width: min(360px, calc(100vw - 16px)); }
+
+/* --- imagery source --- */
+select {
+  width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--sunk); color: var(--text); font: inherit; font-size: 13px;
+}
+.srcpill {
+  display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 9.5px;
+  letter-spacing: .06em; text-transform: uppercase; margin-right: 6px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  border: 1px solid currentColor;
+}
+.srcpill.fresh { color: var(--good); }
+.srcpill.stale { color: var(--warn); }
+
+/* --- inspected pixel ---
+   Docked under the right-hand controls rather than beside the tool rail: the left edge
+   already carries the forecast panel and the results drawer, and a readout that appears
+   on click must not shove either of them around. */
+#probe-panel {
+  position: fixed; right: 64px; top: 68px; width: 342px;
+  max-height: calc(100vh - 148px); overflow-y: auto;
+}
+.probe-coord { font-size: 11px; color: var(--muted); }
+.probe-big {
+  font-size: 34px; font-weight: 600; line-height: 1.1; margin-top: 6px;
+  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.probe-unit { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+.probe-table { margin-top: 12px; font-size: 11.5px; }
+.probe-table td { padding: 4px 6px; }
+.probe-table tr.on { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+#probe-note { font-size: 11px; color: var(--faint); margin-top: 10px; }
+#probe-note:empty { display: none; }
+
+/* --- pixel time series -----------------------------------------------------------
+   Two encodings carry the meaning and both survive a screenshot: dashed is predicted,
+   hollow is a different year. Colour is the third encoding, not the only one, which is
+   also what keeps the chart readable to a colourblind reader and in print.
+
+   The two series hues are deliberately outside the chlorophyll ramp (navy -> teal ->
+   lime -> amber -> red) and outside the accent, because both already mean something
+   else on this screen. Checked for colour-vision separation against the panel in both
+   themes: dE 20 normal / 9.9 protan (light), 18.1 / 8.5 (dark). */
+.ts { margin: 8px 0 0; }
+.ts-svg { display: block; overflow: visible; }
+/* Qualified with the element: `.pop p` above is (0,1,1) and would otherwise win the
+   font-size and colour on any paragraph inside a panel. */
+p.ts-empty { font-size: 11px; color: var(--faint); margin: 6px 0; }
+p.ts-note { font-size: 11px; color: var(--muted); margin: 8px 0 4px; line-height: 1.45; }
+
+.ts-grid { stroke: var(--line); stroke-width: 1; }
+.ts-axis { stroke: var(--line-strong); stroke-width: 1; }
+.ts-bloom { stroke: var(--warn); stroke-width: 1; stroke-dasharray: 2 3; opacity: .8; }
+.ts-anchor { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 3 3; }
+.ts-ytick, .ts-xtick, .ts-anchor-label, .ts-bloom-label, .ts-unit {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 9px; fill: var(--faint);
+}
+.ts-ytick { text-anchor: end; }
+.ts-bloom-label { fill: var(--warn); text-anchor: end; }
+
+.ts-obs-line, .ts-fc-line { fill: none; stroke: var(--series-sat); stroke-width: 2;
+  stroke-linejoin: round; stroke-linecap: round; }
+.ts-fc-line { stroke-dasharray: 5 3; }
+.ts-obs-dot { fill: var(--series-sat); stroke: var(--panel-solid); stroke-width: 1.5; }
+.ts-fc-dot { fill: var(--panel-solid); stroke: var(--series-sat); stroke-width: 2; }
+.ts-situ { fill: var(--series-situ); stroke: var(--panel-solid); stroke-width: 1.5; }
+.ts-situ-past { fill: none; stroke: var(--series-situ); stroke-width: 1.6; opacity: .6; }
+/* A well-sampled lake can put fifty of these on one chart. At full weight they bury
+   the forecast; at this weight they read as the cloud of what August normally is. */
+
+.ts-legend { display: flex; flex-wrap: wrap; gap: 3px 10px; margin-top: 6px;
+  font-size: 10.5px; color: var(--muted); }
+.ts-item { display: inline-flex; align-items: center; gap: 4px; }
+.ts-key { width: 9px; height: 9px; flex: 0 0 auto; }
+.ts-key-obs { background: var(--series-sat); border-radius: 50%; }
+.ts-key-fc { border: 2px solid var(--series-sat); border-radius: 1px; }
+.ts-key-situ { background: var(--series-situ); transform: rotate(45deg); }
+.ts-key-situ-past { border: 2px solid var(--series-situ); border-radius: 50%; }
+
+.probe-sechead { margin: 14px 0 0; font-size: 11px; font-weight: 650; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--muted); }
+.probe-sechead h3 { margin: 0; font: inherit; }
+.probe-sechead-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.probe-km { font-size: 10.5px; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.probe-km select { font: inherit; margin-left: 3px; padding: 1px 3px; color: var(--text);
+  background: var(--sunk); border: 1px solid var(--line); border-radius: 5px;
+  /* A native select stretches to its widest option plus the platform's own chrome; left
+     alone it reads as the most important control in the panel, which it is not. */
+  width: auto; max-width: 88px; }
+.probe-table tr.over { background: color-mix(in srgb, var(--warn) 18%, transparent); }
+
+/* --- portal watermark ---
+   Bottom right, above the attribution band. The tile licences require the attribution to
+   stay visible, so the watermark sits above it rather than in the corner it occupies. */
+.watermark {
+  display: flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px;
+  border-radius: 99px; font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: #eaf7fa; pointer-events: none;
+  background: rgba(8, 22, 27, 0.5);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid rgba(190, 230, 240, 0.22);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.wm-mark {
+  width: 11px; height: 11px; border-radius: 50%; flex: 0 0 auto;
+  background: radial-gradient(circle at 34% 32%, #b4d23c 0 34%, transparent 35%),
+              linear-gradient(140deg, #1d7f74, #123a6b);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.25);
+}
+
+/* --- measurement readout --- */
+.measure-out { margin-top: 10px; font-size: 12.5px; }
+.measure-out .big { font-size: 18px; font-weight: 600;
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+kbd {
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px; padding: 1px 5px;
+  border: 1px solid var(--line-strong); border-radius: 4px; color: var(--muted);
+}
+
+/* ----------------------------------------------------------------- responsive ---- */
+/* On a phone everything stacks from the bottom edge upward, in one column, so nothing
+   can land on top of anything else:
+       rail (0)  <  action panel  <  attribution  <  drawer sheet
+   The right-hand controls move to the vertical middle of the map, well clear of it. */
+@media (max-width: 760px) {
+  :root { --rail-h: 54px; }
+  .topbar { flex-wrap: wrap; top: 8px; left: 8px; right: 8px; }
+  .brand { padding: 8px 11px; }
+  .search { flex: 1 1 100%; max-width: none; order: 3; }
+
+  .rail {
+    left: 0; right: 0; top: auto; bottom: 0; transform: none; border-radius: 14px 14px 0 0;
+    border-bottom: 0; display: flex; overflow-x: auto; scrollbar-width: none;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail .btnstack { flex-direction: row; width: 100%; justify-content: space-around; }
+  .rail hr { border-top: 0; border-left: 1px solid var(--line); margin: 4px 2px; }
+
+  /* A fixed 30 px band sits directly above the rail and belongs to the attribution,
+     which is a licence condition for the OSM and Esri tiles and therefore may never be
+     covered by a panel. Everything else stacks above that band. */
+  .leftdock {
+    left: 8px; right: 8px; width: auto; bottom: calc(var(--rail-h) + 30px);
+    max-height: calc(100dvh - var(--rail-h) - 130px);
+  }
+  #action { padding: 11px 13px; }
+  #measure-panel, #probe-panel {
+    position: static; left: auto; right: auto; top: auto; bottom: auto;
+    transform: none; width: 100%; flex: 0 1 auto;
+  }
+  /* Three panels can be stacked at once (probe + action + drawer). Capping each keeps
+     the column inside the viewport instead of pushing the top one off-screen. */
+  .leftdock .pop, .leftdock .drawer { max-height: 42vh; }
+  .probe-big { font-size: 28px; }
+  /* The watermark keeps its corner but gives up its size; the attribution beneath it is
+     the element with a licence attached and takes priority for the space. */
+  .watermark { font-size: 9.5px; padding: 3px 8px 3px 6px; }
+  .rightstack { top: 50%; transform: translateY(-50%); right: 8px; bottom: auto; }
+  /* The coordinate and scale readout is a desktop nicety; on a phone it is clutter
+     competing for the only free edge. Attribution is not optional and stays. */
+  .readout { display: none; }
+  .bottombar { left: 8px; right: 8px; bottom: calc(var(--rail-h) + 5px); align-items: flex-end; }
+  .bottombar .attrib { max-width: 100%; font-size: 9.5px; padding: 2px 7px; }
+  .pill { bottom: calc(var(--rail-h) + 30px); }
+
+  .drawer { max-height: 58vh; }
+  .drawer.collapsed { max-height: none; }
+  .pop { left: 8px; right: 8px; width: auto; top: auto; bottom: calc(var(--rail-h) + 30px); }
+}
+@media (max-width: 400px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* --- the routing decision -------------------------------------------------------
+   Two places show it: the forecast panel, before anything is fetched, and the results
+   drawer afterwards. Both use this block. It is deliberately quiet -- a badge and two
+   lines -- with the argument folded away behind a disclosure, because most people want
+   to know *what* was used and only some want to know why. The one thing it never hides
+   is a route that does not run a learned model. */
+.routebox {
+  margin-top: 10px; padding: 9px 11px; border-radius: 9px; font-size: 12px;
+  border: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+.routebox:empty { display: none; }
+.routebox .rline { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+.routebox .rline + .rline { margin-top: 5px; }
+.routebox .rkey { color: var(--muted); font-size: 11px; min-width: 52px; }
+.routebox .rval { color: var(--text); font-weight: 500; }
+.routebox .rsub { color: var(--faint); font-size: 11px; }
+.wclass {
+  display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 9.5px;
+  letter-spacing: .06em; text-transform: uppercase;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  border: 1px solid currentColor; color: var(--accent);
+}
+.wclass.marine { color: var(--muted); }
+/* A route with no learned model must not read like a route with one. */
+.wclass.baseline { color: var(--warn); }
+.routebox details { margin-top: 7px; }
+.routebox summary {
+  cursor: pointer; color: var(--accent); font-size: 11.5px; list-style: none;
+}
+.routebox summary::-webkit-details-marker { display: none; }
+.routebox summary::before { content: "▸ "; }
+.routebox details[open] summary::before { content: "▾ "; }
+.routebox details ul { margin: 6px 0 0; padding-left: 16px; color: var(--muted); }
+.routebox details li { margin: 3px 0; }
+.routebox .skill {
+  margin-top: 6px; font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums;
+}

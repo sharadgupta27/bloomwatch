@@ -1,0 +1,252 @@
+{
+  "args": {
+    "aoi": "data\\aoi\\lakes_global.geojson",
+    "cube_root": "data\\processed\\cubes_global_backfill",
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "balaton",
+      "victoria_ne",
+      "winnipeg",
+      "st_clair",
+      "saginaw",
+      "green_bay",
+      "utah_lake",
+      "pontchartrain",
+      "ijsselmeer",
+      "curonian",
+      "neagh",
+      "chaohu",
+      "poyang",
+      "kasumigaura",
+      "victoria_mwanza",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "start": "2017-11-01",
+    "end": "2025-12-31",
+    "workers": 7,
+    "min_valid": 0.02,
+    "all_year": true,
+    "aux": "",
+    "source": "planetary-computer",
+    "skip_existing_in": "data\\processed\\cubes_expanded",
+    "report": "artifacts\\ingest_global_A.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 11494.3,
+  "lakes": {
+    "erie_west": {
+      "scenes_found": 3890,
+      "scenes_read": 651,
+      "scenes_rejected": 2282,
+      "scenes_failed": 0,
+      "days_written": 498,
+      "read_success_rate": 0.1674,
+      "elapsed_s": 908.1,
+      "failures": []
+    },
+    "okeechobee": {
+      "scenes_found": 2329,
+      "scenes_read": 631,
+      "scenes_rejected": 817,
+      "scenes_failed": 0,
+      "days_written": 579,
+      "read_success_rate": 0.2709,
+      "elapsed_s": 788.0,
+      "failures": []
+    },
+    "taihu": {
+      "scenes_found": 3240,
+      "scenes_read": 411,
+      "scenes_rejected": 2084,
+      "scenes_failed": 0,
+      "days_written": 351,
+      "read_success_rate": 0.1269,
+      "elapsed_s": 516.4,
+      "failures": []
+    },
+    "balaton": {
+      "scenes_found": 2995,
+      "scenes_read": 693,
+      "scenes_rejected": 1749,
+      "scenes_failed": 0,
+      "days_written": 577,
+      "read_success_rate": 0.2314,
+      "elapsed_s": 677.0,
+      "failures": []
+    },
+    "victoria_ne": {
+      "scenes_found": 2631,
+      "scenes_read": 20,
+      "scenes_rejected": 1184,
+      "scenes_failed": 0,
+      "days_written": 19,
+      "read_success_rate": 0.0076,
+      "elapsed_s": 224.2,
+      "failures": []
+    },
+    "winnipeg": {
+      "scenes_found": 5192,
+      "scenes_read": 154,
+      "scenes_rejected": 3789,
+      "scenes_failed": 0,
+      "days_written": 113,
+      "read_success_rate": 0.0297,
+      "elapsed_s": 542.6,
+      "failures": []
+    },
+    "st_clair": {
+      "scenes_found": 2721,
+      "scenes_read": 480,
+      "scenes_rejected": 1633,
+      "scenes_failed": 0,
+      "days_written": 421,
+      "read_success_rate": 0.1764,
+      "elapsed_s": 423.5,
+      "failures": []
+    },
+    "saginaw": {
+      "scenes_found": 2842,
+      "scenes_read": 497,
+      "scenes_rejected": 1660,
+      "scenes_failed": 0,
+      "days_written": 426,
+      "read_success_rate": 0.1749,
+      "elapsed_s": 696.4,
+      "failures": []
+    },
+    "green_bay": {
+      "scenes_found": 2914,
+      "scenes_read": 407,
+      "scenes_rejected": 1880,
+      "scenes_failed": 0,
+      "days_written": 356,
+      "read_success_rate": 0.1397,
+      "elapsed_s": 662.1,
+      "failures": []
+    },
+    "utah_lake": {
+      "scenes_found": 2980,
+      "scenes_read": 450,
+      "scenes_rejected": 1895,
+      "scenes_failed": 0,
+      "days_written": 394,
+      "read_success_rate": 0.151,
+      "elapsed_s": 423.6,
+      "failures": []
+    },
+    "pontchartrain": {
+      "scenes_found": 2953,
+      "scenes_read": 613,
+      "scenes_rejected": 1388,
+      "scenes_failed": 0,
+      "days_written": 522,
+      "read_success_rate": 0.2076,
+      "elapsed_s": 584.3,
+      "failures": []
+    },
+    "ijsselmeer": {
+      "scenes_found": 3703,
+      "scenes_read": 351,
+      "scenes_rejected": 2336,
+      "scenes_failed": 0,
+      "days_written": 250,
+      "read_success_rate": 0.0948,
+      "elapsed_s": 674.7,
+      "failures": []
+    },
+    "curonian": {
+      "scenes_found": 3510,
+      "scenes_read": 359,
+      "scenes_rejected": 1962,
+      "scenes_failed": 0,
+      "days_written": 248,
+      "read_success_rate": 0.1023,
+      "elapsed_s": 608.3,
+      "failures": []
+    },
+    "neagh": {
+      "scenes_found": 3462,
+      "scenes_read": 267,
+      "scenes_rejected": 2720,
+      "scenes_failed": 0,
+      "days_written": 210,
+      "read_success_rate": 0.0771,
+      "elapsed_s": 858.7,
+      "failures": []
+    },
+    "chaohu": {
+      "scenes_found": 2583,
+      "scenes_read": 313,
+      "scenes_rejected": 1775,
+      "scenes_failed": 0,
+      "days_written": 283,
+      "read_success_rate": 0.1212,
+      "elapsed_s": 409.7,
+      "failures": []
+    },
+    "poyang": {
+      "scenes_found": 2919,
+      "scenes_read": 150,
+      "scenes_rejected": 2347,
+      "scenes_failed": 0,
+      "days_written": 147,
+      "read_success_rate": 0.0514,
+      "elapsed_s": 362.8,
+      "failures": []
+    },
+    "kasumigaura": {
+      "scenes_found": 2470,
+      "scenes_read": 616,
+      "scenes_rejected": 1506,
+      "scenes_failed": 0,
+      "days_written": 554,
+      "read_success_rate": 0.2494,
+      "elapsed_s": 617.9,
+      "failures": []
+    },
+    "victoria_mwanza": {
+      "scenes_found": 2462,
+      "scenes_read": 13,
+      "scenes_rejected": 1352,
+      "scenes_failed": 0,
+      "days_written": 13,
+      "read_success_rate": 0.0053,
+      "elapsed_s": 244.4,
+      "failures": []
+    },
+    "hartbeespoort": {
+      "scenes_found": 2200,
+      "scenes_read": 0,
+      "scenes_rejected": 2102,
+      "scenes_failed": 0,
+      "days_written": 0,
+      "read_success_rate": 0.0,
+      "elapsed_s": 299.1,
+      "failures": []
+    },
+    "alexandrina": {
+      "scenes_found": 2511,
+      "scenes_read": 691,
+      "scenes_rejected": 1077,
+      "scenes_failed": 0,
+      "days_written": 555,
+      "read_success_rate": 0.2752,
+      "elapsed_s": 520.0,
+      "failures": []
+    },
+    "chapala": {
+      "scenes_found": 2657,
+      "scenes_read": 705,
+      "scenes_rejected": 903,
+      "scenes_failed": 0,
+      "days_written": 633,
+      "read_success_rate": 0.2653,
+      "elapsed_s": 452.5,
+      "failures": []
+    }
+  }
+}

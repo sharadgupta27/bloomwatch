@@ -1,0 +1,25 @@
+2026-09-23 00:43:50,112 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(10.0, 20.0, 50.0), tta=False on cuda
+2026-09-23 00:43:52,663 INFO    balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+2026-09-23 00:43:54,983 INFO    victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+2026-09-23 00:43:56,033 INFO    normalisation (from checkpoint): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+2026-09-23 00:43:56,137 INFO    SequenceDataset: 340 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 00:43:56,823 INFO    SequenceDataset: 916 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 00:49:16,854 INFO    lake           split   lead     rmse  skill_p  skill_c   csi@20   auc@20 prauc@20
+2026-09-23 00:49:16,858 INFO    exceedance head: PR-AUC@20 (regression / head / persistence), BSS@20, ECE@20
+2026-09-23 00:49:16,859 INFO    balaton        val        1   0.3046    0.323    0.151    0.005    0.833    0.157
+2026-09-23 00:49:16,859 INFO        head balaton  lead 1  prauc@20 0.157 / 0.157 / 0.099   bss@20 -0.736  ece@20 0.081
+2026-09-23 00:49:16,859 INFO    balaton        val        3   0.3484    0.369   -0.062    0.004    0.784    0.097
+2026-09-23 00:49:16,859 INFO        head balaton  lead 3  prauc@20 0.097 / 0.095 / 0.082   bss@20 -0.531  ece@20 0.082
+2026-09-23 00:49:16,859 INFO    balaton        val        5   0.3434    0.403   -0.082    0.003    0.769    0.076
+2026-09-23 00:49:16,859 INFO        head balaton  lead 5  prauc@20 0.076 / 0.071 / 0.069   bss@20 -0.661  ece@20 0.090
+2026-09-23 00:49:16,859 INFO    balaton        val        7   0.3578    0.459   -0.102    0.003    0.797    0.105
+2026-09-23 00:49:16,859 INFO        head balaton  lead 7  prauc@20 0.105 / 0.100 / 0.082   bss@20 -0.615  ece@20 0.096
+2026-09-23 00:49:16,859 INFO    victoria_ne    test       1   0.2518    0.188    0.142    0.392    0.937    0.615
+2026-09-23 00:49:16,860 INFO        head victoria_ne lead 1  prauc@20 0.615 / 0.619 / 0.611   bss@20 0.262  ece@20 0.069
+2026-09-23 00:49:16,860 INFO    victoria_ne    test       3   0.2501    0.233    0.132    0.370    0.927    0.562
+2026-09-23 00:49:16,860 INFO        head victoria_ne lead 3  prauc@20 0.562 / 0.563 / 0.571   bss@20 0.203  ece@20 0.075
+2026-09-23 00:49:16,860 INFO    victoria_ne    test       5   0.2678    0.167    0.024    0.358    0.929    0.538
+2026-09-23 00:49:16,860 INFO        head victoria_ne lead 5  prauc@20 0.538 / 0.538 / 0.545   bss@20 0.128  ece@20 0.090
+2026-09-23 00:49:16,860 INFO    victoria_ne    test       7   0.2657    0.219    0.041    0.361    0.929    0.534
+2026-09-23 00:49:16,860 INFO        head victoria_ne lead 7  prauc@20 0.534 / 0.533 / 0.545   bss@20 0.133  ece@20 0.090
+2026-09-23 00:49:16,860 INFO    wrote artifacts\eval_anomaly_exceed\scores.json

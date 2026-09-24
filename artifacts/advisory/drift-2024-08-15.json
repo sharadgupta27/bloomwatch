@@ -1,0 +1,191 @@
+{
+  "anchor_date": "2024-08-15",
+  "alerts": [],
+  "reports": {
+    "erie_west": {
+      "reference": "erie_west archive, same season",
+      "current": "erie_west input window (cube)",
+      "generated_utc": "2026-09-23T08:10:33+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.6855670103092784,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.646 vs same-season archive [-0.400, 1.012] (1%-99%, 194 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.8092783505154639,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.102 vs same-season archive [-0.117, 1.229] (1%-99%, 194 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.25257731958762886,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.209 vs same-season archive [0.058, 0.506] (1%-99%, 194 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.5876288659793815,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.603 vs same-season archive [0.040, 0.931] (1%-99%, 194 days)"
+        }
+      ]
+    },
+    "okeechobee": {
+      "reference": "okeechobee archive, same season",
+      "current": "okeechobee input window (cube)",
+      "generated_utc": "2026-09-23T08:10:34+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.8307291666666666,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.496 vs same-season archive [0.399, 1.648] (1%-99%, 192 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.875,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.756 vs same-season archive [1.051, 1.858] (1%-99%, 192 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.421875,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.197 vs same-season archive [0.094, 0.673] (1%-99%, 192 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.65625,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.592 vs same-season archive [0.054, 0.918] (1%-99%, 192 days)"
+        }
+      ]
+    },
+    "taihu": {
+      "reference": "taihu archive, same season",
+      "current": "taihu input window (cube)",
+      "generated_utc": "2026-09-23T08:10:34+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.08846153846153847,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.992 vs same-season archive [0.770, 1.339] (1%-99%, 130 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.28846153846153844,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.260 vs same-season archive [1.010, 1.429] (1%-99%, 130 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.7076923076923077,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.233 vs same-season archive [0.044, 0.462] (1%-99%, 130 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.8461538461538461,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.597 vs same-season archive [0.059, 0.758] (1%-99%, 130 days)"
+        }
+      ]
+    },
+    "balaton": {
+      "reference": "balaton archive, same season",
+      "current": "balaton input window (cube)",
+      "generated_utc": "2026-09-23T08:10:34+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.7219387755102041,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.024 vs same-season archive [0.062, 1.261] (1%-99%, 196 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.6530612244897959,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.118 vs same-season archive [0.251, 1.354] (1%-99%, 196 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.24489795918367346,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.146 vs same-season archive [0.056, 0.491] (1%-99%, 196 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.30612244897959184,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.450 vs same-season archive [0.171, 0.882] (1%-99%, 196 days)"
+        }
+      ]
+    },
+    "victoria_ne": {
+      "reference": "victoria_ne archive, same season",
+      "current": "victoria_ne input window (cube)",
+      "generated_utc": "2026-09-23T08:10:35+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.8862275449101797,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.945 vs same-season archive [-0.117, 1.108] (1%-99%, 167 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.7844311377245509,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.291 vs same-season archive [0.651, 1.533] (1%-99%, 167 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.32335329341317365,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.292 vs same-season archive [0.162, 0.629] (1%-99%, 167 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.3592814371257485,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.295 vs same-season archive [0.072, 0.912] (1%-99%, 167 days)"
+        }
+      ]
+    }
+  }
+}

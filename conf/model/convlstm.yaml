@@ -1,0 +1,10 @@
+name: convlstm
+hidden: 48
+layers: 2
+kernel_size: 3
+use_doy: true
+dropout: 0.1
+# Recompute each timestep during backward instead of storing it. Without this the
+# 14-step sequence peaks at 4.84 GB (measured) and will not fit a 4 GB card; with it,
+# 1.95 GB. Set false only if you have VRAM to spare and want the compute back.
+gradient_checkpointing: true

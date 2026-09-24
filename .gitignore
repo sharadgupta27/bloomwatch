@@ -1,0 +1,58 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# --- Testing / linting ---
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# --- Data (DVC-tracked; never commit binaries) ---
+data/raw/
+data/interim/
+data/processed/
+data/external/
+*.zarr/
+*.nc
+*.tif
+*.tiff
+*.parquet
+
+# --- Models & experiment tracking ---
+mlruns/
+mlartifacts/
+models/*.ckpt
+models/*.pt
+models/*.onnx
+lightning_logs/
+outputs/
+multirun/
+
+# --- Secrets ---
+.env
+.netrc
+_netrc
+*.pem
+secrets.yaml
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Cached third-party validation datasets (GLORIA ~59 MB, EPA WQP ~38 MB). Re-fetched by
+# scripts/survey_validation_data.py; not ours to redistribute.
+data/cache/
+
+# Derived in-situ index (built from the caches above by scripts/build_insitu_index.py).
+data/validation/

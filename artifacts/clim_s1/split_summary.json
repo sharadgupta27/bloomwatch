@@ -1,0 +1,34 @@
+{
+  "split_mode": "lake",
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492
+    },
+    "samples": 1475
+  },
+  "val": {
+    "lakes": [
+      "balaton"
+    ],
+    "days": {
+      "balaton": 399
+    },
+    "samples": 340
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne"
+    ],
+    "days": {
+      "victoria_ne": 1087
+    },
+    "samples": 916
+  }
+}

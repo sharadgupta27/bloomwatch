@@ -1,0 +1,7 @@
+# DVC-tracked parameters for the data stages only. Model/training hyperparameters live
+# in conf/ and are managed by Hydra.
+ingest:
+  start: "2018-01-01"
+  end: "2024-12-31"
+  workers: 12
+  min_valid: 0.02

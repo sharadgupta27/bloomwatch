@@ -1,0 +1,66 @@
+{
+  "split_mode": "lake",
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "winnipeg",
+      "st_clair",
+      "saginaw",
+      "green_bay",
+      "utah_lake",
+      "pontchartrain",
+      "ijsselmeer",
+      "curonian",
+      "neagh",
+      "chaohu",
+      "poyang",
+      "kasumigaura"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492,
+      "winnipeg": 547,
+      "st_clair": 483,
+      "saginaw": 516,
+      "green_bay": 458,
+      "utah_lake": 448,
+      "pontchartrain": 624,
+      "ijsselmeer": 605,
+      "curonian": 733,
+      "neagh": 301,
+      "chaohu": 397,
+      "poyang": 297,
+      "kasumigaura": 277
+    },
+    "samples": 6080
+  },
+  "val": {
+    "lakes": [
+      "balaton",
+      "victoria_mwanza"
+    ],
+    "days": {
+      "balaton": 399,
+      "victoria_mwanza": 925
+    },
+    "samples": 1075
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "days": {
+      "victoria_ne": 1087,
+      "hartbeespoort": 79,
+      "alexandrina": 424,
+      "chapala": 731
+    },
+    "samples": 1848
+  }
+}

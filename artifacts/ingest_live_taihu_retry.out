@@ -1,0 +1,21 @@
+12:27:32 INFO    ========================================================================
+12:27:32 INFO    taihu -- Lake Taihu (split=train, season=(5, 11))
+12:27:40 INFO    taihu: 50 OLCI overpasses on the Data Store between 2026-05-01 and 2026-05-31 (50 granules)
+12:29:38 INFO    taihu: 50 OLCI overpasses on the Data Store between 2026-06-01 and 2026-06-30 (50 granules)
+12:32:03 INFO    taihu: 51 OLCI overpasses on the Data Store between 2026-07-01 and 2026-07-31 (51 granules)
+12:33:38 INFO    taihu: 49 OLCI overpasses on the Data Store between 2026-08-01 and 2026-08-31 (67 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:36:15 INFO    taihu: wrote 8 new daily frames to data\processed\cubes_live\taihu.zarr
+12:36:15 INFO    taihu 2026-08: 10 scenes -> 8 days (8 written)
+12:36:19 INFO    taihu: 37 OLCI overpasses on the Data Store between 2026-09-01 and 2026-09-22 (74 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:39:14 INFO    taihu: wrote 11 new daily frames to data\processed\cubes_live\taihu.zarr
+12:39:14 INFO    taihu 2026-09: 14 scenes -> 11 days (11 written)
+12:39:15 INFO    taihu: 24/237 scenes read (145 low-coverage, 0 failed) -> 19 daily frames
+12:39:15 INFO    taihu finished in 11.7 min
+12:39:15 INFO    ========================================================================
+12:39:15 INFO    ALL DONE in 11.7 min
+12:39:15 INFO      taihu            19 days  |    24/ 237 scenes read  |    0 failed
+12:39:15 INFO    report -> artifacts\ingest_live_taihu_retry.json

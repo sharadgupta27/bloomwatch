@@ -1,0 +1,27 @@
+name: Bloom Watch nightly integration
+
+# Network tests hit the live Planetary Computer STAC API. They belong on a schedule,
+# not on every pull request: an upstream outage or a Sentinel-3 processing-baseline
+# change should raise an alert, not fail an unrelated contributor's PR.
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  integration:
+    name: Live data integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: pyproject.toml }
+      - run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+      - name: Network integration tests
+        run: pytest -m network -q --timeout=900 --no-cov
+      - name: Report failure
+        if: failure()
+        run: echo "::warning::Live OLCI integration failed - check STAC availability and the WQSF flag table"

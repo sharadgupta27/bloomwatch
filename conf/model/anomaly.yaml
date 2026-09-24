@@ -1,0 +1,9 @@
+# Level-invariant anomaly forecaster. See src/habforecast/models/anomaly.py for why this
+# exists: the ConvLSTM and U-Net generalise badly across lakes because a single global
+# standardisation cannot span a 5.5x spread in trophic level between training lakes.
+name: anomaly
+base: 24                 # trunk width; 24-32 is the useful range, more overfits 3 lakes
+use_doy: true
+delta_scale: 0.5         # initial cap on the departure from persistence, in window sigmas
+n_scales: 3              # recency timescales in the window summary (~1.5, 4, 12 days)
+dropout: 0.1

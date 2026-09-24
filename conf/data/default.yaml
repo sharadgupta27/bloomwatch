@@ -1,0 +1,57 @@
+# Windowing and split policy.
+#
+# The split is by LAKE, not by time or by random tile. Random splits on this data leak
+# badly: neighbouring pixels and adjacent days are near-duplicates, so a random split
+# reports a score the model would never achieve on a new lake. Holding out entire lakes
+# is the only split that answers the question a user actually has -- "will this work on
+# my lake?"
+# `lake` holds out whole lakes (the headline number). `temporal` keeps every lake and
+# cuts by year -- train up to the year before `val_years`, validate on `val_years`, test on
+# `test_years` -- which answers the operational question for a lake already in the
+# registry. Both are reported; see features/datamodule.py.
+split_mode: lake
+val_years: [2023]
+test_years: [2024, 2025]
+
+input_days: 14           # length of the past window fed to the model
+lead_times: [1, 3, 5, 7] # forecast horizons in days
+crop: 128                # random spatial crop during training; null disables
+min_input_frames: 2      # reject anchors with fewer observed frames in the window
+min_target_coverage: 0.05
+min_water_frequency: 0.05
+augment: true
+batch_size: 8
+num_workers: 0           # Windows spawn + in-RAM arrays: 0 is fastest here
+
+# Auxiliary physical layers stacked alongside chlorophyll, from the same OLCI granule
+# (see src/habforecast/data/aux_layers.py). Empty reproduces the original univariate
+# model exactly. The cubes must have been ingested with the matching `--aux`; a cube
+# without them trains as if those days were cloudy rather than inventing a value.
+#   mci    709 nm peak height -- surface scum the CHL_NN retrieval under-reads
+#   tsm    suspended sediment -- the commonest false positive in a river plume
+#   kd490  light attenuation -- the depth of the layer a bloom can grow in
+aux: []
+
+# Seasonal climatology as a model input (only the `use_clim` models read it; see
+# conf/model/anomaly_clim.yaml). The half-width matches the climatology baseline so the
+# model is fed exactly the quantity it is scored against. The dropout withholds it from a
+# fraction of training samples so the model still forecasts a lake with no history.
+clim_halfwidth: 15
+clim_dropout: 0.15
+
+# ERA5 meteorological forcing (see src/habforecast/data/era5.py), read from
+# ${paths.met}. Empty reproduces the chlorophyll-only model exactly. Build the stores
+# with `python pipelines/ingest_era5.py`; a lake without one trains with these channels
+# masked off rather than with invented weather.
+#   wind_speed  calm water lets a bloom float up and be seen; wind mixes it down
+#   wind_u/v    the direction a surface scum is pushed between overpasses
+#   t2m         growth rate
+#   ssrd        light for photosynthesis, and a cloud proxy
+#   tp          the nutrient pulse that arrives days after rain
+met: []
+
+# Multilevel models (group_dim > 0, e.g. model=anomaly_multilevel): probability, per
+# training sample and per factor, of withholding the lake's trophic / thermal / continent
+# level (see src/habforecast/groups.py). It is what keeps the population-level forecast --
+# the one an unregistered area gets -- trained. Ignored by models without group_dim.
+group_dropout: 0.2

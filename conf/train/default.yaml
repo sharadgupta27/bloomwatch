@@ -1,0 +1,18 @@
+max_epochs: 60
+lr: 3.0e-4
+weight_decay: 1.0e-4
+huber_delta: 1.0
+lead_weighting: linear   # uniform | linear | sqrt -- up-weight harder long leads
+warmup_epochs: 2
+precision: 16-mixed      # AMP: roughly halves activation memory on the 4 GB card
+accumulate_grad_batches: 2
+gradient_clip_val: 1.0
+early_stopping_patience: 12
+monitor: val/skill_overall
+monitor_mode: max        # skill vs persistence: higher is better
+log_every_n_steps: 10
+deterministic: false
+# Exceedance head (models with `exceed_thresholds`, e.g. model=anomaly_exceed): weight of
+# the focal loss beside the regression Huber, and its focusing exponent.
+exceed_weight: 1.0
+focal_gamma: 2.0

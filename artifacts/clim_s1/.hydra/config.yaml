@@ -1,0 +1,60 @@
+data:
+  split_mode: lake
+  val_years:
+  - 2023
+  test_years:
+  - 2024
+  - 2025
+  input_days: 14
+  lead_times:
+  - 1
+  - 3
+  - 5
+  - 7
+  crop: 128
+  min_input_frames: 2
+  min_target_coverage: 0.05
+  min_water_frequency: 0.05
+  augment: true
+  batch_size: 8
+  num_workers: 0
+  aux: []
+  clim_halfwidth: 15
+  clim_dropout: 0.15
+  met: []
+model:
+  name: anomaly
+  base: 24
+  use_doy: true
+  delta_scale: 0.5
+  n_scales: 3
+  dropout: 0.1
+  use_clim: true
+  clim_gate_init: -2.0
+train:
+  max_epochs: 60
+  lr: 0.0003
+  weight_decay: 0.0001
+  huber_delta: 1.0
+  lead_weighting: linear
+  warmup_epochs: 2
+  precision: 16-mixed
+  accumulate_grad_batches: 2
+  gradient_clip_val: 1.0
+  early_stopping_patience: 12
+  monitor: val/skill_overall
+  monitor_mode: max
+  log_every_n_steps: 10
+  deterministic: false
+  exceed_weight: 1.0
+  focal_gamma: 2.0
+seed: 1
+experiment_name: hab-forecast-v2
+run_name: clim_s1
+paths:
+  repo_root: ${hydra:runtime.cwd}
+  aoi: ${paths.repo_root}/data/aoi/lakes.geojson
+  cubes: ${paths.repo_root}/data/processed/cubes
+  met: ${paths.repo_root}/data/processed/met
+  artifacts: ${paths.repo_root}/artifacts
+  mlflow_uri: sqlite:///${paths.repo_root}/mlruns/mlflow.db

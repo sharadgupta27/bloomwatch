@@ -1,0 +1,16 @@
+# The `anomaly` forecaster with the seasonal climatology as an input and as a second
+# anchor (see the module docstring in src/habforecast/models/anomaly.py, change 5).
+#
+# Motivation, measured on the plain `anomaly` checkpoint: it beats persistence on the
+# held-out lake at every lead and loses to a leave-one-year-out climatology at every lead,
+# by a margin that grows with horizon (-0.008 at 1 day, -0.151 at 7). A model that sees a
+# fortnight cannot know where the season is heading; this one is told, and learns per
+# pixel and per lead how far to lean on it.
+name: anomaly
+base: 24
+use_doy: true
+delta_scale: 0.5
+n_scales: 3
+dropout: 0.1
+use_clim: true
+clim_gate_init: -2.0     # anchor starts at 88% persistence / 12% climatology

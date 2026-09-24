@@ -1,0 +1,39 @@
+[2026-08-26 06:25:53,542][habforecast.features.dataset][INFO] - erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+[2026-08-26 06:25:53,878][habforecast.features.dataset][INFO] - okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+[2026-08-26 06:25:54,313][habforecast.features.dataset][INFO] - taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+[2026-08-26 06:25:54,561][habforecast.features.dataset][INFO] - balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+[2026-08-26 06:25:54,607][habforecast.features.datamodule][WARNING] - split 'test' has no loadable cubes
+[2026-08-26 06:25:54,937][habforecast.features.datamodule][INFO] - normalisation (train lakes only): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+[2026-08-26 06:25:55,119][habforecast.features.dataset][INFO] - SequenceDataset: 1475 samples from 3 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-08-26 06:25:55,152][habforecast.features.dataset][INFO] - SequenceDataset: 340 samples from 1 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-08-26 06:25:55,152][__main__][INFO] - split composition: {
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492
+    },
+    "samples": 1475
+  },
+  "val": {
+    "lakes": [
+      "balaton"
+    ],
+    "days": {
+      "balaton": 399
+    },
+    "samples": 340
+  },
+  "test": {
+    "lakes": [],
+    "days": {},
+    "samples": 0
+  }
+}
+[2026-08-26 06:25:55,157][__main__][INFO] - model=convlstm params: 0.36M total, 0.36M trainable
+[2026-08-26 08:46:26,447][__main__][INFO] - best val/skill_overall = tensor(0.2753, device='cuda:0') (C:\Users\shara\Desktop\New_Ideas\mlops-proj\artifacts\convlstm\checkpoints\best-18-0.2753.ckpt)

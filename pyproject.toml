@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "habforecast"
+version = "0.1.0"
+description = "Bloom Watch: short-range forecasting of cyanobacterial harmful algal blooms from Sentinel-3 OLCI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "skg.tau@gmail.com" }]
+keywords = ["remote-sensing", "harmful-algal-blooms", "mlops", "sentinel-3", "forecasting"]
+
+# Runtime dependencies are exactly what the package imports -- verified by grepping
+# for import statements, not by accumulation. Ten previously-declared packages
+# (rasterio, rioxarray, geopandas, shapely, netCDF4, scikit-learn, matplotlib,
+# typer, rich, tqdm) were never imported anywhere and pulled ~300 MB into the serving
+# image for nothing.
+#
+# dask was pruned in that same pass and had to come back: nothing imports it by name,
+# but `Dataset.chunk()` and `open_zarr` dispatch to it, so removing it left an image in
+# which every cube write raised at `store.py: ds.chunk(chunks)`. The host runs happened
+# to be on a conda env that still had it, so the break stayed invisible until the tests
+# were finally run inside the container. A grep for imports cannot see a dependency
+# reached through a plugin registry.
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "xarray>=2024.1",
+  "zarr>=2.17",
+  "dask[array]>=2024.1",   # xarray dispatches chunking and lazy zarr reads to it
+  "h5py>=3.10",
+  "h5netcdf>=1.3",         # the engine xarray needs for the ERA5 NetCDF deliveries
+  "fsspec>=2024.2",
+  "aiohttp>=3.9",          # supplies the HTTP timeouts fsspec otherwise omits
+  "requests>=2.31",
+  "pyproj>=3.6",           # projection maths for the analysis grid
+  "scipy>=1.11",           # cKDTree for swath resampling
+  "torch>=2.2",
+  "lightning>=2.2",        # training and evaluation; serving loads the bare network without it
+  "pystac-client>=0.7",
+  "planetary-computer>=1.0",
+]
+
+[project.optional-dependencies]
+# The serving image installs ONLY this. `monitor` drags evidently -> plotly (187 MB),
+# pyarrow (156 MB), mlflow (62 MB) and statsmodels (55 MB) into a container whose job is
+# to answer HTTP requests.
+# python-multipart is not optional despite looking like it: FastAPI raises at import time
+# on any route declaring UploadFile without it, so the geometry-upload endpoint would take
+# the whole API down rather than just failing its own request.
+serve = ["fastapi>=0.110", "uvicorn[standard]>=0.27", "pydantic>=2.6", "pillow>=10.2",
+         "prometheus-client>=0.20", "python-multipart>=0.0.9",
+         # EUMETSAT Data Store client: the near-real-time OLCI source (data/eumetsat.py).
+         # Unused, and harmless, until `eumdac set-credentials` has been run.
+         "eumdac>=3.0"]
+# Torch-free serving of an ONNX export (scripts/export_onnx.py, inference.onnx_backend).
+# The `serve-onnx` Docker target installs the core dependencies *minus* torch/lightning
+# plus these; `onnx` itself is needed only to export, so it lives in `train`.
+serve-onnx = ["habforecast[serve]", "onnxruntime>=1.18"]
+train = ["hydra-core>=1.3", "omegaconf>=2.3", "mlflow>=2.11", "dvc>=3.48", "onnx>=1.16", "onnxruntime>=1.18"]
+# ERA5 meteorological forcing. Separate because it needs a Copernicus CDS account and a
+# ~/.cdsapirc, which the no-credentials reproduction path deliberately does not require:
+# every cube and checkpoint here can be rebuilt without it.
+met = ["cdsapi>=0.7"]
+monitor = ["evidently>=0.4", "prometheus-client>=0.20"]
+geo = ["rasterio>=1.3", "rioxarray>=0.15", "geopandas>=0.14", "shapely>=2.0"]  # notebooks only
+# What CI and the `tools` container need: enough to run the tests, the linter and the
+# type checker, and nothing that would bloat an image. Split out of `dev` because installing `dev` to run
+# pytest also installs jupyterlab, which is 100+ MB of no use to a test run.
+ci = ["pytest>=8.0", "pytest-cov>=4.1", "pytest-mock>=3.12", "pytest-timeout>=2.3", "httpx>=0.27", "ruff>=0.3",
+      "mypy>=1.9",
+      "onnx>=1.16", "onnxruntime>=1.18"]  # the ONNX export parity tests
+dev = [
+  "habforecast[ci]",
+  "pre-commit>=3.6",
+  "matplotlib>=3.8", "jupyterlab>=4.1",
+]
+all = ["habforecast[serve,train,monitor,geo,met,dev]"]
+
+[project.scripts]
+hab = "habforecast.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM", "PTH", "RUF"]
+# N812: `import lightning as L` / `torch.nn.functional as F` are the ecosystem
+#       conventions; renaming them would make the code harder to read, not easier.
+ignore = ["E501", "B008", "RUF012", "N812"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["N802", "N803", "SIM117"]  # nested `with` is clearer in read-then-assert tests
+# X() and Y() are the data-space -> pixel-space mappers of a chart; `x_of`/`y_of` reads
+# worse in the coordinate arithmetic they appear in. RUF001 flags the typographic glyphs
+# (x, -, thin space) that the rendered page is supposed to contain.
+"scripts/make_dashboard.py" = ["N802", "N806", "RUF001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --cov=habforecast --cov-report=term-missing"
+markers = [
+  "network: requires internet access (deselect with '-m \"not network\"')",
+  "slow: long-running test",
+  "gpu: requires CUDA",
+]
+filterwarnings = [
+  # Zarr 3 warns that consolidated metadata is not part of the v3 spec. We write it
+  # deliberately: it turns cube opening from one request per array into a single read,
+  # which matters when the API opens five cubes per health check.
+  "ignore:Consolidated metadata is currently not part in the Zarr format 3 specification:UserWarning",
+]
+
+[tool.mypy]
+python_version = "3.11"
+# The whole codebase, so a bare `mypy` checks what CI checks. The script and pipeline
+# directories are not packages; explicit bases stop same-named modules colliding.
+files = ["src", "serving", "pipelines", "scripts", "monitoring", "tests"]
+explicit_package_bases = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+disallow_untyped_defs = false

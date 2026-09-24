@@ -1,0 +1,116 @@
+[2026-09-23 08:31:07,871][habforecast.features.dataset][INFO] - erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+[2026-09-23 08:31:08,049][habforecast.features.dataset][INFO] - erie_west: met forcing 1472 days 2018-05-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:08,508][habforecast.features.dataset][INFO] - okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+[2026-09-23 08:31:08,662][habforecast.features.dataset][INFO] - okeechobee: met forcing 1960 days 2018-03-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:09,322][habforecast.features.dataset][INFO] - taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+[2026-09-23 08:31:09,505][habforecast.features.dataset][INFO] - taihu: met forcing 1952 days 2018-04-01 to 2025-11-30 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:10,651][habforecast.features.dataset][INFO] - winnipeg: 547 days, grid (413, 411), water pixels 76834/169743 (45.3%), observed density 41.8%
+[2026-09-23 08:31:10,827][habforecast.features.dataset][INFO] - winnipeg: met forcing 1472 days 2018-05-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:11,680][habforecast.features.dataset][INFO] - st_clair: 483 days, grid (171, 171), water pixels 11572/29241 (39.6%), observed density 57.1%
+[2026-09-23 08:31:11,903][habforecast.features.dataset][INFO] - st_clair: met forcing 1472 days 2018-05-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:12,294][habforecast.features.dataset][INFO] - saginaw: 516 days, grid (209, 208), water pixels 22420/43472 (51.6%), observed density 53.4%
+[2026-09-23 08:31:12,295][habforecast.features.dataset][WARNING] - saginaw: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\saginaw.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:12,718][habforecast.features.dataset][INFO] - green_bay: 458 days, grid (204, 203), water pixels 11221/41412 (27.1%), observed density 58.8%
+[2026-09-23 08:31:12,719][habforecast.features.dataset][WARNING] - green_bay: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\green_bay.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:13,063][habforecast.features.dataset][INFO] - utah_lake: 448 days, grid (136, 135), water pixels 3976/18360 (21.7%), observed density 43.4%
+[2026-09-23 08:31:13,064][habforecast.features.dataset][WARNING] - utah_lake: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\utah_lake.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:13,445][habforecast.features.dataset][INFO] - pontchartrain: 624 days, grid (207, 207), water pixels 19430/42849 (45.3%), observed density 47.1%
+[2026-09-23 08:31:13,446][habforecast.features.dataset][WARNING] - pontchartrain: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\pontchartrain.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:14,069][habforecast.features.dataset][INFO] - ijsselmeer: 605 days, grid (243, 242), water pixels 24887/58806 (42.3%), observed density 41.8%
+[2026-09-23 08:31:14,070][habforecast.features.dataset][WARNING] - ijsselmeer: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\ijsselmeer.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:14,619][habforecast.features.dataset][INFO] - curonian: 733 days, grid (203, 203), water pixels 27069/41209 (65.7%), observed density 51.2%
+[2026-09-23 08:31:14,620][habforecast.features.dataset][WARNING] - curonian: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\curonian.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:14,892][habforecast.features.dataset][INFO] - neagh: 301 days, grid (140, 140), water pixels 4081/19600 (20.8%), observed density 46.1%
+[2026-09-23 08:31:14,893][habforecast.features.dataset][WARNING] - neagh: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\neagh.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:15,210][habforecast.features.dataset][INFO] - chaohu: 397 days, grid (169, 168), water pixels 8630/28392 (30.4%), observed density 46.0%
+[2026-09-23 08:31:15,211][habforecast.features.dataset][WARNING] - chaohu: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\chaohu.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:15,619][habforecast.features.dataset][INFO] - poyang: 297 days, grid (303, 303), water pixels 28436/91809 (31.0%), observed density 30.4%
+[2026-09-23 08:31:15,619][habforecast.features.dataset][WARNING] - poyang: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\poyang.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:15,875][habforecast.features.dataset][INFO] - kasumigaura: 277 days, grid (135, 135), water pixels 2936/18225 (16.1%), observed density 42.2%
+[2026-09-23 08:31:15,875][habforecast.features.dataset][WARNING] - kasumigaura: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\kasumigaura.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:16,108][habforecast.features.dataset][INFO] - balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+[2026-09-23 08:31:16,249][habforecast.features.dataset][INFO] - balaton: met forcing 1224 days 2018-05-01 to 2025-09-30 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:17,408][habforecast.features.dataset][INFO] - victoria_mwanza: 925 days, grid (201, 201), water pixels 14525/40401 (36.0%), observed density 49.7%
+[2026-09-23 08:31:17,409][habforecast.features.dataset][WARNING] - victoria_mwanza: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\victoria_mwanza.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:19,105][habforecast.features.dataset][INFO] - victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+[2026-09-23 08:31:19,309][habforecast.features.dataset][INFO] - victoria_ne: met forcing 2922 days 2018-01-01 to 2025-12-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-23 08:31:20,017][habforecast.features.dataset][INFO] - hartbeespoort: 79 days, grid (82, 82), water pixels 226/6724 (3.4%), observed density 71.1%
+[2026-09-23 08:31:20,018][habforecast.features.dataset][WARNING] - hartbeespoort: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\hartbeespoort.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:20,231][habforecast.features.dataset][INFO] - alexandrina: 424 days, grid (171, 171), water pixels 10340/29241 (35.4%), observed density 37.7%
+[2026-09-23 08:31:20,231][habforecast.features.dataset][WARNING] - alexandrina: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\alexandrina.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:20,618][habforecast.features.dataset][INFO] - chapala: 731 days, grid (204, 204), water pixels 10409/41616 (25.0%), observed density 58.2%
+[2026-09-23 08:31:20,619][habforecast.features.dataset][WARNING] - chapala: no met store at C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\data\processed\met\chapala.zarr -- run pipelines/ingest_era5.py; the forcing channels will be masked off for this lake
+[2026-09-23 08:31:22,718][habforecast.features.datamodule][INFO] - normalisation (train lakes only): {'mean': 0.809350848197937, 'std': 0.44350665807724}
+[2026-09-23 08:31:22,721][habforecast.features.datamodule][INFO] - met normalisation (train lakes only): {'wind_u': (-0.1882026195526123, 2.3365426063537598), 'wind_v': (0.15665891766548157, 2.3220622539520264), 't2m': (20.69417953491211, 6.7477946281433105), 'ssrd': (18.208873748779297, 6.610251426696777), 'tp': (3.6451382637023926, 6.688356876373291), 'wind_speed': (3.5181047916412354, 1.4068394899368286)}
+[2026-09-23 08:31:24,200][habforecast.features.dataset][INFO] - SequenceDataset: 6080 samples from 15 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-23 08:31:24,423][habforecast.features.dataset][INFO] - SequenceDataset: 1075 samples from 2 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-23 08:31:25,075][habforecast.features.dataset][INFO] - SequenceDataset: 1848 samples from 4 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-23 08:31:25,076][__main__][INFO] - split composition: {
+  "split_mode": "lake",
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "winnipeg",
+      "st_clair",
+      "saginaw",
+      "green_bay",
+      "utah_lake",
+      "pontchartrain",
+      "ijsselmeer",
+      "curonian",
+      "neagh",
+      "chaohu",
+      "poyang",
+      "kasumigaura"
+    ],
+    "days": {
+      "erie_west": 540,
+      "okeechobee": 735,
+      "taihu": 492,
+      "winnipeg": 547,
+      "st_clair": 483,
+      "saginaw": 516,
+      "green_bay": 458,
+      "utah_lake": 448,
+      "pontchartrain": 624,
+      "ijsselmeer": 605,
+      "curonian": 733,
+      "neagh": 301,
+      "chaohu": 397,
+      "poyang": 297,
+      "kasumigaura": 277
+    },
+    "samples": 6080
+  },
+  "val": {
+    "lakes": [
+      "balaton",
+      "victoria_mwanza"
+    ],
+    "days": {
+      "balaton": 399,
+      "victoria_mwanza": 925
+    },
+    "samples": 1075
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "days": {
+      "victoria_ne": 1087,
+      "hartbeespoort": 79,
+      "alexandrina": 424,
+      "chapala": 731
+    },
+    "samples": 1848
+  }
+}
+[2026-09-23 08:31:25,115][__main__][INFO] - model=anomaly params: 0.34M total, 0.34M trainable
+[2026-09-23 10:29:00,081][__main__][INFO] - evaluating on held-out lake(s): ['victoria_ne', 'hartbeespoort', 'alexandrina', 'chapala']
+[2026-09-23 10:32:35,229][__main__][INFO] - best val/skill_overall = tensor(0.3272) (C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\artifacts\expanded_met_s2\checkpoints\best-26-0.3272.ckpt)

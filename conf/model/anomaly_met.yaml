@@ -1,0 +1,19 @@
+# The served `anomaly_clim` forecaster plus ERA5 meteorological forcing over the input
+# window. Compose with the matching data config, which is what supplies the variables:
+#
+#   python pipelines/train.py model=anomaly_met '+data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]'
+#
+# `met_future` adds the weather at the target dates. That is the future -- a real forecast
+# cannot have it -- so it is a measurement of the ceiling ("what would this be worth with
+# a perfect weather forecast?"), never a deployable configuration, and it is recorded in
+# the checkpoint and stamped on every evaluation row. See src/habforecast/data/era5.py.
+name: anomaly
+base: 24
+use_doy: true
+delta_scale: 0.5
+n_scales: 3
+dropout: 0.1
+use_clim: true
+clim_gate_init: -2.0
+met_channels: 8
+met_future: false

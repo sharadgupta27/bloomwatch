@@ -1,0 +1,908 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "erie_west",
+        "name": "Lake Erie (Western Basin)",
+        "country": "US/CA",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32617,
+        "notes": "Microcystis blooms; 2014 Toledo drinking-water shutdown."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.56141354987848,
+              41.2930327201693
+            ],
+            [
+              -82.47858645012151,
+              41.2930327201693
+            ],
+            [
+              -82.47858645012151,
+              42.106967279830705
+            ],
+            [
+              -83.56141354987848,
+              42.106967279830705
+            ],
+            [
+              -83.56141354987848,
+              41.2930327201693
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "okeechobee",
+        "name": "Lake Okeechobee",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32617,
+        "notes": "Recurrent Microcystis; discharges seed coastal blooms."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.10232514819383,
+              26.678688480112864
+            ],
+            [
+              -80.49767485180617,
+              26.678688480112864
+            ],
+            [
+              -80.49767485180617,
+              27.221311519887134
+            ],
+            [
+              -81.10232514819383,
+              27.221311519887134
+            ],
+            [
+              -81.10232514819383,
+              26.678688480112864
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "taihu",
+        "name": "Lake Taihu",
+        "country": "CN",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          11
+        ],
+        "utm_epsg": 32651,
+        "notes": "2007 Wuxi supply crisis; among the most studied bloom lakes."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              119.83242687835957,
+              30.88346989346501
+            ],
+            [
+              120.56757312164044,
+              30.88346989346501
+            ],
+            [
+              120.56757312164044,
+              31.51653010653499
+            ],
+            [
+              119.83242687835957,
+              31.51653010653499
+            ],
+            [
+              119.83242687835957,
+              30.88346989346501
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "balaton",
+        "name": "Lake Balaton",
+        "country": "HU",
+        "split": "val",
+        "trophic_state": "mesotrophic",
+        "bloom_season": [
+          6,
+          9
+        ],
+        "utm_epsg": 32633,
+        "notes": "Shallow, well monitored; weaker blooms than the training set."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.290277829917923,
+              46.53346989346501
+            ],
+            [
+              18.209722170082077,
+              46.53346989346501
+            ],
+            [
+              18.209722170082077,
+              47.16653010653499
+            ],
+            [
+              17.290277829917923,
+              47.16653010653499
+            ],
+            [
+              17.290277829917923,
+              46.53346989346501
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "victoria_ne",
+        "name": "Lake Victoria (NE / Winam Gulf)",
+        "country": "KE",
+        "split": "test",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          1,
+          12
+        ],
+        "utm_epsg": 32736,
+        "notes": "Equatorial, year-round; the original held-out lake."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              33.930502953303865,
+              -0.5713115198871344
+            ],
+            [
+              34.46949704669614,
+              -0.5713115198871344
+            ],
+            [
+              34.46949704669614,
+              -0.028688480112865566
+            ],
+            [
+              33.930502953303865,
+              -0.028688480112865566
+            ],
+            [
+              33.930502953303865,
+              -0.5713115198871344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "winnipeg",
+        "name": "Lake Winnipeg",
+        "country": "CA",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32614,
+        "notes": "Large summer cyanobacteria blooms; nutrient-loaded basin."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -98.17742095187674,
+              51.55737696022573
+            ],
+            [
+              -96.42257904812325,
+              51.55737696022573
+            ],
+            [
+              -96.42257904812325,
+              52.64262303977427
+            ],
+            [
+              -98.17742095187674,
+              52.64262303977427
+            ],
+            [
+              -98.17742095187674,
+              51.55737696022573
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "st_clair",
+        "name": "Lake St. Clair",
+        "country": "US/CA",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32617,
+        "notes": "Shallow connecting channel above the Erie western basin."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -82.98421529919904,
+              42.19390706676072
+            ],
+            [
+              -82.37578470080098,
+              42.19390706676072
+            ],
+            [
+              -82.37578470080098,
+              42.64609293323928
+            ],
+            [
+              -82.98421529919904,
+              42.64609293323928
+            ],
+            [
+              -82.98421529919904,
+              42.19390706676072
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "saginaw",
+        "name": "Lake Huron (Saginaw Bay)",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32617,
+        "notes": "Shallow embayment with a long HAB record."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -84.02369636145717,
+              43.578688480112866
+            ],
+            [
+              -83.27630363854284,
+              43.578688480112866
+            ],
+            [
+              -83.27630363854284,
+              44.121311519887136
+            ],
+            [
+              -84.02369636145717,
+              44.121311519887136
+            ],
+            [
+              -84.02369636145717,
+              43.578688480112866
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "green_bay",
+        "name": "Lake Michigan (Green Bay)",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32616,
+        "notes": "Stratified eutrophic bay; recurrent blooms."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -88.27946902561996,
+              44.478688480112865
+            ],
+            [
+              -87.52053097438005,
+              44.478688480112865
+            ],
+            [
+              -87.52053097438005,
+              45.021311519887135
+            ],
+            [
+              -88.27946902561996,
+              45.021311519887135
+            ],
+            [
+              -88.27946902561996,
+              44.478688480112865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "utah_lake",
+        "name": "Utah Lake",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          6,
+          10
+        ],
+        "utm_epsg": 32612,
+        "notes": "Shallow, warm, chronic cyanobacteria advisories."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -112.035292214475,
+              40.039125653408576
+            ],
+            [
+              -111.56470778552499,
+              40.039125653408576
+            ],
+            [
+              -111.56470778552499,
+              40.40087434659142
+            ],
+            [
+              -112.035292214475,
+              40.40087434659142
+            ],
+            [
+              -112.035292214475,
+              40.039125653408576
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "pontchartrain",
+        "name": "Lake Pontchartrain",
+        "country": "US",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32615,
+        "notes": "Brackish estuarine lake; blooms after river diversions."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.4118144274114,
+              29.928688480112864
+            ],
+            [
+              -89.78818557258859,
+              29.928688480112864
+            ],
+            [
+              -89.78818557258859,
+              30.471311519887134
+            ],
+            [
+              -90.4118144274114,
+              30.471311519887134
+            ],
+            [
+              -90.4118144274114,
+              29.928688480112864
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "ijsselmeer",
+        "name": "IJsselmeer",
+        "country": "NL",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32631,
+        "notes": "Large shallow freshwater lake, heavily managed."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.83056825698296,
+              52.43346989346501
+            ],
+            [
+              5.8694317430170395,
+              52.43346989346501
+            ],
+            [
+              5.8694317430170395,
+              53.06653010653499
+            ],
+            [
+              4.83056825698296,
+              53.06653010653499
+            ],
+            [
+              4.83056825698296,
+              52.43346989346501
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "curonian",
+        "name": "Curonian Lagoon",
+        "country": "LT/RU",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32634,
+        "notes": "Among the most bloom-prone lagoons in Europe."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              20.57660627792624,
+              55.02868848011286
+            ],
+            [
+              21.523393722073763,
+              55.02868848011286
+            ],
+            [
+              21.523393722073763,
+              55.57131151988713
+            ],
+            [
+              20.57660627792624,
+              55.57131151988713
+            ],
+            [
+              20.57660627792624,
+              55.02868848011286
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "neagh",
+        "name": "Lough Neagh",
+        "country": "GB",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32629,
+        "notes": "Severe blooms since 2023; largest lake in the British Isles."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -6.730299289884343,
+              54.439125653408574
+            ],
+            [
+              -6.109700710115657,
+              54.439125653408574
+            ],
+            [
+              -6.109700710115657,
+              54.80087434659142
+            ],
+            [
+              -6.730299289884343,
+              54.80087434659142
+            ],
+            [
+              -6.730299289884343,
+              54.439125653408574
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "chaohu",
+        "name": "Lake Chaohu",
+        "country": "CN",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          11
+        ],
+        "utm_epsg": 32650,
+        "notes": "Shallow; blooms comparable to Taihu."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              117.28646791418011,
+              31.32390706676072
+            ],
+            [
+              117.81353208581989,
+              31.32390706676072
+            ],
+            [
+              117.81353208581989,
+              31.77609293323928
+            ],
+            [
+              117.28646791418011,
+              31.77609293323928
+            ],
+            [
+              117.28646791418011,
+              31.32390706676072
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "poyang",
+        "name": "Lake Poyang",
+        "country": "CN",
+        "split": "train",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          4,
+          10
+        ],
+        "utm_epsg": 32650,
+        "notes": "Largest Chinese freshwater lake; extreme seasonal area change."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              115.787362234586,
+              28.6930327201693
+            ],
+            [
+              116.712637765414,
+              28.6930327201693
+            ],
+            [
+              116.712637765414,
+              29.506967279830704
+            ],
+            [
+              115.787362234586,
+              29.506967279830704
+            ],
+            [
+              115.787362234586,
+              28.6930327201693
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "kasumigaura",
+        "name": "Lake Kasumigaura",
+        "country": "JP",
+        "split": "train",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          5,
+          10
+        ],
+        "utm_epsg": 32654,
+        "notes": "Shallow and turbid; long monitoring record."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              140.1778407209863,
+              35.84912565340858
+            ],
+            [
+              140.62215927901372,
+              35.84912565340858
+            ],
+            [
+              140.62215927901372,
+              36.210874346591424
+            ],
+            [
+              140.1778407209863,
+              36.210874346591424
+            ],
+            [
+              140.1778407209863,
+              35.84912565340858
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "victoria_mwanza",
+        "name": "Lake Victoria (Mwanza Gulf)",
+        "country": "TZ",
+        "split": "val",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          1,
+          12
+        ],
+        "utm_epsg": 32736,
+        "notes": "Same lake, opposite shore -- a strict test of local overfitting."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              32.63023952422718,
+              -2.8213115198871344
+            ],
+            [
+              33.16976047577282,
+              -2.8213115198871344
+            ],
+            [
+              33.16976047577282,
+              -2.2786884801128653
+            ],
+            [
+              32.63023952422718,
+              -2.2786884801128653
+            ],
+            [
+              32.63023952422718,
+              -2.8213115198871344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "hartbeespoort",
+        "name": "Hartbeespoort Dam",
+        "country": "ZA",
+        "split": "test",
+        "trophic_state": "hypereutrophic",
+        "bloom_season": [
+          1,
+          12
+        ],
+        "utm_epsg": 32735,
+        "notes": "Chronic hyperscum; southern hemisphere, small."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.730328101229745,
+              -25.848524607954854
+            ],
+            [
+              27.969671898770258,
+              -25.848524607954854
+            ],
+            [
+              27.969671898770258,
+              -25.631475392045143
+            ],
+            [
+              27.730328101229745,
+              -25.631475392045143
+            ],
+            [
+              27.730328101229745,
+              -25.848524607954854
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "alexandrina",
+        "name": "Lake Alexandrina",
+        "country": "AU",
+        "split": "test",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          11,
+          4
+        ],
+        "utm_epsg": 32754,
+        "notes": "Terminal lake of the Murray; southern-hemisphere seasonality."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.92431655076513,
+              -35.67609293323928
+            ],
+            [
+              139.47568344923485,
+              -35.67609293323928
+            ],
+            [
+              139.47568344923485,
+              -35.223907066760724
+            ],
+            [
+              138.92431655076513,
+              -35.223907066760724
+            ],
+            [
+              138.92431655076513,
+              -35.67609293323928
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lake_id": "chapala",
+        "name": "Lake Chapala",
+        "country": "MX",
+        "split": "test",
+        "trophic_state": "eutrophic",
+        "bloom_season": [
+          5,
+          11
+        ],
+        "utm_epsg": 32613,
+        "notes": "Largest Mexican lake; subtropical highland."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.33724775232797,
+              19.978688480112865
+            ],
+            [
+              -102.76275224767203,
+              19.978688480112865
+            ],
+            [
+              -102.76275224767203,
+              20.521311519887135
+            ],
+            [
+              -103.33724775232797,
+              20.521311519887135
+            ],
+            [
+              -103.33724775232797,
+              19.978688480112865
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

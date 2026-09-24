@@ -1,0 +1,4 @@
+- model=anomaly_exceed
+- +data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]
+- seed=1
+- run_name=exceed_met_s1

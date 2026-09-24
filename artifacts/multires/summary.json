@@ -1,0 +1,232 @@
+{
+  "olci-300m-3lakes": {
+    "val_d1": {
+      "skill_vs_persistence": 0.1501,
+      "skill_vs_climatology": -0.0661,
+      "rmse": 0.3413,
+      "lakes": [
+        "balaton"
+      ]
+    },
+    "val_d3": {
+      "skill_vs_persistence": 0.1719,
+      "skill_vs_climatology": -0.3935,
+      "rmse": 0.3991,
+      "lakes": [
+        "balaton"
+      ]
+    },
+    "val_d5": {
+      "skill_vs_persistence": 0.2033,
+      "skill_vs_climatology": -0.445,
+      "rmse": 0.3969,
+      "lakes": [
+        "balaton"
+      ]
+    },
+    "val_d7": {
+      "skill_vs_persistence": 0.23,
+      "skill_vs_climatology": -0.5689,
+      "rmse": 0.4269,
+      "lakes": [
+        "balaton"
+      ]
+    },
+    "test_d1": {
+      "skill_vs_persistence": 0.0464,
+      "skill_vs_climatology": -0.0084,
+      "rmse": 0.2729,
+      "lakes": [
+        "victoria_ne"
+      ]
+    },
+    "test_d3": {
+      "skill_vs_persistence": 0.037,
+      "skill_vs_climatology": -0.0888,
+      "rmse": 0.2802,
+      "lakes": [
+        "victoria_ne"
+      ]
+    },
+    "test_d5": {
+      "skill_vs_persistence": 0.0419,
+      "skill_vs_climatology": -0.1221,
+      "rmse": 0.2872,
+      "lakes": [
+        "victoria_ne"
+      ]
+    },
+    "test_d7": {
+      "skill_vs_persistence": 0.0622,
+      "skill_vs_climatology": -0.1512,
+      "rmse": 0.2911,
+      "lakes": [
+        "victoria_ne"
+      ]
+    }
+  },
+  "viirs-750m-15lakes": {
+    "val_d1": {
+      "skill_vs_persistence": 0.1054,
+      "skill_vs_climatology": 0.1407,
+      "rmse": 0.2316,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d3": {
+      "skill_vs_persistence": 0.1439,
+      "skill_vs_climatology": 0.0122,
+      "rmse": 0.2568,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d5": {
+      "skill_vs_persistence": 0.1176,
+      "skill_vs_climatology": -0.0098,
+      "rmse": 0.2543,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d7": {
+      "skill_vs_persistence": 0.1535,
+      "skill_vs_climatology": -0.0711,
+      "rmse": 0.2662,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "test_d1": {
+      "skill_vs_persistence": 0.0751,
+      "skill_vs_climatology": 0.1912,
+      "rmse": 0.2855,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d3": {
+      "skill_vs_persistence": 0.0649,
+      "skill_vs_climatology": 0.1031,
+      "rmse": 0.3099,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d5": {
+      "skill_vs_persistence": 0.0842,
+      "skill_vs_climatology": 0.0945,
+      "rmse": 0.3073,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d7": {
+      "skill_vs_persistence": 0.0738,
+      "skill_vs_climatology": 0.0124,
+      "rmse": 0.3233,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    }
+  },
+  "viirs-4km-15lakes": {
+    "val_d1": {
+      "skill_vs_persistence": 0.0659,
+      "skill_vs_climatology": 0.2459,
+      "rmse": 0.2454,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d3": {
+      "skill_vs_persistence": 0.1069,
+      "skill_vs_climatology": 0.1192,
+      "rmse": 0.2799,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d5": {
+      "skill_vs_persistence": 0.0856,
+      "skill_vs_climatology": 0.1526,
+      "rmse": 0.2731,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "val_d7": {
+      "skill_vs_persistence": 0.1095,
+      "skill_vs_climatology": 0.0672,
+      "rmse": 0.292,
+      "lakes": [
+        "balaton",
+        "victoria_mwanza"
+      ]
+    },
+    "test_d1": {
+      "skill_vs_persistence": -0.0146,
+      "skill_vs_climatology": 0.0061,
+      "rmse": 0.2889,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d3": {
+      "skill_vs_persistence": 0.0016,
+      "skill_vs_climatology": -0.1795,
+      "rmse": 0.3209,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d5": {
+      "skill_vs_persistence": -0.0321,
+      "skill_vs_climatology": -0.0821,
+      "rmse": 0.3022,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    },
+    "test_d7": {
+      "skill_vs_persistence": -0.011,
+      "skill_vs_climatology": -0.179,
+      "rmse": 0.3243,
+      "lakes": [
+        "alexandrina",
+        "chapala",
+        "hartbeespoort",
+        "victoria_ne"
+      ]
+    }
+  }
+}

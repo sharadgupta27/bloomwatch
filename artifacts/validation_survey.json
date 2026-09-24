@@ -1,0 +1,21 @@
+{
+  "haedat": {
+    "events": 14118
+  },
+  "gloria": {
+    "samples": 7445,
+    "with_chl": 6185,
+    "blooms": 2071
+  },
+  "wqp": {
+    "results": 52270,
+    "stations": 4749,
+    "exceedances": 1473
+  },
+  "matchups": {
+    "gloria_total": 1321,
+    "gloria_in_window": 422,
+    "microcystin_stations": 51,
+    "microcystin_results": 13
+  }
+}

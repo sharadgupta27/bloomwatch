@@ -1,0 +1,105 @@
+# DVC tracks the *data artefacts* and the pipeline that produces them. Hyperparameter
+# configuration stays in Hydra (conf/) -- duplicating it into params.yaml would create
+# two sources of truth that silently diverge.
+#
+#   dvc repro ingest      # rebuild cubes if the AOI registry or reader changed
+#   dvc repro             # full chain
+#   dvc dag
+stages:
+  ingest:
+    cmd: python pipelines/ingest.py --start ${ingest.start} --end ${ingest.end} --workers ${ingest.workers} --min-valid ${ingest.min_valid} --report data/processed/ingest_report.json
+    deps:
+      - pipelines/ingest.py
+      - src/habforecast/data/olci.py
+      - src/habforecast/data/qc.py
+      - src/habforecast/data/resample.py
+      - src/habforecast/data/store.py
+      - src/habforecast/data/ingest.py
+      - src/habforecast/data/parallel.py
+      - src/habforecast/aoi.py
+      - data/aoi/lakes.geojson
+    params:
+      - ingest
+    outs:
+      - data/processed/cubes
+    metrics:
+      - data/processed/ingest_report.json:
+          cache: false
+
+  train:
+    cmd: python pipelines/train.py hydra.run.dir=artifacts/train
+    deps:
+      - pipelines/train.py
+      - src/habforecast/features
+      - src/habforecast/models
+      - conf
+      - data/processed/cubes
+    outs:
+      - artifacts/train/checkpoints
+    metrics:
+      - artifacts/train/metrics.json:
+          cache: false
+
+  evaluate:
+    cmd: python pipelines/evaluate.py --checkpoint artifacts/train/checkpoints/last.ckpt --out artifacts/eval --tta
+    deps:
+      - pipelines/evaluate.py
+      - src/habforecast/eval
+      - artifacts/train/checkpoints
+      - data/processed/cubes
+    metrics:
+      - artifacts/eval/scores.json:
+          cache: false
+    plots:
+      - artifacts/eval/skill_by_lead.csv:
+          x: lead_days
+          y: skill_vs_persistence
+
+  # Replace the served checkpoint only if the new one does not regress on the held-out
+  # lake: skill vs persistence and PR-AUC@20, per lead (scripts/promotion_gate.py). The
+  # incumbent's scores live beside it as models/best.scores.json and are replaced on a
+  # promotion. A failing gate fails `dvc repro` and leaves models/best.ckpt untouched.
+  promote:
+    cmd: python scripts/promotion_gate.py --candidate artifacts/eval/scores.json --incumbent models/best.scores.json --candidate-checkpoint artifacts/train/checkpoints/last.ckpt --promote-to models/best.ckpt --report artifacts/eval/promotion.json
+    deps:
+      - scripts/promotion_gate.py
+      - artifacts/eval/scores.json
+      - artifacts/train/checkpoints
+    metrics:
+      - artifacts/eval/promotion.json:
+          cache: false
+
+  # The second split the catalogue asks for: every lake, trained on years up to the
+  # cut-off in conf/data/default.yaml and scored on the years after it.
+  train_temporal:
+    cmd: python pipelines/train.py data.split_mode=temporal hydra.run.dir=artifacts/train_temporal
+    deps:
+      - pipelines/train.py
+      - src/habforecast/features
+      - src/habforecast/models
+      - conf
+      - data/processed/cubes
+    outs:
+      - artifacts/train_temporal/checkpoints
+
+  evaluate_temporal:
+    cmd: python pipelines/evaluate.py --checkpoint artifacts/train_temporal/checkpoints/last.ckpt --out artifacts/eval_temporal --split-mode temporal --tta
+    deps:
+      - pipelines/evaluate.py
+      - src/habforecast/eval
+      - artifacts/train_temporal/checkpoints
+      - data/processed/cubes
+    metrics:
+      - artifacts/eval_temporal/scores.json:
+          cache: false
+
+  # The model card's quantitative section is generated, never typed.
+  results:
+    cmd: python scripts/make_results_table.py --scores artifacts/eval/scores.json --temporal artifacts/eval_temporal/scores.json --model-card docs/MODEL_CARD.md --out artifacts/eval/results.md
+    deps:
+      - scripts/make_results_table.py
+      - artifacts/eval/scores.json
+      - artifacts/eval_temporal/scores.json
+    outs:
+      - artifacts/eval/results.md:
+          cache: false

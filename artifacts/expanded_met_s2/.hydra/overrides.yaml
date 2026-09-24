@@ -1,0 +1,6 @@
+- model=anomaly_exceed
+- +data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]
+- paths.aoi=${paths.repo_root}/data/aoi/lakes_expanded.geojson
+- paths.cubes=${paths.repo_root}/data/processed/cubes_expanded
+- seed=2
+- run_name=expanded_met_s2

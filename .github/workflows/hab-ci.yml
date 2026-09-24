@@ -1,0 +1,177 @@
+name: Bloom Watch CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONPATH: src
+
+jobs:
+  lint:
+    name: Lint & format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: pip install ruff==0.8.6
+      - name: Ruff check
+        run: ruff check src tests pipelines serving scripts monitoring
+      - name: Ruff format check
+        run: ruff format --check src tests pipelines serving
+
+  test:
+    name: Tests (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev,serve,monitor]"
+      - name: Unit tests
+        # Network-marked tests hit Planetary Computer and are excluded from PR CI;
+        # they run on the nightly schedule instead so a Microsoft outage cannot
+        # block an unrelated pull request.
+        run: pytest -m "not network" --cov=habforecast --cov-report=xml --cov-report=term-missing -q
+      - name: Type check
+        # Needs the full install (torch, numpy, xarray stubs), which is why it lives here
+        # and not in the ruff-only lint job. Targets come from [tool.mypy] in pyproject;
+        # `python_version` there pins the checked language level, so one leg is enough.
+        if: matrix.python == '3.12'
+        run: mypy
+      - name: Upload coverage
+        if: matrix.python == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage.xml
+
+  contracts:
+    name: Data & config contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: pyproject.toml }
+      - run: pip install pyproj hydra-core omegaconf pytest numpy
+      - name: AOI registry is valid and splits are disjoint
+        run: pytest tests/unit/test_aoi.py -q --no-cov -p no:cacheprovider
+      - name: Hydra configs compose
+        run: |
+          python - <<'PY'
+          from hydra import compose, initialize_config_dir
+          from pathlib import Path
+          with initialize_config_dir(config_dir=str(Path("conf").resolve()), version_base=None):
+              for model in ("convlstm", "unet", "anomaly", "anomaly_deep", "anomaly_clim",
+                            "anomaly_met", "anomaly_exceed"):
+                  cfg = compose(config_name="config", overrides=[f"model={model}"])
+                  assert cfg.model.name in (model, "anomaly"), cfg.model.name
+                  assert len(cfg.data.lead_times) > 0
+                  print(f"OK: model={model} leads={list(cfg.data.lead_times)}")
+              for split in ("lake", "temporal"):
+                  cfg = compose(config_name="config", overrides=[f"data.split_mode={split}"])
+                  assert cfg.data.split_mode == split
+                  print(f"OK: split_mode={split}")
+          PY
+
+  # A pull request that changes the committed held-out evaluation is a proposal to change
+  # the headline model. It must not regress: skill vs persistence and PR-AUC@20 on the
+  # held-out lake, per lead, against the version on the base branch. The same gate runs
+  # as the `promote` stage of the DVC pipeline before models/best.ckpt is replaced.
+  promotion-gate:
+    name: Promotion gate (held-out skill & PR-AUC)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Gate the changed evaluation against the base branch
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          scores=artifacts/eval/scores.json
+          if git diff --quiet "$BASE" -- "$scores"; then
+            echo "held-out evaluation unchanged; nothing to gate"; exit 0
+          fi
+          if ! git show "$BASE:$scores" > /tmp/incumbent.json 2>/dev/null; then
+            echo "no incumbent evaluation on the base branch; first one passes"; exit 0
+          fi
+          python scripts/promotion_gate.py --candidate "$scores" --incumbent /tmp/incumbent.json
+
+  docker:
+    name: Build images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build CPU image (serve target)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: serve
+          push: false
+          load: true
+          tags: bloom-watch:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Smoke-test the API container
+        run: |
+          docker run -d --name hab -p 8000:8000 bloom-watch:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health > /tmp/health.json; then break; fi
+            sleep 2
+          done
+          cat /tmp/health.json
+          # The API must start and serve /lakes even with no model checkpoint mounted.
+          python -c "import json;d=json.load(open('/tmp/health.json'));assert d['status']=='ok',d;assert d['lakes']==5,d"
+          curl -fsS http://localhost:8000/lakes | python -c "import json,sys;d=json.load(sys.stdin);assert len(d)==5;print('lakes OK')"
+          docker rm -f hab
+      # The torch-free serving image (inference.onnx_backend). The Dockerfile itself fails
+      # the build if torch sneaks in; this checks the API starts and the size stays small.
+      - name: Build torch-free image (serve-onnx target)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          target: serve-onnx
+          push: false
+          load: true
+          tags: bloom-watch:ci-onnx
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Smoke-test the torch-free container
+        run: |
+          docker run -d --name habonnx -p 8001:8000 bloom-watch:ci-onnx
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8001/health > /tmp/h.json; then break; fi
+            sleep 2
+          done
+          python -c "import json;d=json.load(open('/tmp/h.json'));assert d['status']=='ok',d"
+          docker exec habonnx python -c "import importlib.util as u; assert u.find_spec('torch') is None"
+          size=$(docker image inspect bloom-watch:ci-onnx --format '{{.Size}}')
+          echo "serve-onnx image: $((size / 1000000)) MB"
+          test "$size" -lt 1200000000
+          docker rm -f habonnx

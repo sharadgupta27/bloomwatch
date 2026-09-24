@@ -1,0 +1,366 @@
+{
+  "product": "viirs-4km",
+  "resolution_m": 4000.0,
+  "cube_root": "data/processed/cubes_viirs-4km",
+  "generated": "2026-08-29T00:17:45",
+  "lakes": [
+    {
+      "lake_id": "alexandrina",
+      "status": "ok",
+      "grid": [
+        14,
+        14
+      ],
+      "resolution_m": 4000.0,
+      "days": 1042,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 421.6
+    },
+    {
+      "lake_id": "balaton",
+      "status": "ok",
+      "grid": [
+        20,
+        19
+      ],
+      "resolution_m": 4000.0,
+      "days": 678,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 259.0
+    },
+    {
+      "lake_id": "chaohu",
+      "status": "ok",
+      "grid": [
+        13,
+        14
+      ],
+      "resolution_m": 4000.0,
+      "days": 496,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 211.6
+    },
+    {
+      "lake_id": "chapala",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 984,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 434.5
+    },
+    {
+      "lake_id": "curonian",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 1023,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 315.0
+    },
+    {
+      "lake_id": "erie_west",
+      "status": "ok",
+      "grid": [
+        24,
+        24
+      ],
+      "resolution_m": 4000.0,
+      "days": 856,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 265.0
+    },
+    {
+      "lake_id": "green_bay",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 725,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 88.5
+    },
+    {
+      "lake_id": "hartbeespoort",
+      "status": "ok",
+      "grid": [
+        7,
+        7
+      ],
+      "resolution_m": 4000.0,
+      "days": 710,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 29,
+      "chunk_days": 180,
+      "seconds": 550.5
+    },
+    {
+      "lake_id": "ijsselmeer",
+      "status": "ok",
+      "grid": [
+        19,
+        19
+      ],
+      "resolution_m": 4000.0,
+      "days": 993,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 328.5
+    },
+    {
+      "lake_id": "kasumigaura",
+      "status": "ok",
+      "grid": [
+        11,
+        11
+      ],
+      "resolution_m": 4000.0,
+      "days": 452,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 110.4
+    },
+    {
+      "lake_id": "neagh",
+      "status": "ok",
+      "grid": [
+        12,
+        11
+      ],
+      "resolution_m": 4000.0,
+      "days": 538,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 214.7
+    },
+    {
+      "lake_id": "okeechobee",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 783,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 310.5
+    },
+    {
+      "lake_id": "pontchartrain",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 881,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 333.5
+    },
+    {
+      "lake_id": "poyang",
+      "status": "ok",
+      "grid": [
+        24,
+        24
+      ],
+      "resolution_m": 4000.0,
+      "days": 611,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 241.2
+    },
+    {
+      "lake_id": "saginaw",
+      "status": "ok",
+      "grid": [
+        17,
+        17
+      ],
+      "resolution_m": 4000.0,
+      "days": 793,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 116.2
+    },
+    {
+      "lake_id": "st_clair",
+      "status": "ok",
+      "grid": [
+        13,
+        13
+      ],
+      "resolution_m": 4000.0,
+      "days": 752,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 120.4
+    },
+    {
+      "lake_id": "taihu",
+      "status": "ok",
+      "grid": [
+        19,
+        19
+      ],
+      "resolution_m": 4000.0,
+      "days": 619,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 19,
+      "chunk_days": 180,
+      "seconds": 405.2
+    },
+    {
+      "lake_id": "utah_lake",
+      "status": "ok",
+      "grid": [
+        11,
+        12
+      ],
+      "resolution_m": 4000.0,
+      "days": 821,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 89.6
+    },
+    {
+      "lake_id": "victoria_mwanza",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 1441,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 29,
+      "chunk_days": 180,
+      "seconds": 517.1
+    },
+    {
+      "lake_id": "victoria_ne",
+      "status": "ok",
+      "grid": [
+        16,
+        16
+      ],
+      "resolution_m": 4000.0,
+      "days": 1670,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 29,
+      "chunk_days": 180,
+      "seconds": 710.7
+    },
+    {
+      "lake_id": "winnipeg",
+      "status": "ok",
+      "grid": [
+        31,
+        32
+      ],
+      "resolution_m": 4000.0,
+      "days": 863,
+      "record": [
+        "2016-01-01",
+        "2025-08-19"
+      ],
+      "requests": 10,
+      "chunk_days": 180,
+      "seconds": 179.5
+    }
+  ],
+  "total_days": 17731
+}

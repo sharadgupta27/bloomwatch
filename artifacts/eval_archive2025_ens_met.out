@@ -1,0 +1,64 @@
+2026-09-23 11:22:04,579 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=False on cuda
+2026-09-23 11:22:05,791 INFO    erie_west: 540 days, grid (267, 298), water pixels 42895/79566 (53.9%), observed density 51.9%
+2026-09-23 11:22:05,892 INFO    erie_west: met forcing 1472 days 2018-05-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 11:22:06,035 INFO    erie_west: temporal split train=474 val=31 test=35 frames
+2026-09-23 11:22:06,206 INFO    okeechobee: 735 days, grid (212, 180), water pixels 14941/38160 (39.2%), observed density 47.0%
+2026-09-23 11:22:06,308 INFO    okeechobee: met forcing 1960 days 2018-03-01 to 2025-10-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 11:22:06,401 INFO    okeechobee: temporal split train=658 val=44 test=33 frames
+2026-09-23 11:22:06,678 INFO    taihu: 492 days, grid (266, 252), water pixels 25524/67032 (38.1%), observed density 36.8%
+2026-09-23 11:22:06,773 INFO    taihu: met forcing 1952 days 2018-04-01 to 2025-11-30 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 11:22:06,877 INFO    taihu: temporal split train=424 val=32 test=36 frames
+2026-09-23 11:22:07,009 INFO    balaton: 399 days, grid (166, 260), water pixels 5931/43160 (13.7%), observed density 54.8%
+2026-09-23 11:22:07,091 INFO    balaton: met forcing 1224 days 2018-05-01 to 2025-09-30 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 11:22:07,145 INFO    balaton: temporal split train=359 val=23 test=17 frames
+2026-09-23 11:22:08,142 INFO    victoria_ne: 1087 days, grid (351, 372), water pixels 38077/130572 (29.2%), observed density 41.6%
+2026-09-23 11:22:08,411 INFO    victoria_ne: met forcing 2922 days 2018-01-01 to 2025-12-31 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-23 11:22:08,841 INFO    victoria_ne: temporal split train=956 val=67 test=64 frames
+2026-09-23 11:22:08,849 INFO    normalisation (from checkpoint): {'mean': 0.847594678401947, 'std': 0.5003182291984558}
+2026-09-23 11:22:08,854 INFO    met normalisation (train lakes only): {'wind_u': (-0.30809837579727173, 1.706054925918579), 'wind_v': (0.08086450397968292, 1.7579174041748047), 't2m': (22.343996047973633, 4.630739212036133), 'ssrd': (19.196430206298828, 5.611793518066406), 'tp': (4.467794418334961, 6.856226921081543), 'wind_speed': (2.7387235164642334, 1.16877281665802)}
+2026-09-23 11:22:09,322 INFO    SequenceDataset: 2547 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:22:09,353 INFO    SequenceDataset: 97 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:22:09,384 INFO    SequenceDataset: 87 samples from 5 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-23 11:22:37,494 INFO    lake           split   lead     rmse  skill_p  skill_c   csi@20   auc@20 prauc@20
+2026-09-23 11:22:37,494 INFO    exceedance head: PR-AUC@20 (regression / head / persistence), BSS@20, ECE@20
+2026-09-23 11:22:37,494 INFO    balaton        test       1   0.2631    0.371    0.118      nan      nan      nan
+2026-09-23 11:22:37,494 INFO        head balaton  lead 1  prauc@20 nan / nan / nan   bss@20 nan  ece@20 0.013  spread 0.025 vs rmse 0.263
+2026-09-23 11:22:37,494 INFO    balaton        test       3   0.3808    0.258    0.016      nan      nan      nan
+2026-09-23 11:22:37,495 INFO        head balaton  lead 3  prauc@20 nan / nan / nan   bss@20 nan  ece@20 0.018  spread 0.037 vs rmse 0.381
+2026-09-23 11:22:37,495 INFO    balaton        test       5      nan      nan      nan      nan      nan      nan
+2026-09-23 11:22:37,495 INFO        head balaton  lead 5  prauc@20 nan / nan / nan   bss@20 nan  ece@20 nan
+2026-09-23 11:22:37,495 INFO    balaton        test       7   0.2991    0.144    0.287      nan      nan      nan
+2026-09-23 11:22:37,495 INFO        head balaton  lead 7  prauc@20 nan / nan / nan   bss@20 nan  ece@20 0.015  spread 0.041 vs rmse 0.299
+2026-09-23 11:22:37,495 INFO    erie_west      test       1   0.2096   -0.066    0.234    0.019    0.904    0.327
+2026-09-23 11:22:37,495 INFO        head erie_west lead 1  prauc@20 0.327 / 0.326 / 0.396   bss@20 -0.024  ece@20 0.060  spread 0.027 vs rmse 0.210
+2026-09-23 11:22:37,495 INFO    erie_west      test       3   0.1610    0.483   -0.015    0.100    0.958    0.240
+2026-09-23 11:22:37,495 INFO        head erie_west lead 3  prauc@20 0.240 / 0.229 / 0.160   bss@20 0.098  ece@20 0.003  spread 0.024 vs rmse 0.161
+2026-09-23 11:22:37,495 INFO    erie_west      test       5   0.1611    0.375    0.064    0.101    0.924    0.295
+2026-09-23 11:22:37,495 INFO        head erie_west lead 5  prauc@20 0.295 / 0.288 / 0.218   bss@20 0.088  ece@20 0.007  spread 0.023 vs rmse 0.161
+2026-09-23 11:22:37,495 INFO    erie_west      test       7   0.1731    0.460    0.180    0.144    0.926    0.228
+2026-09-23 11:22:37,495 INFO        head erie_west lead 7  prauc@20 0.228 / 0.210 / 0.189   bss@20 0.075  ece@20 0.009  spread 0.031 vs rmse 0.173
+2026-09-23 11:22:37,495 INFO    okeechobee     test       1   0.1407    0.721    0.774    0.936    0.913    0.988
+2026-09-23 11:22:37,495 INFO        head okeechobee lead 1  prauc@20 0.988 / 0.992 / 0.982   bss@20 -0.258  ece@20 0.215  spread 0.022 vs rmse 0.141
+2026-09-23 11:22:37,495 INFO    okeechobee     test       3   0.1124    0.876    0.838    0.946    0.927    0.993
+2026-09-23 11:22:37,495 INFO        head okeechobee lead 3  prauc@20 0.993 / 0.995 / 0.975   bss@20 -1.004  ece@20 0.284  spread 0.022 vs rmse 0.112
+2026-09-23 11:22:37,495 INFO    okeechobee     test       5   0.1777    0.821    0.747    0.922    0.925    0.987
+2026-09-23 11:22:37,496 INFO        head okeechobee lead 5  prauc@20 0.987 / 0.991 / 0.956   bss@20 -0.863  ece@20 0.336  spread 0.073 vs rmse 0.178
+2026-09-23 11:22:37,496 INFO    okeechobee     test       7   0.1908    0.284    0.818    0.918    0.907    0.990
+2026-09-23 11:22:37,496 INFO        head okeechobee lead 7  prauc@20 0.990 / 0.992 / 0.987   bss@20 -2.643  ece@20 0.450  spread 0.034 vs rmse 0.191
+2026-09-23 11:22:37,496 INFO    taihu          test       1   0.1761    0.344    0.061    0.135    0.667    0.170
+2026-09-23 11:22:37,496 INFO        head taihu    lead 1  prauc@20 0.170 / 0.184 / 0.165   bss@20 0.022  ece@20 0.030  spread 0.023 vs rmse 0.176
+2026-09-23 11:22:37,496 INFO    taihu          test       3   0.1263    0.400    0.139    0.116    0.827    0.134
+2026-09-23 11:22:37,496 INFO        head taihu    lead 3  prauc@20 0.134 / 0.141 / 0.142   bss@20 -0.240  ece@20 0.093  spread 0.023 vs rmse 0.126
+2026-09-23 11:22:37,496 INFO    taihu          test       5   0.1623    0.559    0.143    0.047    0.535    0.103
+2026-09-23 11:22:37,496 INFO        head taihu    lead 5  prauc@20 0.103 / 0.109 / 0.109   bss@20 -0.018  ece@20 0.041  spread 0.026 vs rmse 0.162
+2026-09-23 11:22:37,496 INFO    taihu          test       7   0.1665    0.416    0.166    0.012    0.473    0.263
+2026-09-23 11:22:37,496 INFO        head taihu    lead 7  prauc@20 0.263 / 0.288 / 0.324   bss@20 -0.166  ece@20 0.180  spread 0.025 vs rmse 0.166
+2026-09-23 11:22:37,496 INFO    victoria_ne    test       1   0.3515    0.050   -1.363    0.289    0.878    0.531
+2026-09-23 11:22:37,496 INFO        head victoria_ne lead 1  prauc@20 0.531 / 0.539 / 0.467   bss@20 0.214  ece@20 0.035  spread 0.069 vs rmse 0.351
+2026-09-23 11:22:37,496 INFO    victoria_ne    test       3   0.2375    0.397   -0.079    0.291    0.873    0.446
+2026-09-23 11:22:37,496 INFO        head victoria_ne lead 3  prauc@20 0.446 / 0.445 / 0.386   bss@20 0.215  ece@20 0.018  spread 0.081 vs rmse 0.237
+2026-09-23 11:22:37,496 INFO    victoria_ne    test       5   0.2493    0.209   -0.166    0.308    0.889    0.467
+2026-09-23 11:22:37,496 INFO        head victoria_ne lead 5  prauc@20 0.467 / 0.485 / 0.461   bss@20 0.249  ece@20 0.010  spread 0.093 vs rmse 0.249
+2026-09-23 11:22:37,496 INFO    victoria_ne    test       7   0.2169    0.301   -0.054    0.317    0.911    0.463
+2026-09-23 11:22:37,496 INFO        head victoria_ne lead 7  prauc@20 0.463 / 0.483 / 0.441   bss@20 0.235  ece@20 0.015  spread 0.112 vs rmse 0.217
+2026-09-23 11:22:37,496 INFO    wrote artifacts\eval_archive2025_ens_met\scores.json
