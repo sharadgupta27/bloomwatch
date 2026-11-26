@@ -78,6 +78,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--aoi", type=Path, default=REPO_ROOT / "data" / "aoi" / "lakes.geojson")
     p.add_argument("--cubes", type=Path, default=REPO_ROOT / "data" / "processed" / "cubes")
+    p.add_argument(
+        "--met-root",
+        type=Path,
+        default=None,
+        help="weather stores for models with met inputs; default <cubes>/../met, which is the "
+        "training archive -- point this at a live store (data/processed/met_live) for today",
+    )
     p.add_argument("--out", type=Path, default=REPO_ROOT / "artifacts" / "advisory")
     p.add_argument("--anchor", type=str, default=None, help="ISO issue date; default today")
     p.add_argument("--lakes", nargs="*", default=None, help="subset of lake_ids")
@@ -226,7 +233,12 @@ def main(argv=None) -> int:
     if args.refresh_days > 0:
         refresh_cubes(args, anchor)
     predictor = load_predictor(
-        args.checkpoint, args.aoi, args.cubes, device=args.device, tta=not args.no_tta
+        args.checkpoint,
+        args.aoi,
+        args.cubes,
+        device=args.device,
+        tta=not args.no_tta,
+        met_root=args.met_root,
     )
     prob_predictor = None
     if args.prob_checkpoint and args.prob_checkpoint.lower() != "none":
@@ -237,7 +249,12 @@ def main(argv=None) -> int:
                 "probabilities from --checkpoint"
             )
         prob_predictor = load_predictor(
-            prob_path, args.aoi, args.cubes, device=args.device, tta=not args.no_tta
+            prob_path,
+            args.aoi,
+            args.cubes,
+            device=args.device,
+            tta=not args.no_tta,
+            met_root=args.met_root,
         )
     results: dict = {}
     fc = advisory.build(
