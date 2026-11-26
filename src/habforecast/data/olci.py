@@ -20,10 +20,12 @@ the AOI search goes through the tie-point grid rather than subsampling the full 
 from __future__ import annotations
 
 import logging
+import socket
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+from urllib.parse import urlsplit
 
 import h5py
 import numpy as np
@@ -60,6 +62,44 @@ HTTP_RETRY_BACKOFF_S = 2.0
 # retry, one such response ends a multi-hour ingest.
 STAC_MAX_RETRIES = 4
 STAC_RETRY_BACKOFF_S = 3.0
+
+# Outages of the machine's own network (Wi-Fi drop, sleep/resume). The retries above span
+# well under a minute, so on 2026-09-25 a DNS outage ended two overnight ingests. When the
+# host does not even resolve, pause until it does instead of burning the retries.
+NETWORK_OUTAGE_MAX_WAIT_S = 3 * 3600
+NETWORK_OUTAGE_POLL_S = 60
+
+
+def wait_for_host(
+    url_or_host: str,
+    max_wait_s: float = NETWORK_OUTAGE_MAX_WAIT_S,
+    poll_s: float = NETWORK_OUTAGE_POLL_S,
+) -> bool:
+    """Block while ``url_or_host`` fails DNS resolution, up to ``max_wait_s``.
+
+    Returns immediately (True) when the name resolves, so it is free to call on every
+    retry. Returns False if it still does not resolve after the wait.
+    """
+    host = urlsplit(url_or_host).hostname or url_or_host
+    deadline = time.monotonic() + max_wait_s
+    waited = False
+    while True:
+        try:
+            socket.getaddrinfo(host, 443)
+            if waited:
+                logger.warning("network back: %s resolves again", host)
+            return True
+        except OSError:
+            if time.monotonic() >= deadline:
+                return False
+            if not waited:
+                logger.warning(
+                    "network down: %s does not resolve; waiting up to %.0f min",
+                    host,
+                    max_wait_s / 60,
+                )
+                waited = True
+            time.sleep(poll_s)
 
 
 @dataclass
@@ -268,6 +308,7 @@ class OLCIReader:
                         delay,
                     )
                     time.sleep(delay)
+                    wait_for_host(STAC_URL)
                     # A fresh client avoids reusing a connection the server just dropped.
                     self._catalog = None
         raise RuntimeError(

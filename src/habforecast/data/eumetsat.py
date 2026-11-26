@@ -52,6 +52,7 @@ from habforecast.data.olci import (
     HTTP_MAX_RETRIES,
     HTTP_RETRY_BACKOFF_S,
     OLCIReader,
+    wait_for_host,
 )
 
 logger = logging.getLogger(__name__)
@@ -287,6 +288,7 @@ class EumetsatOLCIReader(OLCIReader):
                 last = exc
                 self._store = None
                 time.sleep(HTTP_RETRY_BACKOFF_S * (2**attempt))
+                wait_for_host(DOWNLOAD_URL)
         else:
             raise RuntimeError(f"{grid.lake_id}: Data Store search {start}..{end} failed: {last}")
 
