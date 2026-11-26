@@ -12,6 +12,10 @@ CUBES=data/processed/cubes_global
 MET=data/processed/met_global
 log() { echo "$(date -Is) $*"; }
 
+# `run_global.sh train` resumes at step 3 over the already-merged cubes. Re-merging would
+# rewrite every cube, change its digest and force a fresh 8.5 GB decode into data/cache/mmap.
+if [ "${1:-}" != "train" ]; then
+
 for job in ingest_global_A ingest_global_B ingest_global_s3a ingest_global_s3a_old; do
   until grep -q "done $job " artifacts/ingest_global.log; do sleep 300; done
 done
@@ -36,13 +40,24 @@ log "merged"
 $PY scripts/annotate_groups.py --aoi $AOI --met $MET > artifacts/annotate_groups.out 2>&1
 $PY scripts/compare_met_sources.py > artifacts/compare_met_sources.out 2>&1
 log "annotated"
+fi
 
-# 3. three seeds on the GPU
+# 3. three seeds on the GPU. Six loader workers: with num_workers=0 the GPU sat at ~1% and an
+#    epoch took an hour (2026-09-25); 6 workers read ~4x faster and still leave ~1 GB RAM free
+#    (8 left 0.3 GB). Val gets 2: six more idle val workers took commit to 55.8/58.9 GB.
+#    The batch size stays 8 so these runs remain comparable with ens_met.
 MET_KEYS='+data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]'
 OVR=("paths.aoi=\${paths.repo_root}/$AOI" "paths.cubes=\${paths.repo_root}/$CUBES"
-     "paths.met=\${paths.repo_root}/$MET" "+paths.mmap=\${paths.repo_root}/data/cache/mmap")
+     "paths.met=\${paths.repo_root}/$MET" "+paths.mmap=\${paths.repo_root}/data/cache/mmap"
+     data.num_workers=6 data.val_num_workers=2)
 for s in 1337 1 2; do
   name=global_ml_s$s
+  # A seed that already finished is kept, not retrained: the log must say it exited 0 and
+  # its best checkpoint must exist (a stopped run leaves neither).
+  if grep -q "done $name exit=0" artifacts/run_global.log && ls artifacts/$name/checkpoints/best-*.ckpt >/dev/null 2>&1; then
+    log "skip $name (already finished)"
+    continue
+  fi
   log "start $name"
   $PY pipelines/train.py model=anomaly_multilevel "$MET_KEYS" "${OVR[@]}" seed=$s \
       run_name=$name hydra.run.dir=artifacts/$name > artifacts/$name.out 2>&1

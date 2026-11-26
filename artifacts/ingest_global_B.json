@@ -1,0 +1,180 @@
+{
+  "args": {
+    "aoi": "data\\aoi\\lakes_global.geojson",
+    "cube_root": "data\\processed\\cubes_global_new",
+    "lakes": [
+      "upper_klamath",
+      "winnebago",
+      "lake_of_the_woods",
+      "tahoe",
+      "valencia_ve",
+      "maracaibo",
+      "titicaca_puno",
+      "guaiba",
+      "taupo",
+      "te_waihora"
+    ],
+    "start": "2017-11-01",
+    "end": "2025-12-31",
+    "workers": 7,
+    "min_valid": 0.02,
+    "all_year": true,
+    "aux": "",
+    "source": "planetary-computer",
+    "skip_existing_in": null,
+    "report": "artifacts\\ingest_global_B.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 6721.7,
+  "lakes": {
+    "upper_klamath": {
+      "scenes_found": 2720,
+      "scenes_read": 136,
+      "scenes_rejected": 1240,
+      "scenes_failed": 0,
+      "days_written": 130,
+      "read_success_rate": 0.05,
+      "elapsed_s": 375.9,
+      "failures": []
+    },
+    "winnebago": {
+      "scenes_found": 2849,
+      "scenes_read": 773,
+      "scenes_rejected": 2076,
+      "scenes_failed": 0,
+      "days_written": 704,
+      "read_success_rate": 0.2713,
+      "elapsed_s": 612.2,
+      "failures": []
+    },
+    "lake_of_the_woods": {
+      "scenes_found": 3133,
+      "scenes_read": 810,
+      "scenes_rejected": 2323,
+      "scenes_failed": 0,
+      "days_written": 684,
+      "read_success_rate": 0.2585,
+      "elapsed_s": 629.5,
+      "failures": []
+    },
+    "tahoe": {
+      "scenes_found": 2594,
+      "scenes_read": 1436,
+      "scenes_rejected": 1158,
+      "scenes_failed": 0,
+      "days_written": 1332,
+      "read_success_rate": 0.5536,
+      "elapsed_s": 684.0,
+      "failures": []
+    },
+    "valencia_ve": {
+      "scenes_found": 2280,
+      "scenes_read": 1084,
+      "scenes_rejected": 1196,
+      "scenes_failed": 0,
+      "days_written": 1028,
+      "read_success_rate": 0.4754,
+      "elapsed_s": 563.2,
+      "failures": []
+    },
+    "maracaibo": {
+      "scenes_found": 2804,
+      "scenes_read": 1304,
+      "scenes_rejected": 1488,
+      "scenes_failed": 12,
+      "days_written": 1087,
+      "read_success_rate": 0.465,
+      "elapsed_s": 736.7,
+      "failures": [
+        [
+          "S3B_OL_2_WFR_20250806T145018_20250806T145318_0179_109_310_2700",
+          "ClientConnectorDNSError: Cannot connect to host sentinel3euwest.blob.core.windows.net:443 ssl:default [getaddrinfo failed]"
+        ],
+        [
+          "S3A_OL_2_WFR_20250808T143636_20250808T143936_0180_129_096_2700",
+          "ClientConnectorDNSError: Cannot connect to host sentinel3euwest.blob.core.windows.net:443 ssl:default [getaddrinfo failed]"
+        ],
+        [
+          "S3B_OL_2_WFR_20250825T145749_20250825T150049_0179_110_196_2700",
+          "ClientConnectorDNSError: Cannot connect to host sentinel3euwest.blob.core.windows.net:443 ssl:default [getaddrinfo failed]"
+        ],
+        [
+          "S3B_OL_2_WFR_20250807T142707_20250807T143007_0180_109_324_2880",
+          "ClientConnectorDNSError: Cannot connect to host sentinel3euwest.blob.core.windows.net:443 ssl:default [getaddrinfo failed]"
+        ],
+        [
+          "S3B_OL_2_WFR_20250807T142407_20250807T142707_0179_109_324_2700",
+          "ClientConnectorDNSError: Cannot connect to host sentinel3euwest.blob.core.windows.net:443 ssl:default [getaddrinfo failed]"
+        ],
+        [
+          "S3B_OL_2_WFR_20250826T143138_20250826T143438_0179_110_210_2700",
+          "RuntimeError: failed to open https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/0 after 3 attempts: https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/08/26/S3B_OL_2_WFR____20250826T143138_20250826T143438_20250827T210233_0179_110_210_2700_MAR_O_NT_003.SEN3/tie_geo_coordinates.nc?st=2026-09-24T08%3A58%3A28Z&se=2026-09-25T09%3A43%3A28Z&sp=rl&sv=2025-07-05&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2026-09-24T10%3A18%3A09Z&ske=2026-10-01T10%3A18%3A09Z&sks=b&skv=2025-07-05&sig=QaNqi9wmMUfEEK9Suh75%2BkxJdIEHJHDjpEpBcYu0lB0%3D"
+        ],
+        [
+          "S3B_OL_2_WFR_20250826T143438_20250826T143738_0179_110_210_2880",
+          "RuntimeError: failed to open https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/0 after 3 attempts: https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/08/26/S3B_OL_2_WFR____20250826T143438_20250826T143738_20250827T210249_0179_110_210_2880_MAR_O_NT_003.SEN3/tie_geo_coordinates.nc?st=2026-09-24T08%3A58%3A28Z&se=2026-09-25T09%3A43%3A28Z&sp=rl&sv=2025-07-05&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2026-09-24T10%3A18%3A09Z&ske=2026-10-01T10%3A18%3A09Z&sks=b&skv=2025-07-05&sig=QaNqi9wmMUfEEK9Suh75%2BkxJdIEHJHDjpEpBcYu0lB0%3D"
+        ],
+        [
+          "S3A_OL_2_WFR_20250827T144403_20250827T144703_0179_129_367_2700",
+          "RuntimeError: failed to open https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/0 after 3 attempts: https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/08/27/S3A_OL_2_WFR____20250827T144403_20250827T144703_20250828T220247_0179_129_367_2700_MAR_O_NT_003.SEN3/tie_geo_coordinates.nc?st=2026-09-24T08%3A58%3A28Z&se=2026-09-25T09%3A43%3A28Z&sp=rl&sv=2025-07-05&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2026-09-25T01%3A15%3A40Z&ske=2026-10-02T01%3A15%3A40Z&sks=b&skv=2025-07-05&sig=CwitKLCzqvvh9R8pW2Lk2BbfShK0OnUYt0gjh6liTSU%3D"
+        ],
+        [
+          "S3A_OL_2_WFR_20250828T141752_20250828T142052_0180_129_381_2700",
+          "RuntimeError: failed to open https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/0 after 3 attempts: https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/08/28/S3A_OL_2_WFR____20250828T141752_20250828T142052_20250829T212057_0180_129_381_2700_MAR_O_NT_003.SEN3/tie_geo_coordinates.nc?st=2026-09-24T08%3A58%3A28Z&se=2026-09-25T09%3A43%3A28Z&sp=rl&sv=2025-07-05&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2026-09-25T00%3A29%3A13Z&ske=2026-10-02T00%3A29%3A13Z&sks=b&skv=2025-07-05&sig=meNApayw8FpWXwZvt8UN%2B7XgxpvyOW9OwO8URpHxiAU%3D"
+        ],
+        [
+          "S3B_OL_2_WFR_20250830T143053_20250830T143353_0179_110_267_2880",
+          "RuntimeError: failed to open https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/0 after 3 attempts: https://sentinel3euwest.blob.core.windows.net/sentinel-3/OLCI/OL_2_WFR___/2025/08/30/S3B_OL_2_WFR____20250830T143053_20250830T143353_20250831T220010_0179_110_267_2880_MAR_O_NT_003.SEN3/tie_geo_coordinates.nc?st=2026-09-24T08%3A58%3A28Z&se=2026-09-25T09%3A43%3A28Z&sp=rl&sv=2025-07-05&sr=c&skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2026-09-25T00%3A06%3A21Z&ske=2026-10-02T00%3A06%3A21Z&sks=b&skv=2025-07-05&sig=G%2BI7rvK60Pirx6sqlkVkIT3P2VBmSpIYPUJHA1qxsPc%3D"
+        ],
+        [
+          "S3A_OL_2_WFR_20250820T142822_20250820T143122_0179_129_267_2880",
+          "FSTimeoutError: "
+        ],
+        [
+          "S3B_OL_2_WFR_20250822T143522_20250822T143822_0180_110_153_2700",
+          "FSTimeoutError: "
+        ]
+      ]
+    },
+    "titicaca_puno": {
+      "scenes_found": 2111,
+      "scenes_read": 0,
+      "scenes_rejected": 2111,
+      "scenes_failed": 0,
+      "days_written": 0,
+      "read_success_rate": 0.0,
+      "elapsed_s": 452.1,
+      "failures": []
+    },
+    "guaiba": {
+      "scenes_found": 2321,
+      "scenes_read": 704,
+      "scenes_rejected": 1617,
+      "scenes_failed": 0,
+      "days_written": 649,
+      "read_success_rate": 0.3033,
+      "elapsed_s": 794.0,
+      "failures": []
+    },
+    "taupo": {
+      "scenes_found": 2587,
+      "scenes_read": 1155,
+      "scenes_rejected": 1432,
+      "scenes_failed": 0,
+      "days_written": 1046,
+      "read_success_rate": 0.4465,
+      "elapsed_s": 1237.9,
+      "failures": []
+    },
+    "te_waihora": {
+      "scenes_found": 2964,
+      "scenes_read": 761,
+      "scenes_rejected": 2203,
+      "scenes_failed": 0,
+      "days_written": 661,
+      "read_success_rate": 0.2567,
+      "elapsed_s": 636.0,
+      "failures": []
+    }
+  }
+}

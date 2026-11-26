@@ -310,3 +310,278 @@ C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-
 00:59:49 INFO    curonian: wrote 14 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
 00:59:49 INFO    curonian 2017-03: 14 scenes -> 14 days (14 written)
 00:59:51 INFO    curonian: 37 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (37 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:04:53 INFO    curonian: wrote 13 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:04:53 INFO    curonian 2017-04: 14 scenes -> 13 days (13 written)
+01:06:00 INFO    curonian: 38 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (38 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:08:47 INFO    curonian: wrote 15 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:08:47 INFO    curonian 2017-05: 19 scenes -> 15 days (15 written)
+01:09:50 INFO    curonian: 36 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (36 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:13:24 INFO    curonian: wrote 17 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:13:24 INFO    curonian 2017-06: 20 scenes -> 17 days (17 written)
+01:13:26 INFO    curonian: 39 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (39 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:17:17 INFO    curonian: wrote 10 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:17:17 INFO    curonian 2017-07: 13 scenes -> 10 days (10 written)
+01:17:20 INFO    curonian: 36 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (36 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:21:41 INFO    curonian: wrote 14 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:21:41 INFO    curonian 2017-08: 19 scenes -> 14 days (14 written)
+01:21:43 INFO    curonian: 30 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (30 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:26:35 INFO    curonian: wrote 12 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:26:35 INFO    curonian 2017-09: 13 scenes -> 12 days (12 written)
+01:26:36 INFO    curonian: 30 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (30 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:29:01 INFO    curonian: wrote 7 new daily frames to data\processed\cubes_global_s3a\curonian.zarr
+01:29:01 INFO    curonian 2017-10: 7 scenes -> 7 days (7 written)
+01:29:02 INFO    curonian: 205/593 scenes read (388 low-coverage, 0 failed) -> 175 daily frames
+01:29:02 INFO    curonian finished in 60.4 min
+01:29:02 INFO    ========================================================================
+01:29:02 INFO    neagh -- Lough Neagh (split=train, season=(5, 10))
+01:29:04 INFO    neagh: 27 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:32:34 INFO    neagh: wrote 6 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:32:34 INFO    neagh 2016-05: 6 scenes -> 6 days (6 written)
+01:32:35 INFO    neagh: 27 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:34:20 INFO    neagh: wrote 4 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:34:20 INFO    neagh 2016-06: 4 scenes -> 4 days (4 written)
+01:34:21 INFO    neagh: 28 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (28 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:35:48 INFO    neagh: wrote 1 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:35:48 INFO    neagh 2016-07: 1 scenes -> 1 days (1 written)
+01:35:50 INFO    neagh: 28 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (28 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:38:08 INFO    neagh: wrote 6 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:38:08 INFO    neagh 2016-08: 6 scenes -> 6 days (6 written)
+01:38:10 INFO    neagh: 28 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (28 granules)
+01:39:58 WARNING S3A_OL_2_WFR____20160902T103405_20160902T103605_20210708T013806_0119_008_165______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 0-1048575 of S3A_OL_2_WFR____20160902T103405_20160902T103605_20210708T013806_0119_008_165______MAR_R_NT_003.SEN3/wqsf.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /data/download/1.0.0/collections/EO%3AEUM%3ADAT%3A0556/products/S3A_OL_2_WFR____20160902T103405_20160902T103605_20210708T013806_0119_008_165______MAR_R_NT_003.SEN3/entry?name=S3A_OL_2_WFR____20160902T103405_20160902T103605_20210708T013806_0119_008_165______MAR_R_NT_003.SEN3%2Fwqsf.nc (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+01:40:07 WARNING S3A_OL_2_WFR____20160909T105120_20160909T105320_20210709T021702_0119_008_265______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 48-849273 of S3A_OL_2_WFR____20160909T105120_20160909T105320_20210709T021702_0119_008_265______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /data/download/1.0.0/collections/EO%3AEUM%3ADAT%3A0556/products/S3A_OL_2_WFR____20160909T105120_20160909T105320_20210709T021702_0119_008_265______MAR_R_NT_003.SEN3/entry?name=S3A_OL_2_WFR____20160909T105120_20160909T105320_20210709T021702_0119_008_265______MAR_R_NT_003.SEN3%2Ftie_geo_coordinates.nc (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+01:40:12 WARNING S3A_OL_2_WFR____20160915T113659_20160915T113859_20210708T210052_0119_008_351______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20160915T113659_20160915T113859_20210708T210052_0119_008_351______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /data/download/1.0.0/collections/EO%3AEUM%3ADAT%3A0556/products/S3A_OL_2_WFR____20160915T113659_20160915T113859_20210708T210052_0119_008_351______MAR_R_NT_003.SEN3/entry?name=S3A_OL_2_WFR____20160915T113659_20160915T113859_20210708T210052_0119_008_351______MAR_R_NT_003.SEN3%2Ftie_geo_coordinates.nc (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+01:40:21 WARNING S3A_OL_2_WFR____20160916T111056_20160916T111256_20210709T031322_0119_008_365______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20160916T111056_20160916T111256_20210709T031322_0119_008_365______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /data/download/1.0.0/collections/EO%3AEUM%3ADAT%3A0556/products/S3A_OL_2_WFR____20160916T111056_20160916T111256_20210709T031322_0119_008_365______MAR_R_NT_003.SEN3/entry?name=S3A_OL_2_WFR____20160916T111056_20160916T111256_20210709T031322_0119_008_365______MAR_R_NT_003.SEN3%2Ftie_geo_coordinates.nc (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:42:09 INFO    neagh: wrote 3 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:42:09 INFO    neagh 2016-09: 3 scenes -> 3 days (3 written)
+01:42:12 INFO    neagh: 30 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (30 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:44:36 INFO    neagh: wrote 6 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:44:36 INFO    neagh 2016-10: 6 scenes -> 6 days (6 written)
+01:44:38 INFO    neagh: 29 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (29 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:49:06 INFO    neagh: wrote 6 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:49:06 INFO    neagh 2016-11: 6 scenes -> 6 days (6 written)
+01:49:08 INFO    neagh: 27 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (27 granules)
+01:51:11 INFO    neagh: 30 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (30 granules)
+01:53:37 INFO    neagh: 27 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:56:16 INFO    neagh: wrote 2 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:56:16 INFO    neagh 2017-02: 2 scenes -> 2 days (2 written)
+01:56:18 INFO    neagh: 30 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (30 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+01:59:07 INFO    neagh: wrote 9 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+01:59:07 INFO    neagh 2017-03: 10 scenes -> 9 days (9 written)
+01:59:09 INFO    neagh: 28 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (28 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:01:05 INFO    neagh: wrote 6 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:01:05 INFO    neagh 2017-04: 6 scenes -> 6 days (6 written)
+02:01:09 INFO    neagh: 27 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:04:01 INFO    neagh: wrote 12 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:04:01 INFO    neagh 2017-05: 12 scenes -> 12 days (12 written)
+02:04:03 INFO    neagh: 27 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:05:49 INFO    neagh: wrote 3 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:05:49 INFO    neagh 2017-06: 3 scenes -> 3 days (3 written)
+02:06:05 INFO    neagh: 27 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:09:09 INFO    neagh: wrote 4 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:09:09 INFO    neagh 2017-07: 4 scenes -> 4 days (4 written)
+02:09:11 INFO    neagh: 27 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (27 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:11:08 INFO    neagh: wrote 3 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:11:08 INFO    neagh 2017-08: 3 scenes -> 3 days (3 written)
+02:11:15 INFO    neagh: 29 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (29 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:13:25 INFO    neagh: wrote 9 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:13:25 INFO    neagh 2017-09: 9 scenes -> 9 days (9 written)
+02:13:27 INFO    neagh: 29 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (29 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:15:47 INFO    neagh: wrote 4 new daily frames to data\processed\cubes_global_s3a\neagh.zarr
+02:15:47 INFO    neagh 2017-10: 4 scenes -> 4 days (4 written)
+02:15:49 INFO    neagh: 85/505 scenes read (416 low-coverage, 4 failed) -> 84 daily frames
+02:15:49 INFO    neagh finished in 46.8 min
+02:15:49 INFO    ========================================================================
+02:15:49 INFO    chaohu -- Lake Chaohu (split=train, season=(5, 11))
+02:15:51 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:17:51 INFO    chaohu: wrote 1 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:17:51 INFO    chaohu 2016-05: 1 scenes -> 1 days (1 written)
+02:17:53 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:19:39 INFO    chaohu: wrote 3 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:19:39 INFO    chaohu 2016-06: 3 scenes -> 3 days (3 written)
+02:19:43 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:21:16 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:21:16 INFO    chaohu 2016-07: 6 scenes -> 6 days (6 written)
+02:21:18 INFO    chaohu: 21 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:25:35 INFO    chaohu: wrote 8 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:25:35 INFO    chaohu 2016-08: 8 scenes -> 8 days (8 written)
+02:25:36 INFO    chaohu: 20 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:29:01 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:29:01 INFO    chaohu 2016-09: 6 scenes -> 6 days (6 written)
+02:29:03 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:31:36 INFO    chaohu: wrote 2 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:31:36 INFO    chaohu 2016-10: 2 scenes -> 2 days (2 written)
+02:31:38 INFO    chaohu: 20 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:33:44 INFO    chaohu: wrote 9 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:33:44 INFO    chaohu 2016-11: 10 scenes -> 9 days (9 written)
+02:33:46 INFO    chaohu: 18 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:36:59 INFO    chaohu: wrote 10 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:36:59 INFO    chaohu 2016-12: 10 scenes -> 10 days (10 written)
+02:37:00 INFO    chaohu: 20 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:38:51 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:38:51 INFO    chaohu 2017-01: 6 scenes -> 6 days (6 written)
+02:38:53 INFO    chaohu: 17 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:40:59 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:40:59 INFO    chaohu 2017-02: 6 scenes -> 6 days (6 written)
+02:41:00 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:42:36 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:42:36 INFO    chaohu 2017-03: 7 scenes -> 6 days (6 written)
+02:42:39 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:44:23 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:44:23 INFO    chaohu 2017-04: 6 scenes -> 6 days (6 written)
+02:44:25 INFO    chaohu: 24 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (24 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:46:03 INFO    chaohu: wrote 4 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:46:03 INFO    chaohu 2017-05: 4 scenes -> 4 days (4 written)
+02:46:05 INFO    chaohu: 20 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:47:11 INFO    chaohu: wrote 3 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:47:11 INFO    chaohu 2017-06: 3 scenes -> 3 days (3 written)
+02:47:13 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:50:44 INFO    chaohu: wrote 7 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:50:44 INFO    chaohu 2017-07: 7 scenes -> 7 days (7 written)
+02:50:46 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:52:46 INFO    chaohu: wrote 6 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:52:46 INFO    chaohu 2017-08: 6 scenes -> 6 days (6 written)
+02:52:47 INFO    chaohu: 17 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (17 granules)
+02:53:05 WARNING S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTP 404: {"type":"ExceptionReport","exceptions":[{"type":"Exception","exceptionCode":"http://www.opengis.net/ows/2.0#NoApplicableCode","exceptionText":"Not found"}]}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:54:33 INFO    chaohu: wrote 3 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:54:33 INFO    chaohu 2017-09: 3 scenes -> 3 days (3 written)
+02:54:35 INFO    chaohu: 17 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+02:57:30 INFO    chaohu: wrote 7 new daily frames to data\processed\cubes_global_s3a\chaohu.zarr
+02:57:30 INFO    chaohu 2017-10: 7 scenes -> 7 days (7 written)
+02:57:30 INFO    chaohu: 101/346 scenes read (244 low-coverage, 1 failed) -> 99 daily frames
+02:57:30 INFO    chaohu finished in 41.7 min
+02:57:30 INFO    ========================================================================
+02:57:30 INFO    poyang -- Lake Poyang (split=train, season=(4, 10))
+02:57:32 INFO    poyang: 18 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+03:01:23 INFO    poyang: wrote 2 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+03:01:23 INFO    poyang 2016-05: 2 scenes -> 2 days (2 written)
+03:01:26 INFO    poyang: 22 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (22 granules)
+03:06:59 WARNING S3A_OL_2_WFR____20160605T022247_20160605T022447_20210705T013731_0119_005_046______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 28750075-29798650 of S3A_OL_2_WFR____20160605T022247_20160605T022447_20210705T013731_0119_005_046______MAR_R_NT_003.SEN3/geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /data/download/1.0.0/collections/EO%3AEUM%3ADAT%3A0556/products/S3A_OL_2_WFR____20160605T022247_20160605T022447_20210705T013731_0119_005_046______MAR_R_NT_003.SEN3/entry?name=S3A_OL_2_WFR____20160605T022247_20160605T022447_20210705T013731_0119_005_046______MAR_R_NT_003.SEN3%2Fgeo_coordinates.nc (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+03:06:59 INFO    poyang: wrote 5 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+03:06:59 INFO    poyang 2016-06: 5 scenes -> 5 days (5 written)
+03:06:59 WARNING Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556 due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:06:59 WARNING Retrying (RetryAndLog(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556
+03:06:59 WARNING Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556 due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:00 WARNING Retrying (RetryAndLog(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556
+03:07:00 WARNING Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556 due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:01 WARNING Retrying (RetryAndLog(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556
+03:07:01 WARNING Trying again for GET https://api.eumetsat.int:443/data/search-products/1.0.0/osdd?pi=EO:EUM:DAT:0556 due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:03 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:03 WARNING Retrying (RetryAndLog(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:03 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:04 WARNING Retrying (RetryAndLog(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:04 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:05 WARNING Retrying (RetryAndLog(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:05 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:09 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:09 WARNING Retrying (RetryAndLog(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:09 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:10 WARNING Retrying (RetryAndLog(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:10 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:11 WARNING Retrying (RetryAndLog(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:11 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:19 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:19 WARNING Retrying (RetryAndLog(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:19 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:19 WARNING Retrying (RetryAndLog(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:19 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+03:07:21 WARNING Retrying (RetryAndLog(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)")': /token
+03:07:21 WARNING Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Traceback (most recent call last):
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 187, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\pipelines\ingest.py", line 124, in main
+    rep = ingest_lake(
+          ^^^^^^^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\ingest.py", line 126, in ingest_lake
+    items = reader.search(grid, m_start, m_end)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\src\habforecast\data\eumetsat.py", line 291, in search
+    raise RuntimeError(f"{grid.lake_id}: Data Store search {start}..{end} failed: {last}")
+RuntimeError: poyang: Data Store search 2016-07-01..2016-07-31 failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))

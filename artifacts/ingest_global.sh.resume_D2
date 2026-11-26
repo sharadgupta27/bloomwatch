@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Resume of ingest_global_s3a_old from poyang (2026-09-25). The first resume died 03:07 on a DNS outage (network dropped).
+# Days already in the cube are skipped, so re-running a lake is cheap. Searches now wait out
+# a local network outage (olci.wait_for_host) instead of failing.
+# The filename deliberately contains "ingest_global.sh": run_global.sh waits while any process
+# matching that is alive, and needs artifacts/ingest_global_s3a_old.json before merging.
+set -u
+cd "$(dirname "$0")/.."
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+PY=.venv/Scripts/python.exe
+name=ingest_global_s3a_old
+echo "$(date -Is) start ${name} (resume from poyang)" >> artifacts/ingest_global.log
+$PY pipelines/ingest.py --aoi data/aoi/lakes_global.geojson --cube-root data/processed/cubes_global_s3a     --source eumetsat-reprocessed --all-year --start 2016-05-01 --end 2017-10-31 --workers 5     --lakes poyang kasumigaura victoria_mwanza hartbeespoort alexandrina chapala     --report artifacts/$name.json > artifacts/${name}_resume2.out 2>&1
+rc=$?
+echo "$(date -Is) done ${name} (resume) exit=$rc" >> artifacts/ingest_global.log

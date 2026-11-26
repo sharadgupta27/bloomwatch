@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "lakes": [
+    "alexandrina",
+    "chapala",
+    "victoria_ne"
+  ],
+  "excluded": [
+    "hartbeespoort"
+  ],
+  "min_samples": 100,
+  "weighting": "lakes",
+  "checks": [
+    {
+      "lead_days": 1,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.36887770709814927,
+      "incumbent": 0.2759556646462598,
+      "margin": 0.09292204245188945,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 1,
+      "metric": "pr_auc_20",
+      "candidate": 0.6672268479254436,
+      "incumbent": 0.6586165277579217,
+      "margin": 0.008610320167521945,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 1,
+      "metric": "r2",
+      "candidate": 0.6488455326189791,
+      "incumbent": 0.605578258700849,
+      "margin": 0.04326727391813012,
+      "tolerance": 0.02,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.39110891293621924,
+      "incumbent": 0.2990988370078808,
+      "margin": 0.09201007592833843,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "pr_auc_20",
+      "candidate": 0.6504251895729993,
+      "incumbent": 0.6475693653330457,
+      "margin": 0.002855824239953675,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 3,
+      "metric": "r2",
+      "candidate": 0.6339922141827411,
+      "incumbent": 0.5922104287090555,
+      "margin": 0.041781785473685606,
+      "tolerance": 0.02,
+      "ok": true
+    },
+    {
+      "lead_days": 5,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.39274875066895376,
+      "incumbent": 0.3053412605773433,
+      "margin": 0.08740749009161047,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 5,
+      "metric": "pr_auc_20",
+      "candidate": 0.637396668298569,
+      "incumbent": 0.6242353819458203,
+      "margin": 0.013161286352748713,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 5,
+      "metric": "r2",
+      "candidate": 0.6235956821703393,
+      "incumbent": 0.5831620218048422,
+      "margin": 0.040433660365497115,
+      "tolerance": 0.02,
+      "ok": true
+    },
+    {
+      "lead_days": 7,
+      "metric": "skill_vs_persistence",
+      "candidate": 0.4173702052309898,
+      "incumbent": 0.33511107926864375,
+      "margin": 0.08225912596234602,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 7,
+      "metric": "pr_auc_20",
+      "candidate": 0.6435553744056879,
+      "incumbent": 0.6369304375217751,
+      "margin": 0.0066249368839127465,
+      "tolerance": 0.01,
+      "ok": true
+    },
+    {
+      "lead_days": 7,
+      "metric": "r2",
+      "candidate": 0.6100083309432508,
+      "incumbent": 0.572135807880299,
+      "margin": 0.037872523062951746,
+      "tolerance": 0.02,
+      "ok": true
+    }
+  ],
+  "candidate_scores": "artifacts\\eval_global_ml\\scores.json",
+  "incumbent_scores": "artifacts\\eval_global_incumbent_ens_met\\scores.json",
+  "split": "test",
+  "evaluated_utc": "2026-09-27T00:25:18+00:00"
+}

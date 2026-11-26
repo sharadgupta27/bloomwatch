@@ -1,0 +1,482 @@
+[
+  {
+    "lake_id": "balaton",
+    "variable": "wind_u",
+    "days": 1224,
+    "corr": 0.9877,
+    "mae": 0.2315,
+    "mean_cds": 0.2591,
+    "mean_open_meteo": 0.3309,
+    "bias_in_sd": 0.0587
+  },
+  {
+    "lake_id": "balaton",
+    "variable": "wind_v",
+    "days": 1224,
+    "corr": 0.9915,
+    "mae": 0.2419,
+    "mean_cds": -0.689,
+    "mean_open_meteo": -0.7903,
+    "bias_in_sd": -0.049
+  },
+  {
+    "lake_id": "balaton",
+    "variable": "t2m",
+    "days": 1224,
+    "corr": 0.997,
+    "mae": 0.2677,
+    "mean_cds": 19.9863,
+    "mean_open_meteo": 20.0972,
+    "bias_in_sd": 0.0265
+  },
+  {
+    "lake_id": "balaton",
+    "variable": "ssrd",
+    "days": 1224,
+    "corr": 0.993,
+    "mae": 0.5439,
+    "mean_cds": 19.4468,
+    "mean_open_meteo": 19.2641,
+    "bias_in_sd": -0.0319
+  },
+  {
+    "lake_id": "balaton",
+    "variable": "tp",
+    "days": 1224,
+    "corr": 0.9348,
+    "mae": 0.8667,
+    "mean_cds": 2.4605,
+    "mean_open_meteo": 2.5145,
+    "bias_in_sd": 0.0119
+  },
+  {
+    "lake_id": "balaton",
+    "variable": "wind_speed",
+    "days": 1224,
+    "corr": 0.9823,
+    "mae": 0.1975,
+    "mean_cds": 2.7187,
+    "mean_open_meteo": 2.7837,
+    "bias_in_sd": 0.0629
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "wind_u",
+    "days": 1472,
+    "corr": 0.9888,
+    "mae": 0.3059,
+    "mean_cds": 0.5388,
+    "mean_open_meteo": 0.4509,
+    "bias_in_sd": -0.035
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "wind_v",
+    "days": 1472,
+    "corr": 0.9927,
+    "mae": 0.2307,
+    "mean_cds": 0.2748,
+    "mean_open_meteo": 0.2886,
+    "bias_in_sd": 0.0057
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "t2m",
+    "days": 1472,
+    "corr": 0.997,
+    "mae": 0.6665,
+    "mean_cds": 19.2159,
+    "mean_open_meteo": 19.8692,
+    "bias_in_sd": 0.1269
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "ssrd",
+    "days": 1472,
+    "corr": 0.9885,
+    "mae": 0.8034,
+    "mean_cds": 19.2429,
+    "mean_open_meteo": 19.5829,
+    "bias_in_sd": 0.0507
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "tp",
+    "days": 1472,
+    "corr": 0.9257,
+    "mae": 1.0539,
+    "mean_cds": 2.8948,
+    "mean_open_meteo": 2.9939,
+    "bias_in_sd": 0.0194
+  },
+  {
+    "lake_id": "erie_west",
+    "variable": "wind_speed",
+    "days": 1472,
+    "corr": 0.9827,
+    "mae": 0.2338,
+    "mean_cds": 3.8598,
+    "mean_open_meteo": 3.7378,
+    "bias_in_sd": -0.0874
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "wind_u",
+    "days": 1960,
+    "corr": 0.9911,
+    "mae": 0.5338,
+    "mean_cds": -0.8994,
+    "mean_open_meteo": -1.1174,
+    "bias_in_sd": -0.1197
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "wind_v",
+    "days": 1960,
+    "corr": 0.9878,
+    "mae": 0.504,
+    "mean_cds": 0.2065,
+    "mean_open_meteo": 0.3059,
+    "bias_in_sd": 0.0608
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "t2m",
+    "days": 1960,
+    "corr": 0.9818,
+    "mae": 0.4148,
+    "mean_cds": 26.4197,
+    "mean_open_meteo": 26.2344,
+    "bias_in_sd": -0.0734
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "ssrd",
+    "days": 1960,
+    "corr": 0.9811,
+    "mae": 0.6746,
+    "mean_cds": 19.6044,
+    "mean_open_meteo": 19.698,
+    "bias_in_sd": 0.022
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "tp",
+    "days": 1960,
+    "corr": 0.8643,
+    "mae": 2.1668,
+    "mean_cds": 4.8951,
+    "mean_open_meteo": 3.4006,
+    "bias_in_sd": -0.2323
+  },
+  {
+    "lake_id": "okeechobee",
+    "variable": "wind_speed",
+    "days": 1960,
+    "corr": 0.9712,
+    "mae": 0.8038,
+    "mean_cds": 2.7331,
+    "mean_open_meteo": 3.5333,
+    "bias_in_sd": 0.7354
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "wind_u",
+    "days": 1472,
+    "corr": 0.9911,
+    "mae": 0.5644,
+    "mean_cds": 0.5269,
+    "mean_open_meteo": 0.3828,
+    "bias_in_sd": -0.0634
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "wind_v",
+    "days": 1472,
+    "corr": 0.993,
+    "mae": 0.5292,
+    "mean_cds": 0.1549,
+    "mean_open_meteo": 0.1405,
+    "bias_in_sd": -0.0061
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "t2m",
+    "days": 1472,
+    "corr": 0.9947,
+    "mae": 0.5151,
+    "mean_cds": 17.2772,
+    "mean_open_meteo": 16.8969,
+    "bias_in_sd": -0.0696
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "ssrd",
+    "days": 1472,
+    "corr": 0.9918,
+    "mae": 0.6972,
+    "mean_cds": 19.0373,
+    "mean_open_meteo": 19.2778,
+    "bias_in_sd": 0.0335
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "tp",
+    "days": 1472,
+    "corr": 0.9404,
+    "mae": 0.9539,
+    "mean_cds": 2.7397,
+    "mean_open_meteo": 2.9098,
+    "bias_in_sd": 0.0327
+  },
+  {
+    "lake_id": "saginaw",
+    "variable": "wind_speed",
+    "days": 1472,
+    "corr": 0.9785,
+    "mae": 0.7504,
+    "mean_cds": 3.6379,
+    "mean_open_meteo": 4.3807,
+    "bias_in_sd": 0.5839
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "wind_u",
+    "days": 1472,
+    "corr": 0.9899,
+    "mae": 0.3426,
+    "mean_cds": 0.4576,
+    "mean_open_meteo": 0.401,
+    "bias_in_sd": -0.0211
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "wind_v",
+    "days": 1472,
+    "corr": 0.9868,
+    "mae": 0.3423,
+    "mean_cds": 0.1844,
+    "mean_open_meteo": 0.1367,
+    "bias_in_sd": -0.0176
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "t2m",
+    "days": 1472,
+    "corr": 0.9961,
+    "mae": 0.5051,
+    "mean_cds": 18.5971,
+    "mean_open_meteo": 19.0159,
+    "bias_in_sd": 0.0813
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "ssrd",
+    "days": 1472,
+    "corr": 0.99,
+    "mae": 0.8182,
+    "mean_cds": 19.3629,
+    "mean_open_meteo": 18.845,
+    "bias_in_sd": -0.0751
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "tp",
+    "days": 1472,
+    "corr": 0.9457,
+    "mae": 0.8542,
+    "mean_cds": 2.7267,
+    "mean_open_meteo": 2.613,
+    "bias_in_sd": -0.022
+  },
+  {
+    "lake_id": "st_clair",
+    "variable": "wind_speed",
+    "days": 1472,
+    "corr": 0.9756,
+    "mae": 0.323,
+    "mean_cds": 4.1725,
+    "mean_open_meteo": 3.9383,
+    "bias_in_sd": -0.1575
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "wind_u",
+    "days": 1952,
+    "corr": 0.9923,
+    "mae": 0.4209,
+    "mean_cds": -0.9911,
+    "mean_open_meteo": -1.2389,
+    "bias_in_sd": -0.1372
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "wind_v",
+    "days": 1952,
+    "corr": 0.9942,
+    "mae": 0.5533,
+    "mean_cds": 0.0478,
+    "mean_open_meteo": 0.0763,
+    "bias_in_sd": 0.0139
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "t2m",
+    "days": 1952,
+    "corr": 0.9985,
+    "mae": 0.3163,
+    "mean_cds": 22.765,
+    "mean_open_meteo": 22.9553,
+    "bias_in_sd": 0.0311
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "ssrd",
+    "days": 1952,
+    "corr": 0.9905,
+    "mae": 0.698,
+    "mean_cds": 15.9246,
+    "mean_open_meteo": 15.8793,
+    "bias_in_sd": -0.0066
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "tp",
+    "days": 1952,
+    "corr": 0.9428,
+    "mae": 1.4532,
+    "mean_cds": 4.6483,
+    "mean_open_meteo": 4.5475,
+    "bias_in_sd": -0.0105
+  },
+  {
+    "lake_id": "taihu",
+    "variable": "wind_speed",
+    "days": 1952,
+    "corr": 0.9832,
+    "mae": 0.7059,
+    "mean_cds": 3.0647,
+    "mean_open_meteo": 3.7663,
+    "bias_in_sd": 0.6347
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "wind_u",
+    "days": 2922,
+    "corr": 0.7553,
+    "mae": 0.3368,
+    "mean_cds": -0.1195,
+    "mean_open_meteo": 0.156,
+    "bias_in_sd": 0.6204
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "wind_v",
+    "days": 2922,
+    "corr": 0.7192,
+    "mae": 0.3425,
+    "mean_cds": 0.2434,
+    "mean_open_meteo": 0.1475,
+    "bias_in_sd": -0.1547
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "t2m",
+    "days": 2922,
+    "corr": 0.973,
+    "mae": 1.0069,
+    "mean_cds": 21.8923,
+    "mean_open_meteo": 22.8992,
+    "bias_in_sd": 0.9229
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "ssrd",
+    "days": 2922,
+    "corr": 0.9634,
+    "mae": 0.7701,
+    "mean_cds": 20.9802,
+    "mean_open_meteo": 21.3177,
+    "bias_in_sd": 0.096
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "tp",
+    "days": 2922,
+    "corr": 0.8798,
+    "mae": 2.1334,
+    "mean_cds": 5.6939,
+    "mean_open_meteo": 6.1316,
+    "bias_in_sd": 0.0709
+  },
+  {
+    "lake_id": "victoria_ne",
+    "variable": "wind_speed",
+    "days": 2922,
+    "corr": 0.6724,
+    "mae": 0.2951,
+    "mean_cds": 1.9684,
+    "mean_open_meteo": 1.712,
+    "bias_in_sd": -0.7527
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "wind_u",
+    "days": 1472,
+    "corr": 0.9912,
+    "mae": 0.2576,
+    "mean_cds": 0.4506,
+    "mean_open_meteo": 0.4216,
+    "bias_in_sd": -0.0121
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "wind_v",
+    "days": 1472,
+    "corr": 0.9944,
+    "mae": 0.2336,
+    "mean_cds": 0.0888,
+    "mean_open_meteo": 0.0815,
+    "bias_in_sd": -0.0026
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "t2m",
+    "days": 1472,
+    "corr": 0.9974,
+    "mae": 0.3663,
+    "mean_cds": 13.8998,
+    "mean_open_meteo": 13.982,
+    "bias_in_sd": 0.0123
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "ssrd",
+    "days": 1472,
+    "corr": 0.9904,
+    "mae": 0.8207,
+    "mean_cds": 17.1918,
+    "mean_open_meteo": 17.2239,
+    "bias_in_sd": 0.0043
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "tp",
+    "days": 1472,
+    "corr": 0.9268,
+    "mae": 0.8042,
+    "mean_cds": 2.3194,
+    "mean_open_meteo": 2.2998,
+    "bias_in_sd": -0.0047
+  },
+  {
+    "lake_id": "winnipeg",
+    "variable": "wind_speed",
+    "days": 1472,
+    "corr": 0.9853,
+    "mae": 0.1937,
+    "mean_cds": 4.1685,
+    "mean_open_meteo": 4.111,
+    "bias_in_sd": -0.0431
+  }
+]

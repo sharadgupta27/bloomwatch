@@ -1,0 +1,145 @@
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:25,867 INFO    erie_west: {'lake_id': 'erie_west', 'days': 1217, 'first': '2016-05-05', 'last': '2025-12-25', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:28,126 INFO    okeechobee: {'lake_id': 'okeechobee', 'days': 1488, 'first': '2016-05-02', 'last': '2025-12-28', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:30,542 INFO    taihu: {'lake_id': 'taihu', 'days': 965, 'first': '2016-05-17', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:32,781 INFO    balaton: {'lake_id': 'balaton', 'days': 1134, 'first': '2016-05-05', 'last': '2025-11-30', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:39,472 INFO    victoria_ne: {'lake_id': 'victoria_ne', 'days': 1282, 'first': '2016-05-05', 'last': '2025-12-25', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:43,389 INFO    winnipeg: {'lake_id': 'winnipeg', 'days': 825, 'first': '2016-05-02', 'last': '2025-11-09', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:45,149 INFO    st_clair: {'lake_id': 'st_clair', 'days': 1049, 'first': '2016-05-05', 'last': '2025-12-21', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:47,132 INFO    saginaw: {'lake_id': 'saginaw', 'days': 1114, 'first': '2016-05-02', 'last': '2025-11-30', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:48,923 INFO    green_bay: {'lake_id': 'green_bay', 'days': 945, 'first': '2016-05-05', 'last': '2025-12-13', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:50,612 INFO    utah_lake: {'lake_id': 'utah_lake', 'days': 959, 'first': '2016-05-09', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:52,652 WARNING rename data\processed\cubes_global\pontchartrain.zarr.tmp -> data\processed\cubes_global\pontchartrain.zarr locked, retrying (1/8)
+2026-09-25 16:46:53,903 INFO    pontchartrain: {'lake_id': 'pontchartrain', 'days': 1314, 'first': '2016-05-05', 'last': '2025-12-28', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:56,146 INFO    ijsselmeer: {'lake_id': 'ijsselmeer', 'days': 1004, 'first': '2016-05-02', 'last': '2025-10-30', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:58,380 INFO    curonian: {'lake_id': 'curonian', 'days': 1156, 'first': '2016-05-02', 'last': '2025-10-20', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:46:59,466 INFO    neagh: {'lake_id': 'neagh', 'days': 595, 'first': '2016-05-02', 'last': '2025-11-02', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:01,313 INFO    chaohu: {'lake_id': 'chaohu', 'days': 779, 'first': '2016-05-25', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:03,408 INFO    poyang: {'lake_id': 'poyang', 'days': 513, 'first': '2016-05-13', 'last': '2025-12-28', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:04,877 INFO    kasumigaura: {'lake_id': 'kasumigaura', 'days': 938, 'first': '2016-05-05', 'last': '2025-12-28', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:07,518 WARNING rename data\processed\cubes_global\victoria_mwanza.zarr.tmp -> data\processed\cubes_global\victoria_mwanza.zarr locked, retrying (1/8)
+2026-09-25 16:47:08,521 WARNING rename data\processed\cubes_global\victoria_mwanza.zarr.tmp -> data\processed\cubes_global\victoria_mwanza.zarr locked, retrying (2/8)
+2026-09-25 16:47:10,679 INFO    victoria_mwanza: {'lake_id': 'victoria_mwanza', 'days': 1092, 'first': '2016-05-02', 'last': '2025-12-16', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:11,150 INFO    hartbeespoort: {'lake_id': 'hartbeespoort', 'days': 106, 'first': '2016-05-28', 'last': '2025-08-12', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:13,004 WARNING rename data\processed\cubes_global\alexandrina.zarr.tmp -> data\processed\cubes_global\alexandrina.zarr locked, retrying (1/8)
+2026-09-25 16:47:14,186 INFO    alexandrina: {'lake_id': 'alexandrina', 'days': 1115, 'first': '2016-05-03', 'last': '2025-12-26', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:16,842 INFO    chapala: {'lake_id': 'chapala', 'days': 1545, 'first': '2016-05-03', 'last': '2025-12-30', 'parts': ['data\\processed\\cubes_expanded', 'data\\processed\\cubes_global_backfill', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:18,087 INFO    dianchi: {'lake_id': 'dianchi', 'days': 810, 'first': '2016-05-03', 'last': '2025-12-30', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:19,792 INFO    hongze: {'lake_id': 'hongze', 'days': 888, 'first': '2016-05-10', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:21,141 INFO    erhai: {'lake_id': 'erhai', 'days': 951, 'first': '2016-05-07', 'last': '2025-12-30', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:22,886 INFO    biwa: {'lake_id': 'biwa', 'days': 832, 'first': '2016-05-01', 'last': '2025-12-27', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:24,336 WARNING rename data\processed\cubes_global\laguna_de_bay.zarr.tmp -> data\processed\cubes_global\laguna_de_bay.zarr locked, retrying (1/8)
+2026-09-25 16:47:25,339 WARNING rename data\processed\cubes_global\laguna_de_bay.zarr.tmp -> data\processed\cubes_global\laguna_de_bay.zarr locked, retrying (2/8)
+2026-09-25 16:47:27,464 INFO    laguna_de_bay: {'lake_id': 'laguna_de_bay', 'days': 904, 'first': '2016-05-03', 'last': '2025-12-23', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:28,799 INFO    kinneret: {'lake_id': 'kinneret', 'days': 1371, 'first': '2016-05-01', 'last': '2025-12-25', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:32,476 INFO    peipsi: {'lake_id': 'peipsi', 'days': 1042, 'first': '2016-05-01', 'last': '2025-10-18', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:33,533 INFO    vortsjarv: {'lake_id': 'vortsjarv', 'days': 717, 'first': '2016-05-01', 'last': '2025-10-18', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:35,549 WARNING rename data\processed\cubes_global\malaren.zarr.tmp -> data\processed\cubes_global\malaren.zarr locked, retrying (1/8)
+2026-09-25 16:47:36,700 INFO    malaren: {'lake_id': 'malaren', 'days': 718, 'first': '2016-05-03', 'last': '2025-10-10', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:38,370 INFO    szczecin_lagoon: {'lake_id': 'szczecin_lagoon', 'days': 1036, 'first': '2016-05-03', 'last': '2025-10-25', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:40,228 INFO    ladoga_south: {'lake_id': 'ladoga_south', 'days': 1029, 'first': '2016-05-02', 'last': '2025-10-18', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:42,567 INFO    geneva: {'lake_id': 'geneva', 'days': 1021, 'first': '2016-05-04', 'last': '2025-10-30', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:44,474 INFO    garda: {'lake_id': 'garda', 'days': 1208, 'first': '2016-05-04', 'last': '2025-12-26', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:45,516 INFO    lake_george_ug: {'lake_id': 'lake_george_ug', 'days': 488, 'first': '2016-05-09', 'last': '2025-12-31', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:48,280 WARNING rename data\processed\cubes_global\tana.zarr.tmp -> data\processed\cubes_global\tana.zarr locked, retrying (1/8)
+2026-09-25 16:47:49,512 INFO    tana: {'lake_id': 'tana', 'days': 1223, 'first': '2016-05-09', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:51,070 INFO    upper_klamath: {'lake_id': 'upper_klamath', 'days': 1313, 'first': '2016-05-08', 'last': '2025-12-22', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:52,433 INFO    winnebago: {'lake_id': 'winnebago', 'days': 824, 'first': '2016-05-05', 'last': '2025-11-27', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:54,708 INFO    lake_of_the_woods: {'lake_id': 'lake_of_the_woods', 'days': 822, 'first': '2016-05-02', 'last': '2025-11-22', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:56,409 INFO    tahoe: {'lake_id': 'tahoe', 'days': 1543, 'first': '2016-05-11', 'last': '2025-12-29', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:47:57,816 INFO    valencia_ve: {'lake_id': 'valencia_ve', 'days': 1140, 'first': '2016-05-09', 'last': '2025-12-18', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:48:01,021 INFO    maracaibo: {'lake_id': 'maracaibo', 'days': 1223, 'first': '2016-05-05', 'last': '2025-12-23', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+2026-09-25 16:48:01,025 INFO    titicaca_puno: {'lake_id': 'titicaca_puno', 'days': 0, 'parts': []}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:48:02,834 INFO    guaiba: {'lake_id': 'guaiba', 'days': 786, 'first': '2016-05-01', 'last': '2025-12-17', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:48:04,274 INFO    taupo: {'lake_id': 'taupo', 'days': 1207, 'first': '2016-05-01', 'last': '2025-12-24', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-25 16:48:05,268 INFO    te_waihora: {'lake_id': 'te_waihora', 'days': 755, 'first': '2016-05-07', 'last': '2025-12-28', 'parts': ['data\\processed\\cubes_global_new', 'data\\processed\\cubes_global_s3a']}
+2026-09-25 16:48:05,271 WARNING no cube in any part for: titicaca_puno

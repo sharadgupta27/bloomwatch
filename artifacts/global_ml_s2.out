@@ -1,0 +1,277 @@
+Seed set to 2
+[2026-09-26 15:46:00,599][habforecast.features.dataset][INFO] - erie_west: 1217 days, grid (267, 298), water pixels 43936/79566 (55.2%), observed density 48.0%
+[2026-09-26 15:46:00,915][habforecast.features.dataset][INFO] - erie_west: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:02,257][habforecast.features.dataset][INFO] - okeechobee: 1488 days, grid (212, 180), water pixels 15185/38160 (39.8%), observed density 47.7%
+[2026-09-26 15:46:02,541][habforecast.features.dataset][INFO] - okeechobee: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:03,394][habforecast.features.dataset][INFO] - taihu: 965 days, grid (266, 252), water pixels 26714/67032 (39.9%), observed density 38.9%
+[2026-09-26 15:46:03,623][habforecast.features.dataset][INFO] - taihu: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:04,958][habforecast.features.dataset][INFO] - winnipeg: 825 days, grid (413, 411), water pixels 77417/169743 (45.6%), observed density 39.8%
+[2026-09-26 15:46:05,228][habforecast.features.dataset][INFO] - winnipeg: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:06,187][habforecast.features.dataset][INFO] - st_clair: 1049 days, grid (171, 171), water pixels 12615/29241 (43.1%), observed density 50.5%
+[2026-09-26 15:46:06,416][habforecast.features.dataset][INFO] - st_clair: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:07,046][habforecast.features.dataset][INFO] - saginaw: 1114 days, grid (209, 208), water pixels 22950/43472 (52.8%), observed density 46.8%
+[2026-09-26 15:46:07,273][habforecast.features.dataset][INFO] - saginaw: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:07,845][habforecast.features.dataset][INFO] - green_bay: 945 days, grid (204, 203), water pixels 11379/41412 (27.5%), observed density 52.8%
+[2026-09-26 15:46:08,076][habforecast.features.dataset][INFO] - green_bay: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:08,454][habforecast.features.dataset][INFO] - utah_lake: 959 days, grid (136, 135), water pixels 4087/18360 (22.3%), observed density 44.2%
+[2026-09-26 15:46:08,678][habforecast.features.dataset][INFO] - utah_lake: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:09,259][habforecast.features.dataset][INFO] - pontchartrain: 1314 days, grid (207, 207), water pixels 20134/42849 (47.0%), observed density 44.6%
+[2026-09-26 15:46:09,486][habforecast.features.dataset][INFO] - pontchartrain: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:10,276][habforecast.features.dataset][INFO] - ijsselmeer: 1004 days, grid (243, 242), water pixels 25215/58806 (42.9%), observed density 40.1%
+[2026-09-26 15:46:10,503][habforecast.features.dataset][INFO] - ijsselmeer: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:11,240][habforecast.features.dataset][INFO] - curonian: 1156 days, grid (203, 203), water pixels 27395/41209 (66.5%), observed density 50.2%
+[2026-09-26 15:46:11,471][habforecast.features.dataset][INFO] - curonian: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:11,869][habforecast.features.dataset][INFO] - neagh: 595 days, grid (140, 140), water pixels 4178/19600 (21.3%), observed density 47.7%
+[2026-09-26 15:46:12,108][habforecast.features.dataset][INFO] - neagh: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:12,400][habforecast.features.dataset][INFO] - chaohu: 779 days, grid (169, 168), water pixels 8879/28392 (31.3%), observed density 49.5%
+[2026-09-26 15:46:12,632][habforecast.features.dataset][INFO] - chaohu: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:13,122][habforecast.features.dataset][INFO] - poyang: 513 days, grid (303, 303), water pixels 30821/91809 (33.6%), observed density 23.4%
+[2026-09-26 15:46:13,346][habforecast.features.dataset][INFO] - poyang: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:13,777][habforecast.features.dataset][INFO] - kasumigaura: 938 days, grid (135, 135), water pixels 3533/18225 (19.4%), observed density 47.0%
+[2026-09-26 15:46:14,114][habforecast.features.dataset][INFO] - kasumigaura: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:14,530][habforecast.features.dataset][INFO] - hongze: 888 days, grid (205, 205), water pixels 16856/42025 (40.1%), observed density 35.6%
+[2026-09-26 15:46:14,755][habforecast.features.dataset][INFO] - hongze: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:15,165][habforecast.features.dataset][INFO] - erhai: 951 days, grid (149, 149), water pixels 2821/22201 (12.7%), observed density 57.8%
+[2026-09-26 15:46:15,654][habforecast.features.dataset][INFO] - erhai: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:16,223][habforecast.features.dataset][INFO] - biwa: 832 days, grid (224, 223), water pixels 7842/49952 (15.7%), observed density 52.2%
+[2026-09-26 15:46:16,452][habforecast.features.dataset][INFO] - biwa: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:16,867][habforecast.features.dataset][INFO] - laguna_de_bay: 904 days, grid (149, 149), water pixels 8835/22201 (39.8%), observed density 34.2%
+[2026-09-26 15:46:17,090][habforecast.features.dataset][INFO] - laguna_de_bay: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:17,368][habforecast.features.dataset][INFO] - kinneret: 1371 days, grid (83, 83), water pixels 1835/6889 (26.6%), observed density 59.8%
+[2026-09-26 15:46:17,590][habforecast.features.dataset][INFO] - kinneret: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:18,363][habforecast.features.dataset][INFO] - peipsi: 1042 days, grid (305, 305), water pixels 27248/93025 (29.3%), observed density 50.3%
+[2026-09-26 15:46:18,592][habforecast.features.dataset][INFO] - peipsi: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:19,253][habforecast.features.dataset][INFO] - vortsjarv: 717 days, grid (123, 123), water pixels 2998/15129 (19.8%), observed density 53.4%
+[2026-09-26 15:46:19,484][habforecast.features.dataset][INFO] - vortsjarv: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:20,033][habforecast.features.dataset][INFO] - malaren: 718 days, grid (313, 312), water pixels 14530/97656 (14.9%), observed density 37.7%
+[2026-09-26 15:46:20,272][habforecast.features.dataset][INFO] - malaren: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:20,901][habforecast.features.dataset][INFO] - szczecin_lagoon: 1036 days, grid (170, 169), water pixels 10897/28730 (37.9%), observed density 44.7%
+[2026-09-26 15:46:21,124][habforecast.features.dataset][INFO] - szczecin_lagoon: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:21,641][habforecast.features.dataset][INFO] - ladoga_south: 1029 days, grid (204, 203), water pixels 13520/41412 (32.6%), observed density 60.5%
+[2026-09-26 15:46:22,011][habforecast.features.dataset][INFO] - ladoga_south: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:22,570][habforecast.features.dataset][INFO] - garda: 1208 days, grid (186, 185), water pixels 4243/34410 (12.3%), observed density 58.0%
+[2026-09-26 15:46:22,800][habforecast.features.dataset][INFO] - garda: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:23,081][habforecast.features.dataset][INFO] - lake_george_ug: 488 days, grid (68, 68), water pixels 2334/4624 (50.5%), observed density 33.3%
+[2026-09-26 15:46:23,308][habforecast.features.dataset][INFO] - lake_george_ug: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:24,207][habforecast.features.dataset][INFO] - tana: 1223 days, grid (270, 269), water pixels 33607/72630 (46.3%), observed density 55.0%
+[2026-09-26 15:46:24,454][habforecast.features.dataset][INFO] - tana: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:25,143][habforecast.features.dataset][INFO] - upper_klamath: 1313 days, grid (123, 122), water pixels 3680/15006 (24.5%), observed density 42.9%
+[2026-09-26 15:46:25,395][habforecast.features.dataset][INFO] - upper_klamath: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:25,787][habforecast.features.dataset][INFO] - winnebago: 824 days, grid (172, 171), water pixels 6696/29412 (22.8%), observed density 48.1%
+[2026-09-26 15:46:26,051][habforecast.features.dataset][INFO] - winnebago: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:27,736][habforecast.features.dataset][INFO] - lake_of_the_woods: 822 days, grid (241, 240), water pixels 25278/57840 (43.7%), observed density 46.8%
+[2026-09-26 15:46:27,986][habforecast.features.dataset][INFO] - lake_of_the_woods: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:28,565][habforecast.features.dataset][INFO] - tahoe: 1543 days, grid (125, 125), water pixels 5540/15625 (35.5%), observed density 61.1%
+[2026-09-26 15:46:28,822][habforecast.features.dataset][INFO] - tahoe: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:29,407][habforecast.features.dataset][INFO] - valencia_ve: 1140 days, grid (108, 108), water pixels 4357/11664 (37.4%), observed density 50.5%
+[2026-09-26 15:46:29,636][habforecast.features.dataset][INFO] - valencia_ve: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:30,426][habforecast.features.dataset][INFO] - maracaibo: 1223 days, grid (270, 270), water pixels 70818/72900 (97.1%), observed density 30.1%
+[2026-09-26 15:46:30,654][habforecast.features.dataset][INFO] - maracaibo: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:31,090][habforecast.features.datamodule][WARNING] - titicaca_puno: no cube at D:\mlops-proj\Harmful_Algal_Blooms\data\processed\cubes_global\titicaca_puno.zarr -- skipping
+[2026-09-26 15:46:31,303][habforecast.features.dataset][INFO] - guaiba: 786 days, grid (169, 168), water pixels 6834/28392 (24.1%), observed density 49.5%
+[2026-09-26 15:46:31,552][habforecast.features.dataset][INFO] - guaiba: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:32,062][habforecast.features.dataset][INFO] - taupo: 1207 days, grid (123, 122), water pixels 6748/15006 (45.0%), observed density 49.1%
+[2026-09-26 15:46:32,290][habforecast.features.dataset][INFO] - taupo: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:32,514][habforecast.features.dataset][INFO] - te_waihora: 755 days, grid (96, 95), water pixels 2549/9120 (27.9%), observed density 32.3%
+[2026-09-26 15:46:32,741][habforecast.features.dataset][INFO] - te_waihora: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:33,170][habforecast.features.dataset][INFO] - balaton: 1134 days, grid (166, 260), water pixels 6675/43160 (15.5%), observed density 50.4%
+[2026-09-26 15:46:33,689][habforecast.features.dataset][INFO] - balaton: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:34,287][habforecast.features.dataset][INFO] - victoria_mwanza: 1092 days, grid (201, 201), water pixels 14548/40401 (36.0%), observed density 50.3%
+[2026-09-26 15:46:34,518][habforecast.features.dataset][INFO] - victoria_mwanza: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:34,915][habforecast.features.dataset][INFO] - dianchi: 810 days, grid (137, 137), water pixels 3392/18769 (18.1%), observed density 47.6%
+[2026-09-26 15:46:35,152][habforecast.features.dataset][INFO] - dianchi: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:35,759][habforecast.features.dataset][INFO] - geneva: 1021 days, grid (263, 263), water pixels 6530/69169 (9.4%), observed density 63.6%
+[2026-09-26 15:46:35,999][habforecast.features.dataset][INFO] - geneva: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:37,602][habforecast.features.dataset][INFO] - victoria_ne: 1282 days, grid (351, 372), water pixels 38129/130572 (29.2%), observed density 42.6%
+[2026-09-26 15:46:37,844][habforecast.features.dataset][INFO] - victoria_ne: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:38,725][habforecast.features.dataset][INFO] - hartbeespoort: 106 days, grid (82, 82), water pixels 226/6724 (3.4%), observed density 71.0%
+[2026-09-26 15:46:38,970][habforecast.features.dataset][INFO] - hartbeespoort: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:39,299][habforecast.features.dataset][INFO] - alexandrina: 1115 days, grid (171, 171), water pixels 10718/29241 (36.7%), observed density 37.2%
+[2026-09-26 15:46:39,528][habforecast.features.dataset][INFO] - alexandrina: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:40,191][habforecast.features.dataset][INFO] - chapala: 1545 days, grid (204, 204), water pixels 10481/41616 (25.2%), observed density 63.9%
+[2026-09-26 15:46:40,467][habforecast.features.dataset][INFO] - chapala: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+[2026-09-26 15:46:52,828][habforecast.features.datamodule][INFO] - normalisation (train lakes only): {'mean': 0.8054459095001221, 'std': 0.5263144969940186}
+[2026-09-26 15:46:52,855][habforecast.features.datamodule][INFO] - met normalisation (train lakes only): {'wind_u': (0.2818495035171509, 2.374021053314209), 'wind_v': (0.14202341437339783, 2.3269457817077637), 't2m': (14.68973159790039, 10.505245208740234), 'ssrd': (14.863351821899414, 7.850845813751221), 'tp': (3.1873886585235596, 7.282067775726318), 'wind_speed': (3.2880191802978516, 1.7440476417541504)}
+[2026-09-26 15:46:59,108][habforecast.features.dataset][INFO] - SequenceDataset: 29865 samples from 37 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-26 15:47:00,563][habforecast.features.dataset][INFO] - SequenceDataset: 3224 samples from 4 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-26 15:47:02,130][habforecast.features.dataset][INFO] - SequenceDataset: 3272 samples from 4 lakes (input=14d, leads=(1, 3, 5, 7))
+[2026-09-26 15:47:02,131][__main__][INFO] - split composition: {
+  "split_mode": "lake",
+  "train": {
+    "lakes": [
+      "erie_west",
+      "okeechobee",
+      "taihu",
+      "winnipeg",
+      "st_clair",
+      "saginaw",
+      "green_bay",
+      "utah_lake",
+      "pontchartrain",
+      "ijsselmeer",
+      "curonian",
+      "neagh",
+      "chaohu",
+      "poyang",
+      "kasumigaura",
+      "hongze",
+      "erhai",
+      "biwa",
+      "laguna_de_bay",
+      "kinneret",
+      "peipsi",
+      "vortsjarv",
+      "malaren",
+      "szczecin_lagoon",
+      "ladoga_south",
+      "garda",
+      "lake_george_ug",
+      "tana",
+      "upper_klamath",
+      "winnebago",
+      "lake_of_the_woods",
+      "tahoe",
+      "valencia_ve",
+      "maracaibo",
+      "guaiba",
+      "taupo",
+      "te_waihora"
+    ],
+    "days": {
+      "erie_west": 1217,
+      "okeechobee": 1488,
+      "taihu": 965,
+      "winnipeg": 825,
+      "st_clair": 1049,
+      "saginaw": 1114,
+      "green_bay": 945,
+      "utah_lake": 959,
+      "pontchartrain": 1314,
+      "ijsselmeer": 1004,
+      "curonian": 1156,
+      "neagh": 595,
+      "chaohu": 779,
+      "poyang": 513,
+      "kasumigaura": 938,
+      "hongze": 888,
+      "erhai": 951,
+      "biwa": 832,
+      "laguna_de_bay": 904,
+      "kinneret": 1371,
+      "peipsi": 1042,
+      "vortsjarv": 717,
+      "malaren": 718,
+      "szczecin_lagoon": 1036,
+      "ladoga_south": 1029,
+      "garda": 1208,
+      "lake_george_ug": 488,
+      "tana": 1223,
+      "upper_klamath": 1313,
+      "winnebago": 824,
+      "lake_of_the_woods": 822,
+      "tahoe": 1543,
+      "valencia_ve": 1140,
+      "maracaibo": 1223,
+      "guaiba": 786,
+      "taupo": 1207,
+      "te_waihora": 755
+    },
+    "samples": 29865
+  },
+  "val": {
+    "lakes": [
+      "balaton",
+      "victoria_mwanza",
+      "dianchi",
+      "geneva"
+    ],
+    "days": {
+      "balaton": 1134,
+      "victoria_mwanza": 1092,
+      "dianchi": 810,
+      "geneva": 1021
+    },
+    "samples": 3224
+  },
+  "test": {
+    "lakes": [
+      "victoria_ne",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "days": {
+      "victoria_ne": 1282,
+      "hartbeespoort": 106,
+      "alexandrina": 1115,
+      "chapala": 1545
+    },
+    "samples": 3272
+  }
+}
+[2026-09-26 15:47:02,199][__main__][INFO] - model=anomaly params: 0.34M total, 0.34M trainable
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+\U0001f4a1 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:242: Precision 16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
++--------------------------------------------------------+
+|   | Name  | Type              | Params | Mode  | FLOPs |
+|---+-------+-------------------+--------+-------+-------|
+| 0 | model | AnomalyForecaster |  343 K | train |     0 |
++--------------------------------------------------------+
+Trainable params: 343 K                                                        
+Non-trainable params: 0                                                        
+Total params: 343 K                                                            
+Total estimated model params size (MB): 1.373                                  
+Modules in train mode: 56                                                      
+Modules in eval mode: 0                                                        
+Total FLOPs: 0                                                                 
+Epoch 34/59 --------------- 3733/3733 0:16:48 •       2.82it/s v_num: a65b     
+                                      0:00:00                  train/loss:     
+                                                               0.245           
+                                                               train/rmse:     
+                                                               0.605           
+                                                               val/skill_d3:   
+                                                               0.309           
+                                                               val/skill_d7:   
+                                                               0.333           
+                                                               val/skill_overa…
+                                                               0.336 val/rmse: 
+                                                               0.459           
+                                                               val/skill_d5:   
+                                                               0.310           
+                                                               val/skill_d1:   
+                                                               0.264           
+[2026-09-27 00:03:50,508][__main__][INFO] - evaluating on held-out lake(s): ['victoria_ne', 'hartbeespoort', 'alexandrina', 'chapala']
+Restoring states from the checkpoint path at D:\mlops-proj\Harmful_Algal_Blooms\artifacts\global_ml_s2\checkpoints\best-22-0.3465.ckpt
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\lightning\fabric\utilities\cloud_io.py:73: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at D:\mlops-proj\Harmful_Algal_Blooms\artifacts\global_ml_s2\checkpoints\best-22-0.3465.ckpt
++-------------------------------------------------------+
+|        Test metric        |       DataLoader 0        |
+|---------------------------+---------------------------|
+|     test/brier_thr10      |    0.07756932079792023    |
+|     test/brier_thr20      |    0.13515718281269073    |
+|     test/brier_thr50      |   0.009743044152855873    |
+|     test/exceed_loss      |     0.054192915558815     |
+|         test/loss         |    0.11910928785800934    |
+|   test/regression_loss    |    0.06491636484861374    |
+|         test/rmse         |    0.3190258741378784     |
+|       test/rmse_d1        |    0.2933098375797272     |
+|       test/rmse_d3        |    0.30237019062042236    |
+|       test/rmse_d5        |    0.29620054364204407    |
+|       test/rmse_d7        |    0.31167978048324585    |
+|   test/rmse_persist_d1    |    0.3640563189983368     |
+|   test/rmse_persist_d3    |    0.3792268931865692     |
+|   test/rmse_persist_d5    |    0.3771825134754181     |
+|   test/rmse_persist_d7    |    0.39901208877563477    |
+|       test/skill_d1       |    0.3228921890258789     |
+|       test/skill_d3       |    0.3370073735713959     |
+|       test/skill_d5       |    0.3596951961517334     |
+|       test/skill_d7       |    0.3609507381916046     |
+|    test/skill_overall     |    0.3537803590297699     |
++-------------------------------------------------------+
+Testing ------------------------------- 3272/3272 0:06:04 • 0:00:00 14.07it/s 
+[2026-09-27 00:11:46,457][__main__][INFO] - best val/skill_overall = tensor(0.3465) (D:\mlops-proj\Harmful_Algal_Blooms\artifacts\global_ml_s2\checkpoints\best-22-0.3465.ckpt)

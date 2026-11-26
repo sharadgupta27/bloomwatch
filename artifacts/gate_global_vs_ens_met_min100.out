@@ -1,0 +1,14 @@
+  ok   lead 1 skill_vs_persistence   0.3689 vs 0.2760 (+0.0929, tol 0.01)
+  ok   lead 1 pr_auc_20              0.6672 vs 0.6586 (+0.0086, tol 0.01)
+  ok   lead 1 r2                     0.6488 vs 0.6056 (+0.0433, tol 0.02)
+  ok   lead 3 skill_vs_persistence   0.3911 vs 0.2991 (+0.0920, tol 0.01)
+  ok   lead 3 pr_auc_20              0.6504 vs 0.6476 (+0.0029, tol 0.01)
+  ok   lead 3 r2                     0.6340 vs 0.5922 (+0.0418, tol 0.02)
+  ok   lead 5 skill_vs_persistence   0.3927 vs 0.3053 (+0.0874, tol 0.01)
+  ok   lead 5 pr_auc_20              0.6374 vs 0.6242 (+0.0132, tol 0.01)
+  ok   lead 5 r2                     0.6236 vs 0.5832 (+0.0404, tol 0.02)
+  ok   lead 7 skill_vs_persistence   0.4174 vs 0.3351 (+0.0823, tol 0.01)
+  ok   lead 7 pr_auc_20              0.6436 vs 0.6369 (+0.0066, tol 0.01)
+  ok   lead 7 r2                     0.6100 vs 0.5721 (+0.0379, tol 0.02)
+gate: PASS on alexandrina, chapala, victoria_ne
+  excluded (< 100 samples): hartbeespoort

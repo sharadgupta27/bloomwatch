@@ -1,0 +1,10 @@
+- model=anomaly_multilevel
+- +data.met=[wind_speed,wind_u,wind_v,t2m,ssrd,tp]
+- paths.aoi=${paths.repo_root}/data/aoi/lakes_global.geojson
+- paths.cubes=${paths.repo_root}/data/processed/cubes_global
+- paths.met=${paths.repo_root}/data/processed/met_global
+- +paths.mmap=${paths.repo_root}/data/cache/mmap
+- data.num_workers=6
+- data.val_num_workers=2
+- seed=1337
+- run_name=global_ml_s1337

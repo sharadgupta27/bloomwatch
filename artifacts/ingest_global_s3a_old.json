@@ -1,0 +1,92 @@
+{
+  "args": {
+    "aoi": "data\\aoi\\lakes_global.geojson",
+    "cube_root": "data\\processed\\cubes_global_s3a",
+    "lakes": [
+      "poyang",
+      "kasumigaura",
+      "victoria_mwanza",
+      "hartbeespoort",
+      "alexandrina",
+      "chapala"
+    ],
+    "start": "2016-05-01",
+    "end": "2017-10-31",
+    "workers": 5,
+    "min_valid": 0.02,
+    "all_year": true,
+    "aux": "",
+    "source": "eumetsat-reprocessed",
+    "skip_existing_in": null,
+    "report": "artifacts\\ingest_global_s3a_old.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 23468.8,
+  "lakes": {
+    "poyang": {
+      "scenes_found": 373,
+      "scenes_read": 62,
+      "scenes_rejected": 302,
+      "scenes_failed": 1,
+      "days_written": 62,
+      "read_success_rate": 0.1662,
+      "elapsed_s": 3959.8,
+      "failures": [
+        [
+          "S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3",
+          "RuntimeError: range read 0-0 of S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTP 404: {\"type\":\"ExceptionReport\",\"exceptions\":[{\"type\":\"Exception\",\"exceptionCode\":\"http://www.opengis.net/ows/2.0#NoApplicableCode\",\"exceptionText\":\"Not found\"}]}"
+        ]
+      ]
+    },
+    "kasumigaura": {
+      "scenes_found": 372,
+      "scenes_read": 108,
+      "scenes_rejected": 264,
+      "scenes_failed": 0,
+      "days_written": 107,
+      "read_success_rate": 0.2903,
+      "elapsed_s": 3464.8,
+      "failures": []
+    },
+    "victoria_mwanza": {
+      "scenes_found": 296,
+      "scenes_read": 160,
+      "scenes_rejected": 136,
+      "scenes_failed": 0,
+      "days_written": 154,
+      "read_success_rate": 0.5405,
+      "elapsed_s": 4003.2,
+      "failures": []
+    },
+    "hartbeespoort": {
+      "scenes_found": 310,
+      "scenes_read": 27,
+      "scenes_rejected": 283,
+      "scenes_failed": 0,
+      "days_written": 27,
+      "read_success_rate": 0.0871,
+      "elapsed_s": 2073.4,
+      "failures": []
+    },
+    "alexandrina": {
+      "scenes_found": 349,
+      "scenes_read": 194,
+      "scenes_rejected": 155,
+      "scenes_failed": 0,
+      "days_written": 136,
+      "read_success_rate": 0.5559,
+      "elapsed_s": 4900.8,
+      "failures": []
+    },
+    "chapala": {
+      "scenes_found": 308,
+      "scenes_read": 185,
+      "scenes_rejected": 123,
+      "scenes_failed": 0,
+      "days_written": 181,
+      "read_success_rate": 0.6006,
+      "elapsed_s": 5066.7,
+      "failures": []
+    }
+  }
+}

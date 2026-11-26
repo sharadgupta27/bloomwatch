@@ -1,0 +1,519 @@
+10:10:40 INFO    ========================================================================
+10:10:40 INFO    poyang -- Lake Poyang (split=train, season=(4, 10))
+10:10:46 INFO    poyang: 18 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (18 granules)
+10:12:21 INFO    poyang: 22 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (22 granules)
+10:13:56 INFO    poyang: out-of-order write (2016-06-05 <= 2016-06-24) -- merging and rewriting cube
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:13:56 INFO    poyang: wrote 1 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:13:56 INFO    poyang 2016-06: 1 scenes -> 1 days (1 written)
+10:13:59 INFO    poyang: 21 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:17:01 INFO    poyang: wrote 5 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:17:01 INFO    poyang 2016-07: 5 scenes -> 5 days (5 written)
+10:17:05 INFO    poyang: 20 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:21:29 INFO    poyang: wrote 7 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:21:29 INFO    poyang 2016-08: 7 scenes -> 7 days (7 written)
+10:21:31 INFO    poyang: 20 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:25:50 INFO    poyang: wrote 4 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:25:50 INFO    poyang 2016-09: 4 scenes -> 4 days (4 written)
+10:25:53 INFO    poyang: 21 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:27:10 INFO    poyang: wrote 1 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:27:10 INFO    poyang 2016-10: 1 scenes -> 1 days (1 written)
+10:27:14 INFO    poyang: 19 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:29:14 INFO    poyang: wrote 2 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:29:14 INFO    poyang 2016-11: 2 scenes -> 2 days (2 written)
+10:29:16 INFO    poyang: 25 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (25 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:33:26 INFO    poyang: wrote 2 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:33:26 INFO    poyang 2016-12: 2 scenes -> 2 days (2 written)
+10:33:28 INFO    poyang: 20 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:36:46 INFO    poyang: wrote 2 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:36:46 INFO    poyang 2017-01: 2 scenes -> 2 days (2 written)
+10:36:49 INFO    poyang: 19 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:39:10 INFO    poyang: wrote 3 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:39:10 INFO    poyang 2017-02: 3 scenes -> 3 days (3 written)
+10:39:13 INFO    poyang: 23 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (23 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:43:38 INFO    poyang: wrote 1 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:43:38 INFO    poyang 2017-03: 1 scenes -> 1 days (1 written)
+10:43:39 INFO    poyang: 23 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (23 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:47:38 INFO    poyang: wrote 5 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:47:38 INFO    poyang 2017-04: 5 scenes -> 5 days (5 written)
+10:47:42 INFO    poyang: 20 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:50:09 INFO    poyang: wrote 2 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:50:09 INFO    poyang 2017-05: 2 scenes -> 2 days (2 written)
+10:50:23 INFO    poyang: 20 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (20 granules)
+10:52:10 INFO    poyang: 21 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+10:59:17 INFO    poyang: wrote 7 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+10:59:17 INFO    poyang 2017-07: 7 scenes -> 7 days (7 written)
+10:59:25 INFO    poyang: 21 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:03:56 INFO    poyang: wrote 4 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+11:03:56 INFO    poyang 2017-08: 4 scenes -> 4 days (4 written)
+11:04:03 INFO    poyang: 19 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (19 granules)
+11:07:41 WARNING S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20170922T023359_20170922T023559_20210727T044944_0119_022_260______MAR_R_NT_003.SEN3/tie_geo_coordinates.nc failed: HTTP 404: {"type":"ExceptionReport","exceptions":[{"type":"Exception","exceptionCode":"http://www.opengis.net/ows/2.0#NoApplicableCode","exceptionText":"Not found"}]}
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:10:53 INFO    poyang: wrote 8 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+11:10:53 INFO    poyang 2017-09: 8 scenes -> 8 days (8 written)
+11:10:59 INFO    poyang: 21 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:16:39 INFO    poyang: wrote 8 new daily frames to data\processed\cubes_global_s3a\poyang.zarr
+11:16:39 INFO    poyang 2017-10: 8 scenes -> 8 days (8 written)
+11:16:40 INFO    poyang: 62/373 scenes read (302 low-coverage, 1 failed) -> 62 daily frames
+11:16:40 INFO    poyang finished in 66.0 min
+11:16:40 INFO    ========================================================================
+11:16:40 INFO    kasumigaura -- Lake Kasumigaura (split=train, season=(5, 10))
+11:16:49 INFO    kasumigaura: 23 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (23 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:20:23 INFO    kasumigaura: wrote 5 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:20:23 INFO    kasumigaura 2016-05: 5 scenes -> 5 days (5 written)
+11:20:28 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:23:39 INFO    kasumigaura: wrote 1 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:23:39 INFO    kasumigaura 2016-06: 1 scenes -> 1 days (1 written)
+11:23:41 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:26:47 INFO    kasumigaura: wrote 2 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:26:47 INFO    kasumigaura 2016-07: 2 scenes -> 2 days (2 written)
+11:26:49 INFO    kasumigaura: 19 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:29:27 INFO    kasumigaura: wrote 4 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:29:27 INFO    kasumigaura 2016-08: 4 scenes -> 4 days (4 written)
+11:29:29 INFO    kasumigaura: 21 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:32:29 INFO    kasumigaura: wrote 4 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:32:29 INFO    kasumigaura 2016-09: 4 scenes -> 4 days (4 written)
+11:32:32 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:35:19 INFO    kasumigaura: wrote 6 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:35:19 INFO    kasumigaura 2016-10: 6 scenes -> 6 days (6 written)
+11:35:25 INFO    kasumigaura: 21 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:40:26 INFO    kasumigaura: wrote 10 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:40:26 INFO    kasumigaura 2016-11: 10 scenes -> 10 days (10 written)
+11:40:41 INFO    kasumigaura: 22 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (22 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:43:36 INFO    kasumigaura: wrote 9 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:43:36 INFO    kasumigaura 2016-12: 9 scenes -> 9 days (9 written)
+11:43:38 INFO    kasumigaura: 22 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (22 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:47:30 INFO    kasumigaura: wrote 14 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:47:30 INFO    kasumigaura 2017-01: 15 scenes -> 14 days (14 written)
+11:47:34 INFO    kasumigaura: 19 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:49:49 INFO    kasumigaura: wrote 14 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:49:49 INFO    kasumigaura 2017-02: 14 scenes -> 14 days (14 written)
+11:49:57 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:53:48 INFO    kasumigaura: wrote 9 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:53:48 INFO    kasumigaura 2017-03: 9 scenes -> 9 days (9 written)
+11:53:51 INFO    kasumigaura: 19 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+11:57:17 INFO    kasumigaura: wrote 5 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+11:57:17 INFO    kasumigaura 2017-04: 5 scenes -> 5 days (5 written)
+11:57:23 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:01:08 INFO    kasumigaura: wrote 3 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:01:08 INFO    kasumigaura 2017-05: 3 scenes -> 3 days (3 written)
+12:01:22 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:03:05 INFO    kasumigaura: wrote 3 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:03:05 INFO    kasumigaura 2017-06: 3 scenes -> 3 days (3 written)
+12:03:08 INFO    kasumigaura: 23 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (23 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:07:28 INFO    kasumigaura: wrote 5 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:07:28 INFO    kasumigaura 2017-07: 5 scenes -> 5 days (5 written)
+12:07:30 INFO    kasumigaura: 20 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:09:22 INFO    kasumigaura: wrote 1 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:09:22 INFO    kasumigaura 2017-08: 1 scenes -> 1 days (1 written)
+12:09:26 INFO    kasumigaura: 21 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:11:35 INFO    kasumigaura: wrote 8 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:11:35 INFO    kasumigaura 2017-09: 8 scenes -> 8 days (8 written)
+12:11:37 INFO    kasumigaura: 22 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (22 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:14:24 INFO    kasumigaura: wrote 4 new daily frames to data\processed\cubes_global_s3a\kasumigaura.zarr
+12:14:24 INFO    kasumigaura 2017-10: 4 scenes -> 4 days (4 written)
+12:14:24 INFO    kasumigaura: 108/372 scenes read (264 low-coverage, 0 failed) -> 107 daily frames
+12:14:24 INFO    kasumigaura finished in 57.7 min
+12:14:24 INFO    ========================================================================
+12:14:24 INFO    victoria_mwanza -- Lake Victoria (Mwanza Gulf) (split=val, season=(1, 12))
+12:14:26 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:19:46 INFO    victoria_mwanza: wrote 9 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:19:46 INFO    victoria_mwanza 2016-05: 9 scenes -> 9 days (9 written)
+12:19:48 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:23:16 INFO    victoria_mwanza: wrote 12 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:23:16 INFO    victoria_mwanza 2016-06: 12 scenes -> 12 days (12 written)
+12:23:21 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:27:45 INFO    victoria_mwanza: wrote 11 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:27:45 INFO    victoria_mwanza 2016-07: 11 scenes -> 11 days (11 written)
+12:27:48 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:30:36 INFO    victoria_mwanza: wrote 12 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:30:36 INFO    victoria_mwanza 2016-08: 12 scenes -> 12 days (12 written)
+12:30:48 INFO    victoria_mwanza: 18 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:34:03 INFO    victoria_mwanza: wrote 11 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:34:03 INFO    victoria_mwanza 2016-09: 12 scenes -> 11 days (11 written)
+12:34:05 INFO    victoria_mwanza: 18 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:36:42 INFO    victoria_mwanza: wrote 6 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:36:42 INFO    victoria_mwanza 2016-10: 7 scenes -> 6 days (6 written)
+12:36:44 INFO    victoria_mwanza: 18 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:40:10 INFO    victoria_mwanza: wrote 8 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:40:10 INFO    victoria_mwanza 2016-11: 9 scenes -> 8 days (8 written)
+12:40:19 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:43:11 INFO    victoria_mwanza: wrote 5 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:43:11 INFO    victoria_mwanza 2016-12: 5 scenes -> 5 days (5 written)
+12:43:25 INFO    victoria_mwanza: 17 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:47:13 INFO    victoria_mwanza: wrote 10 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:47:13 INFO    victoria_mwanza 2017-01: 11 scenes -> 10 days (10 written)
+12:47:15 INFO    victoria_mwanza: 15 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (15 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:53:47 INFO    victoria_mwanza: wrote 7 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:53:47 INFO    victoria_mwanza 2017-02: 7 scenes -> 7 days (7 written)
+12:53:49 INFO    victoria_mwanza: 17 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+12:57:03 INFO    victoria_mwanza: wrote 6 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+12:57:03 INFO    victoria_mwanza 2017-03: 7 scenes -> 6 days (6 written)
+12:57:06 INFO    victoria_mwanza: 17 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:02:11 INFO    victoria_mwanza: wrote 8 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:02:11 INFO    victoria_mwanza 2017-04: 9 scenes -> 8 days (8 written)
+13:02:14 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:05:30 INFO    victoria_mwanza: wrote 11 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:05:30 INFO    victoria_mwanza 2017-05: 11 scenes -> 11 days (11 written)
+13:05:34 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:09:17 INFO    victoria_mwanza: wrote 13 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:09:17 INFO    victoria_mwanza 2017-06: 13 scenes -> 13 days (13 written)
+13:09:22 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:12:03 INFO    victoria_mwanza: wrote 8 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:12:03 INFO    victoria_mwanza 2017-07: 8 scenes -> 8 days (8 written)
+13:12:06 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:16:36 INFO    victoria_mwanza: wrote 8 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:16:36 INFO    victoria_mwanza 2017-08: 8 scenes -> 8 days (8 written)
+13:16:39 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:19:10 INFO    victoria_mwanza: wrote 4 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:19:10 INFO    victoria_mwanza 2017-09: 4 scenes -> 4 days (4 written)
+13:19:18 INFO    victoria_mwanza: 16 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:21:07 INFO    victoria_mwanza: wrote 5 new daily frames to data\processed\cubes_global_s3a\victoria_mwanza.zarr
+13:21:07 INFO    victoria_mwanza 2017-10: 5 scenes -> 5 days (5 written)
+13:21:08 INFO    victoria_mwanza: 160/296 scenes read (136 low-coverage, 0 failed) -> 154 daily frames
+13:21:08 INFO    victoria_mwanza finished in 66.7 min
+13:21:08 INFO    ========================================================================
+13:21:08 INFO    hartbeespoort -- Hartbeespoort Dam (split=test, season=(1, 12))
+13:21:11 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:22:29 INFO    hartbeespoort: wrote 1 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:22:29 INFO    hartbeespoort 2016-05: 1 scenes -> 1 days (1 written)
+13:22:32 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:24:34 INFO    hartbeespoort: wrote 4 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:24:34 INFO    hartbeespoort 2016-06: 4 scenes -> 4 days (4 written)
+13:24:41 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:27:50 INFO    hartbeespoort: wrote 6 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:27:50 INFO    hartbeespoort 2016-07: 6 scenes -> 6 days (6 written)
+13:27:52 INFO    hartbeespoort: 18 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:31:12 INFO    hartbeespoort: wrote 11 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:31:12 INFO    hartbeespoort 2016-08: 11 scenes -> 11 days (11 written)
+13:31:18 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:33:46 INFO    hartbeespoort: wrote 3 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:33:46 INFO    hartbeespoort 2016-09: 3 scenes -> 3 days (3 written)
+13:33:48 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:35:16 INFO    hartbeespoort: wrote 2 new daily frames to data\processed\cubes_global_s3a\hartbeespoort.zarr
+13:35:16 INFO    hartbeespoort 2016-10: 2 scenes -> 2 days (2 written)
+13:35:20 INFO    hartbeespoort: 18 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (18 granules)
+13:36:07 INFO    hartbeespoort: 18 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (18 granules)
+13:36:56 INFO    hartbeespoort: 19 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (19 granules)
+13:38:30 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (17 granules)
+13:41:00 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (17 granules)
+13:42:40 INFO    hartbeespoort: 18 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (18 granules)
+13:44:28 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (17 granules)
+13:45:32 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (17 granules)
+13:47:17 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (17 granules)
+13:48:37 INFO    hartbeespoort: 17 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (17 granules)
+13:51:50 INFO    hartbeespoort: 16 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (16 granules)
+13:53:25 INFO    hartbeespoort: 16 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (16 granules)
+13:55:41 INFO    hartbeespoort: 27/310 scenes read (283 low-coverage, 0 failed) -> 27 daily frames
+13:55:41 INFO    hartbeespoort finished in 34.6 min
+13:55:41 INFO    ========================================================================
+13:55:41 INFO    alexandrina -- Lake Alexandrina (split=test, season=(11, 4))
+13:55:43 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+13:59:42 INFO    alexandrina: wrote 7 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+13:59:42 INFO    alexandrina 2016-05: 8 scenes -> 7 days (7 written)
+13:59:44 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:06:30 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:06:30 INFO    alexandrina 2016-06: 13 scenes -> 9 days (9 written)
+14:06:33 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:11:08 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:11:08 INFO    alexandrina 2016-07: 10 scenes -> 9 days (9 written)
+14:11:16 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:14:35 INFO    alexandrina: wrote 7 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:14:35 INFO    alexandrina 2016-08: 11 scenes -> 7 days (7 written)
+14:14:39 INFO    alexandrina: 19 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:19:35 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:19:35 INFO    alexandrina 2016-09: 11 scenes -> 9 days (9 written)
+14:19:43 INFO    alexandrina: 21 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:23:02 INFO    alexandrina: wrote 7 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:23:02 INFO    alexandrina 2016-10: 11 scenes -> 7 days (7 written)
+14:23:11 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:28:14 INFO    alexandrina: wrote 6 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:28:14 INFO    alexandrina 2016-11: 10 scenes -> 6 days (6 written)
+14:28:22 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:31:27 INFO    alexandrina: wrote 6 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:31:27 INFO    alexandrina 2016-12: 6 scenes -> 6 days (6 written)
+14:31:29 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:36:14 INFO    alexandrina: wrote 5 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:36:14 INFO    alexandrina 2017-01: 9 scenes -> 5 days (5 written)
+14:36:27 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:40:59 INFO    alexandrina: wrote 5 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:40:59 INFO    alexandrina 2017-02: 7 scenes -> 5 days (5 written)
+14:41:02 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:45:39 INFO    alexandrina: wrote 7 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:45:39 INFO    alexandrina 2017-03: 8 scenes -> 7 days (7 written)
+14:45:52 INFO    alexandrina: 21 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:49:24 INFO    alexandrina: wrote 6 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:49:24 INFO    alexandrina 2017-04: 9 scenes -> 6 days (6 written)
+14:49:37 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:53:57 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:53:57 INFO    alexandrina 2017-05: 14 scenes -> 9 days (9 written)
+14:54:04 INFO    alexandrina: 18 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+14:57:59 INFO    alexandrina: wrote 8 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+14:57:59 INFO    alexandrina 2017-06: 11 scenes -> 8 days (8 written)
+14:58:01 INFO    alexandrina: 19 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:02:35 INFO    alexandrina: wrote 10 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+15:02:35 INFO    alexandrina 2017-07: 15 scenes -> 10 days (10 written)
+15:02:39 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:06:54 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+15:06:54 INFO    alexandrina 2017-08: 15 scenes -> 9 days (9 written)
+15:07:56 INFO    alexandrina: 20 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (20 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:12:57 INFO    alexandrina: wrote 9 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+15:12:57 INFO    alexandrina 2017-09: 14 scenes -> 9 days (9 written)
+15:12:59 INFO    alexandrina: 21 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (21 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:17:21 INFO    alexandrina: wrote 8 new daily frames to data\processed\cubes_global_s3a\alexandrina.zarr
+15:17:21 INFO    alexandrina 2017-10: 12 scenes -> 8 days (8 written)
+15:17:22 INFO    alexandrina: 194/349 scenes read (155 low-coverage, 0 failed) -> 136 daily frames
+15:17:22 INFO    alexandrina finished in 81.7 min
+15:17:22 INFO    ========================================================================
+15:17:22 INFO    chapala -- Lake Chapala (split=test, season=(5, 11))
+15:17:24 INFO    chapala: 16 OLCI overpasses on the Data Store between 2016-05-01 and 2016-05-31 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:22:17 INFO    chapala: wrote 10 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:22:17 INFO    chapala 2016-05: 11 scenes -> 10 days (10 written)
+15:22:19 INFO    chapala: 16 OLCI overpasses on the Data Store between 2016-06-01 and 2016-06-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:26:11 INFO    chapala: wrote 9 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:26:11 INFO    chapala 2016-06: 9 scenes -> 9 days (9 written)
+15:26:18 INFO    chapala: 18 OLCI overpasses on the Data Store between 2016-07-01 and 2016-07-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:31:00 INFO    chapala: wrote 7 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:31:00 INFO    chapala 2016-07: 7 scenes -> 7 days (7 written)
+15:31:13 INFO    chapala: 17 OLCI overpasses on the Data Store between 2016-08-01 and 2016-08-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:35:38 INFO    chapala: wrote 10 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:35:38 INFO    chapala 2016-08: 10 scenes -> 10 days (10 written)
+15:35:40 INFO    chapala: 16 OLCI overpasses on the Data Store between 2016-09-01 and 2016-09-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:39:45 INFO    chapala: wrote 9 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:39:45 INFO    chapala 2016-09: 9 scenes -> 9 days (9 written)
+15:39:46 INFO    chapala: 18 OLCI overpasses on the Data Store between 2016-10-01 and 2016-10-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:43:28 INFO    chapala: wrote 11 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:43:28 INFO    chapala 2016-10: 12 scenes -> 11 days (11 written)
+15:43:32 INFO    chapala: 17 OLCI overpasses on the Data Store between 2016-11-01 and 2016-11-30 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:47:51 INFO    chapala: wrote 13 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:47:51 INFO    chapala 2016-11: 14 scenes -> 13 days (13 written)
+15:47:53 INFO    chapala: 18 OLCI overpasses on the Data Store between 2016-12-01 and 2016-12-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:51:50 INFO    chapala: wrote 14 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:51:50 INFO    chapala 2016-12: 14 scenes -> 14 days (14 written)
+15:51:52 INFO    chapala: 18 OLCI overpasses on the Data Store between 2017-01-01 and 2017-01-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+15:57:58 INFO    chapala: wrote 15 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+15:57:58 INFO    chapala 2017-01: 15 scenes -> 15 days (15 written)
+15:58:01 INFO    chapala: 15 OLCI overpasses on the Data Store between 2017-02-01 and 2017-02-28 (15 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:02:47 INFO    chapala: wrote 13 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:02:47 INFO    chapala 2017-02: 13 scenes -> 13 days (13 written)
+16:02:50 INFO    chapala: 18 OLCI overpasses on the Data Store between 2017-03-01 and 2017-03-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:08:00 INFO    chapala: wrote 11 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:08:00 INFO    chapala 2017-03: 11 scenes -> 11 days (11 written)
+16:08:04 INFO    chapala: 19 OLCI overpasses on the Data Store between 2017-04-01 and 2017-04-30 (19 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:10:48 INFO    chapala: wrote 8 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:10:48 INFO    chapala 2017-04: 8 scenes -> 8 days (8 written)
+16:11:50 INFO    chapala: 18 OLCI overpasses on the Data Store between 2017-05-01 and 2017-05-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:18:22 INFO    chapala: wrote 11 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:18:22 INFO    chapala 2017-05: 11 scenes -> 11 days (11 written)
+16:18:26 INFO    chapala: 15 OLCI overpasses on the Data Store between 2017-06-01 and 2017-06-30 (15 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:21:40 INFO    chapala: wrote 9 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:21:40 INFO    chapala 2017-06: 9 scenes -> 9 days (9 written)
+16:21:42 INFO    chapala: 17 OLCI overpasses on the Data Store between 2017-07-01 and 2017-07-31 (17 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:25:33 INFO    chapala: wrote 5 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:25:33 INFO    chapala 2017-07: 5 scenes -> 5 days (5 written)
+16:25:36 INFO    chapala: 18 OLCI overpasses on the Data Store between 2017-08-01 and 2017-08-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:30:04 INFO    chapala: wrote 8 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:30:04 INFO    chapala 2017-08: 8 scenes -> 8 days (8 written)
+16:30:21 INFO    chapala: 16 OLCI overpasses on the Data Store between 2017-09-01 and 2017-09-30 (16 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:34:22 INFO    chapala: wrote 6 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:34:22 INFO    chapala 2017-09: 6 scenes -> 6 days (6 written)
+16:34:24 INFO    chapala: 18 OLCI overpasses on the Data Store between 2017-10-01 and 2017-10-31 (18 granules)
+C:\Users\shara\Desktop\New_Ideas\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+16:41:48 INFO    chapala: wrote 12 new daily frames to data\processed\cubes_global_s3a\chapala.zarr
+16:41:48 INFO    chapala 2017-10: 13 scenes -> 12 days (12 written)
+16:41:48 INFO    chapala: 185/308 scenes read (123 low-coverage, 0 failed) -> 181 daily frames
+16:41:48 INFO    chapala finished in 84.4 min
+16:41:48 INFO    ========================================================================
+16:41:48 INFO    ALL DONE in 391.1 min
+16:41:48 INFO      poyang           62 days  |    62/ 373 scenes read  |    1 failed
+16:41:48 INFO      kasumigaura     107 days  |   108/ 372 scenes read  |    0 failed
+16:41:48 INFO      victoria_mwanza  154 days  |   160/ 296 scenes read  |    0 failed
+16:41:48 INFO      hartbeespoort    27 days  |    27/ 310 scenes read  |    0 failed
+16:41:48 INFO      alexandrina     136 days  |   194/ 349 scenes read  |    0 failed
+16:41:48 INFO      chapala         181 days  |   185/ 308 scenes read  |    0 failed
+16:41:48 INFO    report -> artifacts\ingest_global_s3a_old.json

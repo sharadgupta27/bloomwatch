@@ -1,0 +1,88 @@
+2026-09-27 00:12:26,518 INFO    loaded ens_global_ml: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=False on cuda
+2026-09-27 00:12:29,064 INFO    balaton: 1134 days, grid (166, 260), water pixels 6675/43160 (15.5%), observed density 50.4%
+2026-09-27 00:12:29,589 INFO    balaton: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:30,240 INFO    victoria_mwanza: 1092 days, grid (201, 201), water pixels 14548/40401 (36.0%), observed density 50.3%
+2026-09-27 00:12:30,477 INFO    victoria_mwanza: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:30,925 INFO    dianchi: 810 days, grid (137, 137), water pixels 3392/18769 (18.1%), observed density 47.6%
+2026-09-27 00:12:31,159 INFO    dianchi: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:31,856 INFO    geneva: 1021 days, grid (263, 263), water pixels 6530/69169 (9.4%), observed density 63.6%
+2026-09-27 00:12:32,343 INFO    geneva: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:34,079 INFO    victoria_ne: 1282 days, grid (351, 372), water pixels 38129/130572 (29.2%), observed density 42.6%
+2026-09-27 00:12:34,319 INFO    victoria_ne: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:35,240 INFO    hartbeespoort: 106 days, grid (82, 82), water pixels 226/6724 (3.4%), observed density 71.0%
+2026-09-27 00:12:35,514 INFO    hartbeespoort: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:35,868 INFO    alexandrina: 1115 days, grid (171, 171), water pixels 10718/29241 (36.7%), observed density 37.2%
+2026-09-27 00:12:36,099 INFO    alexandrina: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:36,792 INFO    chapala: 1545 days, grid (204, 204), water pixels 10481/41616 (25.2%), observed density 63.9%
+2026-09-27 00:12:37,082 INFO    chapala: met forcing 3913 days 2016-01-01 to 2026-09-17 (wind_u, wind_v, t2m, ssrd, tp, wind_speed)
+2026-09-27 00:12:37,373 INFO    normalisation (from checkpoint): {'mean': 0.8054459095001221, 'std': 0.5263144969940186}
+2026-09-27 00:12:37,376 INFO    met normalisation (train lakes only): {'wind_u': (0.144402876496315, 1.59694242477417), 'wind_v': (0.3290175199508667, 1.940949559211731), 't2m': (16.833911895751953, 7.414421558380127), 'ssrd': (16.206911087036133, 7.500471591949463), 'tp': (3.239375352859497, 5.936577320098877), 'wind_speed': (2.6772711277008057, 1.1883351802825928)}
+2026-09-27 00:12:40,056 INFO    SequenceDataset: 3224 samples from 4 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-27 00:12:41,165 INFO    SequenceDataset: 3272 samples from 4 lakes (input=14d, leads=(1, 3, 5, 7))
+2026-09-27 00:45:36,141 INFO    lake           split   lead     rmse  skill_p  skill_c   csi@20   auc@20 prauc@20
+2026-09-27 00:45:36,147 INFO    exceedance head: PR-AUC@20 (regression / head / persistence), BSS@20, ECE@20
+2026-09-27 00:45:36,148 INFO    balaton        val        1   0.2782    0.296    0.185    0.088    0.876    0.286
+2026-09-27 00:45:36,148 INFO        head balaton  lead 1  prauc@20 0.286 / 0.277 / 0.204   bss@20 -0.819  ece@20 0.143  spread 0.047 vs rmse 0.278
+2026-09-27 00:45:36,148 INFO    balaton        val        3   0.3166    0.345   -0.025    0.059    0.839    0.221
+2026-09-27 00:45:36,148 INFO        head balaton  lead 3  prauc@20 0.221 / 0.205 / 0.147   bss@20 -0.701  ece@20 0.142  spread 0.048 vs rmse 0.317
+2026-09-27 00:45:36,148 INFO    balaton        val        5   0.3117    0.368   -0.001    0.047    0.849    0.253
+2026-09-27 00:45:36,148 INFO        head balaton  lead 5  prauc@20 0.253 / 0.236 / 0.163   bss@20 -0.742  ece@20 0.151  spread 0.046 vs rmse 0.312
+2026-09-27 00:45:36,148 INFO    balaton        val        7   0.3167    0.406   -0.065    0.054    0.846    0.264
+2026-09-27 00:45:36,148 INFO        head balaton  lead 7  prauc@20 0.264 / 0.252 / 0.172   bss@20 -0.767  ece@20 0.150  spread 0.046 vs rmse 0.317
+2026-09-27 00:45:36,149 INFO    dianchi        val        1   0.1538    0.400    0.554    0.439    0.931    0.722
+2026-09-27 00:45:36,149 INFO        head dianchi  lead 1  prauc@20 0.722 / 0.752 / 0.568   bss@20 0.153  ece@20 0.190  spread 0.026 vs rmse 0.154
+2026-09-27 00:45:36,149 INFO    dianchi        val        3   0.1427    0.478    0.488    0.382    0.899    0.584
+2026-09-27 00:45:36,149 INFO        head dianchi  lead 3  prauc@20 0.584 / 0.578 / 0.514   bss@20 -0.076  ece@20 0.195  spread 0.025 vs rmse 0.143
+2026-09-27 00:45:36,149 INFO    dianchi        val        5   0.1434    0.512    0.492    0.342    0.896    0.630
+2026-09-27 00:45:36,149 INFO        head dianchi  lead 5  prauc@20 0.630 / 0.662 / 0.504   bss@20 0.027  ece@20 0.195  spread 0.025 vs rmse 0.143
+2026-09-27 00:45:36,149 INFO    dianchi        val        7   0.1688    0.433    0.392    0.377    0.873    0.565
+2026-09-27 00:45:36,149 INFO        head dianchi  lead 7  prauc@20 0.565 / 0.568 / 0.494   bss@20 -0.075  ece@20 0.202  spread 0.023 vs rmse 0.169
+2026-09-27 00:45:36,150 INFO    geneva         val        1   0.2374    0.410    0.629    0.000    0.742    0.006
+2026-09-27 00:45:36,150 INFO        head geneva   lead 1  prauc@20 0.006 / 0.013 / 0.005   bss@20 -2.371  ece@20 0.048  spread 0.040 vs rmse 0.237
+2026-09-27 00:45:36,150 INFO    geneva         val        3   0.2517    0.405    0.586    0.000    0.738    0.006
+2026-09-27 00:45:36,150 INFO        head geneva   lead 3  prauc@20 0.006 / 0.022 / 0.010   bss@20 -1.368  ece@20 0.047  spread 0.043 vs rmse 0.252
+2026-09-27 00:45:36,150 INFO    geneva         val        5   0.2556    0.417    0.577    0.001    0.852    0.029
+2026-09-27 00:45:36,150 INFO        head geneva   lead 5  prauc@20 0.029 / 0.038 / 0.014   bss@20 -4.080  ece@20 0.053  spread 0.045 vs rmse 0.256
+2026-09-27 00:45:36,150 INFO    geneva         val        7   0.2707    0.401    0.526    0.000    0.733    0.009
+2026-09-27 00:45:36,150 INFO        head geneva   lead 7  prauc@20 0.009 / 0.017 / 0.012   bss@20 -1.789  ece@20 0.051  spread 0.043 vs rmse 0.271
+2026-09-27 00:45:36,150 INFO    victoria_mwanza val        1   0.2409    0.355    0.327    0.037    0.877    0.204
+2026-09-27 00:45:36,150 INFO        head victoria_mwanza lead 1  prauc@20 0.204 / 0.216 / 0.173   bss@20 -0.034  ece@20 0.040  spread 0.034 vs rmse 0.241
+2026-09-27 00:45:36,150 INFO    victoria_mwanza val        3   0.2399    0.419    0.235    0.052    0.797    0.132
+2026-09-27 00:45:36,150 INFO        head victoria_mwanza lead 3  prauc@20 0.132 / 0.151 / 0.101   bss@20 -0.280  ece@20 0.052  spread 0.038 vs rmse 0.240
+2026-09-27 00:45:36,151 INFO    victoria_mwanza val        5   0.2619    0.372    0.176    0.015    0.768    0.125
+2026-09-27 00:45:36,151 INFO        head victoria_mwanza lead 5  prauc@20 0.125 / 0.146 / 0.095   bss@20 -0.179  ece@20 0.050  spread 0.039 vs rmse 0.262
+2026-09-27 00:45:36,151 INFO    victoria_mwanza val        7   0.2509    0.431    0.189    0.035    0.829    0.121
+2026-09-27 00:45:36,151 INFO        head victoria_mwanza lead 7  prauc@20 0.121 / 0.141 / 0.088   bss@20 -0.298  ece@20 0.057  spread 0.038 vs rmse 0.251
+2026-09-27 00:45:36,151 INFO    alexandrina    test       1   0.2106    0.309    0.191    0.201    0.813    0.531
+2026-09-27 00:45:36,151 INFO        head alexandrina lead 1  prauc@20 0.531 / 0.508 / 0.442   bss@20 0.149  ece@20 0.098  spread 0.035 vs rmse 0.211
+2026-09-27 00:45:36,151 INFO    alexandrina    test       3   0.2146    0.329    0.193    0.217    0.834    0.561
+2026-09-27 00:45:36,151 INFO        head alexandrina lead 3  prauc@20 0.561 / 0.511 / 0.451   bss@20 0.143  ece@20 0.102  spread 0.037 vs rmse 0.215
+2026-09-27 00:45:36,151 INFO    alexandrina    test       5   0.2146    0.360    0.165    0.197    0.831    0.545
+2026-09-27 00:45:36,151 INFO        head alexandrina lead 5  prauc@20 0.545 / 0.489 / 0.444   bss@20 0.125  ece@20 0.098  spread 0.037 vs rmse 0.215
+2026-09-27 00:45:36,152 INFO    alexandrina    test       7   0.2150    0.388    0.151    0.231    0.848    0.588
+2026-09-27 00:45:36,152 INFO        head alexandrina lead 7  prauc@20 0.588 / 0.522 / 0.452   bss@20 0.127  ece@20 0.110  spread 0.037 vs rmse 0.215
+2026-09-27 00:45:36,152 INFO    chapala        test       1   0.0800    0.465    0.308    0.577    0.833    0.833
+2026-09-27 00:45:36,152 INFO        head chapala  lead 1  prauc@20 0.833 / 0.824 / 0.786   bss@20 0.172  ece@20 0.138  spread 0.011 vs rmse 0.080
+2026-09-27 00:45:36,152 INFO    chapala        test       3   0.0835    0.469    0.255    0.588    0.833    0.826
+2026-09-27 00:45:36,152 INFO        head chapala  lead 3  prauc@20 0.826 / 0.802 / 0.768   bss@20 0.149  ece@20 0.125  spread 0.011 vs rmse 0.083
+2026-09-27 00:45:36,152 INFO    chapala        test       5   0.0820    0.465    0.269    0.570    0.826    0.820
+2026-09-27 00:45:36,152 INFO        head chapala  lead 5  prauc@20 0.820 / 0.801 / 0.779   bss@20 0.155  ece@20 0.120  spread 0.012 vs rmse 0.082
+2026-09-27 00:45:36,152 INFO    chapala        test       7   0.0848    0.492    0.203    0.576    0.820    0.818
+2026-09-27 00:45:36,153 INFO        head chapala  lead 7  prauc@20 0.818 / 0.791 / 0.768   bss@20 0.131  ece@20 0.117  spread 0.012 vs rmse 0.085
+2026-09-27 00:45:36,153 INFO    hartbeespoort  test       1   0.4755    0.284    0.590    0.000    0.804    0.060
+2026-09-27 00:45:36,153 INFO        head hartbeespoort lead 1  prauc@20 0.060 / 0.083 / 0.063   bss@20 -0.489  ece@20 0.068  spread 0.144 vs rmse 0.476
+2026-09-27 00:45:36,153 INFO    hartbeespoort  test       3   0.4597    0.299    0.644    0.419    0.949    0.694
+2026-09-27 00:45:36,153 INFO        head hartbeespoort lead 3  prauc@20 0.694 / 0.733 / 0.515   bss@20 0.425  ece@20 0.087  spread 0.122 vs rmse 0.460
+2026-09-27 00:45:36,153 INFO    hartbeespoort  test       5   0.5007    0.082    0.576    0.265    0.917    0.495
+2026-09-27 00:45:36,153 INFO        head hartbeespoort lead 5  prauc@20 0.495 / 0.558 / 0.471   bss@20 0.241  ece@20 0.081  spread 0.123 vs rmse 0.501
+2026-09-27 00:45:36,153 INFO    hartbeespoort  test       7   0.4446    0.392    0.667    0.490    0.931    0.719
+2026-09-27 00:45:36,153 INFO        head hartbeespoort lead 7  prauc@20 0.719 / 0.730 / 0.608   bss@20 0.464  ece@20 0.083  spread 0.117 vs rmse 0.445
+2026-09-27 00:45:36,153 INFO    victoria_ne    test       1   0.2244    0.333    0.271    0.441    0.945    0.664
+2026-09-27 00:45:36,153 INFO        head victoria_ne lead 1  prauc@20 0.664 / 0.659 / 0.596   bss@20 0.312  ece@20 0.080  spread 0.050 vs rmse 0.224
+2026-09-27 00:45:36,154 INFO    victoria_ne    test       3   0.2210    0.375    0.266    0.419    0.943    0.640
+2026-09-27 00:45:36,154 INFO        head victoria_ne lead 3  prauc@20 0.640 / 0.629 / 0.562   bss@20 0.308  ece@20 0.079  spread 0.056 vs rmse 0.221
+2026-09-27 00:45:36,154 INFO    victoria_ne    test       5   0.2337    0.353    0.207    0.403    0.941    0.620
+2026-09-27 00:45:36,154 INFO        head victoria_ne lead 5  prauc@20 0.620 / 0.613 / 0.529   bss@20 0.249  ece@20 0.091  spread 0.056 vs rmse 0.234
+2026-09-27 00:45:36,154 INFO    victoria_ne    test       7   0.2317    0.372    0.207    0.397    0.940    0.617
+2026-09-27 00:45:36,154 INFO        head victoria_ne lead 7  prauc@20 0.617 / 0.607 / 0.538   bss@20 0.276  ece@20 0.086  spread 0.055 vs rmse 0.232
+2026-09-27 00:45:36,154 INFO    wrote artifacts\eval_global_ml_raw\scores.json

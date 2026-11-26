@@ -1,0 +1,98 @@
+{
+  "args": {
+    "aoi": "data\\aoi\\lakes_global.geojson",
+    "cube_root": "data\\processed\\cubes_global_s3a",
+    "lakes": [
+      "tahoe",
+      "valencia_ve",
+      "maracaibo",
+      "titicaca_puno",
+      "guaiba",
+      "taupo",
+      "te_waihora"
+    ],
+    "start": "2016-05-01",
+    "end": "2017-10-31",
+    "workers": 6,
+    "min_valid": 0.02,
+    "all_year": true,
+    "aux": "",
+    "source": "eumetsat-reprocessed",
+    "skip_existing_in": null,
+    "report": "artifacts\\ingest_global_s3a.json",
+    "verbose": false
+  },
+  "total_elapsed_s": 23679.6,
+  "lakes": {
+    "tahoe": {
+      "scenes_found": 381,
+      "scenes_read": 220,
+      "scenes_rejected": 161,
+      "scenes_failed": 0,
+      "days_written": 211,
+      "read_success_rate": 0.5774,
+      "elapsed_s": 3334.3,
+      "failures": []
+    },
+    "valencia_ve": {
+      "scenes_found": 291,
+      "scenes_read": 113,
+      "scenes_rejected": 178,
+      "scenes_failed": 0,
+      "days_written": 112,
+      "read_success_rate": 0.3883,
+      "elapsed_s": 3057.8,
+      "failures": []
+    },
+    "maracaibo": {
+      "scenes_found": 304,
+      "scenes_read": 140,
+      "scenes_rejected": 164,
+      "scenes_failed": 0,
+      "days_written": 136,
+      "read_success_rate": 0.4605,
+      "elapsed_s": 4931.2,
+      "failures": []
+    },
+    "titicaca_puno": {
+      "scenes_found": 288,
+      "scenes_read": 0,
+      "scenes_rejected": 288,
+      "scenes_failed": 0,
+      "days_written": 0,
+      "read_success_rate": 0.0,
+      "elapsed_s": 1644.1,
+      "failures": []
+    },
+    "guaiba": {
+      "scenes_found": 319,
+      "scenes_read": 139,
+      "scenes_rejected": 180,
+      "scenes_failed": 0,
+      "days_written": 137,
+      "read_success_rate": 0.4357,
+      "elapsed_s": 3308.5,
+      "failures": []
+    },
+    "taupo": {
+      "scenes_found": 368,
+      "scenes_read": 165,
+      "scenes_rejected": 203,
+      "scenes_failed": 0,
+      "days_written": 161,
+      "read_success_rate": 0.4484,
+      "elapsed_s": 3952.8,
+      "failures": []
+    },
+    "te_waihora": {
+      "scenes_found": 395,
+      "scenes_read": 95,
+      "scenes_rejected": 300,
+      "scenes_failed": 0,
+      "days_written": 94,
+      "read_success_rate": 0.2405,
+      "elapsed_s": 3450.7,
+      "failures": []
+    }
+  }
+}
