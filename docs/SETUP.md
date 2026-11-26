@@ -82,6 +82,44 @@ CUDA_TAG=cu130 PYTHON=$(which python) bash scripts/install_torch.sh
 
 ---
 
+## Running the app
+
+`make api` (Docker) or, on the host:
+
+```bash
+uvicorn serving.api.main:app --port 8000      # then open http://127.0.0.1:8000/app
+```
+
+The defaults serve the 21-lake registry from `data/processed/cubes`. For the full 46-lake
+outlook with current imagery, point the API at the global registry and the live cubes and
+weather (built by `artifacts/bulletin/refresh_global_live.sh <date>`, ~2–3 min per lake):
+
+```bash
+HAB_AOI=data/aoi/lakes_global.geojson \
+HAB_CUBES=data/processed/cubes_global_live \
+HAB_MET_ROOT=data/processed/met_live \
+uvicorn serving.api.main:app --port 8000
+```
+
+What to expect:
+
+- **Startup.** The server answers in ~10 s; a background thread then loads the model and
+  builds the outlook (`HAB_WARMUP=0` turns this off). The first build for 46 lakes takes
+  about a minute; after that the outlook is read from `data/cache/outlook.json` in 0.2 s
+  and rebuilt only when a cube, a checkpoint or the validation summary changes.
+- **Caches** live under `data/cache/` (`statics/` water masks, `outlook.json`, `erddap/`
+  CoastWatch responses). All are safe to delete; they rebuild.
+- **Imagery age.** The outlook uses each lake's newest archived day. If the live cubes
+  have not been refreshed, every lake is shown as out of date — that is the app being
+  honest, not a fault.
+- **Field-sample check and README figures** are offline steps:
+  `python scripts/validate_insitu.py` (~7 min; `--from-matchups` to re-summarise) and
+  `python scripts/make_readme_figures.py`.
+
+All settings are listed in the README's *Configuration* section.
+
+---
+
 ## Ingest timing and resumability
 
 The full 5-lake, 2018–2024 ingest takes a few hours, dominated by per-scene HTTP
@@ -148,6 +186,10 @@ scale until the scale underflows, and the parameters go NaN with the loss finite
 step. The contraction now runs in float32 (`torch.autocast(enabled=False)`); if a future
 change reintroduces a small-denominator division into an autocast region, expect the
 same failure and look for it at the scaler, not the loss.
+
+**On Windows, call the local API at `127.0.0.1`, not `localhost`.** `localhost` tries IPv6
+first, and against a server bound to IPv4 every request then appears ~2 s slower than it
+is — enough to send a performance investigation the wrong way.
 
 **Bloom-season climatology cache.** `use_clim` models read a leave-one-year-out seasonal
 mean per lead, cached per (day-of-year, year) as float16 full-grid frames under a

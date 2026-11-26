@@ -9,7 +9,7 @@ That needs in-situ data. This is a survey of what is public, checked against the
 services on **2026-08-29**, and — more importantly — a measurement of how much of it can
 actually be matched to this model's lakes and dates. Reproduce with:
 
-```
+```bash
 python scripts/survey_validation_data.py --report artifacts/validation_survey.json
 ```
 
@@ -49,6 +49,8 @@ freshwater cyanobacteria. Using it would mean geocoding prose.
 
 ## What can validate *this* model — measured, not assumed
 
+Measured 2026-08-29 against the 21-lake registry:
+
 | | inside the 21 modelled lakes | within the ingested window (2016+) |
 |---|---|---|
 | GLORIA chlorophyll | **1,321** | **422** |
@@ -57,6 +59,14 @@ freshwater cyanobacteria. Using it would mean geocoding prose.
 The GLORIA overlap is real and usable: 547 points in western Lake Erie, 264 in the
 IJsselmeer, 197 in Taihu, 188 in Kasumigaura. Enough to check whether the satellite
 retrieval and the forecast track laboratory chlorophyll on four continents.
+
+Re-measured 2026-11-26 against the **46-lake** registry and the index below (GLORIA plus
+the per-lake EPA chlorophyll pulls), inside each lake's extent and the archive period
+2016-05 → 2026-09: about **1,800 chlorophyll samples in 18 lakes** (17 once samples off the
+water mask are dropped), led by Saginaw Bay
+(530), western Lake Erie (389), Lake Geneva (290), Okeechobee (189) and Pontchartrain
+(158). Microcystin inside the registry is still only 26 measurements (Upper Klamath,
+Okeechobee).
 
 **The toxin overlap is almost nothing, and the reason is structural.** 51 stations sit
 inside the modelled lakes but produced only 13 measurements since 2016, because the
@@ -101,7 +111,9 @@ well-sampled state beach stations that are ponds a few hundred metres across, wh
 300 m forecast has nothing to say; their microcystin still reaches the user through the
 pixel probe.
 
-    python scripts/build_insitu_index.py      # -> data/validation/insitu.csv.gz
+```bash
+python scripts/build_insitu_index.py      # -> data/validation/insitu.csv.gz
+```
 
 The index is 45,835 rows and 347 kB gzipped, distilled from ~100 MB of downloads:
 GLORIA's global chlorophyll, the national microcystin extract, and a per-lake chlorophyll
@@ -122,13 +134,35 @@ the exception. Building the feature is what made the frequency visible.
 
 ---
 
+## Scored against the archive (2026-11-26)
+
+`scripts/validate_insitu.py` computes the comparison the app shows one pixel at a time,
+over every sample: the same-day satellite retrieval and the forecast issued 1, 3, 5 and 7
+days before each sample, beside persistence and the seasonal climatology on the same
+samples. 3×3-pixel medians, replicates merged, log₁₀ errors, intervals by bootstrap over
+lake-days; 6,581 matchup rows in 7 minutes (`--from-matchups` re-summarises in seconds).
+
+- **The satellite ranks waters well but reads low**: 371 same-day matchups in 11 lakes,
+  rank correlation 0.70, within ×2 of the laboratory value 47% of the time, median
+  0.55× the laboratory value. Lake Geneva reads ~8× low.
+- **The forecast beats persistence against real water** (+0.08 to +0.14, intervals clear
+  of zero) **and loses to the seasonal climatology** (−0.09 to −0.13) — the same pattern as
+  against the satellite.
+- **Blooms are under-called**: the 1-day forecast catches 8% of samples above 20 µg/L and
+  none of 89 above 50 µg/L. A ×2.1 correction fitted leave-one-lake-out raises the 20 µg/L
+  hit rate to 53% with a false-alarm ratio of 0.51. Not applied; it is a public-health
+  decision.
+
+Where it shows up: `/api/validation-summary`, the app's About panel, a per-lake sentence on
+each lake card in the outlook (only where a lake has at least 10 same-day matchups — fewer
+is noise), and a note on every card that the estimates more likely understate a bloom.
+The figures and tables are in the README and `docs/MODEL_CARD.md`.
+
+---
+
 ## What would follow from this
 
-Three things, in order of value:
-
-1. **Score the model against GLORIA's 422 in-window matchups.** The app now *shows* the
-   comparison one pixel at a time; nothing yet *computes* it over the archive. That is
-   the project's first non-self-referential accuracy number and it needs no new data.
+1. ~~**Score the model against GLORIA's in-window matchups.**~~ Done — see above.
 2. **Choose lakes to overlap the toxin network.** The registry was assembled from bloom
    literature. Re-selecting the US entries to favour large lakes the EPA portal actually
    samples would convert a 13-measurement overlap into a usable one, and would let the
@@ -137,4 +171,7 @@ Three things, in order of value:
    already in the registry, published by the agency that runs the reference system.
    Beating persistence is a low bar; agreeing with GLERL is a real one.
 
-None of these three is done.
+The first is done; the other two are not. A fourth follows from the first: **decide
+whether to calibrate the advisory thresholds to laboratory chlorophyll** — the correction
+is measured and recorded, and applying it is a choice about missed blooms against false
+alarms that belongs to whoever answers for the advisory.

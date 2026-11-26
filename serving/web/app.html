@@ -69,6 +69,12 @@
 <!-- Water bodies where somebody has put a bottle in the water. The list is the answer to
      "where can I check this model against reality", so it is ordered by how much has been
      measured, and the lakes the model was actually built on come first. -->
+<div class="dock-tabs">
+<button class="sites-tab panel outlook-tab" id="outlook-toggle" aria-expanded="false" aria-controls="outlook"
+        title="Bloom risk at monitored lakes (O)">
+  <span class="lvl-dot" style="background:var(--lvl-warning)" aria-hidden="true"></span>
+  <span>Bloom outlook</span>
+</button>
 <button class="sites-tab panel" id="sites-toggle" aria-expanded="false" aria-controls="sites"
         title="Water bodies with field data (S)">
   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -76,6 +82,30 @@
   </svg>
   <span>Field data</span>
 </button>
+</div>
+
+<!-- ----------------------------------------------------------- public outlook -- -->
+<!-- The answer most visitors came for -- "is there a bloom at my lake?" -- in plain words,
+     for every lake the service monitors, without drawing anything or waiting for a job.
+     Sorted most severe first. The age of the imagery is shown beside every level. -->
+<aside class="sites panel" id="outlook" hidden aria-label="Bloom outlook for monitored lakes">
+  <div class="sites-head">
+    <h2>Bloom outlook</h2>
+    <button class="iconbtn" id="outlook-close" aria-label="Close the outlook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="ol-legend" id="outlook-legend" aria-label="Number of lakes at each level"></div>
+  <div class="sites-filter">
+    <input id="outlook-q" type="text" autocomplete="off" spellcheck="false"
+           placeholder="Find a lake or country" aria-label="Filter the monitored lakes">
+  </div>
+  <p class="sites-note" id="outlook-note">Loading…</p>
+  <div class="sites-list" id="outlook-list" role="listbox" aria-label="Monitored lakes"></div>
+  <p class="sites-foot" id="outlook-foot">
+    Satellite estimate of algae (chlorophyll), not a toxin test. Local advisories take precedence.
+  </p>
+</aside>
 
 <aside class="sites panel" id="sites" hidden aria-label="Water bodies with field data">
   <div class="sites-head">
@@ -216,46 +246,54 @@
   </button>
   <h2>About this forecast</h2>
 
-  <h3>What you are looking at</h3>
-  <p>Predicted chlorophyll-a concentration at 300 m resolution, 1 to 7 days ahead, for the
-     area you select. Chlorophyll-a is a proxy for algal biomass — the standard satellite
-     signal for tracking cyanobacterial blooms.</p>
+  <h3>The bloom outlook</h3>
+  <p>Every lake the service monitors is a coloured marker: <strong>Low</strong>,
+     <strong>Elevated</strong>, <strong>Bloom likely</strong> or <strong>Severe</strong>. The
+     level says how much of the lake is forecast above 10, 20 or 50 µg/L of chlorophyll
+     within the next week. A lake's card says what to do and <strong>how old the satellite
+     images are</strong>; a level from images more than 10 days old is marked out of date.
+     The outlook never says water is safe — a satellite cannot tell that.</p>
 
-  <h3>Where the data comes from</h3>
-  <p>Sentinel-3 OLCI Level-2 water products. <strong>The mission itself is near-real
-     time</strong> — EUMETSAT publishes NRT products within about 3 hours of acquisition,
-     and consolidated NTC products within 30 days. What lags is the free Microsoft
-     Planetary Computer mirror this build reads, which republishes the same products
-     roughly 6–7 months later (measured August 2026). So a forecast here is anchored on the
-     most recent day that mirror actually holds, never on today, and that date is always
-     shown. Operational latency is a matter of changing the ingest source to Copernicus
-     Data Space, not of changing the model.</p>
+  <h3>The forecast map</h3>
+  <p>Predicted chlorophyll-a at 300 m, 1 to 7 days ahead. Chlorophyll-a measures algae, the
+     standard satellite signal for tracking blooms. For a monitored lake the map comes from
+     its own archive in about a second; for anywhere else you draw, a fortnight of imagery
+     is fetched first.</p>
 
   <h3>How to read the map</h3>
-  <p>Colour runs from 1 mg/m³ (deep blue) to 100 mg/m³ (red) on a fixed scale, so two
-     different lakes are directly comparable. <strong>Grey means water the sensor could
-     not see through cloud</strong> — it is missing data, not clean water. Two thirds of a
-     typical day is grey, which is why a forecast is built from a fortnight of passes. The
-     <strong>inspect</strong> tool reads the predicted value under a click, at every lead
-     time at once.</p>
+  <p>Colour runs from 1 µg/L (deep blue) to 100 µg/L (red) on a fixed scale, so two lakes
+     are directly comparable. <strong>Grey means water the sensor could not see through
+     cloud</strong> — missing data, not clean water. The <strong>inspect</strong> tool reads
+     the value under a click at every lead, plots the satellite data behind it, and lists
+     field measurements within 10 km.</p>
+
+  <h3>Where the data comes from</h3>
+  <p>Sentinel-3 OLCI, a near-real-time mission. Recent imagery comes from NOAA CoastWatch
+     (about a day behind) or the EUMETSAT Data Store (hours behind); older imagery from the
+     Microsoft Planetary Computer archive, which runs months behind. Every forecast shows
+     which source served it and the date of its newest image.</p>
 
   <h3>How good is it?</h3>
-  <p>Measured lake-by-lake against both "tomorrow looks like today" and a seasonal
-     climatology. On a lake it has never seen it beats persistence by a small margin and
-     still loses to climatology. The full evaluation, including the failures, is on the
-     <a href="/dashboard">results dashboard</a>.</p>
+  <p>Scored lake by lake against "tomorrow looks like today" and against a seasonal
+     average, on lakes held out of training. On the held-out test lake the monitored-lake
+     model beats both at every lead from 1 to 7 days. The simpler model used for areas you
+     draw (no archive to learn a season from) only just beats "tomorrow looks like today".
+     Everything, failures included, is on the <a href="/dashboard">results dashboard</a> and
+     in the <a href="/model-card">model card</a>.</p>
+
+  <h3>Checked against field samples</h3>
+  <div id="val-summary"><p>Loading the comparison with laboratory measurements…</p></div>
 
   <h3>Limits worth knowing</h3>
-  <p>300 m pixels cannot resolve small ponds or narrow rivers. The water mask is derived
-     from the fortnight being fetched, so a cloudy period maps less water than really
-     exists. The forecast is computed on a local UTM grid and drawn onto a Web Mercator
-     basemap; selections are capped at 80 km partly because below that the difference
-     between the two projections stays under one pixel. And satellite chlorophyll is
-     <strong>not</strong> a cyanotoxin measurement: confirm with in-situ sampling before
-     any public-health decision.</p>
+  <p>Satellite chlorophyll is <strong>not</strong> a toxin measurement: confirm with water
+     sampling before any public-health decision, and follow local advisories. 300 m pixels
+     cannot resolve small ponds or narrow rivers. For a drawn area the water mask comes
+     from the fortnight fetched, so a cloudy period maps less water than really exists.
+     Drawn areas are capped at 80 km across.</p>
 
   <h3>Keyboard</h3>
-  <p><kbd>V</kbd> explore · <kbd>I</kbd> inspect · <kbd>P</kbd> point · <kbd>C</kbd> circle ·
+  <p><kbd>O</kbd> bloom outlook · <kbd>S</kbd> field data ·
+     <kbd>V</kbd> explore · <kbd>I</kbd> inspect · <kbd>P</kbd> point · <kbd>C</kbd> circle ·
      <kbd>R</kbd> rectangle · <kbd>G</kbd> polygon · <kbd>M</kbd> measure ·
      <kbd>Del</kbd> remove area ·
      <kbd>Esc</kbd> cancel · arrows pan · <kbd>+</kbd>/<kbd>−</kbd> zoom</p>
@@ -263,6 +301,16 @@
 
 <!-- ---------------------------------------------------------------- left dock --- -->
 <div class="leftdock" id="leftdock">
+<div class="pop panel" id="outlook-card" hidden role="region" aria-live="polite" aria-label="Bloom outlook for the selected lake">
+  <button class="iconbtn pop-close" id="outlook-card-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div id="outlook-card-body"></div>
+  <div class="row ol-actions">
+    <button class="act" id="outlook-map">Show the forecast map</button>
+    <button class="act ghost narrow" id="outlook-share" title="Copy a link to this lake">Share</button>
+  </div>
+</div>
 <div class="pop panel" id="measure-panel" hidden role="region" aria-label="Measurement">
   <h2>Measure</h2>
   <div class="measure-out">

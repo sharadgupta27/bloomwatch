@@ -715,6 +715,82 @@ def _attempt(
     )
 
 
+ARCHIVE_CUBE_SOURCE = "bloom-watch-archive"
+
+
+def forecast_from_archive(
+    predictor: Predictor,
+    lake_id: str,
+    anchor: date | None = None,
+    route: Route | None = None,
+    progress: ProgressFn = _noop,
+) -> AdhocResult | None:
+    """The same result `forecast_location` builds, from a registry lake's ingested cube.
+
+    For the lakes the service already monitors there is nothing to download: the
+    fortnight of imagery, quality-controlled through the training pipeline, is on disk,
+    and the water mask is the one built from years of retrievals rather than inferred
+    from two weeks of them. That turns a 15-60 s network job into about a second.
+
+    Returns None -- and the caller falls back to the live path -- when the lake is not
+    in this predictor's registry, has no cube, or the cube has no usable imagery in the
+    window before `anchor`. `anchor` None means the newest day the cube holds.
+    """
+    if lake_id not in predictor.registry.lake_ids:
+        return None
+    ds, days = predictor._open_cube(lake_id)
+    if ds is None or not days:
+        return None
+    today = datetime.now(UTC).date()
+    if anchor is None:
+        usable = [d for d in days if d <= today]
+        if not usable:
+            return None
+        anchor = max(usable)
+    elif anchor > max(days):
+        return None  # newer than the archive: that is the live path's job
+    progress("reading the archived fortnight", 0.3)
+    try:
+        forecast = predictor.predict(lake_id, anchor, allow_live=False)
+    except ValueError:
+        return None
+    progress("done", 1.0)
+    aoi = predictor.registry[lake_id]
+    grid = aoi.grid()
+    water = forecast.water.astype(bool)
+    start = anchor - timedelta(days=predictor.input_days - 1)
+    history: dict[date, np.ndarray] = {}
+    if forecast.input_log_chl is not None:
+        for slot in range(forecast.input_log_chl.shape[0]):
+            day = start + timedelta(days=slot)
+            if day in forecast.input_observed_days:
+                frame = forecast.input_log_chl[slot]
+                history[day] = np.where(water & np.isfinite(frame), frame, np.nan).astype(
+                    np.float32
+                )
+    observed = list(forecast.input_observed_days)
+    return AdhocResult(
+        forecast=forecast,
+        aoi=aoi,
+        # Days, not granules: the cube stores one composite per day. Equal counts keep
+        # the "scenes rejected by QC" caveat from firing on a number it cannot know.
+        scenes_found=len(observed),
+        scenes_used=len(observed),
+        observed_days=observed,
+        water_pixels=int(water.sum()),
+        # Years of retrievals, not a fortnight: the mask is as good as it gets.
+        water_confidence=1.0,
+        cell_area_km2=(grid.resolution / 1000.0) ** 2,
+        source=ARCHIVE_CUBE_SOURCE,
+        source_label="Bloom Watch archive (Sentinel-3 OLCI L2, full quality control)",
+        source_latest=max(days),
+        history=history,
+        route=route,
+        aux_expected=tuple(getattr(predictor, "aux_keys", ()) or ()),
+        aux_supplied=tuple(getattr(predictor, "aux_keys", ()) or ()),
+    )
+
+
 def _run(
     predictor: Predictor,
     aoi: LakeAOI,

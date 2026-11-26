@@ -1,164 +1,189 @@
 # Bloom Watch
 
-**Short-range forecasting of cyanobacterial harmful algal blooms in inland waters, from Sentinel-3 OLCI.**
+**Short-range forecasts of harmful algal blooms in lakes, from Sentinel-3 satellite imagery —
+with a plain-language outlook for the public and an honest error bar for everyone else.**
+
+![The Bloom Watch app: every monitored lake coloured by bloom risk, most severe first](docs/img/app_outlook.jpg)
+
+Most satellite bloom tools *map* what already happened. Bloom Watch forecasts 1–7 days
+ahead, is scored on lakes it never saw in training, and is checked against laboratory
+water samples — including where that check goes badly.
+
+> **Advisory only.** Satellite chlorophyll-a measures algae, not toxins. Local health
+> advisories always take precedence. See [`docs/MODEL_CARD.md`](docs/MODEL_CARD.md).
 
 The Python package is `habforecast` (`src/habforecast/`); Bloom Watch is the project, the
 API and the map app built on it.
 
-Most satellite bloom tools *map* what already happened. This one forecasts 1–7 days
-ahead, on a held-out lake it has never seen, and reports its skill against the baselines
-that actually matter. A water manager cannot act on a map of yesterday; they can act on
-"the western basin will cross the advisory threshold on Thursday."
-
-> **Advisory only.** Satellite chlorophyll-a is not a direct cyanotoxin measurement.
-> See [`docs/MODEL_CARD.md`](docs/MODEL_CARD.md) for intended use and limitations.
+**Contents** ·
+[At a glance](#at-a-glance) ·
+[What you can do with it](#what-you-can-do-with-it) ·
+[How good is it?](#how-good-is-it) ·
+[How it works](#how-it-works) ·
+[Quickstart](#quickstart) ·
+[Configuration](#configuration) ·
+[Repository layout](#repository-layout) ·
+[Limitations](#limitations)
 
 ---
+
+## At a glance
+
+| | In short |
+|---|---|
+| **Coverage** | 46 monitored lakes on 6 continents (`data/aoi/lakes_global.geojson`); any other lake, reservoir or bay can be drawn on the map |
+| **Forecast** | Chlorophyll-a at 300 m, 1, 3, 5 and 7 days ahead, plus advisory levels at 10 / 20 / 50 µg/L |
+| **Skill on a lake never seen in training** (Victoria) | +0.26 → +0.32 against persistence and +0.16 → +0.21 against a seasonal climatology, across leads 1–7 days |
+| **Checked against 1,800 laboratory samples** | The satellite ranks waters well (rank correlation 0.70) but **reads ~1.8× low**, so blooms are under-called. [Details](#against-laboratory-water-samples) |
+| **Speed** | Outlook for all lakes in 0.2 s; a monitored lake's forecast map in ~1 s |
+| **Runs on** | A laptop: trained on a 4 GB RTX 3050; serves on CPU, or on ONNX with no PyTorch at all |
 
 ## Why this matters
 
-Cyanobacterial blooms shut off drinking water for 400,000 people in Toledo, Ohio in 2014.
-They close beaches, kill fish, poison livestock, and cost the US alone billions annually.
-Lake Taihu supplies water to roughly 10 million people and blooms every summer. Lake
-Victoria supports around 40 million.
+Cyanobacterial blooms cut off drinking water for 400,000 people in Toledo, Ohio, in 2014.
+They close beaches, kill fish and poison pets and livestock. Lake Taihu supplies water to
+about 10 million people and blooms every summer; Lake Victoria supports about 40 million.
 
 Monitoring is mostly reactive: a bloom is sampled after someone sees it. Sentinel-3 OLCI
-observes every lake on Earth larger than a few km², daily, at 300 m, for free — and it
-carries bands (620/665/709 nm) designed for exactly this. The gap is not data. It is a
-forecasting system with an honest error bar.
+observes every lake larger than a few km² daily, at 300 m, for free, with bands designed
+for exactly this. The gap is not data. It is a forecast with an honest error bar, said in
+words a person deciding whether to take the dog to the lake can use.
 
 ---
 
-## What this repository is
+## What you can do with it
 
-A complete, production-shaped ML system that runs end to end on a laptop:
+### Check a lake
 
-```
-Sentinel-3 OLCI (STAC)  ──▶  windowed read + QC  ──▶  daily Zarr datacube
-                                                            │
-                        ┌───────────────────────────────────┤
-                        ▼                                   ▼
-              masked sequence dataset              drift monitoring
-                        │                          (obs / dist / geographic)
-                        ▼
-     anomaly forecaster (+ seasonal climatology input)  ·  ConvLSTM  ·  U-Net
-                   persistence  ·  climatology baselines
-                        │
-                        ▼
-   leave-lake-out + temporal evaluation ──▶ MLflow ──▶ FastAPI + map + advisory feed
-```
+`/app` opens on the **Bloom outlook**: every monitored lake as a coloured marker —
+**Low**, **Elevated**, **Bloom likely** or **Severe** — and a list sorted most severe
+first. A lake's card says, in plain words:
 
-| Layer | Choice | Why |
+- how worried to be, and what to do about it (it never says "safe to swim");
+- **how old the satellite images are** — imagery older than 10 days is flagged on the
+  marker, in the list and on the card;
+- how the satellite compared with laboratory samples at that lake, where any exist.
+
+`#lake=<id>` links share a lake directly. Levels are the advisory's own, held inside their
+likely…possible probability band (`habforecast.outlook`), so the map, the PDF bulletin and
+the feed never disagree.
+
+<p align="center">
+  <img src="docs/img/app_lake_card.jpg" width="67%" alt="A lake card: level, image age, advice, and how reliable the satellite has been at this lake">
+  &nbsp;
+  <img src="docs/img/app_phone.jpg" width="27%" alt="The same card on a narrow phone screen">
+</p>
+
+### Forecast any water body
+
+Search for a place or draw a point, circle, rectangle or polygon (or upload GeoJSON, KML
+or a shapefile), and the app fetches a fortnight of imagery and runs the model. Before
+anything is fetched it classifies the water and shows which data and which model it will
+use, and why:
+
+| Water selected | Imagery | Model |
 |---|---|---|
-| Data source | Planetary Computer STAC, anonymous | No credentials needed to reproduce |
-| Storage | Zarr, one cube per lake | Chunked, appendable, ~0.08 MB per lake-day |
-| Config | Hydra (training only) | Sweeps; ingest stays plain CLI |
-| Tracking | MLflow | Runs, params, split composition, checkpoints |
-| Data versioning | DVC | Cubes and pipeline DAG |
-| Orchestration | Docker Compose | `make ingest` / `make train` / `make api` |
-| Serving | FastAPI + inline map | Forecast JSON + PNG overlays; advisory feed as GeoJSON and RSS |
-| Scheduled job | `pipelines/advisory.py` (compose service, cron-able) | Daily advisories to disk, same code as the live endpoint |
-| Monitoring | Custom drift module | Observation / distribution / **geographic** drift |
-| CI | GitHub Actions | Lint, tests, config contracts, image build + API smoke test |
+| A monitored lake | Its own ingested archive (nothing downloaded) | 300 m checkpoint **with** the lake's seasonal climatology |
+| Any other inland lake, or coastal water within 40 km of shore | Sentinel-3 OLCI 300 m (CHL_NN), near-real-time | 300 m no-history checkpoint; the 750 m one offered where the area is ≥ 16 px at 750 m |
+| Open ocean beyond the shelf | VIIRS / OLCI 4 km | **None** — a labelled persistence baseline |
+
+The 750 m checkpoint is the better forecaster, but its band-ratio retrieval masks turbid
+inland water (2.6% valid pixels on Taihu), and turbid inland water is what this tool is for.
+The 4 km checkpoint scored *negative* skill, so the open ocean gets imagery and a baseline
+rather than a measured non-result dressed as a forecast. Every marine route says that no
+checkpoint here was trained on marine water.
+[More in docs/DATA_SOURCES.md](docs/DATA_SOURCES.md#choosing-the-product-and-the-model-for-the-water-selected).
+
+The **inspect** tool reads the forecast under a click at every lead, plots the fortnight of
+satellite data behind it, and shows any field measurements within 10 km.
+
+### Download a bulletin
+
+Any forecast can be downloaded as an NCCOS-style PDF bulletin: satellite imagery, the
+forecast by lead, exceedance probabilities, and the wind-mixing and scum-risk outlook.
+`scripts/make_bulletin.py` produces one for every monitored lake.
+
+![Bulletin forecast page for Lake Taihu: chlorophyll-a forecast and probability of exceeding 20 µg/L at 1, 3, 5 and 7 days](docs/img/bulletin_forecast.png)
+
+### Use the API
+
+Interactive documentation is at `/docs`; every route is listed there and below.
+
+| Endpoint | Returns |
+|---|---|
+| `GET /app` | The map app: outlook, drawing tools, forecasts, bulletins |
+| `GET /` | A minimal single-lake forecast viewer, no JavaScript build |
+| `GET /api/outlook` | Every monitored lake's level in plain language, image age, advice |
+| `GET /lakes` | The monitored lakes: names, split, extent, archive length |
+| `GET /forecast?lake_id=…` · `GET /forecast/image` | One lake's forecast (JSON) and map overlay (PNG) |
+| `GET /advisory` · `GET /advisory/feed.xml` | The advisory feed as GeoJSON and RSS |
+| `POST /api/forecast/jobs` → `GET /api/forecast/jobs/{id}` | A forecast for any drawn area, run as a background job; pass `lake_id` to use a monitored lake's archive |
+| `GET /api/forecast/jobs/{id}/bulletin.pdf` | The PDF bulletin for a finished job |
+| `GET /api/route` · `GET /api/models` | Which imagery and model a box would use, and why; every checkpoint with its measured skill |
+| `GET /api/places` · `POST /api/geometry` | Place search (gazetteer, then OpenStreetMap Nominatim); read an uploaded GeoJSON, KML or shapefile |
+| `GET /api/validation-summary` | The comparison with laboratory samples |
+| `GET /api/insitu` · `GET /api/validation-sites` | Field measurements near a point; water bodies that have them |
+| `GET /model-card` · `GET /dashboard` | The model card; the results dashboard |
+| `GET /health` · `GET /metrics` · `GET /api/jobs/stats` | Health check, Prometheus metrics, background-job counts |
 
 ---
 
-## Three findings worth reading
+## How good is it?
 
-These are the parts that were not obvious, and each is pinned by a regression test.
+Every number below is regenerated from the project's own outputs; the figures come from
+`scripts/make_readme_figures.py`.
 
-### 1. The obvious QC mask deletes 100% of your data
+### Against the satellite, on lakes held out of training
 
-OLCI's `WQSF` flag field behaves counter-intuitively over lakes. On a real Lake Erie
-granule:
+**Split by lake, never at random.** A random split would put 14 July 2019 on Lake Erie in
+training and 15 July in validation; they share most of their pixels, so the score would
+measure memorisation. Holding out whole lakes answers the question a user actually has:
+*will this work on my lake?*
 
-| Flag | Frequency | |
+| Split | Lakes | Why |
 |---|---|---|
-| `WATER` | **0.00%** | never set over inland water — it is an open-ocean flag |
-| `LAND` | 75.85% | **set over inland water too** |
-| `INLAND_WATER` | 54.88% | |
-| `INLAND_WATER & LAND` | 40.65% | exactly the set with a finite `CHL_NN` retrieval |
+| train | Erie (western basin), Okeechobee, Taihu | Temperate and subtropical, all hypereutrophic |
+| validation | Balaton | Narrow, elongated basin — a different shape |
+| **test** | **Victoria (Winam Gulf)** | **Tropical, no seasonal cycle, another continent** |
 
-The textbook mask — require `WATER`, reject `LAND` — returns an empty dataset. The first
-ingest here did precisely that and produced zero valid pixels across every scene.
-Correct approach: **require `INLAND_WATER`, do not reject `LAND`**.
+**Always against both baselines.** Persistence ("tomorrow looks like today") is strong at
+1 day and fades; a seasonal climatology is weak at 1 day and does not fade. A model has to
+beat both to be worth running.
 
-### 2. Two more flags are bloom-correlated, and rejecting them biases the training set
+![Skill by lead time on the held-out lakes, against persistence and against climatology](docs/img/skill_by_lead.png)
 
-`TURBID_ATM` (22.8% of pixels) and `OC4ME_FAIL` (7.0%) are commonly rejected. Both
-correlate with dense blooms — surface scum raises reflectance enough to trip the
-turbid-atmosphere test, and `OC4ME_FAIL` just means the open-ocean band-ratio algorithm
-failed, which it always does in case-2 water. That is *why* we read `CHL_NN` instead.
-Rejecting them preferentially deletes the strongest blooms. Both are deliberately kept;
-[`STRICT_REJECT_FLAGS`](src/habforecast/data/qc.py) exists to quantify the difference.
+- **The test lake generalises.** On Victoria the model beats persistence by +0.26 → +0.32,
+  growing with lead as it should, and beats climatology at every lead.
+- **Balaton loses to climatology after day 1.** It is mesotrophic with a strong, stable
+  seasonal cycle, so its own climatology is already a very good forecast, and the model is
+  only allowed part of the way toward it.
+- **Ranking extremes is the weak point.** PR-AUC for "exceeds 20 µg/L" is only level with
+  persistence on Victoria (0.616 vs 0.611 at 1 day). The model cuts error everywhere but
+  does not pick out the bloomiest pixels much better than yesterday's image.
+- **The climatology input does the work.** Without it the same network scores −0.003 →
+  +0.033 against persistence — about persistence. A drawn area has no archive to build one
+  from, so it gets the earlier no-history checkpoint (+0.046 → +0.062), and the app says so.
 
-### 3. The workload looks I/O-bound and is not
+<details>
+<summary>Full scores by lake and lead, and the temporal split</summary>
 
-Scene reads are three HTTP range reads against Azure Blob, so a thread pool is the
-obvious choice. Measured effective concurrency with 24 threads: **~1.2** — h5py's HDF5
-calls and gzip decompression hold the GIL. Switching to processes cut cold-cache
-per-scene wall time from **5.8 s to 3.4 s**.
-
-Two other ingest optimisations, both measured rather than assumed:
-
-- **Tie-point windowing.** A full granule is 4090 × 4865. Locating the AOI via the ~1 MB
-  column-subsampled tie-point grid, then range-reading only the intersecting HDF5 chunks,
-  reduces a scene to **0.1% of the granule**. Strided reads (`arr[::16, ::16]`) defeat
-  this completely — they touch every chunk and take 52 s.
-- **QC before geolocation.** `geo-coordinates` is 61 MB against 5 MB for `chl-nn`.
-  Reordering the reads so QC runs first lets ~50% of scenes be rejected before the
-  expensive read happens at all.
-
----
-
-## The evaluation is the point
-
-**Split by lake, never randomly.**
-
-| Split | Lakes | Rationale |
-|---|---|---|
-| train | Erie (western basin), Okeechobee, Taihu | Temperate + subtropical, all hypereutrophic |
-| val | Balaton | Narrow elongated basin — different morphology |
-| **test** | **Victoria (Winam Gulf)** | **Tropical, no seasonal cycle, different continent** |
-
-A random split would put 2019-07-14 Lake Erie in train and 2019-07-15 in validation.
-Those frames share most of their pixels; the score would measure memorisation. Adjacent
-300 m pixels are strongly autocorrelated, so random *spatial* tiling fails the same way.
-Holding out whole lakes answers the only question an operational user has: *will this
-work on my lake?* Lake Victoria is deliberately the hardest available case.
-
-**Always report skill against both baselines.** Persistence ("tomorrow looks like today")
-is very strong at 1-day lead and degrades with horizon. Climatology (per-pixel seasonal
-mean) is weak at 1 day and *stops* degrading. Where those curves cross is where a learned
-model can earn its keep. Reporting RMSE alone, or against only one baseline, flatters the
-model.
-
-**Report event scores, not just regression.** An operator acts on a threshold crossing,
-not a chlorophyll value. `POD`, `FAR`, `CSI` and `F1` are computed at 10 / 20 / 50 mg/m³.
-
-**Everything is masked.** With 60–75% of target pixels unobserved, an unmasked metric is
-dominated by pixels no satellite ever saw.
-
-### Results
-
-Served model: `anomaly` forecaster with the lake's own seasonal climatology as an input
-(`conf/model/anomaly_clim.yaml`, 0.34M params, 28 epochs early-stopped, 1,475 training
-samples from Erie + Okeechobee + Taihu), scored with flip test-time augmentation.
-Regenerate with `make evaluate results`; the full tables, including ROC-AUC / PR-AUC at
-every advisory threshold, are in [`docs/MODEL_CARD.md`](docs/MODEL_CARD.md).
+Served model: `anomaly` forecaster with the lake's seasonal climatology as an input
+(`conf/model/anomaly_clim.yaml`, 0.34 M parameters, 1,475 training samples), scored with
+flip test-time augmentation. Regenerate with `make evaluate results`.
 
 | Lake | Split | Lead | RMSE (log₁₀) | vs persistence | vs climatology | POD @20 | FAR @20 | CSI @20 | PR-AUC @20 (model / persistence) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Balaton | val | 1 d | 0.309 | **+0.303** | +0.125 | 0.020 | 0.436 | 0.020 | 0.149 / 0.099 |
-| Balaton | val | 3 d | 0.350 | **+0.363** | −0.072 | 0.017 | 0.537 | 0.017 | 0.110 / 0.082 |
-| Balaton | val | 5 d | 0.349 | **+0.385** | −0.116 | 0.007 | 0.803 | 0.007 | 0.073 / 0.069 |
-| Balaton | val | 7 d | 0.368 | **+0.429** | −0.164 | 0.006 | 0.570 | 0.006 | 0.116 / 0.082 |
-| Victoria | **test** | 1 d | 0.241 | **+0.255** | **+0.213** | 0.316 | 0.198 | 0.293 | 0.616 / 0.611 |
-| Victoria | **test** | 3 d | 0.242 | **+0.283** | **+0.189** | 0.287 | 0.249 | 0.262 | 0.576 / 0.571 |
-| Victoria | **test** | 5 d | 0.246 | **+0.298** | **+0.178** | 0.288 | 0.283 | 0.259 | 0.544 / 0.545 |
-| Victoria | **test** | 7 d | 0.248 | **+0.318** | **+0.163** | 0.289 | 0.295 | 0.258 | 0.541 / 0.545 |
+| Balaton | val | 1 d | 0.309 | +0.303 | +0.125 | 0.020 | 0.436 | 0.020 | 0.149 / 0.099 |
+| Balaton | val | 3 d | 0.350 | +0.363 | −0.072 | 0.017 | 0.537 | 0.017 | 0.110 / 0.082 |
+| Balaton | val | 5 d | 0.349 | +0.385 | −0.116 | 0.007 | 0.803 | 0.007 | 0.073 / 0.069 |
+| Balaton | val | 7 d | 0.368 | +0.429 | −0.164 | 0.006 | 0.570 | 0.006 | 0.116 / 0.082 |
+| Victoria | **test** | 1 d | 0.241 | +0.255 | +0.213 | 0.316 | 0.198 | 0.293 | 0.616 / 0.611 |
+| Victoria | **test** | 3 d | 0.242 | +0.283 | +0.189 | 0.287 | 0.249 | 0.262 | 0.576 / 0.571 |
+| Victoria | **test** | 5 d | 0.246 | +0.298 | +0.178 | 0.288 | 0.283 | 0.259 | 0.544 / 0.545 |
+| Victoria | **test** | 7 d | 0.248 | +0.318 | +0.163 | 0.289 | 0.295 | 0.258 | 0.541 / 0.545 |
 
-Two split strategies, because they answer different questions (mean over test lakes):
+A second split keeps every lake but holds out *years* (train 2018–2022, validate 2023, test
+2024–2025; `data.split_mode=temporal`). Mean skill over test lakes:
 
 | Lead | New lake: vs persistence | New lake: vs climatology | New year: vs persistence | New year: vs climatology |
 |---:|---:|---:|---:|---:|
@@ -167,69 +192,99 @@ Two split strategies, because they answer different questions (mean over test la
 | 5 d | +0.298 | +0.178 | +0.345 | +0.311 |
 | 7 d | +0.318 | +0.163 | +0.470 | +0.369 |
 
-*New lake* holds out whole lakes (Victoria). *New year* keeps every lake and trains on
-2018–2022, validates on 2023, tests on 2024–2025 (`data.split_mode=temporal`); its
-climatology and normalisation are built from the training years only. The gap between the
-columns is what a lake outside the registry costs.
+The gap between the columns is what a lake outside the training set costs. Full tables,
+including ROC-AUC and PR-AUC at every threshold, are in [`docs/MODEL_CARD.md`](docs/MODEL_CARD.md).
 
-#### How it got here
+</details>
 
-The previous served model (the same architecture without the climatology input) scored
-+0.046 → +0.062 against persistence on Victoria and *lost* to a per-pixel seasonal
-climatology at every lead (−0.008 → −0.151). The diagnosis in the earlier version of this
-section was that a model which sees a fortnight cannot know where the season is heading.
-Feeding it the leave-one-year-out seasonal mean for each target date, and letting it learn
-per pixel and per lead how far to move its persistence anchor toward that mean, is the
-whole change (`src/habforecast/models/anomaly.py`, change 5). Skill against persistence
-on the held-out lake went from +0.05 to +0.26–0.32, and it now beats climatology at every
-lead — which no OLCI checkpoint here did before, and which the 15-lake VIIRS 750 m
-checkpoint (+0.137 → +0.154) does not match either.
+### Against laboratory water samples
 
-#### What this actually says
+Scoring against the satellite measures forecasting skill, but not whether the numbers mean
+anything in the water. `scripts/validate_insitu.py` compares both the satellite retrieval
+and the forecast with **laboratory chlorophyll-a** that no part of training saw: GLORIA
+(PANGAEA, CC-BY 4.0) and the US EPA Water Quality Portal. Method: 3×3-pixel medians at
+300 m, replicate samples merged, errors in log₁₀, 95% intervals by bootstrap over
+lake-days. Run 2026-11-26 on the served model, 17 lakes with samples, 7 minutes.
 
-1. **The model generalises to the held-out tropical lake.** Skill against persistence
-   grows with lead (+0.26 → +0.32) as it should, and climatology — flat at 0.27 RMSE
-   across leads — is beaten by 0.16–0.21 everywhere. A random train/test split would have
-   reported a similar-looking number for the wrong reason; this one is earned on a lake,
-   a continent and a climate the model never saw.
+<p align="center">
+  <img src="docs/img/insitu_scatter.png" width="49%" alt="Satellite against laboratory chlorophyll-a: points scatter below the 1:1 line; median satellite = 0.55 times lab">
+</p>
 
-2. **The ranking metrics are the honest caveat.** PR-AUC for "exceeds 20 mg/m³" is only
-   level with persistence on Victoria (0.616 vs 0.611 at 1 day, 0.541 vs 0.545 at 7). The
-   model reduces error everywhere but does not rank the bloomiest pixels much better than
-   yesterday's image does — the smooth, bounded delta that makes it generalise is also what
-   stops it from sharpening the extremes. Event scores, not RMSE, are where the next gain
-   has to come from.
+| | n | within ×2 of the sample | typical error | vs "repeat the last image" | vs seasonal mean |
+|---|---:|---:|---|---|---|
+| Satellite, same day | 371 | 47% | ×2.4, reads **~1.8× low** | — | — |
+| Forecast, 1 day | 1,156 | 39% | ×2.6 | **+0.08** [0.05, 0.12] | **−0.13** [−0.17, −0.10] |
+| Forecast, 7 days | 1,144 | 40% | ×2.5 | **+0.14** [0.11, 0.18] | **−0.09** [−0.13, −0.06] |
 
-3. **Balaton still loses to climatology at 3–7 days** (−0.07 → −0.16) while beating
-   persistence by +0.36–0.43. Balaton is mesotrophic with a strong, stable seasonal cycle:
-   its own climatology is a very good forecast, and the model is only allowed to lean part
-   of the way toward it. POD at 20 mg/m³ is near zero there because the lake almost never
-   crosses it (bloom fraction 1.4–2.1%).
+- **The satellite reads low.** It orders waters well but on average reports 0.55× the
+  laboratory value (Lake Geneva ~8× low). Because the 10 / 20 / 50 µg/L thresholds are
+  applied on that low scale, **blooms are under-called**.
+- **The forecast holds its ground against persistence** against real water, as it does
+  against the satellite, and **still loses to the seasonal mean** — the same pattern.
+- **A correction would help, at a price.** One multiplicative factor, fitted for each lake
+  on the *other* lakes only (×2.1), raises the share of 20 µg/L blooms caught from 8% to
+  53%, while the share of its flags that are false alarms rises from 0.35 to 0.51. It is **not applied**: moving
+  public thresholds is a public-health decision, not a tuning step. Until then, the app
+  tells every visitor that a bloom is more likely understated than overstated.
 
-4. **Without the climatology the model is persistence.** Measured with the input withheld
-   (`pipelines/evaluate.py --no-clim`): −0.003 → +0.033 on Victoria. An ad-hoc area drawn
-   on the map has no archive to build a climatology from, so `habforecast.routing` serves
-   it the previous checkpoint (`models/olci-300m-nohistory.ckpt`, +0.046 → +0.062) and says
-   why. The registry lakes get the new one.
+![Hit rate and false-alarm ratio of the 1-day forecast against field samples, as served and with the correction](docs/img/insitu_detection.png)
 
-#### What would fix the rest
+Outputs are `artifacts/insitu_validation/{summary.json, matchups.csv.gz}`, served at
+`/api/validation-summary` and shown in the app. `--from-matchups` rebuilds the summary in
+seconds without re-running the forecasts.
 
-Stated as hypotheses, not claims — none of these have been run:
+### What has been tried since, and what is next
 
-- **A sharper event head.** Score the threshold crossing directly (a classification
-  head at each advisory level, trained with focal loss) alongside the regression, so the
-  ranking metrics are optimised rather than inherited.
-- **More and more diverse training lakes.** Three lakes cannot span the world's limnology;
-  the VIIRS experiment showed what fifteen buys.
-- **Weather forcing.** ERA5 wind and temperature drive bloom advection and growth, and the
-  model currently sees none of it. Needs a Copernicus CDS account, so it is not in the
-  no-credentials reproduction path.
+The served map model is the one scored above. Experiments since then, none promoted for the
+map (promotion is a deliberate human decision; `scripts/promotion_gate.py` only advises):
+
+- **An exceedance head** (a classifier per advisory level) gave no ranking gain on its own.
+- **Weather inputs** (ERA5 via Open-Meteo, a 3-seed ensemble, `models/ens_met`) improve
+  PR-AUC @20 over persistence by 0.04–0.06 on Victoria. This ensemble supplies the
+  advisory's **probabilities**.
+- **A 46-lake multilevel model** (`models/ens_global_ml`, with trophic, thermal and continent
+  embeddings) passes the promotion gate against `ens_met`. Against the 15-lake ensemble it
+  improves skill and R² but fails on PR-AUC @20 at 3 and 7 days by more than the 0.01
+  tolerance (`artifacts/gate_global_*`).
+
+Next: calibrate thresholds against field samples (the decision above), bloom-type spectral
+layers (`ci`, `pc620`, `adg443` in `data/aux_layers.py`, built but never trained on), and
+altitude-aware atmospheric correction for high lakes such as Titicaca.
 
 ---
 
-## The central difficulty: most of the data is missing
+## How it works
 
-Measured across the ingested archive (2018–2025, bloom season only):
+```mermaid
+flowchart LR
+    A["Sentinel-3 OLCI<br/>Planetary Computer · EUMETSAT · CoastWatch"] --> B["Windowed read<br/>+ quality control"]
+    B --> C[("Daily Zarr cube<br/>per lake")]
+    C --> D["Masked sequence<br/>dataset"]
+    C --> M["Drift monitoring"]
+    D --> E["Anomaly forecaster<br/>+ seasonal climatology"]
+    W["Weather<br/>ERA5 / Open-Meteo"] --> F
+    D --> F["Probability ensemble"]
+    E --> G["Leave-lake-out and<br/>temporal evaluation · MLflow"]
+    F --> G
+    G --> H["FastAPI: map app, outlook,<br/>advisory feed, PDF bulletin"]
+    C --> H
+```
+
+| Layer | Choice | Why |
+|---|---|---|
+| Data | Planetary Computer STAC (anonymous), EUMETSAT Data Store, NOAA CoastWatch | No credentials needed to reproduce; near-real-time where it exists |
+| Storage | Zarr, one cube per lake | Chunked and appendable, ~0.08 MB per lake-day |
+| Training | PyTorch Lightning, Hydra configs, MLflow tracking, DVC for data | Sweeps, full run history, reproducible cubes |
+| Serving | FastAPI, a hand-written map (no CDN dependencies), optional ONNX backend | Runs offline in a container; ONNX image ships without PyTorch |
+| Scheduled job | `pipelines/advisory.py` | Daily advisories to disk, same code as the live endpoint |
+| Monitoring | `monitoring/drift.py` | Observation, distribution and **geographic** drift |
+| CI | GitHub Actions | Lint, the unit tests (including docs-in-sync checks), config contracts, image build, API smoke test |
+
+### Most of the data is missing
+
+![Daily share of Lake Erie observed by the satellite in the 2019 bloom season: many days have nothing](docs/img/missing_data.png)
+
+Across the archive (2018–2025, bloom season only):
 
 | Lake | Daily frames | Grid | Water px | Bloom-season days with data | Per-pixel density | Median chl-a | P90 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -238,28 +293,58 @@ Measured across the ingested archive (2018–2025, bloom season only):
 | Taihu | 492 | 266×252 | 25,524 | 29.0% | 36.8% | 14.1 | 22.6 |
 | Balaton | 399 | 166×260 | 5,931 | 41.5% | 54.8% | 6.4 | 13.6 |
 
-*Bloom-season days with data* = fraction of calendar days in the lake's bloom window with
-at least one QC-passing scene. *Per-pixel density* = fraction of (day, water-pixel) slots
-actually observed. Chlorophyll in mg/m³.
+Roughly 3 in 5 observations do not exist, and the gaps cluster around the storms that also
+drive blooms. That shapes every design decision:
 
-So **roughly 3 in 5 observations do not exist**, and the gaps are not random — they
-cluster around the storm systems that also drive bloom dynamics. Okeechobee's median of
-25 mg/m³ against Erie's 4.1 also shows why per-lake evaluation matters: these are not
-interchangeable distributions.
+- Frames sit on a **regular daily calendar**, so a 3-day gap and a 30-day gap look different.
+- Every sample carries **explicit mask channels**: the model is told what to trust.
+- The **loss is normalised by the mask**, not the tensor size; otherwise the optimiser
+  would learn that shrinking toward zero is the cheapest way to reduce a mostly-cloudy loss.
+- The model **predicts a change from the last observed value**, so persistence is the
+  default and any departure from it has to be earned. The served model also blends that
+  anchor toward the lake's seasonal climatology, by a learned weight.
 
-This shapes every design decision downstream:
+<p align="center">
+  <img src="docs/img/bulletin_imagery.png" width="85%" alt="Lake Erie satellite chlorophyll-a: the latest scene and a 7-day maximum composite, with grey where cloud hid the water">
+</p>
 
-- Frames are placed on a **regular daily calendar**, so a 3-day gap and a 30-day gap are
-  distinguishable.
-- Every sample carries **explicit mask channels**; the model is told what it can trust
-  rather than having to infer it from a sentinel value.
-- The **loss is masked and normalised by the mask**, not by tensor size. Dividing by
-  `numel()` would make the loss depend mostly on how cloudy a sample was, and the
-  optimiser would learn that shrinking predictions toward zero is the cheapest way down.
-- Every model **predicts a delta from the last observed value**, which makes persistence
-  the default behaviour and forces the network to earn any departure from it. The served
-  model also blends that anchor toward the lake's seasonal climatology, by a learned
-  weight that is zero wherever no climatology exists.
+### Three findings worth reading
+
+Each is pinned by a regression test.
+
+**1. The obvious quality mask deletes 100% of the data.** OLCI's `WQSF` flags behave
+counter-intuitively over lakes. On a real Lake Erie granule `WATER` is set on **0.00%** of
+pixels (it is an open-ocean flag) while `LAND` is set on 75.85% — including inland water.
+The textbook mask (require `WATER`, reject `LAND`) returns nothing; the first ingest here
+did exactly that. Correct: **require `INLAND_WATER`, do not reject `LAND`**.
+
+**2. Two more flags correlate with blooms, and rejecting them biases the data.**
+`TURBID_ATM` (22.8%) and `OC4ME_FAIL` (7.0%) are commonly rejected. Surface scum trips the
+turbid-atmosphere test, and the open-ocean algorithm always fails in turbid water — which is
+why `CHL_NN` is read instead. Rejecting them preferentially deletes the strongest blooms;
+both are kept, and [`STRICT_REJECT_FLAGS`](src/habforecast/data/qc.py) measures the difference.
+
+**3. The ingest looks I/O-bound and is not.** Scene reads are HTTP range requests, so
+threads are the obvious choice — but HDF5 calls and decompression hold the GIL (effective
+concurrency ~1.2 with 24 threads). Processes cut per-scene time from 5.8 s to 3.4 s.
+Locating the lake through the tie-point grid and range-reading only intersecting chunks
+reads **0.1% of a granule**, and running quality control before the 61 MB geolocation read
+rejects about half of scenes before the expensive step.
+
+### Serving speed
+
+Measured 2026-11-26 on the development laptop:
+
+| | Before | After |
+|---|---|---|
+| First forecast after a restart | ~27 s | warmed in the background at startup |
+| A lake not yet loaded | 1.5–4.5 s | 0.4–1.1 s |
+| Forecast map for a monitored lake | 17 s+ (satellite download) | **~1 s** (from its archive) |
+| Outlook for 46 lakes after a restart | ~60 s | **0.2 s** (cached on disk; rebuilt only when data change) |
+
+The time went to importing Lightning on the first forecast (15 s; serving now imports only
+`models.forward`), and to two whole-archive calculations per lake: the water mask (now cached
+on disk, keyed by the cube's signature) and the climatology (now one read for all four leads).
 
 ---
 
@@ -274,181 +359,145 @@ cd bloom-watch
 
 ```bash
 make build
-make mlflow                 # tracking UI on :5000
-make ingest                 # build Zarr cubes  (~2-3 h, resumable)
-make train                  # GPU training; needs the NVIDIA Container Toolkit
-make api                    # forecast API + map on :8000
+make mlflow       # tracking UI on :5000
+make ingest       # build Zarr cubes (~2-3 h, resumable)
+make train        # GPU training; needs the NVIDIA Container Toolkit
+make api          # app, API and dashboard on :8000 — open /app
 ```
 
-GPU training in a container requires the NVIDIA Container Toolkit — on Windows that
-means Docker Desktop with the WSL2 backend. Without it, `--gpus all` is silently ignored;
-`docker/Dockerfile.gpu` therefore prints its CUDA build at image-build time so the
-failure is visible rather than a six-hour CPU run.
+GPU training in a container needs the NVIDIA Container Toolkit (on Windows, Docker Desktop
+with the WSL2 backend). Without it `--gpus all` is silently ignored, so
+`docker/Dockerfile.gpu` prints its CUDA build at image-build time.
 
-### Conda fallback
+### Conda
 
 ```bash
 conda env create -f environment.yml
 conda activate hab
-bash scripts/install_torch.sh          # CUDA wheel — see below
+bash scripts/install_torch.sh          # CUDA wheel, then asserts torch.cuda.is_available()
 pip install -e ".[all]"
 
 python pipelines/ingest.py --start 2018-01-01 --end 2024-12-31 --workers 12
-python pipelines/train.py                                   # anomaly_clim, leave-lake-out
+python pipelines/train.py                                   # leave-lake-out
 python pipelines/train.py data.split_mode=temporal          # the second split
 python pipelines/evaluate.py --checkpoint models/best.ckpt --out artifacts/eval --tta
-python pipelines/evaluate.py --checkpoint models/best-temporal.ckpt --out artifacts/eval_temporal --split-mode temporal --tta
-python scripts/make_results_table.py --scores artifacts/eval/scores.json --temporal artifacts/eval_temporal/scores.json --model-card docs/MODEL_CARD.md
-python pipelines/advisory.py                                # today's GeoJSON + RSS feed
-uvicorn serving.api.main:app --reload                       # /app, /forecast, /advisory, /advisory/feed.xml
+python pipelines/advisory.py                                # today's GeoJSON + RSS
+python scripts/validate_insitu.py                           # check against field samples
+python scripts/make_readme_figures.py                       # the figures in this README
+uvicorn serving.api.main:app --port 8000                    # then open /app
 ```
 
-Python 3.11 or 3.12. Hydra 1.3 does not parse arguments on 3.14 (see `docs/SETUP.md`).
+Python 3.11 or 3.12 (Hydra 1.3 cannot parse arguments on 3.14; see `docs/SETUP.md`).
+PyTorch is deliberately not in `environment.yml`: an `--extra-index-url` in a pip block
+still resolves to the CPU-only wheel on PyPI, and you silently train on CPU.
 
-**PyTorch is deliberately not in `environment.yml`.** Putting
-`--extra-index-url .../cu124` in a pip block does not work: pip still resolves the
-highest matching version, which is the CPU-only wheel on PyPI, and you silently train on
-CPU. `scripts/install_torch.sh` uses `--index-url` so the PyTorch index is the only
-source, then asserts `torch.cuda.is_available()`.
+### Running on 4 GB of VRAM
+
+Developed and trained on an RTX 3050 Laptop (4 GB). Lake grids are small (the largest is
+370 × 351 at 300 m); training uses 128 × 128 random crops, mixed precision and gradient
+accumulation (effective batch 16 from 8); models are under 3 M parameters; observations are
+cached as float16. The global 46-lake training reads memory-mapped cubes (`+paths.mmap=…`).
 
 ---
 
-## Running on 4 GB of VRAM
+## Configuration
 
-Developed and trained on an RTX 3050 Laptop (4 GB, sm_86). What makes it fit:
+Every setting has a working default.
 
-- Lake grids are small by construction — largest is 370 × 351 at 300 m.
-- 128 × 128 random crops for training; full grids only at evaluation, batch size 1.
-- AMP (`16-mixed`) plus gradient accumulation: effective batch 16 from a physical batch 8.
-- Models under 3M parameters. ConvLSTM at 48 hidden channels, U-Net at base 32.
-- Observations cached in RAM as float16 — log10 chlorophyll spans about −1 to 2.5, far
-  coarser than float16 precision, and it halves the footprint.
+**The API** (`serving/api/main.py` and the modules it calls):
 
-Total archive for 5 lakes × 7 years is well under 1 GB.
+| Variable | Default | Purpose |
+|---|---|---|
+| `HAB_AOI` | `data/aoi/lakes.geojson` | Lake registry (`lakes_global.geojson` for all 46) |
+| `HAB_CUBES` | `data/processed/cubes` | Zarr cubes, one per lake |
+| `HAB_CHECKPOINT` | `models/best.ckpt` | Map model: a `.ckpt`, an ensemble folder or an ONNX export |
+| `HAB_PROB_CHECKPOINT` | `models/ens_met` | Advisory probability model; if missing, the advisory thresholds the map |
+| `HAB_MET_ROOT` | `<cubes>/../met` | Weather for the probability model (`data/processed/met_live` for current dates) |
+| `HAB_MODEL_ROOT` | `models` | Where routed checkpoints are looked up inside a container |
+| `HAB_TTA` | `1` | Average each forecast over four flips |
+| `HAB_INSITU` | `data/validation/insitu.csv.gz` | Field-measurement index (`scripts/build_insitu_index.py`) |
+| `HAB_ARTIFACTS` | `artifacts` | Where the validation summary and evaluation results are read from |
+| `HAB_STATIC_CACHE` | `data/cache/statics` | Per-lake water masks kept between restarts (empty disables) |
+| `HAB_OUTLOOK_CACHE` | `data/cache/outlook.json` | The built outlook, kept between restarts |
+| `HAB_WARMUP` | `1` | Load the model and build the outlook at startup (`0` disables) |
+| `HAB_HTTP_CACHE` | `data/cache/erddap` | Cached CoastWatch responses (a past fortnight does not change) |
+| `HAB_COAST_REFERENCE` | `data/reference/ne10_ocean.npz` | Ocean polygon the water classifier reads |
+| `HAB_GEOCODER` | `on` | Place search falls back to OpenStreetMap Nominatim (`off` keeps it offline) |
+| `HAB_GEOCODER_URL` | Nominatim's public endpoint | A self-hosted geocoder instead |
+
+**Training and scheduled jobs:**
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `HAB_CLIM_CACHE_MB` | `2048` | Memory budget for the training climatology cache; lower it on a small machine |
+| `HAB_ALERT_WEBHOOK` | unset | Slack-compatible webhook `pipelines/advisory.py` posts new alerts to |
+
+Credentials are never read from the repository: the EUMETSAT Data Store uses
+`eumdac set-credentials`, Earthdata (PACE) a `~/.netrc` entry, and both are optional.
 
 ---
 
 ## Repository layout
 
-```
+```text
 src/habforecast/
-  aoi.py                  deterministic per-lake analysis grid
-  data/olci.py            windowed OLCI reader (tie-point AOI lookup, HTTP timeouts)
-  data/qc.py              WQSF masking - the inland-water traps
-  data/aux_layers.py      extra input layers from the same granule (MCI, TSM, Kd490)
-  data/pace.py            PACE OCI: gated reader, and why it is not the default
-  data/resample.py        swath -> grid nearest-neighbour with distance cutoff
-  data/store.py           Zarr cube: idempotent append, merge-on-backfill
-  data/parallel.py        process-pool worker protocol (Windows spawn-safe)
-  data/ingest.py          monthly batching, pool recycling on a wedged worker
-  features/dataset.py     masked sequence sampling on a regular daily calendar
-  features/datamodule.py  leave-lake-out and temporal splits, train-only normalisation
-  models/anomaly.py       the served forecaster: instance-normalised, persistence-anchored,
-                          smooth bounded delta, seasonal-climatology input and anchor blend
-  models/convlstm.py      ConvLSTM (gradient-checkpointed) + U-Net forecasters
-  models/baselines.py     persistence, leave-one-year-out climatology
-  models/lit.py           masked Huber, per-lead skill logging, flip TTA, model_inputs()
-  eval/metrics.py         regression + event scores, ROC/PR-AUC, Murphy skill -- all streaming
-  advisory.py             forecasts -> advisory levels -> GeoJSON + RSS
-  water.py                inland / coastal / open-ocean and Case-1 vs Case-2, offline
-  routing.py              which product and which checkpoint, and why - as data
-  inference/predictor.py  archive or live-STAC inference; persistence baseline
-  insitu.py               public in-situ measurements near a point
-pipelines/
-  ingest.py               bulk ingest CLI (argparse; idempotent, resumable)
-  train.py                Hydra + Lightning + MLflow
-  evaluate.py             per lake x lead scoring against both baselines
-  monitor.py              drift report against the training baseline
-  advisory.py             the scheduled forecast: every lake -> GeoJSON + RSS on disk
-serving/                  FastAPI app + map UI (chart.js: per-pixel time series,
-                          field-data sidebar, GIS map-sheet export)
-monitoring/drift.py       observation / distribution / geographic drift
-scripts/                  env setup, CUDA torch install, results-table renderer,
-                          in-situ survey and index builder, auxiliary-layer survey,
-                          the chlorophyll-only vs multi-layer experiment, and the
-                          Natural Earth coastline reference builder
-data/reference/           packed ocean polygon the water classifier reads (1.3 MB)
-docker/                   CPU (serve, ingest) and GPU (train) images
-conf/                     Hydra config tree
-tests/                    500+ unit tests + live-network integration tests
+  aoi.py                  per-lake analysis grid (deterministic, UTM)
+  data/                   OLCI reader and quality control, resampling, Zarr store, ingest,
+                          EUMETSAT / CoastWatch / PACE sources, weather, auxiliary layers
+  features/               masked sequence dataset; leave-lake-out and temporal splits
+  models/anomaly.py       the served forecaster (persistence-anchored, climatology blend)
+  models/forward.py       how a model is called, and flip averaging (torch only)
+  models/lit.py           training: masked Huber loss, per-lead skill logging
+  models/convlstm.py      ConvLSTM and U-Net controls; baselines.py: persistence, climatology
+  eval/metrics.py         regression and event scores, ROC/PR-AUC, skill — all streaming
+  eval/matchup.py         scoring against laboratory samples
+  inference/              cube-backed and live forecasts, ad-hoc areas, ONNX backend
+  advisory.py             forecasts → advisory levels → GeoJSON and RSS
+  outlook.py              advisory → plain-language public outlook
+  bulletin.py             PDF bulletin pages
+  water.py · routing.py   what kind of water, and which data and model to use
+  insitu.py               field measurements near a point
+pipelines/                ingest, train, evaluate, monitor, advisory (CLIs)
+serving/api/              FastAPI app;  serving/web/  map app (map.js, app.js, chart.js)
+monitoring/drift.py       observation, distribution and geographic drift
+scripts/                  validation, bulletin, figures, calibration, promotion gate, ONNX export
+docs/                     model card, data sources, setup, validation data, img/
+conf/                     Hydra configuration
+tests/                    unit tests (incl. docs-in-sync checks) and live-network integration tests
 ```
-
----
-
-## Inland or coastal: the tool picks the data and the model, and shows its working
-
-Draw an area and the app classifies it before it fetches anything — inland lake, coastal
-bay, open ocean — and pairs it with a data product and a checkpoint that were measured
-together. The decision, and the argument for it, appear in the panel before you spend
-thirty seconds on a forecast.
-
-| Water selected | Imagery | Model |
-|---|---|---|
-| Inland lake, or coastal within 40 km of shore | Sentinel-3 OLCI 300 m (CHL_NN) | 300 m checkpoint; the 750 m one offered as an alternative where the area is ≥ 16 px at 750 m |
-| Open ocean beyond the shelf | VIIRS / OLCI global 4 km | **none** — a labelled persistence baseline |
-
-Two reasons the obvious answer is not the answer. The 750 m checkpoint is measurably the
-better forecaster — roughly triple the skill against persistence, and the only one here
-that beats a seasonal climatology — but its band-ratio retrieval masks turbid inland water
-heavily (2.6% valid pixels on Taihu), and this tool exists for that water. And the 4 km
-checkpoint scored *negative* skill against persistence, so over open ocean the app returns
-imagery and a persistence baseline rather than dressing a measured non-result as a
-forecast. Every marine route also states that no checkpoint here was trained on marine
-water. See [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md#choosing-the-product-and-the-model-for-the-water-selected).
 
 ---
 
 ## Limitations
 
-Stated plainly, because a model card that only lists strengths is not a model card.
+Stated plainly, because a model card that lists only strengths is not a model card.
 
-- **Chlorophyll-a is a proxy.** It does not distinguish cyanobacteria from harmless algae,
-  and it is not toxin concentration. Phycocyanin-based indices would be better; in-situ
-  validation data for them is far too sparse to train on.
-- **Ground truth is satellite-derived.** The model forecasts the *satellite-observed
-  field* — the same thing NOAA's operational Lake Erie HAB bulletin does. In-situ data is
-  a check on that field, never a training target, and there is not enough of it to be
-  more: 6,185 laboratory chlorophyll values worldwide in GLORIA, of which 422 fall inside
-  a modelled lake and inside the ingested period. Clicking a forecast pixel plots
-  whatever has been measured within 10 km of it beside the prediction
-  (`habforecast.insitu`, `docs/VALIDATION_DATA.md`), which is honest about how often the
-  answer is "nothing in this window".
-- **Optical retrieval fails in specific conditions**: thick cloud, sun glint, high solar
-  zenith, and very shallow water where bottom reflectance contaminates the signal.
-- **Small effective dataset.** 29–44% of bloom-season days carry any usable scene, which
-  constrains model capacity and is why a U-Net control is evaluated alongside the
-  ConvLSTM rather than assumed inferior.
-- **The geographic-novelty check is under-powered.** Measured against the three training
-  lakes, tropical Lake Victoria scores 0.89 and temperate Lake Balaton 0.86 — the metric
-  cannot currently distinguish them, because the spread across three already-diverse
-  reference lakes absorbs the difference. The `seasonal_amplitude` descriptor alone
-  separates them (0.080 vs 0.126); the pooled RMS z-distance does not. Reported here
-  rather than quietly dropped, because a monitoring metric that looks reassuring while
-  being blind is worse than no metric.
-- **Planetary Computer's Sentinel-3 archive starts in 2018**, so 2016–2017 are unavailable
-  through this path.
-- **The mirror lags real time by roughly 6–7 months.** Measured 2026-08-28: the newest
-  OLCI L2 WFR granule on Planetary Computer was 2026-02-25. This is a property of the
-  mirror, not of Sentinel-3 — the mission is operational near-real time, and EUMETSAT
-  publishes NRT products within ~3 hours of acquisition. A nightly integration test
-  asserts the lag has not silently grown worse.
-- **The app therefore reads a second source for live forecasts.**
-  `habforecast.data.coastwatch` fetches NOAA CoastWatch daily Level-3 OLCI chlorophyll
-  over ERDDAP: 300 m, S3A and S3B, no credentials, server-side bounding-box subsetting,
-  and one day behind (measured 2026-08-28). `inference.adhoc` picks between the two by
-  the date requested. It is not a replacement for the archive — it keeps only a rolling
-  90-day window, so training and evaluation still run on the Planetary Computer path —
-  and it differs in kind, not only in age: the composites arrive pre-masked, so this
-  project's own WQSF quality control and its flag-frequency drift telemetry do not apply,
-  and the product metadata does not name the retrieval algorithm. Every ad-hoc result
-  reports which source served it, and says so in its caveats.
-  Copernicus Data Space carries the same granules within hours and would be the better
-  long-term ingest, but its downloads require a registered account; its catalogue is
-  public and was used to confirm the mission latency above.
+- **Chlorophyll-a is a proxy.** It does not separate cyanobacteria from harmless algae and
+  it is not a toxin measurement.
+- **The model forecasts what the satellite sees**, as NOAA's Lake Erie bulletin does.
+  Field samples are a check, not a training target, and the check shows the satellite
+  reading ~1.8× low ([above](#against-laboratory-water-samples)). Field data is sparse: most
+  samples are from US lakes, and GLORIA ends in 2022.
+- **Optical retrieval fails** under thick cloud, sun glint and high sun angles, in very
+  shallow water, and on very high lakes (Titicaca, 3,810 m: every scene fails the standard
+  atmospheric correction).
+- **The training set is small.** 29–44% of bloom-season days carry any usable scene, and
+  the served map model was trained on three lakes.
+- **The geographic-novelty check is under-powered.** It cannot yet tell tropical Victoria
+  (0.89) from temperate Balaton (0.86); one of its components (`seasonal_amplitude`,
+  0.080 vs 0.126) can.
+- **Imagery age varies by source.** The Planetary Computer mirror lags real time by 6–7
+  months and starts in 2018; near-real-time forecasts come from EUMETSAT and NOAA
+  CoastWatch instead. CoastWatch composites arrive pre-masked and do not name their
+  retrieval algorithm, so this project's own quality control does not apply to them. Every
+  result states which source served it.
+- **The public outlook is only as current as the last data refresh**
+  (`artifacts/bulletin/refresh_global_live.sh`), and says so when it is not.
 
 ---
 
 ## License
 
-Apache-2.0. Sentinel-3 data © Copernicus / ESA, free and open. Not affiliated with ESA,
-EUMETSAT, NOAA, or Microsoft.
+Apache-2.0. Sentinel-3 data © Copernicus / ESA, free and open. GLORIA © its authors, CC-BY 4.0.
+Basemap imagery © Esri, Maxar, Earthstar Geographics. Not affiliated with ESA, EUMETSAT,
+NOAA or Microsoft.

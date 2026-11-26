@@ -710,3 +710,131 @@ kbd {
   margin-top: 6px; font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums;
 }
+
+/* --- public outlook ------------------------------------------------------------------
+   Risk levels use the traffic-light order everyone already reads (green, yellow, orange,
+   red) and are never carried by colour alone: every dot sits beside its word, and every
+   marker names its lake and level to a screen reader. These hues only ever appear on the
+   lake markers and level chips, never on the chlorophyll raster. */
+:root {
+  --lvl-none: #2e9e5b;
+  --lvl-watch: #e3b521;
+  --lvl-warning: #ee7d1c;
+  --lvl-alert: #d1302f;
+  --lvl-unavailable: #8697a0;
+}
+
+.dock-tabs {
+  position: fixed; left: 64px; top: 68px; z-index: 6; display: flex; gap: 6px; flex-wrap: wrap;
+}
+.dock-tabs .sites-tab { position: static; }
+body.sites-open .dock-tabs { display: none; }
+
+.lvl-dot {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .85);
+}
+.lvl-none { --lvl: var(--lvl-none); }
+.lvl-watch { --lvl: var(--lvl-watch); }
+.lvl-warning { --lvl: var(--lvl-warning); }
+.lvl-alert { --lvl: var(--lvl-alert); }
+.lvl-unavailable { --lvl: var(--lvl-unavailable); }
+
+.ol-legend {
+  display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 10px 14px 0; font-size: 11.5px;
+  color: var(--muted);
+}
+.ol-legend button {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; font: inherit;
+  color: inherit; background: none; border: 1px solid transparent; border-radius: 99px;
+  cursor: pointer;
+}
+.ol-legend button:hover { border-color: var(--line-strong); }
+.ol-legend button[aria-pressed="true"] { border-color: var(--accent); color: var(--text); }
+.ol-legend .lvl-dot { background: var(--lvl); }
+.ol-legend b { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 600; color: var(--text); }
+
+.ol-row .lvl-chip { margin-left: auto; }
+.lvl-chip {
+  display: inline-flex; align-items: center; gap: 5px; flex: 0 0 auto; white-space: nowrap;
+  font-size: 11px; font-weight: 600; color: var(--text);
+}
+.lvl-chip .lvl-dot { background: var(--lvl); }
+.ol-row.stale .lvl-chip { opacity: .62; }
+.ol-age { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.ol-row.stale .ol-age { color: var(--warn); }
+
+/* Markers live in the map's marker layer, which ignores the pointer; each marker opts
+   back in. 24 px hit target around a 14 px dot. */
+.ol-marker {
+  position: absolute; left: 0; top: 0; width: 24px; height: 24px; margin: -12px 0 0 -12px;
+  padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto;
+  display: grid; place-items: center; z-index: 1;
+}
+.ol-marker i {
+  width: 14px; height: 14px; border-radius: 50%; background: var(--lvl);
+  box-shadow: 0 0 0 2px #fff, 0 1px 4px rgba(0, 0, 0, .5);
+  transition: transform .15s ease;
+}
+.ol-marker.lvl-warning i, .ol-marker.lvl-alert i { width: 17px; height: 17px; }
+.ol-marker.lvl-alert i { box-shadow: 0 0 0 2px #fff, 0 0 0 6px color-mix(in srgb, var(--lvl-alert) 35%, transparent), 0 1px 4px rgba(0, 0, 0, .5); }
+/* Out-of-date imagery: the level still shows, but hollowed out so it cannot be mistaken
+   for a current reading at a glance. */
+.ol-marker.stale i { background: color-mix(in srgb, var(--lvl) 45%, #fff); box-shadow: 0 0 0 2px var(--lvl), 0 1px 4px rgba(0, 0, 0, .45); }
+.ol-marker:hover i, .ol-marker:focus-visible i { transform: scale(1.25); }
+.ol-marker:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 50%; }
+.ol-marker.on i { transform: scale(1.3); }
+.ol-marker .ol-name {
+  position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap;
+  font-size: 11px; font-weight: 600; color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+  pointer-events: none; opacity: 0; transition: opacity .15s ease;
+}
+.ol-marker:hover .ol-name, .ol-marker:focus-visible .ol-name, .ol-marker.on .ol-name,
+.mv-markers.labels .ol-marker .ol-name { opacity: 1; }
+.mv-markers.hide-outlook .ol-marker { display: none; }
+
+/* --- lake card --- */
+#outlook-card { padding: 14px 16px 14px; }
+#outlook-card h2 { margin: 0 30px 2px 0; font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--text); font-family: inherit; font-weight: 650; }
+.ol-sub { font-size: 11.5px; color: var(--faint); }
+.ol-badge {
+  display: flex; align-items: center; gap: 10px; margin: 10px 0 6px; padding: 9px 12px;
+  border-radius: 10px; background: color-mix(in srgb, var(--lvl) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lvl) 55%, transparent);
+}
+.ol-badge .lvl-dot { width: 16px; height: 16px; background: var(--lvl); }
+.ol-badge b { font-size: 16px; }
+.ol-badge span { font-size: 12.5px; color: var(--muted); }
+#outlook-card h3 { margin: 12px 0 4px; font-size: 12.5px; font-weight: 650; }
+#outlook-card ul { margin: 4px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--text); }
+#outlook-card li { margin: 3px 0; line-height: 1.4; }
+#outlook-card p { margin: 6px 0; font-size: 12px; color: var(--muted); line-height: 1.45; }
+#outlook-card .note { margin-top: 8px; font-size: 12px; }
+.ol-actions { margin-top: 12px; display: flex; gap: 8px; }
+.ol-actions .act { flex: 1; }
+.note.warn { background: color-mix(in srgb, var(--warn) 13%, transparent);
+  border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+
+#val-summary .vs-big { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--text); }
+#val-summary table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 11.5px; }
+#val-summary th, #val-summary td { text-align: right; padding: 3px 4px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+#val-summary th:first-child, #val-summary td:first-child { text-align: left; }
+#val-summary th { color: var(--faint); font-weight: 500; }
+
+/* The card is a docked panel, not a floating popover: in the dock's flow it stacks above
+   the forecast panel instead of being drawn over by it, and shrinks (scrolling inside)
+   rather than pushing the column off the top of the screen. */
+#outlook-card { position: static; width: 100%; flex: 0 1 auto; min-height: 0; max-height: none; }
+
+@media (max-width: 760px) {
+  /* On a phone the search bar wraps onto a second row; the tabs and both sidebars start
+     below it instead of on top of it. */
+  .dock-tabs { left: 8px; top: 114px; }
+  .sites { top: 114px; bottom: calc(var(--rail-h) + 34px); }
+  .leftdock .pop#outlook-card { max-height: 52vh; }
+}
+/* The two actions stay in reach while the card's text scrolls beneath them. */
+#outlook-card .ol-actions {
+  position: sticky; bottom: -14px; margin: 12px -16px -14px; padding: 10px 16px 14px;
+  background: var(--panel-solid); border-top: 1px solid var(--line);
+}

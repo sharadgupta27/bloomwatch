@@ -57,8 +57,12 @@ trade-offs attached.
 
 Two uses:
 
-1. **Live forecasting** (`olci-300m`) — native resolution, one day behind, which is what
-   the app now serves. See `inference.adhoc`.
+1. **Live forecasting** (`olci-300m`) — native resolution, one day behind, the first
+   choice for a recent area drawn in the app. See `inference.adhoc`. Availability is
+   intermittent: on 2026-09-23 no `noaacwS3?OLCIchlaSector*` dataset was listed, on
+   2026-11-26 it served imagery from 2026-11-23. When it does not answer, the app reads
+   the granule path instead — the EUMETSAT Data Store (hours behind, same product and
+   quality control as training) when `eumdac` credentials are set, else Planetary Computer.
 2. **Training** (`viirs-750m`, `viirs-4km`, `dineof-2km`) — the deep records. The 300 m
    OLCI rung cannot train anything: its window is 90 days.
 
@@ -232,6 +236,7 @@ would read as a coastline if it were not filtered out.
 
 | Water | Product | Model | Why |
 |---|---|---|---|
+| A monitored lake, opened as one (`lake_id`) | its own ingested cube — nothing fetched | `olci-300m-clim` (`best.ckpt`) | it has the multi-year archive the climatology checkpoint needs (`routing.registry_route`); ~1 s |
 | Inland, and coastal within 40 km of shore (Case-2) | OLCI 300 m near-real-time, archive fallback | `olci-300m` | CHL_NN is the retrieval built for optically complex water; band-ratio products mask it away |
 | Open ocean (Case-1) | VIIRS 4 km global, OLCI 4 km fallback | **none** — labelled persistence baseline | the 300 m and 750 m sectors do not reach here, and the 4 km checkpoint measured no skill |
 
@@ -294,6 +299,14 @@ A retry loop was the obvious fix and, on its own, the wrong one: three attempts 
 60-second failure is a 186-second failure, measured. Retries are bounded by a total
 budget (`GRID_BUDGET_S`, 30 s for a live request), and bulk ingest opts out because its
 windows are legitimately minutes long.
+
+**Monitored lakes skip the network entirely (2026-11-26).** Opening a lake from the app's
+outlook sends its `lake_id`, and the forecast is built from the lake's ingested cube
+(`inference.adhoc.forecast_from_archive`): ~1 s instead of 17 s or more. Per-lake water
+masks are kept on disk (`HAB_STATIC_CACHE`) and the outlook itself (`HAB_OUTLOOK_CACHE`),
+so a restart serves the outlook in 0.2 s; both are keyed by the cubes' signatures and
+rebuild themselves after a data refresh. The README's *Serving speed* table has the
+before-and-after numbers.
 
 **What is not fixed:** the archive fallback is ~25 s and stays serial, because
 `data/parallel.py` records the measurement that threads do not help — h5py and gzip hold

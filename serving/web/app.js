@@ -303,6 +303,8 @@ const wrapLon = lon => ((lon + 540) % 360) - 180;
 const clampLat = lat => Math.min(85, Math.max(-85, lat));
 
 function translateAoi(aoi, dLat, dLon) {
+  // A moved shape is no longer the monitored lake it was picked as.
+  aoi = { ...aoi, lakeId: undefined };
   if (aoi.kind === 'circle') {
     return { ...aoi, lat: clampLat(aoi.lat + dLat), lon: wrapLon(aoi.lon + dLon) };
   }
@@ -407,7 +409,9 @@ function setAoi(aoi, name) {
     $('radiusval').textContent = `${aoi.radiusKm.toFixed(0)} km`;
   }
   const side = aoiSideKm(S.aoi);
-  const tooBig = side > MAX_SIDE_KM;
+  // A monitored lake is forecast from its archive, not downloaded, so the size limit for
+  // a drawn area does not apply to it.
+  const tooBig = side > MAX_SIDE_KM && !S.aoi.lakeId;
   $('go').disabled = tooBig;
   $('clear-aoi').disabled = false;
   $('btn-erase').disabled = false;
@@ -486,6 +490,10 @@ document.addEventListener('keydown', e => {
   if (e.key === 's' || e.key === 'S') {
     e.preventDefault();
     return $('sites').hidden ? openSites() : closeSites();
+  }
+  if (e.key === 'o' || e.key === 'O') {
+    e.preventDefault();
+    return $('outlook').hidden ? openOutlook() : closeOutlook();
   }
   const keys = { v: 'pan', i: 'probe', p: 'place', c: 'circle', r: 'rect', g: 'poly', m: 'measure' };
   if (keys[e.key.toLowerCase()]) setTool(keys[e.key.toLowerCase()]);
@@ -1031,6 +1039,7 @@ async function loadSites() {
 }
 
 function openSites() {
+  if (!$('outlook').hidden) closeOutlook();
   $('sites').hidden = false;
   $('sites-toggle').setAttribute('aria-expanded', 'true');
   document.body.classList.add('sites-open');
@@ -1081,6 +1090,7 @@ async function runForecast() {
     body.source = $('source').value;
     body.model = $('model').value || 'auto';
     if ($('anchor').value) body.anchor = $('anchor').value;
+    if (S.aoi.lakeId) body.lake_id = S.aoi.lakeId;
     const r = await fetch('/api/forecast/jobs', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
     });
@@ -1440,3 +1450,272 @@ async function previewRoute() {
     console.warn('route preview unavailable:', err);
   }
 }
+
+/* ============================================================== public outlook ==== */
+/* The answer most visitors came for, without drawing anything or waiting for a job: for
+   every lake the service monitors, how worried to be, what to do about it, and -- always
+   beside the level -- how old the imagery behind it is. The level and the advice come
+   from /api/outlook (habforecast.outlook); this section only presents them. */
+
+const OUT = { data: null, level: null, selected: null, markers: new Map() };
+const LVL_ORDER = ['alert', 'warning', 'watch', 'none', 'unavailable'];
+
+function fmtDay(iso) {
+  if (!iso) return '—';
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString(undefined,
+    { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+}
+function ageText(days) {
+  if (days == null) return 'no imagery';
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  return `${days} days ago`;
+}
+
+async function loadOutlook() {
+  try {
+    const r = await fetch('/api/outlook');
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+    OUT.data = await r.json();
+    buildMarkers();
+    renderOutlook();
+    fromHash();
+  } catch (err) {
+    $('outlook-note').textContent = `The outlook could not be loaded: ${err.message}`;
+  }
+}
+
+function buildMarkers() {
+  const layer = map.markerLayer;
+  layer.querySelectorAll('.ol-marker').forEach(m => m.remove());
+  OUT.markers.clear();
+  for (const l of OUT.data.lakes) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = `ol-marker lvl-${l.level}${l.stale ? ' stale' : ''}`;
+    b.setAttribute('aria-label',
+      `${l.name}: ${l.label}${l.stale ? `, from imagery ${ageText(l.imagery_age_days)}` : ''}`);
+    b.title = `${l.name} — ${l.label}`;
+    b.innerHTML = `<i></i><span class="ol-name">${esc(l.name)}</span>`;
+    // The marker sits inside the map element; without this the press would also start a
+    // pan and the release would arrive at the map as a click on the water underneath.
+    b.addEventListener('pointerdown', e => e.stopPropagation());
+    b.addEventListener('click', e => { e.stopPropagation(); selectLake(l.lake_id, { frame: true }); });
+    layer.appendChild(b);
+    OUT.markers.set(l.lake_id, b);
+  }
+  placeMarkers();
+}
+
+function placeMarkers() {
+  if (!OUT.data) return;
+  for (const l of OUT.data.lakes) {
+    const m = OUT.markers.get(l.lake_id);
+    if (!m) continue;
+    const p = map.project(l.lat, l.lon);
+    m.style.transform = `translate(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px)`;
+    m.hidden = OUT.level != null && l.level !== OUT.level;
+  }
+  // Names on every marker once the view is regional; at world scale they would overlap.
+  map.markerLayer.classList.toggle('labels', map.zoom >= 5.5);
+}
+map.on('render', placeMarkers);
+
+function renderOutlook() {
+  const d = OUT.data;
+  if (!d) return;
+  const counts = Object.fromEntries(LVL_ORDER.map(k => [k, 0]));
+  d.lakes.forEach(l => { counts[l.level] = (counts[l.level] || 0) + 1; });
+  $('outlook-legend').innerHTML = LVL_ORDER.filter(k => counts[k]).map(k => `
+    <button class="lvl-${k}" data-level="${k}" aria-pressed="${OUT.level === k}"
+            title="Show only lakes at this level">
+      <span class="lvl-dot"></span>${esc(d.levels[k].label)} <b>${counts[k]}</b>
+    </button>`).join('');
+  $('outlook-legend').querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    OUT.level = OUT.level === b.dataset.level ? null : b.dataset.level;
+    renderOutlook();
+    placeMarkers();
+  }));
+
+  const q = $('outlook-q').value.trim().toLowerCase();
+  const list = d.lakes.filter(l => (!OUT.level || l.level === OUT.level)
+    && (!q || l.name.toLowerCase().includes(q) || (l.country || '').toLowerCase().includes(q)));
+  $('outlook-list').innerHTML = list.map(l => `
+    <button class="site ol-row${l.stale ? ' stale' : ''}" data-id="${esc(l.lake_id)}" role="option"
+            aria-selected="${OUT.selected === l.lake_id}">
+      <div class="site-top">
+        <span class="site-name">${esc(l.name)}</span>
+        <span class="lvl-chip lvl-${l.level}"><span class="lvl-dot"></span>${esc(l.label)}</span>
+      </div>
+      <div class="site-meta faint">${esc(l.country || '')}${l.imagery_date
+        ? ` · images <span class="ol-age">${esc(ageText(l.imagery_age_days))}</span>` : ''}</div>
+    </button>`).join('') || '<p class="sites-note">Nothing matches that.</p>';
+  $('outlook-list').querySelectorAll('.ol-row').forEach(b =>
+    b.addEventListener('click', () => selectLake(b.dataset.id, { frame: true })));
+
+  const stale = d.lakes.filter(l => l.stale).length;
+  const ages = d.lakes.map(l => l.imagery_age_days).filter(a => a != null);
+  const newest = ages.length ? Math.min(...ages) : null;
+  $('outlook-note').innerHTML = `${list.length} of ${d.lakes.length} monitored lakes · most severe first` +
+    (stale > d.lakes.length / 2 && newest != null
+      ? `<br><span style="color:var(--warn)">The newest imagery is ${newest} days old, so these
+         levels describe the lakes as they were then, not today.</span>` : '');
+}
+
+function lakeById(id) { return OUT.data && OUT.data.lakes.find(l => l.lake_id === id); }
+
+function selectLake(id, { frame = false } = {}) {
+  const l = lakeById(id);
+  if (!l) return;
+  OUT.selected = id;
+  OUT.markers.forEach((m, k) => m.classList.toggle('on', k === id));
+  if (frame && l.bbox) map.fitBounds(l.bbox, 0.3);
+  renderCard(l);
+  renderOutlook();
+  try { history.replaceState(null, '', `#lake=${encodeURIComponent(id)}`); } catch (_) { /* file:// */ }
+  if (window.matchMedia('(max-width: 900px)').matches) closeOutlook();
+}
+
+function renderCard(l) {
+  const parts = [
+    `<h2>${esc(l.name)}</h2>`,
+    `<div class="ol-sub">${esc(l.country || '')} · monitored by satellite</div>`,
+    `<div class="ol-badge lvl-${l.level}"><span class="lvl-dot"></span>
+       <div><b>${esc(l.label)}</b><br><span>${esc(l.headline)}</span></div></div>`,
+  ];
+  if (l.level === 'unavailable') {
+    if (l.reason) parts.push(`<p>${esc(l.reason)}</p>`);
+  } else if (l.stale) {
+    parts.push(`<div class="note warn">These satellite images are from
+      <strong>${esc(fmtDay(l.imagery_date))}</strong>, ${esc(ageText(l.imagery_age_days))}.
+      Conditions will have changed since — treat this as a recent history of the lake,
+      not as today’s forecast.</div>`);
+  } else {
+    parts.push(`<p>Based on satellite images up to <strong>${esc(fmtDay(l.imagery_date))}</strong>
+      (${esc(ageText(l.imagery_age_days))}).${l.level_date && l.level !== 'none'
+        ? ` Expected to reach this level around ${esc(fmtDay(l.level_date))}.` : ''}</p>`);
+  }
+  if (l.share_of_lake != null && l.threshold_mg_m3) {
+    parts.push(`<p>About <strong>${Math.round(100 * l.share_of_lake)}%</strong> of the lake’s
+      surface is forecast above ${l.threshold_mg_m3} µg/L of chlorophyll at the peak.</p>`);
+  }
+  const advice = [...l.advice, ...((OUT.data && OUT.data.general_advice) || [])];
+  parts.push(`<h3>What to do</h3><ul>${advice.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`);
+  const checks = [l.validation && l.validation.sentence, OUT.data && OUT.data.validation_note]
+    .filter(Boolean);
+  if (checks.length) {
+    parts.push(`<h3>How reliable is this?</h3>${checks.map(c => `<p>${esc(c)}</p>`).join('')}`);
+  }
+  parts.push(`<p style="color:var(--faint);font-size:11px">${esc((OUT.data && OUT.data.caveat) || '')}</p>`);
+  $('outlook-card-body').innerHTML = parts.join('');
+  $('outlook-map').disabled = l.level === 'unavailable';
+  $('outlook-card').hidden = false;
+  // The forecast form is for drawing your own area; with a lake's card open it is in the
+  // way, so it folds to its header (one click brings it back).
+  if (!$('action').classList.contains('collapsed') && !$('action').classList.contains('floating')) {
+    toggleCollapse($('action'), $('action-head'));
+  }
+}
+
+function closeCard() {
+  $('outlook-card').hidden = true;
+  OUT.selected = null;
+  OUT.markers.forEach(m => m.classList.remove('on'));
+  try { history.replaceState(null, '', location.pathname + location.search); } catch (_) { /* */ }
+  renderOutlook();
+}
+
+function openOutlook() {
+  if (!$('sites').hidden) closeSites();
+  $('outlook').hidden = false;
+  $('outlook-toggle').setAttribute('aria-expanded', 'true');
+  document.body.classList.add('sites-open');
+  if (!OUT.data) loadOutlook();
+}
+function closeOutlook() {
+  $('outlook').hidden = true;
+  $('outlook-toggle').setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('sites-open');
+}
+
+function fromHash() {
+  const m = /lake=([a-z0-9_]+)/.exec(location.hash);
+  if (m && lakeById(m[1])) selectLake(m[1], { frame: true });
+}
+window.addEventListener('hashchange', fromHash);
+
+$('outlook-toggle').addEventListener('click', () => ($('outlook').hidden ? openOutlook() : closeOutlook()));
+$('outlook-close').addEventListener('click', closeOutlook);
+$('outlook-q').addEventListener('input', renderOutlook);
+$('outlook-card-close').addEventListener('click', closeCard);
+
+// The detailed map for a monitored lake comes from its archive (a second), not from a
+// satellite download -- the request carries the lake's id so the server can tell.
+$('outlook-map').addEventListener('click', () => {
+  const l = lakeById(OUT.selected);
+  if (!l || !l.bbox) return;
+  map.fitBounds(l.bbox, 0.2);
+  const [west, south, east, north] = l.bbox;
+  setAoi({ kind: 'bbox', bbox: [west, south, east, north], lat: (south + north) / 2,
+    lon: (west + east) / 2, lakeId: l.lake_id }, l.name);
+  $('outlook-card').hidden = true;
+  runForecast();
+});
+
+$('outlook-share').addEventListener('click', async () => {
+  const l = lakeById(OUT.selected);
+  if (!l) return;
+  const url = `${location.origin}${location.pathname}#lake=${encodeURIComponent(l.lake_id)}`;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: `Bloom outlook: ${l.name}`, text: `${l.name}: ${l.label}`, url });
+    } else {
+      await navigator.clipboard.writeText(url);
+      status('Link copied to the clipboard');
+      setTimeout(hideStatus, 1800);
+    }
+  } catch (_) { /* the user dismissed the share sheet */ }
+});
+
+/* ------------------------------------------------- field-sample check, About panel -- */
+async function loadValidation() {
+  const box = $('val-summary');
+  try {
+    const r = await fetch('/api/validation-summary');
+    if (r.status === 404) {
+      box.innerHTML = '<p>No comparison with field samples has been run for this deployment yet.</p>';
+      return;
+    }
+    if (!r.ok) throw new Error(r.statusText);
+    const v = await r.json();
+    const pct = x => (x == null ? '—' : `${Math.round(100 * x)}%`);
+    const rows = (v.forecast || []).map(f => {
+      const sk = f.skill_vs_persistence || {};
+      const ci = sk.ci95 ? ` <span style="color:var(--faint)">[${sk.ci95.map(c => c.toFixed(2)).join(', ')}]</span>` : '';
+      return `<tr><td>${f.lead_days} day${f.lead_days > 1 ? 's' : ''}</td>
+        <td>${f.model.n ?? '—'}</td><td>${pct(f.model.within_2x)}</td>
+        <td>${pct(f.persistence.within_2x)}</td>
+        <td>${sk.skill == null ? '—' : sk.skill.toFixed(2)}${ci}</td></tr>`;
+    }).join('');
+    const sd = (v.satellite || {}).same_day || {};
+    box.innerHTML = `
+      ${(v.headline || []).map(h => `<p>${esc(h)}</p>`).join('')}
+      <p class="vs-big">Satellite, same day: within 2× ${pct(sd.within_2x)} · n=${sd.n ?? 0}
+        · typical error ×${sd.mae_factor ? sd.mae_factor.toFixed(1) : '—'}</p>
+      ${rows ? `<table><thead><tr><th>Ahead</th><th>n</th><th>Forecast within 2×</th>
+        <th>Last image within 2×</th><th>Skill vs last image</th></tr></thead><tbody>${rows}</tbody></table>
+        <p style="font-size:11px">Skill above 0 means the forecast was closer to the field sample
+        than simply repeating the last satellite image; the interval is a 95% bootstrap range.</p>` : ''}
+      <p style="font-size:11px">Laboratory chlorophyll-a from GLORIA (PANGAEA, CC-BY 4.0) and the
+        US EPA Water Quality Portal, ${esc(String((v.by_lake || []).length))} lakes.
+        <a href="/api/validation-summary" target="_blank" rel="noopener">Full numbers</a></p>`;
+  } catch (err) {
+    box.innerHTML = `<p>The comparison could not be loaded (${esc(err.message)}).</p>`;
+  }
+}
+
+// Start where most visitors want to be: the outlook, open on a wide screen and one tap
+// away on a phone. A shared #lake= link goes straight to that lake's card.
+loadOutlook();
+loadValidation();
+if (window.matchMedia('(min-width: 1100px)').matches && !/lake=/.test(location.hash)) openOutlook();

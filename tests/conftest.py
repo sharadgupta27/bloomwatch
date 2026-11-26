@@ -42,3 +42,8 @@ def _no_eumetsat_credentials(monkeypatch, tmp_path_factory):
     """Hide any real ~/.eumdac credentials: with them, `data.olci.default_reader` would
     send a test's live path to the EUMETSAT Data Store over the network."""
     monkeypatch.setenv("EUMDAC_CONFIG_DIR", str(tmp_path_factory.mktemp("no_eumdac")))
+    # Keep per-lake water masks a test computes out of the real data/cache, and keep the
+    # API from warming the model and outlook in a background thread during a test.
+    monkeypatch.setenv("HAB_STATIC_CACHE", str(tmp_path_factory.mktemp("statics")))
+    monkeypatch.setenv("HAB_WARMUP", "0")
+    monkeypatch.setenv("HAB_OUTLOOK_CACHE", str(tmp_path_factory.mktemp("outlook") / "o.json"))

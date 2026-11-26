@@ -1,0 +1,43 @@
+2026-11-26 21:26:18,054 loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=True on cuda
+2026-11-26 21:26:53,136 erie_west: 50/217 anchors, 20 s
+2026-11-26 21:27:11,818 erie_west: 100/217 anchors, 39 s
+2026-11-26 21:27:29,956 erie_west: 150/217 anchors, 57 s
+2026-11-26 21:27:50,118 erie_west: 200/217 anchors, 77 s
+2026-11-26 21:27:57,000 erie_west: 332 samples, 217 anchors (12 without imagery) in 84 s
+2026-11-26 21:28:11,367 okeechobee: 50/108 anchors, 13 s
+2026-11-26 21:28:23,957 okeechobee: 100/108 anchors, 26 s
+2026-11-26 21:28:25,282 okeechobee: 53 samples, 108 anchors (3 without imagery) in 27 s
+2026-11-26 21:28:47,464 saginaw: 50/276 anchors, 13 s
+2026-11-26 21:29:01,629 saginaw: 100/276 anchors, 27 s
+2026-11-26 21:29:16,473 saginaw: 150/276 anchors, 42 s
+2026-11-26 21:29:29,689 saginaw: 200/276 anchors, 55 s
+2026-11-26 21:29:43,385 saginaw: 250/276 anchors, 69 s
+2026-11-26 21:29:50,357 saginaw: 465 samples, 276 anchors (5 without imagery) in 76 s
+2026-11-26 21:29:54,224 green_bay: 10 samples, 12 anchors (0 without imagery) in 3 s
+2026-11-26 21:29:55,007 utah_lake: 1 samples, 4 anchors (0 without imagery) in 1 s
+2026-11-26 21:30:16,224 pontchartrain: 100/304 anchors, 18 s
+2026-11-26 21:30:28,293 pontchartrain: 150/304 anchors, 30 s
+2026-11-26 21:30:40,891 pontchartrain: 200/304 anchors, 43 s
+2026-11-26 21:30:54,570 pontchartrain: 250/304 anchors, 57 s
+2026-11-26 21:31:07,866 pontchartrain: 300/304 anchors, 70 s
+2026-11-26 21:31:09,104 pontchartrain: 142 samples, 304 anchors (35 without imagery) in 71 s
+2026-11-26 21:31:11,250 poyang: 16 samples, 4 anchors (0 without imagery) in 1 s
+2026-11-26 21:31:16,879 kasumigaura: 79 samples, 48 anchors (13 without imagery) in 5 s
+2026-11-26 21:31:17,074 hartbeespoort: 1 samples, 4 anchors (4 without imagery) in 0 s
+2026-11-26 21:31:18,083 dianchi: 12 samples, 4 anchors (0 without imagery) in 1 s
+2026-11-26 21:31:40,305 peipsi: 47 samples, 42 anchors (2 without imagery) in 20 s
+2026-11-26 21:31:42,573 vortsjarv: 10 samples, 12 anchors (0 without imagery) in 2 s
+2026-11-26 21:31:54,527 geneva: 50/237 anchors, 9 s
+2026-11-26 21:32:07,690 geneva: 100/237 anchors, 22 s
+2026-11-26 21:32:20,192 geneva: 150/237 anchors, 34 s
+2026-11-26 21:32:34,839 geneva: 200/237 anchors, 49 s
+2026-11-26 21:32:45,581 geneva: 160 samples, 237 anchors (17 without imagery) in 60 s
+2026-11-26 21:32:57,685 garda: 50/56 anchors, 11 s
+2026-11-26 21:32:59,387 garda: 38 samples, 56 anchors (1 without imagery) in 13 s
+2026-11-26 21:33:04,016 winnebago: 10 samples, 20 anchors (0 without imagery) in 4 s
+2026-11-26 21:33:04,325 titicaca_puno: no cube
+2026-11-26 21:33:05,155 taupo: 2 samples, 4 anchors (0 without imagery) in 1 s
+2026-11-26 21:33:05,251 te_waihora: 1 samples, 4 anchors (4 without imagery) in 0 s
+On 371 same-day matchups across 11 lakes, the satellite chlorophyll was within a factor of 2 of the laboratory value 47% of the time (rank correlation 0.70).
+The 1-day forecast was within a factor of 2 39% of the time (n=1156), closer to the field samples than simply repeating the last satellite image.
+wrote artifacts\insitu_validation\summary.json (6581 rows, 407.2 s)

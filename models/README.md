@@ -1,10 +1,13 @@
 # Served checkpoints
 
-`best.ckpt` is the default (`HAB_CHECKPOINT`) and what the registry-lake endpoints
-(`/forecast`, `/advisory`, `/advisory/feed.xml`, `pipelines/advisory.py`) use. The ad-hoc
-`/app` path does not load one checkpoint: `habforecast.routing` classifies the water body
-and loads whichever of these was trained on data like it, resolving the file against
-`HAB_MODEL_ROOT` (`/models` in the container).
+`best.ckpt` is the default (`HAB_CHECKPOINT`) and what every monitored-lake path uses:
+`/forecast`, `/advisory`, `/advisory/feed.xml`, `pipelines/advisory.py`, the public outlook
+(`/api/outlook`), and the app's map when a monitored lake is opened from the outlook (a
+`lake_id` request, served from the lake's cube via `routing.registry_route`). Advisory and
+outlook *probabilities* come from `ens_met/` (`HAB_PROB_CHECKPOINT`, with weather from
+`HAB_MET_ROOT`). For any other area drawn in `/app`, `habforecast.routing` classifies the
+water body and loads whichever checkpoint was trained on data like it, resolving the file
+against `HAB_MODEL_ROOT` (`/models` in the container).
 
 | file | architecture | trained on | held-out skill vs persistence (d1 -> d7) |
 |---|---|---|---|
@@ -14,6 +17,8 @@ and loads whichever of these was trained on data like it, resolving the file aga
 | `viirs-750m.ckpt` | anomaly (`artifacts/multires`) | VIIRS 750 m, 15 lakes | +0.075, +0.065, +0.084, +0.074 |
 | `ens_met/` (3 checkpoints + `calibration.json`) | anomaly + climatology + ERA5 forcing + exceedance head, seeds 1337/1, 2 | OLCI 300 m, 3 lakes, leave-lake-out | +0.219, +0.276, +0.246, +0.284 (ensemble); **PR-AUC@20 0.662 → 0.597 vs persistence 0.611 → 0.545** -- read advisory probabilities from this |
 | `ens_clim/` | `best.ckpt` + two more seeds of it | same | +0.234, +0.221, +0.252, +0.255 -- what the served configuration scores on average |
+| `ens_expanded_met/` | as `ens_met`, 3 seeds | OLCI 300 m, 15 lakes (weather on 4) | candidate, not served -- see `artifacts/eval_ens_expanded_met` |
+| `ens_global_ml/` | multilevel anomaly (trophic / thermal / continent embeddings), 3 seeds, calibrated by trophic class | OLCI 300 m, 46-lake registry, 2016-2025, all seasons | candidate, not served -- passes the gate vs `ens_met`, fails vs `ens_expanded_met` on PR-AUC@20 at 3 and 7 days (`artifacts/gate_global_*`) |
 | `onnx/best/` | ONNX export of `best.ckpt` (`scripts/export_onnx.py`) | -- | identical to `best.ckpt` within 4e-5 log10; served by the `serve-onnx` image |
 | `convlstm-best-18.ckpt` | convlstm (`artifacts/convlstm`, epoch 18) | OLCI 300 m, 3 lakes | -0.422, -0.771, -1.225, -0.678 |
 
@@ -40,6 +45,11 @@ at it and every member runs, the forecast is their mean and the exceedance proba
 their (recalibrated) mean. A directory holding `manifest.json` is an ONNX export and runs
 without torch. `best.scores.json` is the held-out evaluation `scripts/promotion_gate.py`
 gates the next candidate against; it is replaced only by a promotion.
+
+Checked against laboratory water samples (`scripts/validate_insitu.py`, 2026-11-26),
+`best.ckpt` beats persistence and loses to climatology, as it does against the satellite,
+and the retrieval it forecasts reads ~1.8x low -- see `docs/MODEL_CARD.md`. Re-run that
+check after any promotion.
 
 None of these files is tracked by git (see .gitignore); they are build outputs of
 `pipelines/train.py` and are reproduced by `make train`.

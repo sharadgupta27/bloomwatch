@@ -14,7 +14,8 @@ Following the model-card framework of Mitchell et al. (2019).
 | **Architectures** | Served: `anomaly` forecaster (~0.34M params; instance-normalised window summary, persistence anchor blended toward the seasonal climatology, smooth bounded delta). Also trained and reported: ConvLSTM encoder–forecaster (~0.36M) and U-Net over stacked time channels (~0.85M). |
 | **Input** | 14 daily frames of log₁₀ chlorophyll-a at 300 m + per-frame observation masks + static water mask + day-of-year encoding + the lake's leave-one-year-out seasonal climatology at each target date (with its own availability mask). **Optionally** auxiliary physical layers from the same granule (MCI, suspended matter, Kd490) — see `data/aux_layers.py`; the served checkpoint uses none of them. |
 | **Output** | Predicted log₁₀ chlorophyll-a at 1, 3, 5 and 7 day lead times |
-| **Training data** | Sentinel-3 OLCI Level-2 WFR (`CHL_NN`), 2018–2024, bloom season only. A second served checkpoint is trained on VIIRS 750 m over 15 lakes; see *Served checkpoints* below. |
+| **Training data** | Sentinel-3 OLCI Level-2 WFR (`CHL_NN`), 2018–2024, bloom season only. A second served checkpoint is trained on VIIRS 750 m over 15 lakes; see *Served checkpoints* below. A 46-lake, 2016–2025 all-season set (`data/aoi/lakes_global.geojson`) trains the candidate models, none promoted for the map. |
+| **Uses in the app** | The forecast map; the advisory feed, whose exceedance probabilities come from a weather-forced ensemble (`models/ens_met`); the public **bloom outlook** (`/api/outlook`, `habforecast.outlook`), which restates the advisory level in plain language with the age of the imagery behind it; and the PDF bulletin. |
 | **License** | Apache-2.0 |
 
 Every architecture predicts a **delta from the last observed value**, so an untrained
@@ -33,6 +34,14 @@ it extends (`tests/unit/test_climatology_input.py`).
 and water utilities. Prioritising where to send limited in-situ sampling capacity.
 Retrospective analysis of bloom dynamics. A worked reference for building masked
 spatiotemporal forecasting on sparse satellite observations.
+
+**Public awareness, with limits.** The app's bloom outlook tells members of the public
+how much algae the satellite expects at a monitored lake, what general precautions apply
+("avoid scummy water, keep dogs out"), and how old the imagery is. It never says water is
+safe, it flags imagery older than 10 days as out of date, and every card states that local
+advisories take precedence. Measured against laboratory samples the satellite reads about
+1.8× low, so the outlook is more likely to understate a bloom than overstate it, and it
+tells visitors so (see *Against laboratory water samples*).
 
 **Not intended.** Issuing public health advisories without in-situ confirmation.
 Regulatory compliance monitoring. Any use where a false negative endangers people.
@@ -64,7 +73,10 @@ learned 2.5× the wrong size.
 
 | Checkpoint | Grid | Training bodies | Skill vs persistence (test, d1/d3/d5/d7) | Beats climatology | Served |
 |---|---|---|---|---|---|
-| `models/best.ckpt` (climatology input) | OLCI 300 m | 3 lakes | **+0.255 / +0.283 / +0.298 / +0.318** | **yes** | yes — registry lakes (`/forecast`, `/advisory`), which have the archive it reads |
+| `models/best.ckpt` (climatology input) | OLCI 300 m | 3 lakes | **+0.255 / +0.283 / +0.298 / +0.318** | **yes** | yes — monitored lakes, which have the archive it reads: `/forecast`, `/advisory`, the outlook, and the app's map for a monitored lake (`lake_id` requests, served from the cube) |
+| `models/ens_met/` (3 seeds, weather input, exceedance head, calibrated) | OLCI 300 m | 3 lakes | +0.219 / +0.276 / +0.246 / +0.284 | yes | yes — **probabilities only**, for the advisory and the outlook's likely…possible band |
+| `models/ens_expanded_met/` | OLCI 300 m | 15 lakes | see `artifacts/eval_ens_expanded_met` | — | no — candidate |
+| `models/ens_global_ml/` (multilevel, calibrated by trophic class) | OLCI 300 m | 46-lake registry | see `artifacts/eval_global_ml` | — | no — passes the promotion gate against `ens_met`; fails against `ens_expanded_met` on PR-AUC @20 at 3 and 7 days |
 | `models/best-temporal.ckpt` | OLCI 300 m | 5 lakes, years ≤ 2022 | +0.301 / +0.444 / +0.345 / +0.470 (held-out 2024–25, mean over lakes) | yes | no — the temporal-split number, kept for the comparison |
 | `models/olci-300m-nohistory.ckpt` | OLCI 300 m | 3 lakes | +0.046 / +0.037 / +0.042 / +0.062 | no | yes — ad-hoc areas drawn on the map, which have no archive |
 | `models/viirs-750m.ckpt` | VIIRS 750 m | 15 lakes | +0.075 / +0.065 / +0.084 / +0.074 | **yes** | yes — offered where ≥16 px at 750 m |
@@ -307,6 +319,35 @@ What this says:
   calibrated exceedance probability is the uncertainty the advisory carries; the spread
   is reported but should not be read as an error bar.
 
+### Against laboratory water samples (2026-11-26)
+
+Everything above scores the model against the satellite retrieval it was trained to
+reproduce. `scripts/validate_insitu.py` scores the retrieval and the served `best.ckpt`
+against laboratory chlorophyll-a from GLORIA (PANGAEA, CC-BY 4.0) and the US EPA Water
+Quality Portal, which no part of training saw: 3×3-pixel medians at 300 m, replicate
+samples merged, log₁₀ errors, 95% intervals by bootstrap over lake-days. 17 lakes have
+samples inside the archive period; 11 have same-day satellite matchups. Output:
+`artifacts/insitu_validation/summary.json`, served at `/api/validation-summary`.
+
+| | n | within ×2 | typical error | bias | vs persistence | vs climatology |
+|---|---:|---:|---|---|---|---|
+| Satellite, same day | 371 | 47% | ×2.4 | **×0.55** (reads low) | — | — |
+| Forecast, 1 day | 1,156 | 39% | ×2.6 | ×0.51 | +0.08 [0.05, 0.12] | −0.13 [−0.17, −0.10] |
+| Forecast, 7 days | 1,144 | 40% | ×2.5 | ×0.52 | +0.14 [0.11, 0.18] | −0.09 [−0.13, −0.06] |
+
+- **The retrieval ranks well and reads low** (rank correlation 0.70). Lake Geneva, an
+  oligotrophic validation lake, reads ~8× low — consistent with *Factors* above.
+- **Blooms are under-called.** At 20 µg/L the 1-day forecast catches 8% of the samples
+  that exceed it (persistence 17%), at 50 µg/L none of 89. The thresholds are applied on
+  the satellite's low scale.
+- **A single correction would change that, at a price.** A multiplicative factor fitted
+  for each lake on the other lakes only (×2.1) raises the 20 µg/L hit rate to 53%, with a
+  false-alarm ratio near 0.5 (`bias_correction_experiment` in the summary). **Not
+  applied**: moving public thresholds is a public-health decision, not a tuning step.
+- Skill against persistence holds against real water, as against the satellite; the loss
+  to climatology holds too. Held-out lakes with samples are too few (Geneva, Dianchi) for a
+  held-out-only claim.
+
 ---
 
 ## Ethical considerations
@@ -315,6 +356,9 @@ What this says:
 drink contaminated water. The loss function is symmetric and therefore does *not* encode
 this asymmetry; operational deployment should tune the decision threshold toward higher
 POD at the cost of FAR, and the reported FAR should inform how much crying-wolf that buys.
+Against laboratory samples this is no longer hypothetical: the served forecast misses
+most blooms above 20 µg/L because the retrieval reads low, and the correction that would
+catch them raises the false-alarm ratio from 0.35 to 0.51. The choice is recorded as open, not made silently.
 
 **Chlorophyll-a is a proxy for the thing that matters.** It does not distinguish
 cyanobacteria from harmless algae and it is not toxin concentration. A high chlorophyll
@@ -334,11 +378,10 @@ observed input days, and a disclaimer for this reason.
 
 ## Caveats and recommendations
 
-- **Ground truth is satellite-derived, not in-situ.** The Water Quality Portal returned
-  124 chlorophyll samples for Lake Erie's western basin over nine years, and zero
-  phycocyanin or microcystin. The model forecasts the *satellite-observed field* — the
-  same target NOAA's operational Lake Erie HAB bulletin forecasts. In-situ data is a
-  sanity check, not a training signal.
+- **Ground truth is satellite-derived, not in-situ.** The model forecasts the
+  *satellite-observed field* — the same target NOAA's operational Lake Erie HAB bulletin
+  forecasts. In-situ data is too sparse to train on (most samples are from US lakes, and
+  GLORIA ends in 2022) and is used as a check: the retrieval reads ~1.8× low against it.
 - **Retrieval fails in known conditions**: thick cloud, sun glint, high solar zenith,
   ice, and shallow water where bottom reflectance contaminates the signal.
 - **QC choices are deliberate and consequential.** `TURBID_ATM` and `OC4ME_FAIL` are
@@ -361,12 +404,17 @@ observed input days, and a disclaimer for this reason.
   mean and standard deviation, which cancels a systematic offset or scale difference but
   not a difference in spatial texture. **Skill has not been re-measured on this source** —
   the 90-day rolling window does not overlap the evaluation period. Treat NRT forecasts
-  as operationally useful and quantitatively unvalidated. **As of 2026-09-23 that source is
-  gone** (CoastWatch no longer lists any `noaacwS3?OLCIchlaSector*` dataset) **and has been
-  replaced by the EUMETSAT Data Store** (`src/habforecast/data/eumetsat.py`): the same
-  OLCI L2 WFR product the model trains on, with the same WQSF quality control, published
-  hours after the overpass. It needs a free EUMETSAT account (`eumdac set-credentials`);
-  without one every live path falls back to the Planetary Computer archive.
+  as operationally useful and quantitatively unvalidated. **The source is intermittent**:
+  on 2026-09-23 CoastWatch listed no `noaacwS3?OLCIchlaSector*` dataset; on 2026-11-26 it
+  served imagery from 2026-11-23 again. The app tries it first for recent dates and falls
+  back to the granule path — the **EUMETSAT Data Store** (`src/habforecast/data/eumetsat.py`)
+  when credentials are set, which serves the same OLCI L2 WFR product the model trains on,
+  with the same WQSF quality control, hours after the overpass; otherwise the Planetary
+  Computer archive. Every result names the source that served it.
+- **Monitored lakes are served from their own archive.** The outlook and the app's map for
+  a monitored lake read the lake's ingested cube, so they are only as current as the last
+  refresh (`artifacts/bulletin/refresh_global_live.sh`); the outlook states the age of the
+  imagery and marks it out of date after 10 days.
 - **Skill on the live source, measured.** The five lakes' 2026 bloom seasons (March–
   22 September) were ingested from the Data Store (processing baseline 004; training used
   003) and scored with the temporal split: 2026 is in no checkpoint's training data, and

@@ -36,7 +36,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from habforecast.inference.onnx_backend import MANIFEST_FORMAT  # noqa: E402
 from habforecast.inference.predictor import Predictor  # noqa: E402
-from habforecast.models.lit import has_exceed_head  # noqa: E402
+from habforecast.models.forward import has_exceed_head  # noqa: E402
 
 logger = logging.getLogger(__name__)
 OPSET = 17

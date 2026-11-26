@@ -62,13 +62,27 @@ TTA = os.getenv("HAB_TTA", "1").lower() not in ("0", "false", "no", "off")
 # Public in-situ measurements, distilled by scripts/build_insitu_index.py. Optional: a
 # fresh checkout has none, and the app must say "no validation data" rather than fail.
 INSITU = Path(os.getenv("HAB_INSITU", "data/validation/insitu.csv.gz"))
+# Weather for models trained with it (the advisory's probability model). Unset: the
+# predictor's default, `<cubes>/../met` -- the training archive, which has no 2026 days.
+MET_ROOT = os.getenv("HAB_MET_ROOT") or None
+# Load the model and build the public outlook in a background thread at startup, so the
+# first visitor is not the one who pays ~10 s of imports and per-lake archive reductions.
+WARMUP = os.getenv("HAB_WARMUP", "1").lower() not in ("0", "false", "no", "off")
+# The model card, served at /model-card. Copied into the serving images beside the code.
+MODEL_CARD = Path(__file__).resolve().parents[2] / "docs" / "MODEL_CARD.md"
 
 app = FastAPI(
     title="Bloom Watch",
     version="0.1.0",
     description=(
-        "Short-range cyanobacterial bloom forecasting for inland waters, "
-        "from Sentinel-3 OLCI. Forecasts are advisory only - see /model-card."
+        "Short-range harmful algal bloom forecasts for lakes, from Sentinel-3 OLCI.\n\n"
+        "* **/app** -- the map: a plain-language bloom outlook for every monitored lake, "
+        "and a forecast for any area you draw.\n"
+        "* **/api/outlook** -- the same outlook as JSON.\n"
+        "* **/api/validation-summary** -- how the satellite and the forecast compare with "
+        "laboratory water samples.\n"
+        "* **/model-card** -- intended use, measured skill and limitations.\n\n"
+        "Advisory only: satellite chlorophyll-a measures algae, not toxins."
     ),
 )
 
@@ -197,14 +211,24 @@ def route_for(req, rings):
     from habforecast.inference.adhoc import build_aoi
     from habforecast.routing import override_model, plan
 
-    aoi = build_aoi(
-        req.lat,
-        req.lon,
-        req.radius_km,
-        tuple(req.bbox) if req.bbox else None,
-        rings,
-        req.name,
-    )
+    lake_id = getattr(req, "lake_id", None)
+    reg = registry()
+    if lake_id and lake_id in reg.lake_ids:
+        # A monitored lake is routed on its registry extent, which may be larger than an
+        # area anyone could draw: its fortnight is already on disk, not to be downloaded.
+        aoi = reg[lake_id]
+    else:
+        try:
+            aoi = build_aoi(
+                req.lat,
+                req.lon,
+                req.radius_km,
+                tuple(req.bbox) if req.bbox else None,
+                rings,
+                req.name,
+            )
+        except ValueError as exc:  # too large, degenerate, or no shape at all
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
     route = plan(aoi.bbox, req.anchor)
     chosen = getattr(req, "model", "auto")
     if chosen and chosen != "auto":
@@ -443,7 +467,9 @@ def _get_prob_predictor():
     try:
         from habforecast.inference.predictor import load_predictor
 
-        _prob_predictor = load_predictor(PROB_CHECKPOINT, AOI_PATH, CUBE_ROOT, tta=TTA)
+        _prob_predictor = load_predictor(
+            PROB_CHECKPOINT, AOI_PATH, CUBE_ROOT, tta=TTA, met_root=MET_ROOT
+        )
     except Exception as exc:
         _prob_load_failed = True
         logger.error("probability model failed to load (%s: %s)", type(exc).__name__, exc)
@@ -513,6 +539,204 @@ def advisory_rss(
     fc = _advisory_collection(anchor, allow_live, min_fraction)
     base = str(request.base_url).rstrip("/")
     return Response(content=advisory.rss(fc, base_url=base), media_type="application/rss+xml")
+
+
+# --- public outlook -------------------------------------------------------------------
+# One plain-language risk statement per registry lake, from each lake's NEWEST imagery
+# rather than from "today" -- /advisory for today is all "unavailable" whenever the live
+# refresh is behind, which tells a visitor nothing. The age of the imagery is part of
+# every entry (habforecast.outlook). Built once, then served from memory; rebuilt when
+# older than the TTL or when a cube changes underneath it.
+OUTLOOK_TTL_S = 1800.0
+_outlook: tuple[float, tuple, dict] | None = None  # (built_at, cube signatures, payload)
+_outlook_lock = threading.Lock()
+
+
+def _cube_signatures(predictor) -> tuple:
+    return tuple(
+        (lid, predictor._cube_signature(predictor.cube_root / f"{lid}.zarr"))
+        for lid in predictor.registry.lake_ids
+    )
+
+
+def _validation_by_lake() -> dict[str, dict]:
+    """Per-lake rows of the in-situ validation summary, or {} when it has not been run."""
+    summary = _validation_summary()
+    return {row["lake_id"]: row for row in (summary or {}).get("by_lake", [])}
+
+
+def _build_outlook() -> dict:
+    from habforecast import advisory, outlook
+
+    predictor = get_predictor()
+    prob_predictor = _get_prob_predictor()
+    today = datetime.now(UTC).date()
+    checks = _validation_by_lake()
+    entries = []
+    for lake_id in predictor.registry.lake_ids:
+        aoi = predictor.registry[lake_id]
+        west, south, east, north = aoi.bbox
+        centre = ((south + north) / 2.0, (west + east) / 2.0)
+        _ds, days = predictor._open_cube(lake_id)
+        anchor = outlook.latest_anchor(days or {}, today)
+        if anchor is None:
+            props = advisory.unavailable_feature(aoi, today, "no imagery archived for this lake")
+        else:
+            try:
+                result, _ = _predict_cached(predictor, lake_id, anchor, False, pinned=True)
+                if prob_predictor is not None:
+                    result = advisory.with_probabilities(
+                        result, prob_predictor.predict(lake_id, anchor, allow_live=False)
+                    )
+                cell_km2 = (aoi.grid().resolution / 1000.0) ** 2
+                props = advisory.feature(advisory.advise(result, cell_km2), aoi)
+            except ValueError as exc:
+                props = advisory.unavailable_feature(aoi, anchor, str(exc))
+        item = outlook.entry(props["properties"], centre, today, checks.get(lake_id))
+        item["bbox"] = [round(v, 4) for v in aoi.bbox]
+        entries.append(item)
+    payload = outlook.summary(entries, today)
+    # What checking against laboratory samples found, in one sentence, on every outlook --
+    # because it changes how a "Low" should be read.
+    lean = (((_validation_summary() or {}).get("satellite") or {}).get("same_day") or {}).get(
+        "bias_factor"
+    )
+    if lean is not None and lean < 0.8:
+        payload["validation_note"] = (
+            f"Checked against laboratory samples, these satellite estimates read about "
+            f"{1 / lean:.1f}x lower than the water really is, on average. A bloom is more "
+            "likely to be understated here than overstated."
+        )
+    return payload
+
+
+# The built outlook is also kept on disk, keyed by everything it depends on: the day (ages
+# are counted from it), every cube's signature, both checkpoints and the validation
+# summary. Building it costs about a minute (46 lakes, two models); with this a restart
+# serves the previous answer at once whenever none of those has changed.
+OUTLOOK_DISK = Path(os.getenv("HAB_OUTLOOK_CACHE", "data/cache/outlook.json"))
+
+
+def _outlook_key(sigs: tuple) -> str:
+    def stamp(path: Path):
+        try:
+            st = path.stat()
+            return [str(path), st.st_size, st.st_mtime_ns]
+        except OSError:
+            return [str(path), None]
+
+    parts = [
+        datetime.now(UTC).date().isoformat(),
+        [[lid, list(sig) if sig else None] for lid, sig in sigs],
+        stamp(CHECKPOINT),
+        stamp(PROB_CHECKPOINT),
+        stamp(ARTIFACTS / "insitu_validation" / "summary.json"),
+        MET_ROOT,
+    ]
+    return hashlib.sha256(json.dumps(parts, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def _outlook_from_disk(key: str) -> dict | None:
+    try:
+        doc = json.loads(OUTLOOK_DISK.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return doc.get("payload") if doc.get("key") == key else None
+
+
+def _outlook_to_disk(key: str, payload: dict) -> None:
+    try:
+        OUTLOOK_DISK.parent.mkdir(parents=True, exist_ok=True)
+        tmp = OUTLOOK_DISK.with_suffix(f".{os.getpid()}.part")
+        tmp.write_text(json.dumps({"key": key, "payload": payload}), encoding="utf-8")
+        tmp.replace(OUTLOOK_DISK)
+    except OSError as exc:  # a read-only deployment still serves, it just rebuilds
+        logger.info("could not persist the outlook (%s)", exc)
+
+
+def outlook_payload(force: bool = False) -> dict:
+    global _outlook
+    predictor = get_predictor()
+    sigs = _cube_signatures(predictor)
+    with _outlook_lock:
+        fresh = (
+            _outlook is not None
+            and not force
+            and time.time() - _outlook[0] < OUTLOOK_TTL_S
+            and _outlook[1] == sigs
+        )
+        if fresh:
+            return _outlook[2]
+        key = _outlook_key(sigs)
+        payload = None if force else _outlook_from_disk(key)
+        if payload is None:
+            payload = _build_outlook()
+            _outlook_to_disk(key, payload)
+        _outlook = (time.time(), sigs, payload)
+        return payload
+
+
+@app.get("/api/outlook", tags=["app"])
+def public_outlook() -> dict:
+    """Every monitored lake's bloom risk in plain language, most severe first.
+
+    Each lake is forecast from the newest imagery its archive holds; `imagery_date`,
+    `imagery_age_days` and `stale` say how old that is. The level is the advisory's own,
+    held inside its likely..possible band as the bulletin does. Where the lake has been
+    checked against field samples, `validation` says how the satellite compared.
+    """
+    return outlook_payload()
+
+
+# --- in-situ validation summary ---------------------------------------------------------
+def _validation_summary() -> dict | None:
+    path = ARTIFACTS / "insitu_validation" / "summary.json"
+    if not path.exists():
+        return None
+    st = path.stat()
+    sig = (st.st_size, st.st_mtime_ns)
+    global _validation_cache
+    if _validation_cache is not None and _validation_cache[0] == sig:
+        return _validation_cache[1]
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _validation_cache = (sig, data)
+    return data
+
+
+_validation_cache: tuple[tuple, dict] | None = None
+
+
+@app.get("/api/validation-summary", tags=["app"])
+def validation_summary() -> dict:
+    """How the satellite retrieval and the forecast compare with public field samples.
+
+    Produced offline by `scripts/validate_insitu.py` against GLORIA and the US EPA Water
+    Quality Portal. 404 until that script has been run for this deployment.
+    """
+    data = _validation_summary()
+    if data is None:
+        raise HTTPException(
+            status_code=404,
+            detail="No in-situ validation has been run for this deployment "
+            "(scripts/validate_insitu.py).",
+        )
+    return data
+
+
+def _warm() -> None:
+    """Pay the one-time costs before anyone is waiting on them."""
+    t0 = time.time()
+    try:
+        outlook_payload()
+        logger.info("warm-up: model and outlook ready in %.1f s", time.time() - t0)
+    except Exception as exc:  # warming is an optimisation; serving must not depend on it
+        logger.warning("warm-up failed after %.1f s: %s", time.time() - t0, exc)
+
+
+@app.on_event("startup")
+def _start_warmup() -> None:
+    if WARMUP:
+        threading.Thread(target=_warm, name="bloomwatch-warmup", daemon=True).start()
 
 
 class PlaceHit(BaseModel):
@@ -624,6 +848,15 @@ class ForecastRequest(BaseModel):
         "auto",
         pattern="^(auto|nrt|archive)$",
         description="auto picks near-real-time for recent dates and the archive for older ones",
+    )
+    lake_id: str | None = Field(
+        None,
+        max_length=64,
+        pattern=r"^[a-z0-9_]+$",
+        description=(
+            "A registry lake (from /lakes or /api/outlook). Its ingested archive is used "
+            "when it covers the date -- about a second instead of a satellite download."
+        ),
     )
     model: str = Field(
         "auto",
@@ -762,6 +995,7 @@ def _cache_key(req: ForecastRequest, rings) -> str:
             req.anchor.isoformat() if req.anchor else None,
             req.source,
             getattr(req, "model", "auto"),
+            getattr(req, "lake_id", None),
         ],
         sort_keys=True,
     )
@@ -850,19 +1084,36 @@ def submit_forecast(req: ForecastRequest) -> dict:
             job.stage = stage
             job.progress = frac
 
-        res = forecast_location(
-            predictor,
-            req.lat,
-            req.lon,
-            radius_km=req.radius_km,
-            anchor=req.anchor,
-            name=req.name,
-            progress=progress,
-            bbox=tuple(req.bbox) if req.bbox else None,
-            rings=rings,
-            source=req.source,
-            route=route,
-        )
+        res = None
+        if req.lake_id and req.model in ("auto", "olci-300m-clim"):
+            # A monitored lake is served from its archive by the registry model, which reads
+            # the lake's climatology -- unless someone pinned another model by hand.
+            from habforecast.inference.adhoc import forecast_from_archive
+            from habforecast.routing import registry_route
+
+            reg_predictor = get_predictor()
+            if req.lake_id in reg_predictor.registry.lake_ids:
+                res = forecast_from_archive(
+                    reg_predictor,
+                    req.lake_id,
+                    anchor=req.anchor,
+                    route=registry_route(route, reg_predictor.registry[req.lake_id].name),
+                    progress=progress,
+                )
+        if res is None:
+            res = forecast_location(
+                predictor,
+                req.lat,
+                req.lon,
+                radius_km=req.radius_km,
+                anchor=req.anchor,
+                name=req.name,
+                progress=progress,
+                bbox=tuple(req.bbox) if req.bbox else None,
+                rings=rings,
+                source=req.source,
+                route=route,
+            )
         payload = res.forecast.summary(res.cell_area_km2)
         west, south, east, north = res.aoi.bbox
         payload.update(
@@ -884,7 +1135,7 @@ def submit_forecast(req: ForecastRequest) -> dict:
                 "caveats": res.caveats(),
                 # Why this answer came from this data and this model. Shown in the app:
                 # a forecast a city acts on has to be able to explain its own provenance.
-                "route": route.as_dict(),
+                "route": (res.route or route).as_dict(),
                 "model_version": res.forecast.model_version,
                 "images": {
                     str(lead): _data_uri(_render_png(res.forecast.log_chl[i], res.forecast.water))
@@ -1061,6 +1312,32 @@ def dashboard() -> str:
             "<p><a href='/'>&larr; forecast map</a></p>"
         )
     return build(runs, "habforecast - results", load_cases(ARTIFACTS))
+
+
+@app.get("/model-card", response_class=HTMLResponse, tags=["ui"])
+def model_card() -> str:
+    """The model card (docs/MODEL_CARD.md): intended use, skill, limitations.
+
+    Served as preformatted Markdown rather than rendered: the serving image carries no
+    Markdown library, and the card's tables read fine as text.
+    """
+    import html
+
+    if not MODEL_CARD.exists():
+        raise HTTPException(status_code=404, detail="the model card is not installed")
+    text = html.escape(MODEL_CARD.read_text(encoding="utf-8"))
+    return (
+        "<!doctype html><html lang='en'><head><meta charset='utf-8'>"
+        "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+        "<title>Bloom Watch model card</title><style>"
+        "body{margin:0;background:#fff;color:#191919;font:15px/1.5 system-ui,sans-serif}"
+        "@media (prefers-color-scheme:dark){body{background:#111;color:#e8e8e8}}"
+        "main{max-width:980px;margin:0 auto;padding:16px}"
+        "pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.55 ui-monospace,monospace}"
+        "a{color:#2a7fd4}</style></head><body><main>"
+        "<p><a href='/app'>&larr; Bloom Watch</a> &middot; <a href='/docs'>API</a></p>"
+        f"<pre>{text}</pre></main></body></html>"
+    )
 
 
 @app.get("/", response_class=HTMLResponse, tags=["ui"])

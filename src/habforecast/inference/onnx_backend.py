@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 MANIFEST_FORMAT = 1
 # Spatial inputs are flipped for test-time augmentation; the rest are per-sample scalars
-# or daily series and are left alone (see models.lit._NON_SPATIAL for the same rule).
+# or daily series and are left alone (see models.forward._NON_SPATIAL for the same rule).
 SPATIAL_INPUTS = frozenset({"x", "x_mask", "water", "clim", "clim_mask"})
 _FLIPS: tuple[tuple[int, ...], ...] = ((), (-1,), (-2,), (-1, -2))
 

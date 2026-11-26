@@ -1,0 +1,1322 @@
+{
+  "meta": {
+    "generated_utc": "2026-11-26T20:48:48+00:00",
+    "model": "best",
+    "tta": true,
+    "cubes": "data/processed/cubes_global_live",
+    "insitu_sources": {
+      "GLORIA": "Lehmann et al. 2023, PANGAEA, CC-BY 4.0",
+      "EPA WQP": "US EPA / USGS Water Quality Portal"
+    },
+    "method": "3x3-pixel median at 300 m vs laboratory chlorophyll-a (replicates at one pixel and day merged); log10 errors; 95% intervals by bootstrap over lake-days. Satellite = archived OLCI retrieval on the sample day (or +/-1 day). Forecast = issued L days before the sample from the archive; persistence = the newest satellite value in the forecast's input window; climatology = +/-15-day seasonal mean from other years.",
+    "caveats": [
+      "Field samples are point measurements, often near shore or at depth; a 300 m pixel averages the surface. Some disagreement is representativeness, not error.",
+      "On training lakes the satellite inputs were seen during training (the field samples were not); held-out lakes are reported separately.",
+      "Most samples are from US lakes (EPA WQP) and from 2016-2022 (GLORIA ends 2022)."
+    ],
+    "runtime_s": 407.2
+  },
+  "headline": [
+    "On 371 same-day matchups across 11 lakes, the satellite ranked waters well (rank correlation 0.70) but read about 1.8x lower than the laboratory value on average; it was within a factor of 2 47% of the time.",
+    "The 1-day forecast was closer to the field samples than repeating the last satellite image, but further from them than the lake's usual value for the time of year.",
+    "Because of that low reading, the forecast flagged only 8% of field samples above 20 ug/L. A single correction learned from the other lakes raises that to 53%, at the cost of more false alarms \u2014 not yet applied."
+  ],
+  "satellite": {
+    "same_day": {
+      "n": 371,
+      "bias_log10": -0.258,
+      "bias_factor": 0.552,
+      "mae_log10": 0.383,
+      "mae_factor": 2.414,
+      "rmse_log10": 0.484,
+      "within_2x": 0.466,
+      "pearson_r_log": 0.687,
+      "spearman_rho": 0.701
+    },
+    "within_1_day": {
+      "n": 724,
+      "bias_log10": -0.269,
+      "bias_factor": 0.538,
+      "mae_log10": 0.409,
+      "mae_factor": 2.565,
+      "rmse_log10": 0.514,
+      "within_2x": 0.43,
+      "pearson_r_log": 0.639,
+      "spearman_rho": 0.643
+    },
+    "detection_same_day": [
+      {
+        "threshold_mg_m3": 10.0,
+        "n": 371,
+        "observed_events": 161,
+        "hits": 69,
+        "misses": 92,
+        "false_alarms": 21,
+        "correct_negatives": 189,
+        "pod": 0.429,
+        "far": 0.233,
+        "csi": 0.379,
+        "accuracy": 0.695
+      },
+      {
+        "threshold_mg_m3": 20.0,
+        "n": 371,
+        "observed_events": 73,
+        "hits": 16,
+        "misses": 57,
+        "false_alarms": 4,
+        "correct_negatives": 294,
+        "pod": 0.219,
+        "far": 0.2,
+        "csi": 0.208,
+        "accuracy": 0.836
+      },
+      {
+        "threshold_mg_m3": 50.0,
+        "n": 371,
+        "observed_events": 18,
+        "hits": 0,
+        "misses": 18,
+        "false_alarms": 6,
+        "correct_negatives": 347,
+        "pod": 0.0,
+        "far": 1.0,
+        "csi": 0.0,
+        "accuracy": 0.935
+      }
+    ]
+  },
+  "forecast": [
+    {
+      "lead_days": 1,
+      "model": {
+        "n": 1156,
+        "bias_log10": -0.292,
+        "bias_factor": 0.511,
+        "mae_log10": 0.415,
+        "mae_factor": 2.602,
+        "rmse_log10": 0.499,
+        "within_2x": 0.388,
+        "pearson_r_log": 0.659,
+        "spearman_rho": 0.655
+      },
+      "persistence": {
+        "n": 1156,
+        "bias_log10": -0.282,
+        "bias_factor": 0.523,
+        "mae_log10": 0.453,
+        "mae_factor": 2.84,
+        "rmse_log10": 0.568,
+        "within_2x": 0.397,
+        "pearson_r_log": 0.587,
+        "spearman_rho": 0.589
+      },
+      "skill_vs_persistence": {
+        "n": 1156,
+        "clusters": 359,
+        "skill": 0.084,
+        "ci95": [
+          0.052,
+          0.116
+        ],
+        "model_mae_log10": 0.415,
+        "baseline_mae_log10": 0.453
+      },
+      "detection": [
+        {
+          "model": {
+            "threshold_mg_m3": 10.0,
+            "n": 1156,
+            "observed_events": 484,
+            "hits": 171,
+            "misses": 313,
+            "false_alarms": 59,
+            "correct_negatives": 613,
+            "pod": 0.353,
+            "far": 0.257,
+            "csi": 0.315,
+            "accuracy": 0.678
+          },
+          "persistence": {
+            "threshold_mg_m3": 10.0,
+            "n": 1156,
+            "observed_events": 484,
+            "hits": 235,
+            "misses": 249,
+            "false_alarms": 104,
+            "correct_negatives": 568,
+            "pod": 0.486,
+            "far": 0.307,
+            "csi": 0.4,
+            "accuracy": 0.695
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 20.0,
+            "n": 1156,
+            "observed_events": 265,
+            "hits": 21,
+            "misses": 244,
+            "false_alarms": 7,
+            "correct_negatives": 884,
+            "pod": 0.079,
+            "far": 0.25,
+            "csi": 0.077,
+            "accuracy": 0.783
+          },
+          "persistence": {
+            "threshold_mg_m3": 20.0,
+            "n": 1156,
+            "observed_events": 265,
+            "hits": 44,
+            "misses": 221,
+            "false_alarms": 21,
+            "correct_negatives": 870,
+            "pod": 0.166,
+            "far": 0.323,
+            "csi": 0.154,
+            "accuracy": 0.791
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 50.0,
+            "n": 1156,
+            "observed_events": 90,
+            "hits": 0,
+            "misses": 90,
+            "false_alarms": 0,
+            "correct_negatives": 1066,
+            "pod": 0.0,
+            "far": null,
+            "csi": 0.0,
+            "accuracy": 0.922
+          },
+          "persistence": {
+            "threshold_mg_m3": 50.0,
+            "n": 1156,
+            "observed_events": 90,
+            "hits": 1,
+            "misses": 89,
+            "false_alarms": 7,
+            "correct_negatives": 1059,
+            "pod": 0.011,
+            "far": 0.875,
+            "csi": 0.01,
+            "accuracy": 0.917
+          }
+        }
+      ],
+      "climatology": {
+        "n": 1292,
+        "bias_log10": -0.241,
+        "bias_factor": 0.574,
+        "mae_log10": 0.372,
+        "mae_factor": 2.356,
+        "rmse_log10": 0.45,
+        "within_2x": 0.447,
+        "pearson_r_log": 0.685,
+        "spearman_rho": 0.68
+      },
+      "skill_vs_climatology": {
+        "n": 1292,
+        "clusters": 411,
+        "skill": -0.134,
+        "ci95": [
+          -0.174,
+          -0.095
+        ],
+        "model_mae_log10": 0.422,
+        "baseline_mae_log10": 0.372
+      },
+      "held_out_lakes": {
+        "model": {
+          "n": 129,
+          "bias_log10": -0.689,
+          "bias_factor": 0.205,
+          "mae_log10": 0.689,
+          "mae_factor": 4.886,
+          "rmse_log10": 0.727,
+          "within_2x": 0.023,
+          "pearson_r_log": 0.886,
+          "spearman_rho": 0.314
+        },
+        "persistence": {
+          "n": 129,
+          "bias_log10": -0.847,
+          "bias_factor": 0.142,
+          "mae_log10": 0.847,
+          "mae_factor": 7.025,
+          "rmse_log10": 0.891,
+          "within_2x": 0.031,
+          "pearson_r_log": 0.849,
+          "spearman_rho": 0.317
+        }
+      }
+    },
+    {
+      "lead_days": 3,
+      "model": {
+        "n": 1165,
+        "bias_log10": -0.284,
+        "bias_factor": 0.52,
+        "mae_log10": 0.408,
+        "mae_factor": 2.559,
+        "rmse_log10": 0.489,
+        "within_2x": 0.398,
+        "pearson_r_log": 0.664,
+        "spearman_rho": 0.659
+      },
+      "persistence": {
+        "n": 1165,
+        "bias_log10": -0.281,
+        "bias_factor": 0.524,
+        "mae_log10": 0.458,
+        "mae_factor": 2.869,
+        "rmse_log10": 0.575,
+        "within_2x": 0.399,
+        "pearson_r_log": 0.577,
+        "spearman_rho": 0.579
+      },
+      "skill_vs_persistence": {
+        "n": 1165,
+        "clusters": 365,
+        "skill": 0.108,
+        "ci95": [
+          0.073,
+          0.142
+        ],
+        "model_mae_log10": 0.408,
+        "baseline_mae_log10": 0.458
+      },
+      "detection": [
+        {
+          "model": {
+            "threshold_mg_m3": 10.0,
+            "n": 1165,
+            "observed_events": 485,
+            "hits": 173,
+            "misses": 312,
+            "false_alarms": 54,
+            "correct_negatives": 626,
+            "pod": 0.357,
+            "far": 0.238,
+            "csi": 0.321,
+            "accuracy": 0.686
+          },
+          "persistence": {
+            "threshold_mg_m3": 10.0,
+            "n": 1165,
+            "observed_events": 485,
+            "hits": 230,
+            "misses": 255,
+            "false_alarms": 113,
+            "correct_negatives": 567,
+            "pod": 0.474,
+            "far": 0.329,
+            "csi": 0.385,
+            "accuracy": 0.684
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 20.0,
+            "n": 1165,
+            "observed_events": 266,
+            "hits": 22,
+            "misses": 244,
+            "false_alarms": 8,
+            "correct_negatives": 891,
+            "pod": 0.083,
+            "far": 0.267,
+            "csi": 0.08,
+            "accuracy": 0.784
+          },
+          "persistence": {
+            "threshold_mg_m3": 20.0,
+            "n": 1165,
+            "observed_events": 266,
+            "hits": 46,
+            "misses": 220,
+            "false_alarms": 24,
+            "correct_negatives": 875,
+            "pod": 0.173,
+            "far": 0.343,
+            "csi": 0.159,
+            "accuracy": 0.791
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 50.0,
+            "n": 1165,
+            "observed_events": 89,
+            "hits": 0,
+            "misses": 89,
+            "false_alarms": 0,
+            "correct_negatives": 1076,
+            "pod": 0.0,
+            "far": null,
+            "csi": 0.0,
+            "accuracy": 0.924
+          },
+          "persistence": {
+            "threshold_mg_m3": 50.0,
+            "n": 1165,
+            "observed_events": 89,
+            "hits": 2,
+            "misses": 87,
+            "false_alarms": 7,
+            "correct_negatives": 1069,
+            "pod": 0.022,
+            "far": 0.778,
+            "csi": 0.021,
+            "accuracy": 0.919
+          }
+        }
+      ],
+      "climatology": {
+        "n": 1302,
+        "bias_log10": -0.245,
+        "bias_factor": 0.569,
+        "mae_log10": 0.375,
+        "mae_factor": 2.371,
+        "rmse_log10": 0.452,
+        "within_2x": 0.443,
+        "pearson_r_log": 0.688,
+        "spearman_rho": 0.683
+      },
+      "skill_vs_climatology": {
+        "n": 1302,
+        "clusters": 412,
+        "skill": -0.105,
+        "ci95": [
+          -0.138,
+          -0.072
+        ],
+        "model_mae_log10": 0.414,
+        "baseline_mae_log10": 0.375
+      },
+      "held_out_lakes": {
+        "model": {
+          "n": 130,
+          "bias_log10": -0.662,
+          "bias_factor": 0.218,
+          "mae_log10": 0.662,
+          "mae_factor": 4.592,
+          "rmse_log10": 0.704,
+          "within_2x": 0.062,
+          "pearson_r_log": 0.877,
+          "spearman_rho": 0.257
+        },
+        "persistence": {
+          "n": 130,
+          "bias_log10": -0.853,
+          "bias_factor": 0.14,
+          "mae_log10": 0.853,
+          "mae_factor": 7.13,
+          "rmse_log10": 0.898,
+          "within_2x": 0.046,
+          "pearson_r_log": 0.842,
+          "spearman_rho": 0.254
+        }
+      }
+    },
+    {
+      "lead_days": 5,
+      "model": {
+        "n": 1154,
+        "bias_log10": -0.286,
+        "bias_factor": 0.517,
+        "mae_log10": 0.41,
+        "mae_factor": 2.569,
+        "rmse_log10": 0.491,
+        "within_2x": 0.394,
+        "pearson_r_log": 0.664,
+        "spearman_rho": 0.662
+      },
+      "persistence": {
+        "n": 1154,
+        "bias_log10": -0.292,
+        "bias_factor": 0.511,
+        "mae_log10": 0.467,
+        "mae_factor": 2.928,
+        "rmse_log10": 0.584,
+        "within_2x": 0.393,
+        "pearson_r_log": 0.569,
+        "spearman_rho": 0.566
+      },
+      "skill_vs_persistence": {
+        "n": 1154,
+        "clusters": 367,
+        "skill": 0.122,
+        "ci95": [
+          0.086,
+          0.156
+        ],
+        "model_mae_log10": 0.41,
+        "baseline_mae_log10": 0.467
+      },
+      "detection": [
+        {
+          "model": {
+            "threshold_mg_m3": 10.0,
+            "n": 1154,
+            "observed_events": 480,
+            "hits": 169,
+            "misses": 311,
+            "false_alarms": 53,
+            "correct_negatives": 621,
+            "pod": 0.352,
+            "far": 0.239,
+            "csi": 0.317,
+            "accuracy": 0.685
+          },
+          "persistence": {
+            "threshold_mg_m3": 10.0,
+            "n": 1154,
+            "observed_events": 480,
+            "hits": 219,
+            "misses": 261,
+            "false_alarms": 113,
+            "correct_negatives": 561,
+            "pod": 0.456,
+            "far": 0.34,
+            "csi": 0.369,
+            "accuracy": 0.676
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 20.0,
+            "n": 1154,
+            "observed_events": 262,
+            "hits": 18,
+            "misses": 244,
+            "false_alarms": 8,
+            "correct_negatives": 884,
+            "pod": 0.069,
+            "far": 0.308,
+            "csi": 0.067,
+            "accuracy": 0.782
+          },
+          "persistence": {
+            "threshold_mg_m3": 20.0,
+            "n": 1154,
+            "observed_events": 262,
+            "hits": 42,
+            "misses": 220,
+            "false_alarms": 17,
+            "correct_negatives": 875,
+            "pod": 0.16,
+            "far": 0.288,
+            "csi": 0.151,
+            "accuracy": 0.795
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 50.0,
+            "n": 1154,
+            "observed_events": 88,
+            "hits": 0,
+            "misses": 88,
+            "false_alarms": 0,
+            "correct_negatives": 1066,
+            "pod": 0.0,
+            "far": null,
+            "csi": 0.0,
+            "accuracy": 0.924
+          },
+          "persistence": {
+            "threshold_mg_m3": 50.0,
+            "n": 1154,
+            "observed_events": 88,
+            "hits": 2,
+            "misses": 86,
+            "false_alarms": 6,
+            "correct_negatives": 1060,
+            "pod": 0.023,
+            "far": 0.75,
+            "csi": 0.021,
+            "accuracy": 0.92
+          }
+        }
+      ],
+      "climatology": {
+        "n": 1298,
+        "bias_log10": -0.246,
+        "bias_factor": 0.568,
+        "mae_log10": 0.376,
+        "mae_factor": 2.379,
+        "rmse_log10": 0.454,
+        "within_2x": 0.44,
+        "pearson_r_log": 0.689,
+        "spearman_rho": 0.686
+      },
+      "skill_vs_climatology": {
+        "n": 1298,
+        "clusters": 414,
+        "skill": -0.103,
+        "ci95": [
+          -0.135,
+          -0.073
+        ],
+        "model_mae_log10": 0.415,
+        "baseline_mae_log10": 0.376
+      },
+      "held_out_lakes": {
+        "model": {
+          "n": 134,
+          "bias_log10": -0.658,
+          "bias_factor": 0.22,
+          "mae_log10": 0.658,
+          "mae_factor": 4.555,
+          "rmse_log10": 0.7,
+          "within_2x": 0.045,
+          "pearson_r_log": 0.874,
+          "spearman_rho": 0.219
+        },
+        "persistence": {
+          "n": 134,
+          "bias_log10": -0.859,
+          "bias_factor": 0.138,
+          "mae_log10": 0.859,
+          "mae_factor": 7.229,
+          "rmse_log10": 0.908,
+          "within_2x": 0.06,
+          "pearson_r_log": 0.822,
+          "spearman_rho": 0.154
+        }
+      }
+    },
+    {
+      "lead_days": 7,
+      "model": {
+        "n": 1144,
+        "bias_log10": -0.284,
+        "bias_factor": 0.52,
+        "mae_log10": 0.405,
+        "mae_factor": 2.541,
+        "rmse_log10": 0.487,
+        "within_2x": 0.396,
+        "pearson_r_log": 0.669,
+        "spearman_rho": 0.666
+      },
+      "persistence": {
+        "n": 1144,
+        "bias_log10": -0.297,
+        "bias_factor": 0.505,
+        "mae_log10": 0.473,
+        "mae_factor": 2.969,
+        "rmse_log10": 0.594,
+        "within_2x": 0.389,
+        "pearson_r_log": 0.557,
+        "spearman_rho": 0.555
+      },
+      "skill_vs_persistence": {
+        "n": 1144,
+        "clusters": 365,
+        "skill": 0.143,
+        "ci95": [
+          0.108,
+          0.179
+        ],
+        "model_mae_log10": 0.405,
+        "baseline_mae_log10": 0.473
+      },
+      "detection": [
+        {
+          "model": {
+            "threshold_mg_m3": 10.0,
+            "n": 1144,
+            "observed_events": 476,
+            "hits": 176,
+            "misses": 300,
+            "false_alarms": 48,
+            "correct_negatives": 620,
+            "pod": 0.37,
+            "far": 0.214,
+            "csi": 0.336,
+            "accuracy": 0.696
+          },
+          "persistence": {
+            "threshold_mg_m3": 10.0,
+            "n": 1144,
+            "observed_events": 476,
+            "hits": 216,
+            "misses": 260,
+            "false_alarms": 113,
+            "correct_negatives": 555,
+            "pod": 0.454,
+            "far": 0.343,
+            "csi": 0.367,
+            "accuracy": 0.674
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 20.0,
+            "n": 1144,
+            "observed_events": 259,
+            "hits": 18,
+            "misses": 241,
+            "false_alarms": 8,
+            "correct_negatives": 877,
+            "pod": 0.069,
+            "far": 0.308,
+            "csi": 0.067,
+            "accuracy": 0.782
+          },
+          "persistence": {
+            "threshold_mg_m3": 20.0,
+            "n": 1144,
+            "observed_events": 259,
+            "hits": 43,
+            "misses": 216,
+            "false_alarms": 12,
+            "correct_negatives": 873,
+            "pod": 0.166,
+            "far": 0.218,
+            "csi": 0.159,
+            "accuracy": 0.801
+          }
+        },
+        {
+          "model": {
+            "threshold_mg_m3": 50.0,
+            "n": 1144,
+            "observed_events": 89,
+            "hits": 0,
+            "misses": 89,
+            "false_alarms": 0,
+            "correct_negatives": 1055,
+            "pod": 0.0,
+            "far": null,
+            "csi": 0.0,
+            "accuracy": 0.922
+          },
+          "persistence": {
+            "threshold_mg_m3": 50.0,
+            "n": 1144,
+            "observed_events": 89,
+            "hits": 2,
+            "misses": 87,
+            "false_alarms": 9,
+            "correct_negatives": 1046,
+            "pod": 0.022,
+            "far": 0.818,
+            "csi": 0.02,
+            "accuracy": 0.916
+          }
+        }
+      ],
+      "climatology": {
+        "n": 1306,
+        "bias_log10": -0.245,
+        "bias_factor": 0.569,
+        "mae_log10": 0.375,
+        "mae_factor": 2.372,
+        "rmse_log10": 0.453,
+        "within_2x": 0.443,
+        "pearson_r_log": 0.688,
+        "spearman_rho": 0.685
+      },
+      "skill_vs_climatology": {
+        "n": 1306,
+        "clusters": 417,
+        "skill": -0.094,
+        "ci95": [
+          -0.125,
+          -0.064
+        ],
+        "model_mae_log10": 0.41,
+        "baseline_mae_log10": 0.375
+      },
+      "held_out_lakes": {
+        "model": {
+          "n": 135,
+          "bias_log10": -0.64,
+          "bias_factor": 0.229,
+          "mae_log10": 0.64,
+          "mae_factor": 4.369,
+          "rmse_log10": 0.684,
+          "within_2x": 0.059,
+          "pearson_r_log": 0.872,
+          "spearman_rho": 0.178
+        },
+        "persistence": {
+          "n": 135,
+          "bias_log10": -0.851,
+          "bias_factor": 0.141,
+          "mae_log10": 0.851,
+          "mae_factor": 7.092,
+          "rmse_log10": 0.904,
+          "within_2x": 0.074,
+          "pearson_r_log": 0.807,
+          "spearman_rho": 0.075
+        }
+      }
+    }
+  ],
+  "bias_correction_experiment": {
+    "satellite_same_day": {
+      "median_factor": 1.837,
+      "raw": {
+        "within_2x": 0.466,
+        "bias_factor": 0.552,
+        "pod_10": 0.429,
+        "far_10": 0.233,
+        "pod_20": 0.219,
+        "far_20": 0.2,
+        "pod_50": 0.0,
+        "far_50": 1.0
+      },
+      "corrected": {
+        "within_2x": 0.563,
+        "bias_factor": 1.02,
+        "pod_10": 0.671,
+        "far_10": 0.368,
+        "pod_20": 0.603,
+        "far_20": 0.45,
+        "pod_50": 0.222,
+        "far_50": 0.636
+      }
+    },
+    "forecast_lead_1": {
+      "median_factor": 2.135,
+      "raw": {
+        "within_2x": 0.382,
+        "bias_factor": 0.507,
+        "pod_10": 0.35,
+        "far_10": 0.293,
+        "pod_20": 0.075,
+        "far_20": 0.353,
+        "pod_50": 0.0,
+        "far_50": null
+      },
+      "corrected": {
+        "within_2x": 0.517,
+        "bias_factor": 1.102,
+        "pod_10": 0.805,
+        "far_10": 0.382,
+        "pod_20": 0.529,
+        "far_20": 0.509,
+        "pod_50": 0.051,
+        "far_50": 0.783
+      }
+    }
+  },
+  "by_lake": [
+    {
+      "lake_id": "saginaw",
+      "name": "Lake Huron (Saginaw Bay)",
+      "split": "train",
+      "sources": [
+        "EPA WQP"
+      ],
+      "samples": 465,
+      "first": "2016-04-20",
+      "last": "2024-11-18",
+      "satellite_same_day": {
+        "n": 145,
+        "bias_log10": -0.155,
+        "bias_factor": 0.699,
+        "mae_log10": 0.287,
+        "mae_factor": 1.937,
+        "rmse_log10": 0.352,
+        "within_2x": 0.545,
+        "pearson_r_log": 0.606,
+        "spearman_rho": 0.58
+      },
+      "forecast_shortest_lead": {
+        "n": 460,
+        "bias_log10": -0.22,
+        "bias_factor": 0.603,
+        "mae_log10": 0.325,
+        "mae_factor": 2.113,
+        "rmse_log10": 0.393,
+        "within_2x": 0.511,
+        "pearson_r_log": 0.432,
+        "spearman_rho": 0.448
+      },
+      "sentence": "At Lake Huron (Saginaw Bay), the satellite was within a factor of 2 of the field sample 54% of the time (n=145) and tends to read 1.4x low."
+    },
+    {
+      "lake_id": "erie_west",
+      "name": "Lake Erie (Western Basin)",
+      "split": "train",
+      "sources": [
+        "EPA WQP",
+        "GLORIA"
+      ],
+      "samples": 332,
+      "first": "2016-04-03",
+      "last": "2021-04-09",
+      "satellite_same_day": {
+        "n": 90,
+        "bias_log10": -0.36,
+        "bias_factor": 0.437,
+        "mae_log10": 0.386,
+        "mae_factor": 2.431,
+        "rmse_log10": 0.452,
+        "within_2x": 0.4,
+        "pearson_r_log": 0.739,
+        "spearman_rho": 0.647
+      },
+      "forecast_shortest_lead": {
+        "n": 319,
+        "bias_log10": -0.369,
+        "bias_factor": 0.428,
+        "mae_log10": 0.48,
+        "mae_factor": 3.019,
+        "rmse_log10": 0.565,
+        "within_2x": 0.31,
+        "pearson_r_log": 0.454,
+        "spearman_rho": 0.456
+      },
+      "sentence": "At Lake Erie (Western Basin), the satellite was within a factor of 2 of the field sample 40% of the time (n=90) and tends to read 2.3x low."
+    },
+    {
+      "lake_id": "geneva",
+      "name": "Lake Geneva",
+      "split": "val",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 160,
+      "first": "2018-10-18",
+      "last": "2020-06-09",
+      "satellite_same_day": {
+        "n": 27,
+        "bias_log10": -0.884,
+        "bias_factor": 0.131,
+        "mae_log10": 0.884,
+        "mae_factor": 7.653,
+        "rmse_log10": 0.918,
+        "within_2x": 0.0,
+        "pearson_r_log": 0.289,
+        "spearman_rho": 0.308
+      },
+      "forecast_shortest_lead": {
+        "n": 143,
+        "bias_log10": -0.688,
+        "bias_factor": 0.205,
+        "mae_log10": 0.688,
+        "mae_factor": 4.878,
+        "rmse_log10": 0.731,
+        "within_2x": 0.042,
+        "pearson_r_log": 0.057,
+        "spearman_rho": 0.107
+      },
+      "sentence": "At Lake Geneva, the satellite was within a factor of 2 of the field sample 0% of the time (n=27) and tends to read 7.7x low."
+    },
+    {
+      "lake_id": "pontchartrain",
+      "name": "Lake Pontchartrain",
+      "split": "train",
+      "sources": [
+        "EPA WQP"
+      ],
+      "samples": 142,
+      "first": "2016-04-19",
+      "last": "2022-10-11",
+      "satellite_same_day": {
+        "n": 37,
+        "bias_log10": 0.152,
+        "bias_factor": 1.421,
+        "mae_log10": 0.253,
+        "mae_factor": 1.79,
+        "rmse_log10": 0.302,
+        "within_2x": 0.649,
+        "pearson_r_log": 0.371,
+        "spearman_rho": 0.377
+      },
+      "forecast_shortest_lead": {
+        "n": 127,
+        "bias_log10": 0.183,
+        "bias_factor": 1.524,
+        "mae_log10": 0.298,
+        "mae_factor": 1.984,
+        "rmse_log10": 0.362,
+        "within_2x": 0.52,
+        "pearson_r_log": -0.031,
+        "spearman_rho": -0.072
+      },
+      "sentence": "At Lake Pontchartrain, the satellite was within a factor of 2 of the field sample 65% of the time (n=37) and tends to read 1.4x high."
+    },
+    {
+      "lake_id": "kasumigaura",
+      "name": "Lake Kasumigaura",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 79,
+      "first": "2016-04-13",
+      "last": "2019-03-12",
+      "satellite_same_day": {
+        "n": 9,
+        "bias_log10": -0.416,
+        "bias_factor": 0.384,
+        "mae_log10": 0.416,
+        "mae_factor": 2.607,
+        "rmse_log10": 0.456,
+        "within_2x": 0.333,
+        "pearson_r_log": 0.724,
+        "spearman_rho": 0.561
+      },
+      "forecast_shortest_lead": {
+        "n": 47,
+        "bias_log10": -0.61,
+        "bias_factor": 0.245,
+        "mae_log10": 0.61,
+        "mae_factor": 4.077,
+        "rmse_log10": 0.654,
+        "within_2x": 0.106,
+        "pearson_r_log": 0.2,
+        "spearman_rho": 0.23
+      },
+      "sentence": "Too few same-day field samples at Lake Kasumigaura to say how the satellite compares."
+    },
+    {
+      "lake_id": "okeechobee",
+      "name": "Lake Okeechobee",
+      "split": "train",
+      "sources": [
+        "EPA WQP"
+      ],
+      "samples": 53,
+      "first": "2017-06-13",
+      "last": "2023-11-08",
+      "satellite_same_day": {
+        "n": 5,
+        "bias_log10": 0.684,
+        "bias_factor": 4.83,
+        "mae_log10": 0.684,
+        "mae_factor": 4.83,
+        "rmse_log10": 0.718,
+        "within_2x": 0.0,
+        "pearson_r_log": 0.632,
+        "spearman_rho": 0.6
+      },
+      "forecast_shortest_lead": {
+        "n": 52,
+        "bias_log10": -0.151,
+        "bias_factor": 0.707,
+        "mae_log10": 0.462,
+        "mae_factor": 2.895,
+        "rmse_log10": 0.596,
+        "within_2x": 0.385,
+        "pearson_r_log": -0.223,
+        "spearman_rho": -0.187
+      },
+      "sentence": "Too few same-day field samples at Lake Okeechobee to say how the satellite compares."
+    },
+    {
+      "lake_id": "peipsi",
+      "name": "Lake Peipsi",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 47,
+      "first": "2016-06-14",
+      "last": "2018-08-22",
+      "satellite_same_day": {
+        "n": 23,
+        "bias_log10": -0.28,
+        "bias_factor": 0.525,
+        "mae_log10": 0.317,
+        "mae_factor": 2.075,
+        "rmse_log10": 0.384,
+        "within_2x": 0.609,
+        "pearson_r_log": 0.693,
+        "spearman_rho": 0.758
+      },
+      "forecast_shortest_lead": {
+        "n": 46,
+        "bias_log10": -0.255,
+        "bias_factor": 0.556,
+        "mae_log10": 0.259,
+        "mae_factor": 1.815,
+        "rmse_log10": 0.308,
+        "within_2x": 0.565,
+        "pearson_r_log": 0.749,
+        "spearman_rho": 0.738
+      },
+      "sentence": "At Lake Peipsi, the satellite was within a factor of 2 of the field sample 61% of the time (n=23) and tends to read 1.9x low."
+    },
+    {
+      "lake_id": "garda",
+      "name": "Lake Garda",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 38,
+      "first": "2016-06-08",
+      "last": "2020-09-10",
+      "satellite_same_day": {
+        "n": 22,
+        "bias_log10": -0.398,
+        "bias_factor": 0.4,
+        "mae_log10": 0.489,
+        "mae_factor": 3.083,
+        "rmse_log10": 0.625,
+        "within_2x": 0.5,
+        "pearson_r_log": -0.207,
+        "spearman_rho": -0.318
+      },
+      "forecast_shortest_lead": {
+        "n": 38,
+        "bias_log10": -0.264,
+        "bias_factor": 0.545,
+        "mae_log10": 0.351,
+        "mae_factor": 2.245,
+        "rmse_log10": 0.414,
+        "within_2x": 0.474,
+        "pearson_r_log": 0.041,
+        "spearman_rho": 0.036
+      },
+      "sentence": "At Lake Garda, the satellite was within a factor of 2 of the field sample 50% of the time (n=22) and tends to read 2.5x low."
+    },
+    {
+      "lake_id": "poyang",
+      "name": "Lake Poyang",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 16,
+      "first": "2021-06-05",
+      "last": "2021-06-05",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 16,
+        "bias_log10": -0.294,
+        "bias_factor": 0.509,
+        "mae_log10": 0.294,
+        "mae_factor": 1.966,
+        "rmse_log10": 0.321,
+        "within_2x": 0.5,
+        "pearson_r_log": 0.436,
+        "spearman_rho": 0.288
+      },
+      "sentence": "Too few same-day field samples at Lake Poyang to say how the satellite compares."
+    },
+    {
+      "lake_id": "dianchi",
+      "name": "Lake Dianchi",
+      "split": "val",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 12,
+      "first": "2019-06-01",
+      "last": "2019-06-01",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 12,
+        "bias_log10": -0.701,
+        "bias_factor": 0.199,
+        "mae_log10": 0.701,
+        "mae_factor": 5.021,
+        "rmse_log10": 0.703,
+        "within_2x": 0.0,
+        "pearson_r_log": 0.245,
+        "spearman_rho": 0.032
+      },
+      "sentence": "Too few same-day field samples at Lake Dianchi to say how the satellite compares."
+    },
+    {
+      "lake_id": "green_bay",
+      "name": "Lake Michigan (Green Bay)",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 10,
+      "first": "2016-07-26",
+      "last": "2019-07-24",
+      "satellite_same_day": {
+        "n": 2,
+        "bias_log10": -1.616,
+        "bias_factor": 0.024,
+        "mae_log10": 1.616,
+        "mae_factor": 41.313,
+        "rmse_log10": 1.617,
+        "within_2x": 0.0
+      },
+      "forecast_shortest_lead": {
+        "n": 10,
+        "bias_log10": -0.574,
+        "bias_factor": 0.267,
+        "mae_log10": 0.58,
+        "mae_factor": 3.804,
+        "rmse_log10": 0.723,
+        "within_2x": 0.4,
+        "pearson_r_log": 0.42,
+        "spearman_rho": 0.612
+      },
+      "sentence": "Too few same-day field samples at Lake Michigan (Green Bay) to say how the satellite compares."
+    },
+    {
+      "lake_id": "vortsjarv",
+      "name": "Lake Vortsjarv",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 10,
+      "first": "2016-05-20",
+      "last": "2018-05-14",
+      "satellite_same_day": {
+        "n": 5,
+        "bias_log10": -0.332,
+        "bias_factor": 0.465,
+        "mae_log10": 0.332,
+        "mae_factor": 2.149,
+        "rmse_log10": 0.349,
+        "within_2x": 0.4,
+        "pearson_r_log": -0.559,
+        "spearman_rho": -0.6
+      },
+      "forecast_shortest_lead": {
+        "n": 10,
+        "bias_log10": -0.366,
+        "bias_factor": 0.43,
+        "mae_log10": 0.366,
+        "mae_factor": 2.325,
+        "rmse_log10": 0.372,
+        "within_2x": 0.2,
+        "pearson_r_log": 0.633,
+        "spearman_rho": 0.164
+      },
+      "sentence": "Too few same-day field samples at Lake Vortsjarv to say how the satellite compares."
+    },
+    {
+      "lake_id": "winnebago",
+      "name": "Lake Winnebago",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 10,
+      "first": "2016-09-02",
+      "last": "2018-10-24",
+      "satellite_same_day": {
+        "n": 6,
+        "bias_log10": -0.381,
+        "bias_factor": 0.416,
+        "mae_log10": 0.384,
+        "mae_factor": 2.422,
+        "rmse_log10": 0.57,
+        "within_2x": 0.667,
+        "pearson_r_log": -0.003,
+        "spearman_rho": 0.257
+      },
+      "forecast_shortest_lead": {
+        "n": 10,
+        "bias_log10": -0.51,
+        "bias_factor": 0.309,
+        "mae_log10": 0.519,
+        "mae_factor": 3.307,
+        "rmse_log10": 0.661,
+        "within_2x": 0.3,
+        "pearson_r_log": -0.267,
+        "spearman_rho": -0.164
+      },
+      "sentence": "Too few same-day field samples at Lake Winnebago to say how the satellite compares."
+    },
+    {
+      "lake_id": "taupo",
+      "name": "Lake Taupo",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 2,
+      "first": "2017-03-29",
+      "last": "2017-03-29",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 2,
+        "bias_log10": -0.162,
+        "bias_factor": 0.689,
+        "mae_log10": 0.162,
+        "mae_factor": 1.452,
+        "rmse_log10": 0.163,
+        "within_2x": 1.0
+      },
+      "sentence": "Too few same-day field samples at Lake Taupo to say how the satellite compares."
+    },
+    {
+      "lake_id": "hartbeespoort",
+      "name": "Hartbeespoort Dam",
+      "split": "test",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 1,
+      "first": "2017-03-29",
+      "last": "2017-03-29",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 0
+      },
+      "sentence": "Too few same-day field samples at Hartbeespoort Dam to say how the satellite compares."
+    },
+    {
+      "lake_id": "te_waihora",
+      "name": "Te Waihora / Lake Ellesmere",
+      "split": "train",
+      "sources": [
+        "GLORIA"
+      ],
+      "samples": 1,
+      "first": "2018-02-10",
+      "last": "2018-02-10",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 0
+      },
+      "sentence": "Too few same-day field samples at Te Waihora / Lake Ellesmere to say how the satellite compares."
+    },
+    {
+      "lake_id": "utah_lake",
+      "name": "Utah Lake",
+      "split": "train",
+      "sources": [
+        "EPA WQP"
+      ],
+      "samples": 1,
+      "first": "2021-09-02",
+      "last": "2021-09-02",
+      "satellite_same_day": {
+        "n": 0
+      },
+      "forecast_shortest_lead": {
+        "n": 1,
+        "bias_log10": -1.605,
+        "bias_factor": 0.025,
+        "mae_log10": 1.605,
+        "mae_factor": 40.259,
+        "rmse_log10": 1.605,
+        "within_2x": 0.0
+      },
+      "sentence": "Too few same-day field samples at Utah Lake to say how the satellite compares."
+    }
+  ]
+}

@@ -18,7 +18,10 @@ most misleading thing this system could do.
 
 from __future__ import annotations
 
+import hashlib
 import logging
+import os
+from collections import OrderedDict
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -49,6 +52,15 @@ WATER_MIN_FREQUENCY = 0.05
 # Half-width of the seasonal window the climatology input is averaged over. Must match
 # the training dataset's `clim_halfwidth` for the same reason as the water mask.
 CLIM_HALFWIDTH_DAYS = 15
+# Where per-lake water masks are kept between processes. The mask is a reduction over the
+# lake's whole archive (~2 s per lake, profiled 2026-11-26 -- 60% of a cold forecast) and
+# constant for a given cube, so it is written once per cube version. The file name carries
+# the cube's metadata signature: a refresh that appends to the cube changes the name, so a
+# stale mask is never read, only left behind. Empty string disables the disk cache.
+STATIC_CACHE_DEFAULT = "data/cache/statics"
+# Per-lead climatology fields held in memory, keyed by (lake, cube, year excluded, day of
+# year). Bounded by count: one entry is two (H, W) float32 grids, ~1 MB for Lake Victoria.
+CLIM_MEMO_MAX = 96
 
 
 @dataclass
@@ -199,6 +211,8 @@ class Predictor:
         # store's metadata signature so an ingest that appends to a cube while the server
         # runs is picked up on the next request rather than served stale.
         self._cube_cache: dict[str, tuple[tuple, object, dict[date, int]]] = {}
+        # (lake, cube signature, excluded year, target doy) -> (clim, has) per lead.
+        self._clim_memo: OrderedDict[tuple, tuple[np.ndarray, np.ndarray]] = OrderedDict()
 
     @staticmethod
     def _resolve_device(device: str | None):
@@ -557,22 +571,58 @@ class Predictor:
         n = len(self.lead_times)
         clim = np.zeros((n, h, w), dtype=np.float32)
         mask = np.zeros((n, h, w), dtype=np.float32)
+        sig = self._cube_cache[lake_id][0]
+
+        # The four leads' +/-15-day windows overlap almost entirely, so the archive rows
+        # they need are read in ONE pass and each lead's mean is taken from that block.
+        # Reading per lead fetched the same chunks four times (0.9 s/lake -> ~0.3 s).
+        # Each lead's field is also memoised: consecutive anchors (the validation sweep,
+        # the outlook on successive days) target the same days of year.
+        todo: dict[int, np.ndarray] = {}
         for li, lead in enumerate(self.lead_times):
             target = (anchor + timedelta(days=lead)).timetuple().tm_yday
+            key = (lake_id, sig, anchor.year, target)
+            hit = self._clim_memo.get(key)
+            if hit is not None:
+                self._clim_memo.move_to_end(key)
+                clim[li], mask[li] = hit
+                continue
             delta = np.abs(doys - target)
             delta = np.minimum(delta, 366 - delta)
-            rows = np.flatnonzero((delta <= CLIM_HALFWIDTH_DAYS) & (years != anchor.year))
-            if rows.size == 0:
-                continue
-            block = ds["log_chl"].isel(time=rows).values.astype(np.float32)
-            ok = np.isfinite(block)
-            cnt = ok.sum(axis=0)
-            with np.errstate(invalid="ignore", divide="ignore"):
-                mean = np.where(ok, block, 0.0).sum(axis=0) / np.maximum(cnt, 1)
-            has = cnt > 0
-            clim[li] = np.where(has, self.norm.apply(mean), 0.0)
-            mask[li] = has
+            todo[li] = np.flatnonzero((delta <= CLIM_HALFWIDTH_DAYS) & (years != anchor.year))
+        wanted = sorted({int(r) for rows in todo.values() for r in rows})
+        if wanted:
+            block = ds["log_chl"].isel(time=wanted).values.astype(np.float32)
+            pos = {r: i for i, r in enumerate(wanted)}
+            for li, rows in todo.items():
+                if rows.size:
+                    sub = block[[pos[int(r)] for r in rows]]
+                    ok = np.isfinite(sub)
+                    cnt = ok.sum(axis=0)
+                    with np.errstate(invalid="ignore", divide="ignore"):
+                        mean = np.where(ok, sub, 0.0).sum(axis=0) / np.maximum(cnt, 1)
+                    has = cnt > 0
+                    clim[li] = np.where(has, self.norm.apply(mean), 0.0)
+                    mask[li] = has
+                target = (anchor + timedelta(days=self.lead_times[li])).timetuple().tm_yday
+                self._clim_memo[(lake_id, sig, anchor.year, target)] = (
+                    clim[li].copy(),
+                    mask[li].copy(),
+                )
+            while len(self._clim_memo) > CLIM_MEMO_MAX:
+                self._clim_memo.popitem(last=False)
         return clim, mask
+
+    def _water_mask_path(self, lake_id: str, n_time: int) -> Path | None:
+        root = os.getenv("HAB_STATIC_CACHE", STATIC_CACHE_DEFAULT)
+        if not root or lake_id not in self._cube_cache:
+            return None
+        sig = self._cube_cache[lake_id][0]
+        cube = (self.cube_root / f"{lake_id}.zarr").resolve()
+        tag = hashlib.sha1(
+            repr((str(cube), sig, n_time, WATER_MIN_FREQUENCY)).encode("utf-8")
+        ).hexdigest()[:16]
+        return Path(root) / f"water_{lake_id}_{tag}.npy"
 
     def _water_mask(self, lake_id: str, ds) -> np.ndarray:
         """Static water mask for a lake, computed once and cached.
@@ -589,6 +639,17 @@ class Predictor:
         da = ds["log_chl"]
         n_time = da.sizes["time"]
         shape = (da.sizes["y"], da.sizes["x"])
+
+        disk = self._water_mask_path(lake_id, n_time)
+        if disk is not None and disk.exists():
+            try:
+                water = np.load(disk)
+                if water.shape == shape:
+                    self._water_cache[lake_id] = water
+                    return water
+            except (OSError, ValueError):
+                logger.warning("%s: unreadable cached water mask %s; rebuilding", lake_id, disk)
+
         counts = np.zeros(shape, dtype=np.int32)
 
         # Accumulate over explicit time blocks rather than letting dask schedule the
@@ -602,6 +663,17 @@ class Predictor:
 
         water = ((counts / max(n_time, 1)) >= WATER_MIN_FREQUENCY).astype(np.float32)
         self._water_cache[lake_id] = water
+        if disk is not None:
+            # Written beside a temporary name and renamed, so two API workers warming the
+            # same lake can never leave each other a half-written file.
+            try:
+                disk.parent.mkdir(parents=True, exist_ok=True)
+                tmp = disk.with_suffix(f".{os.getpid()}.part")
+                with tmp.open("wb") as fh:
+                    np.save(fh, water)
+                tmp.replace(disk)
+            except OSError as exc:  # a read-only container still serves, just slower
+                logger.info("%s: could not persist water mask (%s)", lake_id, exc)
         logger.debug(
             "%s: water mask %d/%d px from %d frames", lake_id, int(water.sum()), water.size, n_time
         )
@@ -768,7 +840,7 @@ def ensemble_forecast(
     """
     import torch
 
-    from habforecast.models.lit import has_exceed_head, model_inputs, predict_tta
+    from habforecast.models.forward import has_exceed_head, model_inputs, predict_tta
 
     preds, probs = [], []
     with torch.no_grad():

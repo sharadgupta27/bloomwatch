@@ -505,6 +505,44 @@ def _case1_route(body: WaterBody, limit_m: float, reasons: list[str], caveats: l
     )
 
 
+REGISTRY_ARCHIVE_STEP = SourceStep(
+    product="bloom-watch-archive",
+    label="Bloom Watch archive (ingested Sentinel-3 OLCI L2)",
+    resolution_m=300.0,
+    role="primary",
+    record="years of daily composites for each monitored lake",
+    reason=(
+        "This lake is monitored: its imagery is already ingested through the training "
+        "pipeline, with full WQSF quality control and a water mask built from years of "
+        "retrievals. Nothing is downloaded."
+    ),
+)
+
+
+def registry_route(route: Route, lake_name: str) -> Route:
+    """The route for a monitored lake served from its own archive.
+
+    Such a lake has the multi-year history the climatology checkpoint needs, so it gets
+    that checkpoint -- the one the outlook, /forecast and /advisory already use -- rather
+    than the no-history model a drawn area falls back to. The drawn-area caveat about the
+    missing archive is dropped because it is no longer true; every other caveat stays.
+    """
+    model = MODELS["olci-300m-clim"]
+    return Route(
+        water=route.water,
+        sources=(REGISTRY_ARCHIVE_STEP, *[s for s in route.sources if s.role != "primary"]),
+        model=model,
+        baseline=None,
+        reasons=[
+            *route.reasons,
+            f"{lake_name} is a monitored lake, so it is forecast from its own archive with "
+            f"{model.label}.",
+        ],
+        caveats=[c for c in route.caveats if "has no multi-year archive" not in c],
+        alternatives=[],
+    )
+
+
 def override_model(route: Route, key: str) -> Route:
     """The same area, forced onto a named checkpoint -- and onto that checkpoint's product.
 

@@ -48,6 +48,8 @@ COPY data/aoi/ data/aoi/
 # most conservative route, which is a working app that has quietly stopped doing the one
 # thing this layer exists for.
 COPY data/reference/ data/reference/
+# Served at /model-card; the API description links to it.
+COPY docs/MODEL_CARD.md docs/MODEL_CARD.md
 
 # Run as non-root: the container writes only to mounted volumes.
 RUN useradd --create-home --uid 10001 hab && chown -R hab:hab /app
@@ -97,6 +99,8 @@ COPY serving/ serving/
 COPY scripts/ scripts/
 COPY data/aoi/ data/aoi/
 COPY data/reference/ data/reference/
+# Served at /model-card; the API description links to it.
+COPY docs/MODEL_CARD.md docs/MODEL_CARD.md
 RUN useradd --create-home --uid 10001 hab && chown -R hab:hab /app
 USER hab
 ENV PYTHONPATH=/app/src \
