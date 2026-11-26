@@ -29,7 +29,8 @@ data/external/
 # --- Models & experiment tracking ---
 mlruns/
 mlartifacts/
-models/*.ckpt
+# Checkpoints anywhere (models/ens_*/, artifacts/*/checkpoints/): large, reproducible from training runs.
+*.ckpt
 models/*.pt
 models/*.onnx
 lightning_logs/
