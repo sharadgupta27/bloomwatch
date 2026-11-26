@@ -68,6 +68,7 @@ def main(cfg: DictConfig) -> float:
         crop=cfg.data.crop,
         batch_size=cfg.data.batch_size,
         num_workers=cfg.data.num_workers,
+        val_num_workers=cfg.data.get("val_num_workers"),
         min_input_frames=cfg.data.min_input_frames,
         min_target_coverage=cfg.data.min_target_coverage,
         min_water_frequency=cfg.data.min_water_frequency,

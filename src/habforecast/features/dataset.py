@@ -25,6 +25,7 @@ distribution into the standardisation.
 from __future__ import annotations
 
 import logging
+import mmap
 import os
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -50,6 +51,41 @@ logger = logging.getLogger(__name__)
 # float16; the default leaves headroom for the held-out lake at evaluation.
 CLIM_CACHE_MAX_BYTES = int(float(os.environ.get("HAB_CLIM_CACHE_MB", "2048")) * 2**20)
 _clim_cache_bytes = 0
+
+
+def set_clim_cache_budget(max_bytes: int) -> None:
+    """Cap this process's climatology cache. Each DataLoader worker holds its own cache,
+    so the workers split the budget rather than each taking all of it."""
+    global CLIM_CACHE_MAX_BYTES
+    CLIM_CACHE_MAX_BYTES = int(max_bytes)
+
+
+def _is_file_map(arr) -> bool:
+    """A whole-file .npy map (np.load mmap_mode="r"), not a view of one or a copy."""
+    return isinstance(arr, np.memmap) and bool(arr.filename) and isinstance(arr.base, mmap.mmap)
+
+
+class _MappedNpy:
+    """Pickle stand-in for a mapped .npy file: its path, reopened read-only on unpickle."""
+
+    __slots__ = ("path", "shape")
+
+    def __init__(self, path: str, shape: tuple[int, ...]):
+        self.path, self.shape = path, shape
+
+    def open(self) -> np.ndarray:
+        arr = np.load(self.path, mmap_mode="r")
+        if arr.shape != self.shape:
+            raise RuntimeError(f"{self.path} changed shape since it was pickled")
+        return arr
+
+
+def _pack(v):
+    return _MappedNpy(v.filename, v.shape) if _is_file_map(v) else v
+
+
+def _unpack(v):
+    return v.open() if isinstance(v, _MappedNpy) else v
 
 
 @dataclass
@@ -102,6 +138,24 @@ class LakeSeries:
         object.__setattr__(self, "_doys", np.asarray(ts.dayofyear, dtype=np.int32))
         object.__setattr__(self, "_years", np.asarray(ts.year, dtype=np.int32))
         object.__setattr__(self, "_clim_cache", {})
+
+    # DataLoader workers on Windows are spawned and receive the dataset by pickle. A
+    # pickled np.memmap is written out as a full in-memory copy, so every worker would
+    # carry the whole mapped training set (8.5 GB for the global registry) -- pass the
+    # file path instead and map it again on the other side.
+    def __getstate__(self) -> dict:
+        state = dict(self.__dict__)
+        for k in ("values", "_zero_filled", "_observed"):
+            state[k] = _pack(state[k])
+        state["aux"] = {k: _pack(v) for k, v in self.aux.items()}
+        state["_clim_cache"] = {}  # per process; rebuilt on demand under its own budget
+        return state
+
+    def __setstate__(self, state: dict) -> None:
+        for k in ("values", "_zero_filled", "_observed"):
+            state[k] = _unpack(state[k])
+        state["aux"] = {k: _unpack(v) for k, v in state["aux"].items()}
+        self.__dict__.update(state)
 
     def frame(self, day: date) -> np.ndarray | None:
         """The frame for `day`, or None when that date has no observation at all."""
@@ -174,6 +228,49 @@ class LakeSeries:
             frame = frame[box[0], box[1]]
         return frame.astype(np.float32)
 
+    def prepare_climatology(self) -> None:
+        """Build the NaN-free values and observation mask the climatology sums over.
+
+        Built once: summing them replaces the per-call isfinite / where / astype passes
+        over every frame. Call it before DataLoader workers start, so they inherit the
+        finished arrays instead of each building (and, when mapped, writing) its own.
+        """
+        if self._zero_filled is not None:
+            return
+        if _is_file_map(self.values):
+            # A memory-mapped series keeps its derived arrays on disk beside it, built a
+            # block of frames at a time: two more in-RAM copies of every cube are what the
+            # mapping exists to avoid. The .npy name already encodes the cube version, so
+            # finished files are reused; they are written under a temporary name and
+            # renamed, so a killed build never leaves a half-written file to be reused.
+            base = Path(self.values.filename)
+            paths = (base.with_suffix(".zero.npy"), base.with_suffix(".obs.npy"))
+            if not all(p.exists() for p in paths):
+                tmps = [p.with_name(p.name + ".part") for p in paths]
+                zf = np.lib.format.open_memmap(tmps[0], "w+", np.float16, self.values.shape)
+                ob = np.lib.format.open_memmap(tmps[1], "w+", np.bool_, self.values.shape)
+                for i in range(0, self.values.shape[0], 64):
+                    blk = np.asarray(self.values[i : i + 64])
+                    ok = np.isfinite(blk)
+                    ob[i : i + 64] = ok
+                    zf[i : i + 64] = np.where(ok, blk, np.float16(0.0))
+                zf.flush()
+                ob.flush()
+                del zf, ob  # release the maps: Windows cannot rename a mapped file
+                for tmp, p in zip(tmps, paths, strict=True):
+                    tmp.replace(p)
+            zf, ob = (np.load(p, mmap_mode="r") for p in paths)
+            if zf.shape != self.values.shape or ob.shape != self.values.shape:
+                raise RuntimeError(f"{base}: stale climatology arrays -- delete *.zero/obs.npy")
+            object.__setattr__(self, "_zero_filled", zf)
+            object.__setattr__(self, "_observed", ob)
+        else:
+            observed = np.isfinite(self.values)
+            object.__setattr__(self, "_observed", observed)
+            object.__setattr__(
+                self, "_zero_filled", np.where(observed, self.values, np.float16(0.0))
+            )
+
     def _climatology_full(self, doy: int, exclude_year: int, halfwidth: int) -> np.ndarray | None:
         """Whole-grid seasonal mean, float16, cached under the process-wide budget."""
         global _clim_cache_bytes
@@ -186,35 +283,7 @@ class LakeSeries:
         rows = np.flatnonzero((delta <= halfwidth) & (self._years != exclude_year))
         if rows.size == 0:
             return None
-        if self._zero_filled is None:
-            # NaN-free values and a boolean observation mask, built once: summing them
-            # replaces the per-call isfinite / where / astype passes over every frame.
-            if isinstance(self.values, np.memmap) and self.values.filename:
-                # A memory-mapped series keeps its derived arrays on disk beside it, built
-                # a block of frames at a time: two more in-RAM copies of every cube are
-                # what the mapping exists to avoid.
-                base = Path(self.values.filename)
-                zf = np.lib.format.open_memmap(
-                    base.with_suffix(".zero.npy"), "w+", np.float16, self.values.shape
-                )
-                ob = np.lib.format.open_memmap(
-                    base.with_suffix(".obs.npy"), "w+", np.bool_, self.values.shape
-                )
-                for i in range(0, self.values.shape[0], 64):
-                    blk = np.asarray(self.values[i : i + 64])
-                    ok = np.isfinite(blk)
-                    ob[i : i + 64] = ok
-                    zf[i : i + 64] = np.where(ok, blk, np.float16(0.0))
-                zf.flush()
-                ob.flush()
-                object.__setattr__(self, "_observed", ob)
-                object.__setattr__(self, "_zero_filled", zf)
-            else:
-                observed = np.isfinite(self.values)
-                object.__setattr__(self, "_observed", observed)
-                object.__setattr__(
-                    self, "_zero_filled", np.where(observed, self.values, np.float16(0.0))
-                )
+        self.prepare_climatology()
         acc = np.take(self._zero_filled, rows, axis=0).sum(axis=0, dtype=np.float32)
         cnt = np.take(self._observed, rows, axis=0).sum(axis=0, dtype=np.int32)
         with np.errstate(invalid="ignore", divide="ignore"):

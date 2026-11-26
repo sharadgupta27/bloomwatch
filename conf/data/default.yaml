@@ -21,7 +21,9 @@ min_target_coverage: 0.05
 min_water_frequency: 0.05
 augment: true
 batch_size: 8
-num_workers: 0           # Windows spawn + in-RAM arrays: 0 is fastest here
+num_workers: 0           # Windows spawn + in-RAM arrays: 0 is fastest here. A mapped
+                         # (paths.mmap) set is disk-bound instead: 6 read ~4x faster
+val_num_workers: null    # val/test loader workers; null = num_workers. Each costs ~1.2 GB
 
 # Auxiliary physical layers stacked alongside chlorophyll, from the same OLCI granule
 # (see src/habforecast/data/aux_layers.py). Empty reproduces the original univariate

@@ -33,10 +33,13 @@ from pathlib import Path
 from typing import Any, cast
 
 import lightning as L
+import numpy as np
+import torch
 from lightning.fabric.utilities.data import AttributeDict
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, get_worker_info
 
 from habforecast.aoi import AOIRegistry
+from habforecast.features import dataset as dataset_mod
 from habforecast.features.dataset import (
     LakeSeries,
     Normalisation,
@@ -47,6 +50,19 @@ from habforecast.features.dataset import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def _init_worker(worker_id: int) -> None:
+    """Per-worker setup for DataLoader processes.
+
+    Each worker receives a copy of the dataset, random generator included, so without a
+    reseed every worker would draw the same crops, flips and dropouts. torch hands each
+    worker a distinct seed derived from the run's seed, so this stays reproducible.
+    The workers also split the climatology cache budget: each holds its own cache.
+    """
+    info = get_worker_info()
+    info.dataset.rng = np.random.default_rng(torch.initial_seed() % 2**32)
+    dataset_mod.set_clim_cache_budget(dataset_mod.CLIM_CACHE_MAX_BYTES // info.num_workers)
 
 
 class HABDataModule(L.LightningDataModule):
@@ -79,6 +95,7 @@ class HABDataModule(L.LightningDataModule):
         test_years: tuple[int, ...] = (2024, 2025),
         group_dropout: float = 0.0,
         mmap_dir: str | Path | None = None,
+        val_num_workers: int | None = None,
     ):
         super().__init__()
         self.save_hyperparameters()
@@ -248,6 +265,14 @@ class HABDataModule(L.LightningDataModule):
                 group_dropout=float(self.hparams.group_dropout),
                 **common,
             )
+        # Build the climatology arrays here, once, before any DataLoader worker exists:
+        # otherwise each worker builds its own on first use -- for mapped series, all of
+        # them writing the same files at once.
+        if self.hparams.climatology:
+            for split_series in self._series.values():
+                for sr in split_series:
+                    (sr.clim_source or sr).prepare_climatology()
+
         # Val and test use the full grid and no augmentation: the score must reflect
         # performance on the whole lake, not on a lucky crop.
         for split in ("val", "test"):
@@ -264,14 +289,22 @@ class HABDataModule(L.LightningDataModule):
         # Full-grid val/test batches are large; batch 1 keeps peak memory predictable
         # on a 4 GB card and costs nothing since evaluation is not the bottleneck.
         bs = self.hparams.batch_size if split == "train" else 1
+        # Val/test workers are kept alive all run but work a few minutes per epoch, and each
+        # holds ~1.2 GB: six of each pushed the machine to 55.8 of 58.9 GB committed
+        # (2026-09-25). So evaluation gets its own, smaller count (None = same as train).
+        workers = self.hparams.num_workers
+        if split != "train" and self.hparams.val_num_workers is not None:
+            workers = self.hparams.val_num_workers
         return DataLoader(
             ds,
             batch_size=bs,
             shuffle=shuffle,
-            num_workers=self.hparams.num_workers,
+            num_workers=workers,
             pin_memory=True,
             drop_last=(split == "train" and len(ds) > self.hparams.batch_size),
-            persistent_workers=self.hparams.num_workers > 0,
+            persistent_workers=workers > 0,
+            worker_init_fn=_init_worker if workers > 0 else None,
+            prefetch_factor=4 if workers > 0 else None,
         )
 
     def train_dataloader(self):
