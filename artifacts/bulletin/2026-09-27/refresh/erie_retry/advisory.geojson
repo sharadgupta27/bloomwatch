@@ -1,0 +1,206 @@
+{
+  "type": "FeatureCollection",
+  "generated_utc": "2026-09-27T18:38:31+00:00",
+  "levels": [
+    "none",
+    "watch",
+    "warning",
+    "alert"
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "erie_west",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.55,
+              41.35
+            ],
+            [
+              -82.5,
+              41.35
+            ],
+            [
+              -82.5,
+              42.05
+            ],
+            [
+              -83.55,
+              42.05
+            ],
+            [
+              -83.55,
+              41.35
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "erie_west",
+        "name": "Lake Erie (Western Basin)",
+        "country": "US/CA",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.3638514578342438,
+          "20": 0.019535701721906662,
+          "50": 0.023189693689346313
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-18",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-26",
+          "2026-09-27"
+        ],
+        "n_observed_days": 6,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 3952.7999999999997,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 6.0631608963012695,
+            "p90_chl_mg_m3": 10.693842887878418,
+            "bloom_area_km2": {
+              "10": 516.96,
+              "20": 12.69,
+              "50": 0.36
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1021.4267578125,
+                "max_prob": 0.9596812129020691
+              },
+              "20": {
+                "expected_area_km2": 47.530517578125,
+                "max_prob": 0.9250253438949585
+              },
+              "50": {
+                "expected_area_km2": 65.41773986816406,
+                "max_prob": 0.5386340618133545
+              }
+            },
+            "ensemble_spread_log10_median": 0.015158474445343018
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 6.179648399353027,
+            "p90_chl_mg_m3": 10.594139099121094,
+            "bloom_area_km2": {
+              "10": 472.04999999999995,
+              "20": 13.59,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1244.427001953125,
+                "max_prob": 0.9312598705291748
+              },
+              "20": {
+                "expected_area_km2": 75.14966583251953,
+                "max_prob": 0.8169022798538208
+              },
+              "50": {
+                "expected_area_km2": 69.88465118408203,
+                "max_prob": 0.4763840138912201
+              }
+            },
+            "ensemble_spread_log10_median": 0.01800442859530449
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 6.317337989807129,
+            "p90_chl_mg_m3": 10.625011444091797,
+            "bloom_area_km2": {
+              "10": 474.21,
+              "20": 15.299999999999999,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1230.2900390625,
+                "max_prob": 0.8943914175033569
+              },
+              "20": {
+                "expected_area_km2": 70.62821960449219,
+                "max_prob": 0.7709513902664185
+              },
+              "50": {
+                "expected_area_km2": 81.25560760498047,
+                "max_prob": 0.49385732412338257
+              }
+            },
+            "ensemble_spread_log10_median": 0.019224725663661957
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 6.407610893249512,
+            "p90_chl_mg_m3": 10.548341751098633,
+            "bloom_area_km2": {
+              "10": 468.63,
+              "20": 16.29,
+              "50": 0.63
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1438.23193359375,
+                "max_prob": 0.8560749888420105
+              },
+              "20": {
+                "expected_area_km2": 77.2206039428711,
+                "max_prob": 0.797883927822113
+              },
+              "50": {
+                "expected_area_km2": 91.66458892822266,
+                "max_prob": 0.4845075011253357
+              }
+            },
+            "ensemble_spread_log10_median": 0.01960841193795204
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0022996357012750454,
+            "possible": 0.798155737704918
+          },
+          "20": {
+            "likely": 0.0001593806921675774,
+            "possible": 0.0009790528233151183
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0002504553734061931
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    }
+  ]
+}

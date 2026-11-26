@@ -1,0 +1,43 @@
+{
+  "anchor_date": "2026-09-27",
+  "alerts": [],
+  "reports": {
+    "erie_west": {
+      "reference": "erie_west archive, same season",
+      "current": "erie_west input window (cube)",
+      "generated_utc": "2026-09-27T17:09:30+00:00",
+      "any_drift": false,
+      "drifted_metrics": [],
+      "metrics": [
+        {
+          "name": "window_median_percentile",
+          "value": 0.6582278481012658,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.772 vs same-season archive [-0.073, 1.081] (1%-99%, 237 days)"
+        },
+        {
+          "name": "window_p90_percentile",
+          "value": 0.919831223628692,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 1.213 vs same-season archive [0.283, 1.317] (1%-99%, 237 days)"
+        },
+        {
+          "name": "window_spatial_sd_percentile",
+          "value": 0.8607594936708861,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.281 vs same-season archive [0.080, 0.454] (1%-99%, 237 days)"
+        },
+        {
+          "name": "window_valid_fraction_percentile",
+          "value": 0.6540084388185654,
+          "threshold": 0.01,
+          "drifted": false,
+          "note": "window 0.719 vs same-season archive [0.041, 0.960] (1%-99%, 237 days)"
+        }
+      ]
+    }
+  }
+}

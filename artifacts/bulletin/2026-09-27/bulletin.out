@@ -1,0 +1,51 @@
+2026-09-27 21:02:30,596 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=True on cuda
+2026-09-27 21:02:30,697 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=True on cuda
+2026-09-27 21:04:38,656 INFO    erie_west            watch    peak>20 0.4%  latest scene 2026-09-27
+2026-09-27 21:04:40,687 INFO    okeechobee           alert    peak>20 95.2%  latest scene 2026-09-27
+2026-09-27 21:04:42,732 INFO    taihu                watch    peak>20 7.9%  latest scene 2026-09-26
+2026-09-27 21:04:44,684 INFO    balaton              watch    peak>20 0.6%  latest scene 2026-09-27
+2026-09-27 21:04:47,002 INFO    victoria_ne          watch    peak>20 9.2%  latest scene 2026-09-26
+2026-09-27 21:04:49,119 INFO    winnipeg             watch    peak>20 1.4%  latest scene 2026-09-23
+D:\mlops-proj\Harmful_Algal_Blooms\scripts\make_bulletin.py:448: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  fig = plt.figure(figsize=PAGE)
+2026-09-27 21:04:51,016 INFO    st_clair             watch    peak>20 0.2%  latest scene 2026-09-26
+2026-09-27 21:04:53,027 INFO    saginaw              watch    peak>20 0.1%  latest scene 2026-09-26
+2026-09-27 21:04:55,047 INFO    green_bay            watch    peak>20 1.1%  latest scene 2026-09-26
+2026-09-27 21:04:57,303 INFO    utah_lake            watch    peak>20 10.7%  latest scene 2026-09-26
+2026-09-27 21:04:59,358 INFO    pontchartrain        watch    peak>20 1.5%  latest scene 2026-09-25
+2026-09-27 21:05:01,447 INFO    ijsselmeer           watch    peak>20 1.2%  latest scene 2026-09-26
+2026-09-27 21:05:03,518 INFO    curonian             watch    peak>20 2.2%  latest scene 2026-09-27
+2026-09-27 21:05:05,440 INFO    neagh                warning  peak>20 67.2%  latest scene 2026-09-23
+2026-09-27 21:05:07,462 INFO    chaohu               watch    peak>20 3.0%  latest scene 2026-09-25
+2026-09-27 21:05:09,498 INFO    poyang               watch    peak>20 7.0%  latest scene None
+2026-09-27 21:05:11,905 INFO    kasumigaura          watch    peak>20 7.2%  latest scene None
+2026-09-27 21:05:13,945 INFO    victoria_mwanza      watch    peak>20 0.0%  latest scene 2026-09-26
+2026-09-27 21:05:13,973 INFO    hartbeespoort        unavailable: no clear scene in 14 days
+2026-09-27 21:05:14,002 INFO    alexandrina          unavailable: off-season (months 11-4)
+2026-09-27 21:05:15,965 INFO    chapala              watch    peak>20 14.5%  latest scene 2026-09-26
+2026-09-27 21:05:18,013 INFO    dianchi              alert    peak>20 83.9%  latest scene 2026-09-24
+2026-09-27 21:05:19,986 INFO    hongze               watch    peak>20 3.9%  latest scene None
+2026-09-27 21:05:21,935 INFO    erhai                watch    peak>20 8.3%  latest scene 2026-09-27
+2026-09-27 21:05:23,946 INFO    biwa                 none     peak>20 0.1%  latest scene 2026-09-25
+2026-09-27 21:05:26,534 INFO    laguna_de_bay        watch    peak>20 0.5%  latest scene 2026-09-27
+2026-09-27 21:05:28,477 INFO    kinneret             watch    peak>20 0.0%  latest scene 2026-09-27
+2026-09-27 21:05:30,566 INFO    peipsi               warning  peak>20 23.4%  latest scene 2026-09-27
+2026-09-27 21:05:32,598 INFO    vortsjarv            watch    peak>20 9.5%  latest scene 2026-09-27
+2026-09-27 21:05:34,732 INFO    malaren              watch    peak>20 2.6%  latest scene 2026-09-25
+2026-09-27 21:05:36,647 INFO    szczecin_lagoon      watch    peak>20 8.7%  latest scene 2026-09-27
+2026-09-27 21:05:38,629 INFO    ladoga_south         warning  peak>20 20.7%  latest scene 2026-09-22
+2026-09-27 21:05:40,626 INFO    geneva               none     peak>20 0.0%  latest scene 2026-09-27
+2026-09-27 21:05:42,582 INFO    garda                none     peak>20 0.0%  latest scene 2026-09-27
+2026-09-27 21:05:45,287 INFO    lake_george_ug       alert    peak>20 99.9%  latest scene None
+2026-09-27 21:05:47,308 INFO    tana                 watch    peak>20 0.0%  latest scene 2026-09-26
+2026-09-27 21:05:49,353 INFO    upper_klamath        watch    peak>20 7.5%  latest scene 2026-09-26
+2026-09-27 21:05:51,258 INFO    winnebago            warning  peak>20 27.3%  latest scene 2026-09-27
+2026-09-27 21:05:53,322 INFO    lake_of_the_woods    watch    peak>20 19.7%  latest scene 2026-09-27
+2026-09-27 21:05:55,367 INFO    tahoe                none     peak>20 0.0%  latest scene 2026-09-26
+2026-09-27 21:05:57,384 INFO    valencia_ve          watch    peak>20 6.4%  latest scene 2026-09-26
+2026-09-27 21:05:59,502 INFO    maracaibo            watch    peak>20 0.1%  latest scene 2026-09-24
+2026-09-27 21:05:59,503 INFO    titicaca_puno        unavailable: no OLCI cube (no usable retrievals)
+2026-09-27 21:05:59,532 INFO    guaiba               unavailable: off-season (months 11-4)
+2026-09-27 21:05:59,557 INFO    taupo                unavailable: off-season (months 11-4)
+2026-09-27 21:05:59,583 INFO    te_waihora           unavailable: off-season (months 11-4)
+2026-09-27 21:06:52,950 INFO    wrote D:\mlops-proj\Harmful_Algal_Blooms\artifacts\bulletin\2026-09-27\bloom_watch_bulletin_2026-09-27.pdf (40/46 lakes forecast)

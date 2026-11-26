@@ -1,0 +1,168 @@
+2026-09-27 19:18:56,966 INFO    erie_west: 28 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (54 granules)
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+2026-09-27 19:19:29,219 WARNING S3A_OL_2_WFR____20260914T154616_20260914T154916_20260915T195654_0179_144_054_2160_MAR_O_NT_004.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260914T154616_20260914T154916_20260915T195654_0179_144_054_2160_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+2026-09-27 19:19:29,220 WARNING S3B_OL_2_WFR____20260913T153646_20260913T153946_20260914T202810_0179_124_282_2340_MAR_O_NT_004.SEN3: read failed -- RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260913T153646_20260913T153946_20260914T202810_0179_124_282_2340_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+2026-09-27 19:19:29,221 WARNING S3A_OL_2_WFR____20260913T161227_20260913T161527_20260914T203310_0179_144_040_2160_MAR_O_NT_004.SEN3: read failed -- RuntimeError: range read 0-0 of S3A_OL_2_WFR____20260913T161227_20260913T161527_20260914T203310_0179_144_040_2160_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+2026-09-27 19:19:29,222 WARNING S3B_OL_2_WFR____20260913T153346_20260913T153646_20260914T202756_0179_124_282_2160_MAR_O_NT_004.SEN3: read failed -- RuntimeError: range read 0-0 of S3B_OL_2_WFR____20260913T153346_20260913T153646_20260914T202756_0179_124_282_2160_MAR_O_NT_004.SEN3/tie_geo_coordinates.nc failed: HTTPSConnectionPool(host='api.eumetsat.int', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"))
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+Trying again for POST https://api.eumetsat.int:443/token due to error: "HTTPSConnection(host='api.eumetsat.int', port=443): Failed to resolve 'api.eumetsat.int' ([Errno 11001] getaddrinfo failed)"
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:23:24,599 INFO    erie_west: wrote 4 new daily frames to data\processed\cubes_global_live\erie_west.zarr
+2026-09-27 19:23:24,600 INFO    erie_west 2026-09: 4 scenes -> 4 days (4 written)
+2026-09-27 19:23:24,726 INFO    erie_west: 4/28 scenes read (20 low-coverage, 4 failed) -> 4 daily frames
+2026-09-27 19:23:26,483 INFO    balaton: 22 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (43 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:28:09,358 INFO    balaton: wrote 9 new daily frames to data\processed\cubes_global_live\balaton.zarr
+2026-09-27 19:28:09,359 INFO    balaton 2026-09: 11 scenes -> 9 days (9 written)
+2026-09-27 19:28:09,515 INFO    balaton: 11/22 scenes read (11 low-coverage, 0 failed) -> 9 daily frames
+2026-09-27 19:28:11,086 INFO    st_clair: 20 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (39 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:31:08,924 INFO    st_clair: wrote 6 new daily frames to data\processed\cubes_global_live\st_clair.zarr
+2026-09-27 19:31:08,925 INFO    st_clair 2026-09: 7 scenes -> 6 days (6 written)
+2026-09-27 19:31:09,088 INFO    st_clair: 7/20 scenes read (13 low-coverage, 0 failed) -> 6 daily frames
+2026-09-27 19:31:11,328 INFO    utah_lake: 21 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (41 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:34:49,974 INFO    utah_lake: wrote 5 new daily frames to data\processed\cubes_global_live\utah_lake.zarr
+2026-09-27 19:34:49,974 INFO    utah_lake 2026-09: 5 scenes -> 5 days (5 written)
+2026-09-27 19:34:50,128 INFO    utah_lake: 5/21 scenes read (16 low-coverage, 0 failed) -> 5 daily frames
+2026-09-27 19:35:53,116 INFO    curonian: 28 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (54 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:41:16,391 INFO    curonian: wrote 9 new daily frames to data\processed\cubes_global_live\curonian.zarr
+2026-09-27 19:41:16,391 INFO    curonian 2026-09: 15 scenes -> 9 days (9 written)
+2026-09-27 19:41:16,548 INFO    curonian: 15/28 scenes read (13 low-coverage, 0 failed) -> 9 daily frames
+2026-09-27 19:41:19,040 INFO    poyang: 23 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (44 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:44:44,450 INFO    poyang: wrote 6 new daily frames to data\processed\cubes_global_live\poyang.zarr
+2026-09-27 19:44:44,451 INFO    poyang 2026-09: 6 scenes -> 6 days (6 written)
+2026-09-27 19:44:44,617 INFO    poyang: 6/23 scenes read (17 low-coverage, 0 failed) -> 6 daily frames
+2026-09-27 19:44:46,479 INFO    hartbeespoort: 16 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (32 granules)
+2026-09-27 19:47:54,193 INFO    hartbeespoort: 0/16 scenes read (16 low-coverage, 0 failed) -> 0 daily frames
+2026-09-27 19:47:56,062 INFO    dianchi: 16 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (30 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:50:56,265 INFO    dianchi: wrote 2 new daily frames to data\processed\cubes_global_live\dianchi.zarr
+2026-09-27 19:50:56,266 INFO    dianchi 2026-09: 2 scenes -> 2 days (2 written)
+2026-09-27 19:50:56,432 INFO    dianchi: 2/16 scenes read (14 low-coverage, 0 failed) -> 2 daily frames
+2026-09-27 19:51:58,552 INFO    biwa: 18 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (35 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:56:22,173 INFO    biwa: wrote 5 new daily frames to data\processed\cubes_global_live\biwa.zarr
+2026-09-27 19:56:22,174 INFO    biwa 2026-09: 6 scenes -> 5 days (5 written)
+2026-09-27 19:56:22,341 INFO    biwa: 6/18 scenes read (12 low-coverage, 0 failed) -> 5 daily frames
+2026-09-27 19:56:24,488 INFO    peipsi: 30 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (58 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:04:05,319 INFO    peipsi: wrote 6 new daily frames to data\processed\cubes_global_live\peipsi.zarr
+2026-09-27 20:04:05,319 INFO    peipsi 2026-09: 10 scenes -> 6 days (6 written)
+2026-09-27 20:04:05,493 INFO    peipsi: 10/30 scenes read (20 low-coverage, 0 failed) -> 6 daily frames
+2026-09-27 20:04:09,919 INFO    szczecin_lagoon: 25 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (48 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:09:47,323 INFO    szczecin_lagoon: wrote 11 new daily frames to data\processed\cubes_global_live\szczecin_lagoon.zarr
+2026-09-27 20:09:47,323 INFO    szczecin_lagoon 2026-09: 13 scenes -> 11 days (11 written)
+2026-09-27 20:09:47,484 INFO    szczecin_lagoon: 13/25 scenes read (12 low-coverage, 0 failed) -> 11 daily frames
+2026-09-27 20:09:49,636 INFO    garda: 21 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (40 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:14:11,080 INFO    garda: wrote 10 new daily frames to data\processed\cubes_global_live\garda.zarr
+2026-09-27 20:14:11,081 INFO    garda 2026-09: 12 scenes -> 10 days (10 written)
+2026-09-27 20:14:11,244 INFO    garda: 12/21 scenes read (9 low-coverage, 0 failed) -> 10 daily frames
+2026-09-27 20:14:14,913 INFO    upper_klamath: 19 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (37 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:19:54,490 INFO    upper_klamath: wrote 11 new daily frames to data\processed\cubes_global_live\upper_klamath.zarr
+2026-09-27 20:19:54,491 INFO    upper_klamath 2026-09: 14 scenes -> 11 days (11 written)
+2026-09-27 20:19:54,652 INFO    upper_klamath: 14/19 scenes read (5 low-coverage, 0 failed) -> 11 daily frames
+2026-09-27 20:19:56,626 INFO    tahoe: 17 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (33 granules)
+Trying again for POST https://api.eumetsat.int:443/token due to error: "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:23:53,821 INFO    tahoe: wrote 14 new daily frames to data\processed\cubes_global_live\tahoe.zarr
+2026-09-27 20:23:53,822 INFO    tahoe 2026-09: 15 scenes -> 14 days (14 written)
+2026-09-27 20:23:53,938 INFO    tahoe: 15/17 scenes read (2 low-coverage, 0 failed) -> 14 daily frames
+2026-09-27 20:23:56,292 INFO    titicaca_puno: 15 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (29 granules)
+2026-09-27 20:25:49,024 INFO    titicaca_puno: 0/15 scenes read (15 low-coverage, 0 failed) -> 0 daily frames
+2026-09-27 20:25:49,048 INFO    te_waihora: 0/0 scenes read (0 low-coverage, 0 failed) -> 0 daily frames
+2026-09-27 20:25:49,049 INFO    refreshed from the EUMETSAT Data Store: {'erie_west': 4, 'balaton': 9, 'st_clair': 6, 'utah_lake': 5, 'curonian': 9, 'poyang': 6, 'hartbeespoort': 0, 'dianchi': 2, 'biwa': 5, 'peipsi': 6, 'szczecin_lagoon': 11, 'garda': 10, 'upper_klamath': 11, 'tahoe': 14, 'titicaca_puno': 0, 'te_waihora': 0}
+2026-09-27 20:25:56,226 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=True on cuda
+2026-09-27 20:25:56,341 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=True on cuda
+2026-09-27 20:26:35,325 INFO    erie_west      watch        2026-09-28
+2026-09-27 20:26:35,326 INFO    balaton        watch        2026-09-28
+2026-09-27 20:26:35,326 INFO    st_clair       watch        2026-09-30
+2026-09-27 20:26:35,326 INFO    utah_lake      alert        2026-09-28
+2026-09-27 20:26:35,326 INFO    curonian       watch        2026-09-28
+2026-09-27 20:26:35,326 INFO    poyang         alert        2026-10-02
+2026-09-27 20:26:35,326 INFO    hartbeespoort  unavailable  no archived observations for hartbeespoort in the 14 days before 2026-09-27, and live fetching is disabled
+2026-09-27 20:26:35,327 INFO    dianchi        alert        2026-09-28
+2026-09-27 20:26:35,327 INFO    biwa           watch        2026-09-30
+2026-09-27 20:26:35,327 INFO    peipsi         warning      2026-09-28
+2026-09-27 20:26:35,327 INFO    szczecin_lagoon watch        2026-09-28
+2026-09-27 20:26:35,327 INFO    garda          watch        2026-09-30
+2026-09-27 20:26:35,327 INFO    upper_klamath  warning      2026-09-30
+2026-09-27 20:26:35,327 INFO    tahoe          none         
+2026-09-27 20:26:35,327 INFO    titicaca_puno  unavailable  no archived observations for titicaca_puno in the 14 days before 2026-09-27, and live fetching is disabled
+2026-09-27 20:26:35,327 INFO    te_waihora     unavailable  no archived observations for te_waihora in the 14 days before 2026-09-27, and live fetching is disabled
+2026-09-27 20:26:35,327 INFO    wrote artifacts\bulletin\2026-09-27\refresh\shard_0 (13/16 lakes forecast)

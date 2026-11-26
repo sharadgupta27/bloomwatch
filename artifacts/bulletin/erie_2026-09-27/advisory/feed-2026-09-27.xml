@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>habforecast bloom advisories</title>
+    <link>/app</link>
+    <description>Short-range cyanobacterial bloom advisories from Sentinel-3 OLCI. Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    <lastBuildDate>Sun, 27 Sep 2026 17:09:29 +0000</lastBuildDate>
+    <item>
+      <title>Lake Erie (Western Basin): WATCH — expected 39% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 1%, possibly 83%) — UNCERTAIN</title>
+      <link>/app?lake=erie_west</link>
+      <guid isPermaLink="false">erie_west:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 17:09:29 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 5.6 mg/m³, above 20 mg/m³ over 23 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 5.9 mg/m³, above 20 mg/m³ over 16 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 6.1 mg/m³, above 20 mg/m³ over 15 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 6.3 mg/m³, above 20 mg/m³ over 12 km², above 50 mg/m³ over 0 km² Built from 5 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+  </channel>
+</rss>

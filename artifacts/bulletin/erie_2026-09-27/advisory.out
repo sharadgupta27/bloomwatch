@@ -1,0 +1,11 @@
+2026-09-27 19:06:43,344 INFO    erie_west: 22 OLCI overpasses on the Data Store between 2026-09-16 and 2026-09-27 (42 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:09:10,847 INFO    erie_west: wrote 3 new daily frames to data\processed\cubes_live\erie_west.zarr
+2026-09-27 19:09:10,847 INFO    erie_west 2026-09: 3 scenes -> 3 days (3 written)
+2026-09-27 19:09:11,042 INFO    erie_west: 3/22 scenes read (18 low-coverage, 0 failed) -> 3 daily frames
+2026-09-27 19:09:11,043 INFO    refreshed from the EUMETSAT Data Store: {'erie_west': 3}
+2026-09-27 19:09:17,600 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=True on cuda
+2026-09-27 19:09:17,752 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=True on cuda
+2026-09-27 19:09:30,192 INFO    erie_west      watch        2026-09-28
+2026-09-27 19:09:30,192 INFO    wrote artifacts\bulletin\erie_2026-09-27\advisory (1/1 lakes forecast)

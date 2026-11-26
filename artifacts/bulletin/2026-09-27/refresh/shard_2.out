@@ -1,0 +1,104 @@
+2026-09-27 19:18:55,511 INFO    taihu: 24 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (46 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:24:34,693 INFO    taihu: wrote 7 new daily frames to data\processed\cubes_global_live\taihu.zarr
+2026-09-27 19:24:34,695 INFO    taihu 2026-09: 9 scenes -> 7 days (7 written)
+2026-09-27 19:24:34,887 INFO    taihu: 9/24 scenes read (15 low-coverage, 0 failed) -> 7 daily frames
+2026-09-27 19:24:37,558 INFO    winnipeg: 36 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (69 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:32:29,751 INFO    winnipeg: wrote 7 new daily frames to data\processed\cubes_global_live\winnipeg.zarr
+2026-09-27 19:32:29,751 INFO    winnipeg 2026-09: 11 scenes -> 7 days (7 written)
+2026-09-27 19:32:29,916 INFO    winnipeg: 11/36 scenes read (25 low-coverage, 0 failed) -> 7 daily frames
+2026-09-27 19:32:32,797 INFO    green_bay: 21 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (40 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:36:44,185 INFO    green_bay: wrote 7 new daily frames to data\processed\cubes_global_live\green_bay.zarr
+2026-09-27 19:36:44,186 INFO    green_bay 2026-09: 9 scenes -> 7 days (7 written)
+2026-09-27 19:36:44,352 INFO    green_bay: 9/21 scenes read (12 low-coverage, 0 failed) -> 7 daily frames
+2026-09-27 19:36:47,430 INFO    ijsselmeer: 31 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (59 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:44:38,921 INFO    ijsselmeer: wrote 8 new daily frames to data\processed\cubes_global_live\ijsselmeer.zarr
+2026-09-27 19:44:38,921 INFO    ijsselmeer 2026-09: 12 scenes -> 8 days (8 written)
+2026-09-27 19:44:39,078 INFO    ijsselmeer: 12/31 scenes read (19 low-coverage, 0 failed) -> 8 daily frames
+2026-09-27 19:44:42,556 INFO    chaohu: 19 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (38 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:50:39,719 INFO    chaohu: wrote 3 new daily frames to data\processed\cubes_global_live\chaohu.zarr
+2026-09-27 19:50:39,720 INFO    chaohu 2026-09: 4 scenes -> 3 days (3 written)
+2026-09-27 19:50:39,884 INFO    chaohu: 4/19 scenes read (15 low-coverage, 0 failed) -> 3 daily frames
+2026-09-27 19:50:49,878 INFO    victoria_mwanza: 19 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (37 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:55:53,195 INFO    victoria_mwanza: wrote 8 new daily frames to data\processed\cubes_global_live\victoria_mwanza.zarr
+2026-09-27 19:55:53,195 INFO    victoria_mwanza 2026-09: 8 scenes -> 8 days (8 written)
+2026-09-27 19:55:53,360 INFO    victoria_mwanza: 8/19 scenes read (11 low-coverage, 0 failed) -> 8 daily frames
+2026-09-27 19:56:55,131 INFO    chapala: 19 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (36 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:01:10,012 INFO    chapala: wrote 5 new daily frames to data\processed\cubes_global_live\chapala.zarr
+2026-09-27 20:01:10,013 INFO    chapala 2026-09: 6 scenes -> 5 days (5 written)
+2026-09-27 20:01:10,168 INFO    chapala: 6/19 scenes read (13 low-coverage, 0 failed) -> 5 daily frames
+2026-09-27 20:01:13,726 INFO    erhai: 16 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (31 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:02:55,178 INFO    erhai: wrote 5 new daily frames to data\processed\cubes_global_live\erhai.zarr
+2026-09-27 20:02:55,178 INFO    erhai 2026-09: 5 scenes -> 5 days (5 written)
+2026-09-27 20:02:55,348 INFO    erhai: 5/16 scenes read (11 low-coverage, 0 failed) -> 5 daily frames
+2026-09-27 20:02:57,100 INFO    kinneret: 17 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (33 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:07:16,244 INFO    kinneret: wrote 13 new daily frames to data\processed\cubes_global_live\kinneret.zarr
+2026-09-27 20:07:16,244 INFO    kinneret 2026-09: 13 scenes -> 13 days (13 written)
+2026-09-27 20:07:16,398 INFO    kinneret: 13/17 scenes read (4 low-coverage, 0 failed) -> 13 daily frames
+2026-09-27 20:07:19,016 INFO    malaren: 31 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (60 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:12:44,541 INFO    malaren: wrote 6 new daily frames to data\processed\cubes_global_live\malaren.zarr
+2026-09-27 20:12:44,541 INFO    malaren 2026-09: 9 scenes -> 6 days (6 written)
+2026-09-27 20:12:44,706 INFO    malaren: 9/31 scenes read (22 low-coverage, 0 failed) -> 6 daily frames
+2026-09-27 20:12:46,971 INFO    geneva: 23 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (44 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:17:50,114 INFO    geneva: wrote 11 new daily frames to data\processed\cubes_global_live\geneva.zarr
+2026-09-27 20:17:50,115 INFO    geneva 2026-09: 15 scenes -> 11 days (11 written)
+2026-09-27 20:17:50,285 INFO    geneva: 15/23 scenes read (8 low-coverage, 0 failed) -> 11 daily frames
+2026-09-27 20:17:52,347 INFO    tana: 15 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (30 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:21:45,430 INFO    tana: wrote 11 new daily frames to data\processed\cubes_global_live\tana.zarr
+2026-09-27 20:21:45,431 INFO    tana 2026-09: 11 scenes -> 11 days (11 written)
+2026-09-27 20:21:45,581 INFO    tana: 11/15 scenes read (4 low-coverage, 0 failed) -> 11 daily frames
+2026-09-27 20:21:47,389 INFO    lake_of_the_woods: 23 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (43 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:25:13,098 INFO    lake_of_the_woods: wrote 8 new daily frames to data\processed\cubes_global_live\lake_of_the_woods.zarr
+2026-09-27 20:25:13,098 INFO    lake_of_the_woods 2026-09: 11 scenes -> 8 days (8 written)
+2026-09-27 20:25:13,254 INFO    lake_of_the_woods: 11/23 scenes read (12 low-coverage, 0 failed) -> 8 daily frames
+2026-09-27 20:26:15,780 INFO    maracaibo: 19 OLCI overpasses on the Data Store between 2026-09-13 and 2026-09-27 (37 granules)
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 20:30:38,148 INFO    maracaibo: wrote 9 new daily frames to data\processed\cubes_global_live\maracaibo.zarr
+2026-09-27 20:30:38,149 INFO    maracaibo 2026-09: 9 scenes -> 9 days (9 written)
+2026-09-27 20:30:38,284 INFO    maracaibo: 9/19 scenes read (10 low-coverage, 0 failed) -> 9 daily frames
+2026-09-27 20:30:38,331 INFO    taupo: 0/0 scenes read (0 low-coverage, 0 failed) -> 0 daily frames
+2026-09-27 20:30:38,331 INFO    refreshed from the EUMETSAT Data Store: {'taihu': 7, 'winnipeg': 7, 'green_bay': 7, 'ijsselmeer': 8, 'chaohu': 3, 'victoria_mwanza': 8, 'chapala': 5, 'erhai': 5, 'kinneret': 13, 'malaren': 6, 'geneva': 11, 'tana': 11, 'lake_of_the_woods': 8, 'maracaibo': 9, 'taupo': 0}
+2026-09-27 20:30:44,436 INFO    loaded best.ckpt: 1 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=(), exceed=(), tta=True on cuda
+2026-09-27 20:30:44,526 INFO    loaded ens_met: 3 member(s), input_days=14, leads=(1, 3, 5, 7), clim=True, met=('wind_speed', 'wind_u', 'wind_v', 't2m', 'ssrd', 'tp'), exceed=(10.0, 20.0, 50.0), tta=True on cuda
+2026-09-27 20:31:28,571 INFO    taihu          alert        2026-09-30
+2026-09-27 20:31:28,571 INFO    winnipeg       watch        2026-09-28
+2026-09-27 20:31:28,571 INFO    green_bay      watch        2026-09-28
+2026-09-27 20:31:28,571 INFO    ijsselmeer     watch        2026-09-28
+2026-09-27 20:31:28,571 INFO    chaohu         alert        2026-09-28
+2026-09-27 20:31:28,571 INFO    victoria_mwanza watch        2026-09-28
+2026-09-27 20:31:28,571 INFO    chapala        alert        2026-09-28
+2026-09-27 20:31:28,571 INFO    erhai          watch        2026-09-28
+2026-09-27 20:31:28,571 INFO    kinneret       watch        2026-09-28
+2026-09-27 20:31:28,572 INFO    malaren        watch        2026-09-28
+2026-09-27 20:31:28,572 INFO    geneva         watch        2026-09-30
+2026-09-27 20:31:28,572 INFO    tana           watch        2026-09-28
+2026-09-27 20:31:28,572 INFO    lake_of_the_woods warning      2026-09-28
+2026-09-27 20:31:28,572 INFO    maracaibo      watch        2026-09-28
+2026-09-27 20:31:28,572 INFO    taupo          unavailable  no archived observations for taupo in the 14 days before 2026-09-27, and live fetching is disabled
+2026-09-27 20:31:28,572 INFO    wrote artifacts\bulletin\2026-09-27\refresh\shard_2 (14/15 lakes forecast)

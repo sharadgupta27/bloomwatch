@@ -1,0 +1,653 @@
+Sun Sep 27 19:18:12 WEDT 2026 met_live (Open-Meteo, all lakes)
+2026-09-27 19:18:13,799 INFO    erie_west 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:13,800 INFO    erie_west 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:13,800 INFO    erie_west 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:13,801 INFO    erie_west 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:13,801 INFO    erie_west 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:13,802 INFO    erie_west 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:13,803 INFO    erie_west 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:13,804 INFO    erie_west 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:13,804 INFO    erie_west 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:13,805 INFO    erie_west 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:13,805 INFO    erie_west 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:15,537 INFO    erie_west: met store data\processed\met_live\erie_west.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:15,539 INFO    okeechobee 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:15,540 INFO    okeechobee 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:15,540 INFO    okeechobee 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:15,542 INFO    okeechobee 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:15,543 INFO    okeechobee 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:15,543 INFO    okeechobee 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:15,545 INFO    okeechobee 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:15,546 INFO    okeechobee 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:15,546 INFO    okeechobee 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:15,547 INFO    okeechobee 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:15,548 INFO    okeechobee 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:16,211 INFO    okeechobee: met store data\processed\met_live\okeechobee.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:16,213 INFO    taihu 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:16,214 INFO    taihu 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:16,216 INFO    taihu 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:16,217 INFO    taihu 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:16,218 INFO    taihu 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:16,219 INFO    taihu 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:16,220 INFO    taihu 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:16,221 INFO    taihu 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:16,222 INFO    taihu 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:16,223 INFO    taihu 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:16,224 INFO    taihu 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:16,921 INFO    taihu: met store data\processed\met_live\taihu.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:16,924 INFO    balaton 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:16,925 INFO    balaton 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:16,927 INFO    balaton 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:16,927 INFO    balaton 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:16,928 INFO    balaton 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:16,929 INFO    balaton 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:16,930 INFO    balaton 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:16,931 INFO    balaton 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:16,932 INFO    balaton 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:16,932 INFO    balaton 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:16,933 INFO    balaton 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:17,612 INFO    balaton: met store data\processed\met_live\balaton.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:17,614 INFO    victoria_ne 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:17,615 INFO    victoria_ne 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:17,616 INFO    victoria_ne 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:17,617 INFO    victoria_ne 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:17,618 INFO    victoria_ne 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:17,620 INFO    victoria_ne 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:17,620 INFO    victoria_ne 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:17,621 INFO    victoria_ne 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:17,622 INFO    victoria_ne 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:17,624 INFO    victoria_ne 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:17,624 INFO    victoria_ne 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:18,295 INFO    victoria_ne: met store data\processed\met_live\victoria_ne.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:18,297 INFO    winnipeg 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:18,299 INFO    winnipeg 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:18,300 INFO    winnipeg 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:18,301 INFO    winnipeg 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:18,302 INFO    winnipeg 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:18,303 INFO    winnipeg 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:18,304 INFO    winnipeg 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:18,305 INFO    winnipeg 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:18,305 INFO    winnipeg 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:18,306 INFO    winnipeg 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:18,307 INFO    winnipeg 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:18,929 INFO    winnipeg: met store data\processed\met_live\winnipeg.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:18,930 INFO    st_clair 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:18,931 INFO    st_clair 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:18,932 INFO    st_clair 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:18,933 INFO    st_clair 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:18,934 INFO    st_clair 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:18,935 INFO    st_clair 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:18,936 INFO    st_clair 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:18,937 INFO    st_clair 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:18,938 INFO    st_clair 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:18,939 INFO    st_clair 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:18,940 INFO    st_clair 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:19,579 INFO    st_clair: met store data\processed\met_live\st_clair.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:19,581 INFO    saginaw 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:19,582 INFO    saginaw 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:19,583 INFO    saginaw 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:19,584 INFO    saginaw 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:19,586 INFO    saginaw 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:19,586 INFO    saginaw 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:19,587 INFO    saginaw 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:19,589 INFO    saginaw 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:19,590 INFO    saginaw 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:19,591 INFO    saginaw 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:19,591 INFO    saginaw 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:20,303 INFO    saginaw: met store data\processed\met_live\saginaw.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:20,305 INFO    green_bay 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:20,306 INFO    green_bay 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:20,307 INFO    green_bay 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:20,308 INFO    green_bay 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:20,309 INFO    green_bay 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:20,310 INFO    green_bay 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:20,311 INFO    green_bay 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:20,312 INFO    green_bay 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:20,314 INFO    green_bay 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:20,315 INFO    green_bay 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:20,316 INFO    green_bay 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:21,001 INFO    green_bay: met store data\processed\met_live\green_bay.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:21,002 INFO    utah_lake 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:21,003 INFO    utah_lake 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:21,005 INFO    utah_lake 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:21,006 INFO    utah_lake 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:21,007 INFO    utah_lake 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:21,008 INFO    utah_lake 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:21,009 INFO    utah_lake 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:21,010 INFO    utah_lake 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:21,011 INFO    utah_lake 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:21,013 INFO    utah_lake 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:21,014 INFO    utah_lake 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:21,834 INFO    utah_lake: met store data\processed\met_live\utah_lake.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:21,836 INFO    pontchartrain 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:21,837 INFO    pontchartrain 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:21,839 INFO    pontchartrain 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:21,840 INFO    pontchartrain 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:21,841 INFO    pontchartrain 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:21,841 INFO    pontchartrain 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:21,843 INFO    pontchartrain 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:21,844 INFO    pontchartrain 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:21,845 INFO    pontchartrain 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:21,846 INFO    pontchartrain 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:21,847 INFO    pontchartrain 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:22,595 INFO    pontchartrain: met store data\processed\met_live\pontchartrain.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:22,597 INFO    ijsselmeer 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:22,598 INFO    ijsselmeer 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:22,599 INFO    ijsselmeer 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:22,600 INFO    ijsselmeer 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:22,602 INFO    ijsselmeer 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:22,603 INFO    ijsselmeer 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:22,604 INFO    ijsselmeer 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:22,604 INFO    ijsselmeer 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:22,606 INFO    ijsselmeer 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:22,607 INFO    ijsselmeer 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:22,608 INFO    ijsselmeer 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:23,276 INFO    ijsselmeer: met store data\processed\met_live\ijsselmeer.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:23,277 INFO    curonian 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:23,278 INFO    curonian 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:23,280 INFO    curonian 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:23,281 INFO    curonian 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:23,282 INFO    curonian 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:23,283 INFO    curonian 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:23,284 INFO    curonian 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:23,285 INFO    curonian 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:23,286 INFO    curonian 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:23,287 INFO    curonian 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:23,288 INFO    curonian 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:23,969 INFO    curonian: met store data\processed\met_live\curonian.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:23,970 INFO    neagh 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:23,971 INFO    neagh 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:23,973 INFO    neagh 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:23,975 INFO    neagh 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:23,975 INFO    neagh 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:23,975 INFO    neagh 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:23,978 INFO    neagh 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:23,979 INFO    neagh 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:23,979 INFO    neagh 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:23,980 INFO    neagh 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:23,980 INFO    neagh 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:24,687 INFO    neagh: met store data\processed\met_live\neagh.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:24,688 INFO    chaohu 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:24,689 INFO    chaohu 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:24,690 INFO    chaohu 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:24,691 INFO    chaohu 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:24,691 INFO    chaohu 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:24,692 INFO    chaohu 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:24,693 INFO    chaohu 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:24,694 INFO    chaohu 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:24,695 INFO    chaohu 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:24,695 INFO    chaohu 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:24,697 INFO    chaohu 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:25,449 INFO    chaohu: met store data\processed\met_live\chaohu.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:25,449 INFO    poyang 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:25,450 INFO    poyang 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:25,452 INFO    poyang 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:25,453 INFO    poyang 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:25,454 INFO    poyang 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:25,455 INFO    poyang 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:25,456 INFO    poyang 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:25,456 INFO    poyang 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:25,458 INFO    poyang 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:25,459 INFO    poyang 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:25,460 INFO    poyang 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:26,181 INFO    poyang: met store data\processed\met_live\poyang.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:26,183 INFO    kasumigaura 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:26,184 INFO    kasumigaura 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:26,186 INFO    kasumigaura 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:26,186 INFO    kasumigaura 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:26,188 INFO    kasumigaura 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:26,189 INFO    kasumigaura 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:26,190 INFO    kasumigaura 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:26,191 INFO    kasumigaura 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:26,192 INFO    kasumigaura 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:26,193 INFO    kasumigaura 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:26,194 INFO    kasumigaura 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:26,955 INFO    kasumigaura: met store data\processed\met_live\kasumigaura.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:26,958 INFO    victoria_mwanza 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:26,958 INFO    victoria_mwanza 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:26,959 INFO    victoria_mwanza 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:26,960 INFO    victoria_mwanza 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:26,961 INFO    victoria_mwanza 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:26,963 INFO    victoria_mwanza 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:26,964 INFO    victoria_mwanza 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:26,965 INFO    victoria_mwanza 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:26,966 INFO    victoria_mwanza 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:26,966 INFO    victoria_mwanza 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:26,967 INFO    victoria_mwanza 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:27,666 INFO    victoria_mwanza: met store data\processed\met_live\victoria_mwanza.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:27,667 INFO    hartbeespoort 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:27,668 INFO    hartbeespoort 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:27,669 INFO    hartbeespoort 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:27,670 INFO    hartbeespoort 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:27,671 INFO    hartbeespoort 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:27,672 INFO    hartbeespoort 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:27,673 INFO    hartbeespoort 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:27,675 INFO    hartbeespoort 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:27,675 INFO    hartbeespoort 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:27,677 INFO    hartbeespoort 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:27,678 INFO    hartbeespoort 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:28,408 INFO    hartbeespoort: met store data\processed\met_live\hartbeespoort.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:28,409 INFO    alexandrina 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:28,411 INFO    alexandrina 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:28,412 INFO    alexandrina 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:28,413 INFO    alexandrina 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:28,414 INFO    alexandrina 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:28,415 INFO    alexandrina 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:28,416 INFO    alexandrina 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:28,417 INFO    alexandrina 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:28,418 INFO    alexandrina 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:28,419 INFO    alexandrina 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:28,420 INFO    alexandrina 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:29,146 INFO    alexandrina: met store data\processed\met_live\alexandrina.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:29,147 INFO    chapala 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:29,149 INFO    chapala 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:29,150 INFO    chapala 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:29,152 INFO    chapala 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:29,153 INFO    chapala 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:29,154 INFO    chapala 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:29,155 INFO    chapala 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:29,156 INFO    chapala 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:29,157 INFO    chapala 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:29,158 INFO    chapala 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:29,159 INFO    chapala 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:29,866 INFO    chapala: met store data\processed\met_live\chapala.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:29,868 INFO    dianchi 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:29,869 INFO    dianchi 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:29,870 INFO    dianchi 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:29,871 INFO    dianchi 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:29,872 INFO    dianchi 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:29,873 INFO    dianchi 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:29,874 INFO    dianchi 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:29,875 INFO    dianchi 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:29,876 INFO    dianchi 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:29,876 INFO    dianchi 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:29,878 INFO    dianchi 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:30,611 INFO    dianchi: met store data\processed\met_live\dianchi.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:30,612 INFO    hongze 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:30,614 INFO    hongze 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:30,615 INFO    hongze 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:30,616 INFO    hongze 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:30,617 INFO    hongze 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:30,617 INFO    hongze 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:30,618 INFO    hongze 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:30,618 INFO    hongze 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:30,619 INFO    hongze 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:30,620 INFO    hongze 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:30,621 INFO    hongze 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:31,287 INFO    hongze: met store data\processed\met_live\hongze.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:31,289 INFO    erhai 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:31,290 INFO    erhai 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:31,291 INFO    erhai 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:31,292 INFO    erhai 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:31,293 INFO    erhai 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:31,294 INFO    erhai 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:31,295 INFO    erhai 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:31,296 INFO    erhai 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:31,297 INFO    erhai 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:31,298 INFO    erhai 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:31,299 INFO    erhai 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:31,973 INFO    erhai: met store data\processed\met_live\erhai.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:31,975 INFO    biwa 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:31,976 INFO    biwa 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:31,977 INFO    biwa 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:31,978 INFO    biwa 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:31,979 INFO    biwa 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:31,980 INFO    biwa 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:31,981 INFO    biwa 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:31,981 INFO    biwa 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:31,982 INFO    biwa 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:31,983 INFO    biwa 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:31,984 INFO    biwa 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:32,694 INFO    biwa: met store data\processed\met_live\biwa.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:32,697 INFO    laguna_de_bay 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:32,698 INFO    laguna_de_bay 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:32,699 INFO    laguna_de_bay 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:32,700 INFO    laguna_de_bay 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:32,701 INFO    laguna_de_bay 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:32,702 INFO    laguna_de_bay 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:32,703 INFO    laguna_de_bay 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:32,704 INFO    laguna_de_bay 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:32,705 INFO    laguna_de_bay 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:32,706 INFO    laguna_de_bay 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:32,707 INFO    laguna_de_bay 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:33,413 INFO    laguna_de_bay: met store data\processed\met_live\laguna_de_bay.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:33,415 INFO    kinneret 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:33,416 INFO    kinneret 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:33,418 INFO    kinneret 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:33,418 INFO    kinneret 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:33,419 INFO    kinneret 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:33,420 INFO    kinneret 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:33,421 INFO    kinneret 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:33,422 INFO    kinneret 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:33,423 INFO    kinneret 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:33,424 INFO    kinneret 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:33,425 INFO    kinneret 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:34,119 INFO    kinneret: met store data\processed\met_live\kinneret.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:34,121 INFO    peipsi 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:34,122 INFO    peipsi 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:34,123 INFO    peipsi 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:34,124 INFO    peipsi 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:34,125 INFO    peipsi 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:34,126 INFO    peipsi 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:34,127 INFO    peipsi 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:34,128 INFO    peipsi 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:34,129 INFO    peipsi 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:34,130 INFO    peipsi 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:34,131 INFO    peipsi 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:34,849 INFO    peipsi: met store data\processed\met_live\peipsi.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:34,851 INFO    vortsjarv 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:34,851 INFO    vortsjarv 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:34,852 INFO    vortsjarv 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:34,852 INFO    vortsjarv 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:34,854 INFO    vortsjarv 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:34,855 INFO    vortsjarv 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:34,856 INFO    vortsjarv 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:34,857 INFO    vortsjarv 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:34,857 INFO    vortsjarv 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:34,859 INFO    vortsjarv 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:34,860 INFO    vortsjarv 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:35,528 INFO    vortsjarv: met store data\processed\met_live\vortsjarv.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:35,530 INFO    malaren 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:35,531 INFO    malaren 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:35,532 INFO    malaren 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:35,533 INFO    malaren 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:35,534 INFO    malaren 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:35,535 INFO    malaren 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:35,536 INFO    malaren 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:35,537 INFO    malaren 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:35,538 INFO    malaren 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:35,540 INFO    malaren 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:35,540 INFO    malaren 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:36,214 INFO    malaren: met store data\processed\met_live\malaren.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:36,216 INFO    szczecin_lagoon 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:36,216 INFO    szczecin_lagoon 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:36,217 INFO    szczecin_lagoon 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:36,218 INFO    szczecin_lagoon 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:36,219 INFO    szczecin_lagoon 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:36,221 INFO    szczecin_lagoon 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:36,222 INFO    szczecin_lagoon 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:36,223 INFO    szczecin_lagoon 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:36,224 INFO    szczecin_lagoon 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:36,225 INFO    szczecin_lagoon 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:36,226 INFO    szczecin_lagoon 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:36,920 INFO    szczecin_lagoon: met store data\processed\met_live\szczecin_lagoon.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:36,922 INFO    ladoga_south 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:36,923 INFO    ladoga_south 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:36,925 INFO    ladoga_south 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:36,926 INFO    ladoga_south 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:36,927 INFO    ladoga_south 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:36,928 INFO    ladoga_south 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:36,929 INFO    ladoga_south 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:36,930 INFO    ladoga_south 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:36,931 INFO    ladoga_south 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:36,932 INFO    ladoga_south 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:36,933 INFO    ladoga_south 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:37,620 INFO    ladoga_south: met store data\processed\met_live\ladoga_south.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:37,622 INFO    geneva 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:37,623 INFO    geneva 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:37,624 INFO    geneva 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:37,625 INFO    geneva 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:37,626 INFO    geneva 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:37,627 INFO    geneva 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:37,628 INFO    geneva 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:37,630 INFO    geneva 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:37,631 INFO    geneva 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:37,632 INFO    geneva 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:37,632 INFO    geneva 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:38,327 INFO    geneva: met store data\processed\met_live\geneva.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:38,329 INFO    garda 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:38,331 INFO    garda 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:38,332 INFO    garda 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:38,333 INFO    garda 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:38,334 INFO    garda 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:38,335 INFO    garda 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:38,336 INFO    garda 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:38,337 INFO    garda 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:38,338 INFO    garda 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:38,339 INFO    garda 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:38,340 INFO    garda 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:39,024 INFO    garda: met store data\processed\met_live\garda.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:39,026 INFO    lake_george_ug 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:39,027 INFO    lake_george_ug 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:39,028 INFO    lake_george_ug 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:39,029 INFO    lake_george_ug 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:39,031 INFO    lake_george_ug 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:39,032 INFO    lake_george_ug 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:39,033 INFO    lake_george_ug 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:39,035 INFO    lake_george_ug 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:39,036 INFO    lake_george_ug 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:39,038 INFO    lake_george_ug 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:39,039 INFO    lake_george_ug 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:39,718 INFO    lake_george_ug: met store data\processed\met_live\lake_george_ug.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:39,719 INFO    tana 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:39,720 INFO    tana 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:39,721 INFO    tana 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:39,722 INFO    tana 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:39,723 INFO    tana 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:39,724 INFO    tana 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:39,725 INFO    tana 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:39,726 INFO    tana 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:39,727 INFO    tana 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:39,728 INFO    tana 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:39,728 INFO    tana 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:40,401 INFO    tana: met store data\processed\met_live\tana.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:40,403 INFO    upper_klamath 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:40,404 INFO    upper_klamath 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:40,405 INFO    upper_klamath 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:40,406 INFO    upper_klamath 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:40,407 INFO    upper_klamath 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:40,408 INFO    upper_klamath 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:40,409 INFO    upper_klamath 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:40,410 INFO    upper_klamath 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:40,411 INFO    upper_klamath 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:40,412 INFO    upper_klamath 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:40,412 INFO    upper_klamath 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:41,105 INFO    upper_klamath: met store data\processed\met_live\upper_klamath.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:41,106 INFO    winnebago 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:41,108 INFO    winnebago 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:41,109 INFO    winnebago 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:41,110 INFO    winnebago 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:41,111 INFO    winnebago 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:41,113 INFO    winnebago 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:41,114 INFO    winnebago 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:41,115 INFO    winnebago 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:41,116 INFO    winnebago 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:41,116 INFO    winnebago 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:41,118 INFO    winnebago 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:41,769 INFO    winnebago: met store data\processed\met_live\winnebago.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:41,771 INFO    lake_of_the_woods 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:41,771 INFO    lake_of_the_woods 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:41,772 INFO    lake_of_the_woods 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:41,774 INFO    lake_of_the_woods 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:41,775 INFO    lake_of_the_woods 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:41,776 INFO    lake_of_the_woods 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:41,776 INFO    lake_of_the_woods 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:41,778 INFO    lake_of_the_woods 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:41,779 INFO    lake_of_the_woods 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:41,780 INFO    lake_of_the_woods 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:41,780 INFO    lake_of_the_woods 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:42,524 INFO    lake_of_the_woods: met store data\processed\met_live\lake_of_the_woods.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:42,526 INFO    tahoe 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:42,527 INFO    tahoe 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:42,528 INFO    tahoe 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:42,528 INFO    tahoe 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:42,530 INFO    tahoe 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:42,531 INFO    tahoe 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:42,532 INFO    tahoe 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:42,533 INFO    tahoe 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:42,534 INFO    tahoe 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:42,535 INFO    tahoe 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:42,536 INFO    tahoe 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:43,267 INFO    tahoe: met store data\processed\met_live\tahoe.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:43,269 INFO    valencia_ve 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:43,269 INFO    valencia_ve 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:43,271 INFO    valencia_ve 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:43,271 INFO    valencia_ve 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:43,271 INFO    valencia_ve 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:43,272 INFO    valencia_ve 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:43,273 INFO    valencia_ve 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:43,274 INFO    valencia_ve 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:43,274 INFO    valencia_ve 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:43,276 INFO    valencia_ve 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:43,276 INFO    valencia_ve 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:43,991 INFO    valencia_ve: met store data\processed\met_live\valencia_ve.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:43,993 INFO    maracaibo 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:43,994 INFO    maracaibo 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:43,995 INFO    maracaibo 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:43,996 INFO    maracaibo 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:43,997 INFO    maracaibo 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:43,997 INFO    maracaibo 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:43,998 INFO    maracaibo 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:43,999 INFO    maracaibo 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:44,000 INFO    maracaibo 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:44,001 INFO    maracaibo 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:44,001 INFO    maracaibo 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:44,698 INFO    maracaibo: met store data\processed\met_live\maracaibo.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:44,699 INFO    titicaca_puno 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:44,700 INFO    titicaca_puno 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:44,701 INFO    titicaca_puno 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:44,702 INFO    titicaca_puno 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:44,703 INFO    titicaca_puno 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:44,704 INFO    titicaca_puno 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:44,705 INFO    titicaca_puno 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:44,706 INFO    titicaca_puno 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:44,707 INFO    titicaca_puno 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:44,708 INFO    titicaca_puno 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:44,709 INFO    titicaca_puno 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:45,406 INFO    titicaca_puno: met store data\processed\met_live\titicaca_puno.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:45,408 INFO    guaiba 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:45,408 INFO    guaiba 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:45,409 INFO    guaiba 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:45,410 INFO    guaiba 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:45,411 INFO    guaiba 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:45,413 INFO    guaiba 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:45,414 INFO    guaiba 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:45,414 INFO    guaiba 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:45,415 INFO    guaiba 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:45,416 INFO    guaiba 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:45,417 INFO    guaiba 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:46,128 INFO    guaiba: met store data\processed\met_live\guaiba.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:46,129 INFO    taupo 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:46,129 INFO    taupo 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:46,130 INFO    taupo 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:46,130 INFO    taupo 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:46,132 INFO    taupo 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:46,132 INFO    taupo 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:46,133 INFO    taupo 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:46,133 INFO    taupo 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:46,134 INFO    taupo 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:46,135 INFO    taupo 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:46,135 INFO    taupo 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:46,838 INFO    taupo: met store data\processed\met_live\taupo.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:46,839 INFO    te_waihora 2016-01-01..2016-12-31: cached
+2026-09-27 19:18:46,840 INFO    te_waihora 2017-01-01..2017-12-31: cached
+2026-09-27 19:18:46,840 INFO    te_waihora 2018-01-01..2018-12-31: cached
+2026-09-27 19:18:46,843 INFO    te_waihora 2019-01-01..2019-12-31: cached
+2026-09-27 19:18:46,843 INFO    te_waihora 2020-01-01..2020-12-31: cached
+2026-09-27 19:18:46,844 INFO    te_waihora 2021-01-01..2021-12-31: cached
+2026-09-27 19:18:46,844 INFO    te_waihora 2022-01-01..2022-12-31: cached
+2026-09-27 19:18:46,845 INFO    te_waihora 2023-01-01..2023-12-31: cached
+2026-09-27 19:18:46,846 INFO    te_waihora 2024-01-01..2024-12-31: cached
+2026-09-27 19:18:46,847 INFO    te_waihora 2025-01-01..2025-12-31: cached
+2026-09-27 19:18:46,848 INFO    te_waihora 2026-01-01..2026-09-21: cached
+D:\mlops-proj\Harmful_Algal_Blooms\.venv\Lib\site-packages\zarr\api\asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-09-27 19:18:47,577 INFO    te_waihora: met store data\processed\met_live\te_waihora.zarr -- 3917 days 2016-01-01 to 2026-09-21 (Open-Meteo)
+2026-09-27 19:18:47,578 INFO    built 46/46 met stores in data\processed\met_live
+Sun Sep 27 19:18:47 WEDT 2026 met_live exit=0
+Sun Sep 27 19:18:48 WEDT 2026 EUMETSAT refresh, anchor 2026-09-27, 3 shards
+Sun Sep 27 19:18:48 WEDT 2026 shard 0: erie_west balaton st_clair utah_lake curonian poyang hartbeespoort dianchi biwa peipsi szczecin_lagoon garda upper_klamath tahoe titicaca_puno te_waihora
+Sun Sep 27 19:18:48 WEDT 2026 shard 1: okeechobee victoria_ne saginaw pontchartrain neagh kasumigaura alexandrina hongze laguna_de_bay vortsjarv ladoga_south lake_george_ug winnebago valencia_ve guaiba
+Sun Sep 27 19:18:48 WEDT 2026 shard 2: taihu winnipeg green_bay ijsselmeer chaohu victoria_mwanza chapala erhai kinneret malaren geneva tana lake_of_the_woods maracaibo taupo
+Sun Sep 27 20:31:30 WEDT 2026 refresh done
+no refresh failures

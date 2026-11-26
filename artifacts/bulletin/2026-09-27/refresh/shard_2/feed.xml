@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>habforecast bloom advisories</title>
+    <link>/app</link>
+    <description>Short-range cyanobacterial bloom advisories from Sentinel-3 OLCI. Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    <lastBuildDate>Sun, 27 Sep 2026 18:31:28 +0000</lastBuildDate>
+    <item>
+      <title>Lake Taihu: ALERT — expected 13% of lake above 50 mg/m³ by 2026-09-30 (+3 d; likely 0%, possibly 0%)</title>
+      <link>/app?lake=taihu</link>
+      <guid isPermaLink="false">taihu:2026-09-27:alert</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>alert</category>
+      <description>+1 d (2026-09-28): median 14.2 mg/m³, above 20 mg/m³ over 167 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 14.9 mg/m³, above 20 mg/m³ over 173 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 15.1 mg/m³, above 20 mg/m³ over 179 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 15.4 mg/m³, above 20 mg/m³ over 191 km², above 50 mg/m³ over 0 km² Built from 6 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Winnipeg: WATCH — expected 46% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 1%, possibly 99%) — UNCERTAIN</title>
+      <link>/app?lake=winnipeg</link>
+      <guid isPermaLink="false">winnipeg:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 9.4 mg/m³, above 20 mg/m³ over 98 km², above 50 mg/m³ over 3 km² +3 d (2026-09-30): median 9.6 mg/m³, above 20 mg/m³ over 85 km², above 50 mg/m³ over 1 km² +5 d (2026-10-02): median 9.8 mg/m³, above 20 mg/m³ over 79 km², above 50 mg/m³ over 1 km² +7 d (2026-10-04): median 9.9 mg/m³, above 20 mg/m³ over 74 km², above 50 mg/m³ over 1 km² Built from 7 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Michigan (Green Bay): WATCH — expected 38% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 2%, possibly 87%) — UNCERTAIN</title>
+      <link>/app?lake=green_bay</link>
+      <guid isPermaLink="false">green_bay:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 6.4 mg/m³, above 20 mg/m³ over 11 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 6.4 mg/m³, above 20 mg/m³ over 11 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 6.8 mg/m³, above 20 mg/m³ over 11 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 6.8 mg/m³, above 20 mg/m³ over 11 km², above 50 mg/m³ over 0 km² Built from 7 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>IJsselmeer: WATCH — expected 40% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 2%, possibly 81%) — UNCERTAIN</title>
+      <link>/app?lake=ijsselmeer</link>
+      <guid isPermaLink="false">ijsselmeer:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 6.3 mg/m³, above 20 mg/m³ over 25 km², above 50 mg/m³ over 2 km² +3 d (2026-09-30): median 6.7 mg/m³, above 20 mg/m³ over 25 km², above 50 mg/m³ over 1 km² +5 d (2026-10-02): median 7.0 mg/m³, above 20 mg/m³ over 27 km², above 50 mg/m³ over 1 km² +7 d (2026-10-04): median 7.3 mg/m³, above 20 mg/m³ over 28 km², above 50 mg/m³ over 1 km² Built from 8 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Chaohu: ALERT — expected 24% of lake above 50 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 5%) — UNCERTAIN, could reach WATCH</title>
+      <link>/app?lake=chaohu</link>
+      <guid isPermaLink="false">chaohu:2026-09-27:alert</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>alert</category>
+      <description>+1 d (2026-09-28): median 15.9 mg/m³, above 20 mg/m³ over 24 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 16.3 mg/m³, above 20 mg/m³ over 23 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 16.2 mg/m³, above 20 mg/m³ over 20 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 16.4 mg/m³, above 20 mg/m³ over 23 km², above 50 mg/m³ over 0 km² Built from 2 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Victoria (Mwanza Gulf): WATCH — expected 32% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 47%) — UNCERTAIN</title>
+      <link>/app?lake=victoria_mwanza</link>
+      <guid isPermaLink="false">victoria_mwanza:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 3.3 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 3.3 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 3.4 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 3.4 mg/m³, above 20 mg/m³ over 1 km², above 50 mg/m³ over 0 km² Built from 7 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Chapala: ALERT — expected 18% of lake above 50 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 0%)</title>
+      <link>/app?lake=chapala</link>
+      <guid isPermaLink="false">chapala:2026-09-27:alert</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>alert</category>
+      <description>+1 d (2026-09-28): median 17.8 mg/m³, above 20 mg/m³ over 97 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 18.0 mg/m³, above 20 mg/m³ over 109 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 18.1 mg/m³, above 20 mg/m³ over 117 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 18.3 mg/m³, above 20 mg/m³ over 137 km², above 50 mg/m³ over 0 km² Built from 5 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Erhai Lake: WATCH — expected 41% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 10%, possibly 84%)</title>
+      <link>/app?lake=erhai</link>
+      <guid isPermaLink="false">erhai:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 8.3 mg/m³, above 20 mg/m³ over 21 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 7.9 mg/m³, above 20 mg/m³ over 14 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 7.8 mg/m³, above 20 mg/m³ over 11 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 7.6 mg/m³, above 20 mg/m³ over 7 km², above 50 mg/m³ over 0 km² Built from 5 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Kinneret: WATCH — expected 45% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 100%) — UNCERTAIN</title>
+      <link>/app?lake=kinneret</link>
+      <guid isPermaLink="false">kinneret:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 4.4 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 4.4 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 4.4 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 4.3 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² Built from 12 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Malaren: WATCH — expected 26% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 1%, possibly 35%) — UNCERTAIN</title>
+      <link>/app?lake=malaren</link>
+      <guid isPermaLink="false">malaren:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 5.9 mg/m³, above 20 mg/m³ over 17 km², above 50 mg/m³ over 1 km² +3 d (2026-09-30): median 6.6 mg/m³, above 20 mg/m³ over 21 km², above 50 mg/m³ over 1 km² +5 d (2026-10-02): median 7.3 mg/m³, above 20 mg/m³ over 28 km², above 50 mg/m³ over 1 km² +7 d (2026-10-04): median 7.9 mg/m³, above 20 mg/m³ over 33 km², above 50 mg/m³ over 1 km² Built from 6 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Geneva: WATCH — expected 21% of lake above 10 mg/m³ by 2026-09-30 (+3 d; likely 0%, possibly 1%)</title>
+      <link>/app?lake=geneva</link>
+      <guid isPermaLink="false">geneva:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 1.5 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 1.5 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 1.5 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 1.5 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² Built from 10 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Tana: WATCH — expected 45% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 100%) — UNCERTAIN</title>
+      <link>/app?lake=tana</link>
+      <guid isPermaLink="false">tana:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 7.4 mg/m³, above 20 mg/m³ over 1 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 7.8 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 7.9 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 8.2 mg/m³, above 20 mg/m³ over 0 km², above 50 mg/m³ over 0 km² Built from 10 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake of the Woods: WARNING — expected 12% of lake above 20 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 1%)</title>
+      <link>/app?lake=lake_of_the_woods</link>
+      <guid isPermaLink="false">lake_of_the_woods:2026-09-27:warning</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>warning</category>
+      <description>+1 d (2026-09-28): median 16.5 mg/m³, above 20 mg/m³ over 443 km², above 50 mg/m³ over 2 km² +3 d (2026-09-30): median 16.6 mg/m³, above 20 mg/m³ over 394 km², above 50 mg/m³ over 1 km² +5 d (2026-10-02): median 17.3 mg/m³, above 20 mg/m³ over 447 km², above 50 mg/m³ over 1 km² +7 d (2026-10-04): median 17.5 mg/m³, above 20 mg/m³ over 442 km², above 50 mg/m³ over 0 km² Built from 7 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Maracaibo: WATCH — expected 40% of lake above 10 mg/m³ by 2026-09-28 (+1 d; likely 0%, possibly 100%) — UNCERTAIN</title>
+      <link>/app?lake=maracaibo</link>
+      <guid isPermaLink="false">maracaibo:2026-09-27:watch</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>watch</category>
+      <description>+1 d (2026-09-28): median 5.6 mg/m³, above 20 mg/m³ over 2 km², above 50 mg/m³ over 0 km² +3 d (2026-09-30): median 5.9 mg/m³, above 20 mg/m³ over 3 km², above 50 mg/m³ over 0 km² +5 d (2026-10-02): median 5.8 mg/m³, above 20 mg/m³ over 3 km², above 50 mg/m³ over 0 km² +7 d (2026-10-04): median 6.0 mg/m³, above 20 mg/m³ over 3 km², above 50 mg/m³ over 0 km² Built from 8 observed days in the input window (cube), checkpoint best (map) + ens_met-x3 (p). Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+    <item>
+      <title>Lake Taupo: no forecast (no archived observations for taupo in the 14 days before 2026-09-27, and live fetching is disabled)</title>
+      <link>/app?lake=taupo</link>
+      <guid isPermaLink="false">taupo:2026-09-27:unavailable</guid>
+      <pubDate>Sun, 27 Sep 2026 18:31:28 +0000</pubDate>
+      <category>unavailable</category>
+      <description>no archived observations for taupo in the 14 days before 2026-09-27, and live fetching is disabled. Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.</description>
+    </item>
+  </channel>
+</rss>

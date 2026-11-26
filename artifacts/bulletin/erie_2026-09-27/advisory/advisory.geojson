@@ -1,0 +1,210 @@
+{
+  "type": "FeatureCollection",
+  "generated_utc": "2026-09-27T17:09:29+00:00",
+  "levels": [
+    "none",
+    "watch",
+    "warning",
+    "alert"
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "erie_west",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.55,
+              41.35
+            ],
+            [
+              -82.5,
+              41.35
+            ],
+            [
+              -82.5,
+              42.05
+            ],
+            [
+              -83.55,
+              42.05
+            ],
+            [
+              -83.55,
+              41.35
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "erie_west",
+        "name": "Lake Erie (Western Basin)",
+        "country": "US/CA",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.3898511826992035,
+          "20": 0.02824484370648861,
+          "50": 0.02899664081633091
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-18",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-26"
+        ],
+        "n_observed_days": 5,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 3853.5299999999997,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 5.6310343742370605,
+            "p90_chl_mg_m3": 12.45999813079834,
+            "bloom_area_km2": {
+              "10": 709.92,
+              "20": 23.13,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1153.475341796875,
+                "max_prob": 0.9461944699287415
+              },
+              "20": {
+                "expected_area_km2": 87.06831359863281,
+                "max_prob": 0.8486727476119995
+              },
+              "50": {
+                "expected_area_km2": 91.12940979003906,
+                "max_prob": 0.4776981472969055
+              }
+            },
+            "ensemble_spread_log10_median": 0.01901121251285076
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 5.922079563140869,
+            "p90_chl_mg_m3": 11.750873565673828,
+            "bloom_area_km2": {
+              "10": 581.31,
+              "20": 16.47,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1356.7601318359375,
+                "max_prob": 0.9017258882522583
+              },
+              "20": {
+                "expected_area_km2": 108.84236907958984,
+                "max_prob": 0.6335944533348083
+              },
+              "50": {
+                "expected_area_km2": 92.23324584960938,
+                "max_prob": 0.38068825006484985
+              }
+            },
+            "ensemble_spread_log10_median": 0.021385421976447105
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 6.118408679962158,
+            "p90_chl_mg_m3": 11.627419471740723,
+            "bloom_area_km2": {
+              "10": 545.76,
+              "20": 15.209999999999999,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1323.9893798828125,
+                "max_prob": 0.8465668559074402
+              },
+              "20": {
+                "expected_area_km2": 96.22747039794922,
+                "max_prob": 0.528528094291687
+              },
+              "50": {
+                "expected_area_km2": 102.5980453491211,
+                "max_prob": 0.3593442440032959
+              }
+            },
+            "ensemble_spread_log10_median": 0.023041903972625732
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 6.319675922393799,
+            "p90_chl_mg_m3": 11.365476608276367,
+            "bloom_area_km2": {
+              "10": 508.22999999999996,
+              "20": 12.15,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1502.3004150390625,
+                "max_prob": 0.7583318948745728
+              },
+              "20": {
+                "expected_area_km2": 99.88422393798828,
+                "max_prob": 0.3980346918106079
+              },
+              "50": {
+                "expected_area_km2": 111.73967742919922,
+                "max_prob": 0.2548498809337616
+              }
+            },
+            "ensemble_spread_log10_median": 0.02278701774775982
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.014316743349604128,
+            "possible": 0.8294836163206203
+          },
+          "20": {
+            "likely": 9.342083751780834e-05,
+            "possible": 0.0016348646565616462
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0001868416750356167
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        },
+        "drift": {
+          "checked": true,
+          "any_drift": false,
+          "drifted_metrics": []
+        }
+      }
+    }
+  ]
+}

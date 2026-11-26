@@ -1,0 +1,2785 @@
+{
+  "type": "FeatureCollection",
+  "generated_utc": "2026-09-27T18:31:28+00:00",
+  "levels": [
+    "none",
+    "watch",
+    "warning",
+    "alert"
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "taihu",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              119.88,
+              30.9
+            ],
+            [
+              120.65,
+              30.9
+            ],
+            [
+              120.65,
+              31.6
+            ],
+            [
+              119.88,
+              31.6
+            ],
+            [
+              119.88,
+              30.9
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "taihu",
+        "name": "Lake Taihu",
+        "country": "CN",
+        "status": "ok",
+        "level": "alert",
+        "level_lead_days": 3,
+        "level_date": "2026-09-30",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": 1,
+          "50": 3
+        },
+        "peak_fraction_above": {
+          "10": 0.6116842031478882,
+          "20": 0.1352560669183731,
+          "50": 0.1261894404888153
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-17",
+          "2026-09-19",
+          "2026-09-25",
+          "2026-09-26"
+        ],
+        "n_observed_days": 6,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 2404.2599999999998,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 14.245406150817871,
+            "p90_chl_mg_m3": 18.811336517333984,
+            "bloom_area_km2": {
+              "10": 2206.2599999999998,
+              "20": 167.04,
+              "50": 0.36
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1400.5452880859375,
+                "max_prob": 0.9459813833236694
+              },
+              "20": {
+                "expected_area_km2": 273.6446533203125,
+                "max_prob": 0.8349108099937439
+              },
+              "50": {
+                "expected_area_km2": 225.2839813232422,
+                "max_prob": 0.5282060503959656
+              }
+            },
+            "ensemble_spread_log10_median": 0.00923653319478035
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 14.851573944091797,
+            "p90_chl_mg_m3": 19.193618774414062,
+            "bloom_area_km2": {
+              "10": 2234.97,
+              "20": 173.25,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1470.6470947265625,
+                "max_prob": 0.9086809158325195
+              },
+              "20": {
+                "expected_area_km2": 325.1908874511719,
+                "max_prob": 0.6498104929924011
+              },
+              "50": {
+                "expected_area_km2": 241.4091033935547,
+                "max_prob": 0.46028050780296326
+              }
+            },
+            "ensemble_spread_log10_median": 0.009804314002394676
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 15.12694263458252,
+            "p90_chl_mg_m3": 19.370176315307617,
+            "bloom_area_km2": {
+              "10": 2248.74,
+              "20": 178.73999999999998,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1363.797607421875,
+                "max_prob": 0.853571355342865
+              },
+              "20": {
+                "expected_area_km2": 302.0310974121094,
+                "max_prob": 0.534106969833374
+              },
+              "50": {
+                "expected_area_km2": 278.10589599609375,
+                "max_prob": 0.42338132858276367
+              }
+            },
+            "ensemble_spread_log10_median": 0.011345385573804379
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 15.396653175354004,
+            "p90_chl_mg_m3": 19.549978256225586,
+            "bloom_area_km2": {
+              "10": 2249.0099999999998,
+              "20": 190.89,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1366.5157470703125,
+                "max_prob": 0.7956451773643494
+              },
+              "20": {
+                "expected_area_km2": 322.7962951660156,
+                "max_prob": 0.5190044045448303
+              },
+              "50": {
+                "expected_area_km2": 303.3921203613281,
+                "max_prob": 0.38246092200279236
+              }
+            },
+            "ensemble_spread_log10_median": 0.011104628443717957
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "confident",
+        "likely_level": "watch",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.13764318334955455,
+            "possible": 0.9969678820094332
+          },
+          "20": {
+            "likely": 0.0008609717750991989,
+            "possible": 0.01901624616306057
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0017968106610765891
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "winnipeg",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -98.17742095187674,
+              51.55737696022573
+            ],
+            [
+              -96.42257904812325,
+              51.55737696022573
+            ],
+            [
+              -96.42257904812325,
+              52.64262303977427
+            ],
+            [
+              -98.17742095187674,
+              52.64262303977427
+            ],
+            [
+              -98.17742095187674,
+              51.55737696022573
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "winnipeg",
+        "name": "Lake Winnipeg",
+        "country": "CA",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.4637758135795593,
+          "20": 0.04158087447285652,
+          "50": 0.04577723890542984
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-17",
+          "2026-09-18",
+          "2026-09-19",
+          "2026-09-20",
+          "2026-09-21",
+          "2026-09-22",
+          "2026-09-23"
+        ],
+        "n_observed_days": 7,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 6968.5199999999995,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 9.418542861938477,
+            "p90_chl_mg_m3": 14.136650085449219,
+            "bloom_area_km2": {
+              "10": 3087.99,
+              "20": 98.36999999999999,
+              "50": 2.6999999999999997
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 2918.901611328125,
+                "max_prob": 0.9492209553718567
+              },
+              "20": {
+                "expected_area_km2": 212.5097198486328,
+                "max_prob": 0.8850589990615845
+              },
+              "50": {
+                "expected_area_km2": 248.27980041503906,
+                "max_prob": 0.483184814453125
+              }
+            },
+            "ensemble_spread_log10_median": 0.01869884692132473
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 9.618552207946777,
+            "p90_chl_mg_m3": 13.738836288452148,
+            "bloom_area_km2": {
+              "10": 3168.3599999999997,
+              "20": 84.50999999999999,
+              "50": 1.3499999999999999
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 3226.9873046875,
+                "max_prob": 0.9250196218490601
+              },
+              "20": {
+                "expected_area_km2": 289.7586975097656,
+                "max_prob": 0.7780515551567078
+              },
+              "50": {
+                "expected_area_km2": 256.9098815917969,
+                "max_prob": 0.4620857238769531
+              }
+            },
+            "ensemble_spread_log10_median": 0.025886666029691696
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 9.761627197265625,
+            "p90_chl_mg_m3": 13.609386444091797,
+            "bloom_area_km2": {
+              "10": 3272.22,
+              "20": 78.57,
+              "50": 1.08
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 3039.22021484375,
+                "max_prob": 0.8805282711982727
+              },
+              "20": {
+                "expected_area_km2": 262.5119934082031,
+                "max_prob": 0.6858839392662048
+              },
+              "50": {
+                "expected_area_km2": 295.0172119140625,
+                "max_prob": 0.4443504810333252
+              }
+            },
+            "ensemble_spread_log10_median": 0.030588515102863312
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 9.880672454833984,
+            "p90_chl_mg_m3": 13.514225959777832,
+            "bloom_area_km2": {
+              "10": 3363.93,
+              "20": 74.16,
+              "50": 0.72
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 3231.8369140625,
+                "max_prob": 0.8439643383026123
+              },
+              "20": {
+                "expected_area_km2": 276.70611572265625,
+                "max_prob": 0.6922392845153809
+              },
+              "50": {
+                "expected_area_km2": 318.99749755859375,
+                "max_prob": 0.429220050573349
+              }
+            },
+            "ensemble_spread_log10_median": 0.032708555459976196
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.011107093041277057,
+            "possible": 0.9853024745570078
+          },
+          "20": {
+            "likely": 0.0005166089786640492,
+            "possible": 0.006108901172702382
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0010332179573280984
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "green_bay",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -88.27946902561996,
+              44.478688480112865
+            ],
+            [
+              -87.52053097438005,
+              44.478688480112865
+            ],
+            [
+              -87.52053097438005,
+              45.021311519887135
+            ],
+            [
+              -88.27946902561996,
+              45.021311519887135
+            ],
+            [
+              -88.27946902561996,
+              44.478688480112865
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "green_bay",
+        "name": "Lake Michigan (Green Bay)",
+        "country": "US",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.38298869132995605,
+          "20": 0.026066280901432037,
+          "50": 0.029406310990452766
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-16",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-26"
+        ],
+        "n_observed_days": 7,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 1024.11,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 6.364898204803467,
+            "p90_chl_mg_m3": 11.789850234985352,
+            "bloom_area_km2": {
+              "10": 202.41,
+              "20": 11.07,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 298.0950927734375,
+                "max_prob": 0.9183987379074097
+              },
+              "20": {
+                "expected_area_km2": 18.867141723632812,
+                "max_prob": 0.7971126437187195
+              },
+              "50": {
+                "expected_area_km2": 21.747175216674805,
+                "max_prob": 0.37786996364593506
+              }
+            },
+            "ensemble_spread_log10_median": 0.016371451318264008
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 6.387945652008057,
+            "p90_chl_mg_m3": 11.532367706298828,
+            "bloom_area_km2": {
+              "10": 180.35999999999999,
+              "20": 10.98,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 350.3343811035156,
+                "max_prob": 0.9017497301101685
+              },
+              "20": {
+                "expected_area_km2": 26.074363708496094,
+                "max_prob": 0.7033913135528564
+              },
+              "50": {
+                "expected_area_km2": 22.736234664916992,
+                "max_prob": 0.3845230042934418
+              }
+            },
+            "ensemble_spread_log10_median": 0.01708010956645012
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 6.780265808105469,
+            "p90_chl_mg_m3": 11.782668113708496,
+            "bloom_area_km2": {
+              "10": 201.42,
+              "20": 10.98,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 348.0200500488281,
+                "max_prob": 0.8796061873435974
+              },
+              "20": {
+                "expected_area_km2": 25.173662185668945,
+                "max_prob": 0.7420265078544617
+              },
+              "50": {
+                "expected_area_km2": 27.595882415771484,
+                "max_prob": 0.4531044363975525
+              }
+            },
+            "ensemble_spread_log10_median": 0.015980390831828117
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 6.793656826019287,
+            "p90_chl_mg_m3": 11.795977592468262,
+            "bloom_area_km2": {
+              "10": 199.98,
+              "20": 11.07,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 392.22247314453125,
+                "max_prob": 0.7815994024276733
+              },
+              "20": {
+                "expected_area_km2": 26.694734573364258,
+                "max_prob": 0.5530904531478882
+              },
+              "50": {
+                "expected_area_km2": 30.115320205688477,
+                "max_prob": 0.3136284351348877
+              }
+            },
+            "ensemble_spread_log10_median": 0.014982468448579311
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.016258019158098252,
+            "possible": 0.8664205993496792
+          },
+          "20": {
+            "likely": 8.788118463836892e-05,
+            "possible": 0.0030758414623429124
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0002636435539151068
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ijsselmeer",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              4.83056825698296,
+              52.43346989346501
+            ],
+            [
+              5.8694317430170395,
+              52.43346989346501
+            ],
+            [
+              5.8694317430170395,
+              53.06653010653499
+            ],
+            [
+              4.83056825698296,
+              53.06653010653499
+            ],
+            [
+              4.83056825698296,
+              52.43346989346501
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "ijsselmeer",
+        "name": "IJsselmeer",
+        "country": "NL",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.40283718705177307,
+          "20": 0.028456808999180794,
+          "50": 0.029403384774923325
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-16",
+          "2026-09-18",
+          "2026-09-20",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-26"
+        ],
+        "n_observed_days": 8,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 2269.5299999999997,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 6.312167644500732,
+            "p90_chl_mg_m3": 9.910924911499023,
+            "bloom_area_km2": {
+              "10": 215.28,
+              "20": 25.29,
+              "50": 1.6199999999999999
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 660.8135375976562,
+                "max_prob": 0.967312753200531
+              },
+              "20": {
+                "expected_area_km2": 38.25293731689453,
+                "max_prob": 0.9305351972579956
+              },
+              "50": {
+                "expected_area_km2": 42.9698600769043,
+                "max_prob": 0.5590473413467407
+              }
+            },
+            "ensemble_spread_log10_median": 0.032456766813993454
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 6.744918346405029,
+            "p90_chl_mg_m3": 10.005228042602539,
+            "bloom_area_km2": {
+              "10": 228.15,
+              "20": 25.47,
+              "50": 1.26
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 803.3224487304688,
+                "max_prob": 0.9589928984642029
+              },
+              "20": {
+                "expected_area_km2": 58.06291198730469,
+                "max_prob": 0.8790210485458374
+              },
+              "50": {
+                "expected_area_km2": 48.71913146972656,
+                "max_prob": 0.5788229703903198
+              }
+            },
+            "ensemble_spread_log10_median": 0.05119632929563522
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 7.0306267738342285,
+            "p90_chl_mg_m3": 10.168041229248047,
+            "bloom_area_km2": {
+              "10": 256.59,
+              "20": 26.73,
+              "50": 1.3499999999999999
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 804.7302856445312,
+                "max_prob": 0.9340064525604248
+              },
+              "20": {
+                "expected_area_km2": 56.54063415527344,
+                "max_prob": 0.8530773520469666
+              },
+              "50": {
+                "expected_area_km2": 58.68928527832031,
+                "max_prob": 0.6034877300262451
+              }
+            },
+            "ensemble_spread_log10_median": 0.06349778175354004
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 7.308619022369385,
+            "p90_chl_mg_m3": 10.444668769836426,
+            "bloom_area_km2": {
+              "10": 318.42,
+              "20": 27.72,
+              "50": 1.26
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 914.245849609375,
+                "max_prob": 0.9022035002708435
+              },
+              "20": {
+                "expected_area_km2": 64.58348083496094,
+                "max_prob": 0.8740273714065552
+              },
+              "50": {
+                "expected_area_km2": 66.73188018798828,
+                "max_prob": 0.6055556535720825
+              }
+            },
+            "ensemble_spread_log10_median": 0.07024021446704865
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.01788476028076298,
+            "possible": 0.8141333227584566
+          },
+          "20": {
+            "likely": 0.0020621009636356425,
+            "possible": 0.009081175397549272
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0024586588412578818
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chaohu",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              117.28646791418011,
+              31.32390706676072
+            ],
+            [
+              117.81353208581989,
+              31.32390706676072
+            ],
+            [
+              117.81353208581989,
+              31.77609293323928
+            ],
+            [
+              117.28646791418011,
+              31.77609293323928
+            ],
+            [
+              117.28646791418011,
+              31.32390706676072
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "chaohu",
+        "name": "Lake Chaohu",
+        "country": "CN",
+        "status": "ok",
+        "level": "alert",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": 1,
+          "50": 1
+        },
+        "peak_fraction_above": {
+          "10": 0.5873355865478516,
+          "20": 0.1517864167690277,
+          "50": 0.24283462762832642
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-16",
+          "2026-09-25"
+        ],
+        "n_observed_days": 2,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 798.3,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 15.910213470458984,
+            "p90_chl_mg_m3": 18.206310272216797,
+            "bloom_area_km2": {
+              "10": 795.51,
+              "20": 23.58,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 465.4541931152344,
+                "max_prob": 0.8801000118255615
+              },
+              "20": {
+                "expected_area_km2": 110.99197387695312,
+                "max_prob": 0.38829657435417175
+              },
+              "50": {
+                "expected_area_km2": 155.3109588623047,
+                "max_prob": 0.31756874918937683
+              }
+            },
+            "ensemble_spread_log10_median": 0.00816140417009592
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 16.251657485961914,
+            "p90_chl_mg_m3": 18.467296600341797,
+            "bloom_area_km2": {
+              "10": 794.6999999999999,
+              "20": 22.95,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 468.8697814941406,
+                "max_prob": 0.8668351173400879
+              },
+              "20": {
+                "expected_area_km2": 121.1711654663086,
+                "max_prob": 0.40861448645591736
+              },
+              "50": {
+                "expected_area_km2": 153.97959899902344,
+                "max_prob": 0.3500347137451172
+              }
+            },
+            "ensemble_spread_log10_median": 0.009231405332684517
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 16.219295501708984,
+            "p90_chl_mg_m3": 18.406450271606445,
+            "bloom_area_km2": {
+              "10": 794.97,
+              "20": 19.89,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 424.70062255859375,
+                "max_prob": 0.8103674650192261
+              },
+              "20": {
+                "expected_area_km2": 108.35028076171875,
+                "max_prob": 0.4175897538661957
+              },
+              "50": {
+                "expected_area_km2": 174.95382690429688,
+                "max_prob": 0.39383476972579956
+              }
+            },
+            "ensemble_spread_log10_median": 0.011965214274823666
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 16.42759132385254,
+            "p90_chl_mg_m3": 18.62629508972168,
+            "bloom_area_km2": {
+              "10": 794.97,
+              "20": 23.31,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 424.2154541015625,
+                "max_prob": 0.7702332735061646
+              },
+              "20": {
+                "expected_area_km2": 112.68745422363281,
+                "max_prob": 0.4585626721382141
+              },
+              "50": {
+                "expected_area_km2": 193.855224609375,
+                "max_prob": 0.43258529901504517
+              }
+            },
+            "ensemble_spread_log10_median": 0.013011202216148376
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.010710259301014656,
+            "possible": 1.0
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.002029312288613303
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.04577226606538895
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "victoria_mwanza",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              32.63023952422718,
+              -2.8213115198871344
+            ],
+            [
+              33.16976047577282,
+              -2.8213115198871344
+            ],
+            [
+              33.16976047577282,
+              -2.2786884801128653
+            ],
+            [
+              32.63023952422718,
+              -2.2786884801128653
+            ],
+            [
+              32.63023952422718,
+              -2.8213115198871344
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "victoria_mwanza",
+        "name": "Lake Victoria (Mwanza Gulf)",
+        "country": "TZ",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.32376089692115784,
+          "20": 0.01603429764509201,
+          "50": 0.02445719763636589
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-16",
+          "2026-09-17",
+          "2026-09-20",
+          "2026-09-22",
+          "2026-09-24",
+          "2026-09-26"
+        ],
+        "n_observed_days": 7,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 1309.77,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 3.307143449783325,
+            "p90_chl_mg_m3": 9.671050071716309,
+            "bloom_area_km2": {
+              "10": 120.06,
+              "20": 0.09,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 271.4082336425781,
+                "max_prob": 0.6954052448272705
+              },
+              "20": {
+                "expected_area_km2": 10.681751251220703,
+                "max_prob": 0.20304831862449646
+              },
+              "50": {
+                "expected_area_km2": 20.37027359008789,
+                "max_prob": 0.1363985538482666
+              }
+            },
+            "ensemble_spread_log10_median": 0.02556682750582695
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 3.306717872619629,
+            "p90_chl_mg_m3": 10.387578010559082,
+            "bloom_area_km2": {
+              "10": 142.73999999999998,
+              "20": 0.09,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 350.3134460449219,
+                "max_prob": 0.7850884199142456
+              },
+              "20": {
+                "expected_area_km2": 19.19399642944336,
+                "max_prob": 0.19902774691581726
+              },
+              "50": {
+                "expected_area_km2": 23.251611709594727,
+                "max_prob": 0.14458224177360535
+              }
+            },
+            "ensemble_spread_log10_median": 0.025275109335780144
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 3.3567543029785156,
+            "p90_chl_mg_m3": 10.842711448669434,
+            "bloom_area_km2": {
+              "10": 149.67,
+              "20": 0.36,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 357.17205810546875,
+                "max_prob": 0.7778177261352539
+              },
+              "20": {
+                "expected_area_km2": 18.574167251586914,
+                "max_prob": 0.31779205799102783
+              },
+              "50": {
+                "expected_area_km2": 27.635826110839844,
+                "max_prob": 0.2429826557636261
+              }
+            },
+            "ensemble_spread_log10_median": 0.02465927042067051
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 3.363614082336426,
+            "p90_chl_mg_m3": 11.309456825256348,
+            "bloom_area_km2": {
+              "10": 158.4,
+              "20": 0.63,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 424.0523376464844,
+                "max_prob": 0.7790684700012207
+              },
+              "20": {
+                "expected_area_km2": 21.001232147216797,
+                "max_prob": 0.3709779977798462
+              },
+              "50": {
+                "expected_area_km2": 32.03330993652344,
+                "max_prob": 0.26643556356430054
+              }
+            },
+            "ensemble_spread_log10_median": 0.02234763652086258
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0001374287088572803,
+            "possible": 0.4681508967223253
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 6.871435442864014e-05
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chapala",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -103.33724775232797,
+              19.978688480112865
+            ],
+            [
+              -102.76275224767203,
+              19.978688480112865
+            ],
+            [
+              -102.76275224767203,
+              20.521311519887135
+            ],
+            [
+              -103.33724775232797,
+              20.521311519887135
+            ],
+            [
+              -103.33724775232797,
+              19.978688480112865
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "chapala",
+        "name": "Lake Chapala",
+        "country": "MX",
+        "status": "ok",
+        "level": "alert",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": 1,
+          "50": 1
+        },
+        "peak_fraction_above": {
+          "10": 0.6399871110916138,
+          "20": 0.14001289010047913,
+          "50": 0.1818545013666153
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-16",
+          "2026-09-19",
+          "2026-09-23",
+          "2026-09-26"
+        ],
+        "n_observed_days": 5,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 943.29,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 17.814109802246094,
+            "p90_chl_mg_m3": 20.033859252929688,
+            "bloom_area_km2": {
+              "10": 941.04,
+              "20": 96.75,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 603.6937255859375,
+                "max_prob": 0.8277317881584167
+              },
+              "20": {
+                "expected_area_km2": 128.07647705078125,
+                "max_prob": 0.4688969552516937
+              },
+              "50": {
+                "expected_area_km2": 148.3768310546875,
+                "max_prob": 0.33200323581695557
+              }
+            },
+            "ensemble_spread_log10_median": 0.013730463571846485
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 17.97820472717285,
+            "p90_chl_mg_m3": 20.182790756225586,
+            "bloom_area_km2": {
+              "10": 941.2199999999999,
+              "20": 109.44,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 597.2109985351562,
+                "max_prob": 0.8345077037811279
+              },
+              "20": {
+                "expected_area_km2": 132.07276916503906,
+                "max_prob": 0.48326367139816284
+              },
+              "50": {
+                "expected_area_km2": 144.34181213378906,
+                "max_prob": 0.3972246050834656
+              }
+            },
+            "ensemble_spread_log10_median": 0.018736794590950012
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 18.084856033325195,
+            "p90_chl_mg_m3": 20.274112701416016,
+            "bloom_area_km2": {
+              "10": 941.4,
+              "20": 116.91,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 545.5913696289062,
+                "max_prob": 0.7870547771453857
+              },
+              "20": {
+                "expected_area_km2": 117.35002899169922,
+                "max_prob": 0.45330172777175903
+              },
+              "50": {
+                "expected_area_km2": 163.02052307128906,
+                "max_prob": 0.4232556223869324
+              }
+            },
+            "ensemble_spread_log10_median": 0.02343127317726612
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 18.26801300048828,
+            "p90_chl_mg_m3": 20.515338897705078,
+            "bloom_area_km2": {
+              "10": 941.04,
+              "20": 136.98,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 536.4841918945312,
+                "max_prob": 0.7571936249732971
+              },
+              "20": {
+                "expected_area_km2": 119.68675231933594,
+                "max_prob": 0.48199665546417236
+              },
+              "50": {
+                "expected_area_km2": 171.54132080078125,
+                "max_prob": 0.4432030916213989
+              }
+            },
+            "ensemble_spread_log10_median": 0.025297947227954865
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "confident",
+        "likely_level": "watch",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.12126705467035588,
+            "possible": 1.0
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.04722831790859651
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0026715008109913178
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "erhai",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              99.96049057203348,
+              25.601038218749437
+            ],
+            [
+              100.39950942796654,
+              25.601038218749437
+            ],
+            [
+              100.39950942796654,
+              25.998961781250564
+            ],
+            [
+              99.96049057203348,
+              25.998961781250564
+            ],
+            [
+              99.96049057203348,
+              25.601038218749437
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "erhai",
+        "name": "Erhai Lake",
+        "country": "CN",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.4097125828266144,
+          "20": 0.04958084225654602,
+          "50": 0.04389499872922897
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-16",
+          "2026-09-18",
+          "2026-09-24",
+          "2026-09-26",
+          "2026-09-27"
+        ],
+        "n_observed_days": 5,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 253.89,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 8.288505554199219,
+            "p90_chl_mg_m3": 16.799560546875,
+            "bloom_area_km2": {
+              "10": 79.56,
+              "20": 20.97,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 98.96340942382812,
+                "max_prob": 0.9130122661590576
+              },
+              "20": {
+                "expected_area_km2": 12.588062286376953,
+                "max_prob": 0.698065996170044
+              },
+              "50": {
+                "expected_area_km2": 11.144505500793457,
+                "max_prob": 0.3921460509300232
+              }
+            },
+            "ensemble_spread_log10_median": 0.05677198991179466
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 7.877713203430176,
+            "p90_chl_mg_m3": 15.33112621307373,
+            "bloom_area_km2": {
+              "10": 71.64,
+              "20": 13.5,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 104.02194213867188,
+                "max_prob": 0.8813878297805786
+              },
+              "20": {
+                "expected_area_km2": 11.408939361572266,
+                "max_prob": 0.6120073795318604
+              },
+              "50": {
+                "expected_area_km2": 10.094392776489258,
+                "max_prob": 0.35735440254211426
+              }
+            },
+            "ensemble_spread_log10_median": 0.06218666955828667
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 7.760400295257568,
+            "p90_chl_mg_m3": 14.979482650756836,
+            "bloom_area_km2": {
+              "10": 69.03,
+              "20": 11.16,
+              "50": 0.09
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 97.58132934570312,
+                "max_prob": 0.8647446632385254
+              },
+              "20": {
+                "expected_area_km2": 8.89124584197998,
+                "max_prob": 0.6565452814102173
+              },
+              "50": {
+                "expected_area_km2": 10.255022048950195,
+                "max_prob": 0.4447433352470398
+              }
+            },
+            "ensemble_spread_log10_median": 0.06219225376844406
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 7.615080833435059,
+            "p90_chl_mg_m3": 13.682602882385254,
+            "bloom_area_km2": {
+              "10": 63.18,
+              "20": 7.199999999999999,
+              "50": 0.18
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 103.37554931640625,
+                "max_prob": 0.8424428701400757
+              },
+              "20": {
+                "expected_area_km2": 8.042978286743164,
+                "max_prob": 0.7386410236358643
+              },
+              "50": {
+                "expected_area_km2": 9.958410263061523,
+                "max_prob": 0.49057620763778687
+              }
+            },
+            "ensemble_spread_log10_median": 0.057857148349285126
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "confident",
+        "likely_level": "watch",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.10067352002835873,
+            "possible": 0.8387096774193549
+          },
+          "20": {
+            "likely": 0.0007089684509039348,
+            "possible": 0.044310528181495924
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0031903580290677065
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "kinneret",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.46172747238971,
+              32.711475392045145
+            ],
+            [
+              35.718272527610296,
+              32.711475392045145
+            ],
+            [
+              35.718272527610296,
+              32.928524607954856
+            ],
+            [
+              35.46172747238971,
+              32.928524607954856
+            ],
+            [
+              35.46172747238971,
+              32.711475392045145
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "kinneret",
+        "name": "Lake Kinneret",
+        "country": "IL",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.4504169225692749,
+          "20": 0.00981053989380598,
+          "50": 0.03902099281549454
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-16",
+          "2026-09-17",
+          "2026-09-18",
+          "2026-09-19",
+          "2026-09-20",
+          "2026-09-21",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-27"
+        ],
+        "n_observed_days": 12,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 165.15,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 4.443490505218506,
+            "p90_chl_mg_m3": 4.671734809875488,
+            "bloom_area_km2": {
+              "10": 0.18,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 60.688358306884766,
+                "max_prob": 0.7204295992851257
+              },
+              "20": {
+                "expected_area_km2": 0.6684152483940125,
+                "max_prob": 0.037124183028936386
+              },
+              "50": {
+                "expected_area_km2": 4.572824478149414,
+                "max_prob": 0.061374910175800323
+              }
+            },
+            "ensemble_spread_log10_median": 0.00953594222664833
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 4.380956649780273,
+            "p90_chl_mg_m3": 4.630424976348877,
+            "bloom_area_km2": {
+              "10": 0.18,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 70.4381103515625,
+                "max_prob": 0.8177817463874817
+              },
+              "20": {
+                "expected_area_km2": 1.4370439052581787,
+                "max_prob": 0.038587454706430435
+              },
+              "50": {
+                "expected_area_km2": 4.71550178527832,
+                "max_prob": 0.053919535130262375
+              }
+            },
+            "ensemble_spread_log10_median": 0.01566910371184349
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 4.352494239807129,
+            "p90_chl_mg_m3": 4.614962577819824,
+            "bloom_area_km2": {
+              "10": 0.18,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 69.10710906982422,
+                "max_prob": 0.8320162892341614
+              },
+              "20": {
+                "expected_area_km2": 1.4354517459869385,
+                "max_prob": 0.0298751387745142
+              },
+              "50": {
+                "expected_area_km2": 5.4096879959106445,
+                "max_prob": 0.06948402523994446
+              }
+            },
+            "ensemble_spread_log10_median": 0.019563239067792892
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 4.307535648345947,
+            "p90_chl_mg_m3": 4.576735019683838,
+            "bloom_area_km2": {
+              "10": 0.18,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 74.38636779785156,
+                "max_prob": 0.816823422908783
+              },
+              "20": {
+                "expected_area_km2": 1.620210886001587,
+                "max_prob": 0.02597552165389061
+              },
+              "50": {
+                "expected_area_km2": 6.444311618804932,
+                "max_prob": 0.12061087787151337
+              }
+            },
+            "ensemble_spread_log10_median": 0.023226775228977203
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.004359673024523161,
+            "possible": 0.9989100817438692
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.0
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "malaren",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.40470604808742,
+              59.0430327201693
+            ],
+            [
+              17.99529395191258,
+              59.0430327201693
+            ],
+            [
+              17.99529395191258,
+              59.856967279830705
+            ],
+            [
+              16.40470604808742,
+              59.856967279830705
+            ],
+            [
+              16.40470604808742,
+              59.0430327201693
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "malaren",
+        "name": "Lake Malaren",
+        "country": "SE",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.26060229539871216,
+          "20": 0.00947192870080471,
+          "50": 0.010523870587348938
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-18",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25"
+        ],
+        "n_observed_days": 6,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 1303.74,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 5.92260217666626,
+            "p90_chl_mg_m3": 11.84522533416748,
+            "bloom_area_km2": {
+              "10": 229.41,
+              "20": 17.099999999999998,
+              "50": 0.8999999999999999
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 172.360107421875,
+                "max_prob": 0.9455021023750305
+              },
+              "20": {
+                "expected_area_km2": 5.396881580352783,
+                "max_prob": 0.8434337973594666
+              },
+              "50": {
+                "expected_area_km2": 7.461031436920166,
+                "max_prob": 0.3985302150249481
+              }
+            },
+            "ensemble_spread_log10_median": 0.10488981753587723
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 6.62290096282959,
+            "p90_chl_mg_m3": 12.990250587463379,
+            "bloom_area_km2": {
+              "10": 306.53999999999996,
+              "20": 20.52,
+              "50": 1.08
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 233.18295288085938,
+                "max_prob": 0.9357567429542542
+              },
+              "20": {
+                "expected_area_km2": 9.36356258392334,
+                "max_prob": 0.7684844732284546
+              },
+              "50": {
+                "expected_area_km2": 8.81686019897461,
+                "max_prob": 0.41981515288352966
+              }
+            },
+            "ensemble_spread_log10_median": 0.1444147378206253
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 7.2637834548950195,
+            "p90_chl_mg_m3": 14.11463451385498,
+            "bloom_area_km2": {
+              "10": 373.59,
+              "20": 28.349999999999998,
+              "50": 1.44
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 246.14117431640625,
+                "max_prob": 0.9080584049224854
+              },
+              "20": {
+                "expected_area_km2": 9.547449111938477,
+                "max_prob": 0.750269889831543
+              },
+              "50": {
+                "expected_area_km2": 10.893481254577637,
+                "max_prob": 0.4667496383190155
+              }
+            },
+            "ensemble_spread_log10_median": 0.1678774654865265
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 7.916915416717529,
+            "p90_chl_mg_m3": 15.01557731628418,
+            "bloom_area_km2": {
+              "10": 438.03,
+              "20": 33.39,
+              "50": 1.44
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 339.7571105957031,
+                "max_prob": 0.8574338555335999
+              },
+              "20": {
+                "expected_area_km2": 12.34902572631836,
+                "max_prob": 0.7220003604888916
+              },
+              "50": {
+                "expected_area_km2": 13.72034740447998,
+                "max_prob": 0.4183993339538574
+              }
+            },
+            "ensemble_spread_log10_median": 0.1797340214252472
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0055225735192599755,
+            "possible": 0.35185696534585115
+          },
+          "20": {
+            "likely": 0.00020709650697224908,
+            "possible": 0.002899351097611487
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.00048322518293524784
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geneva",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.054732588167746,
+              46.0863387414763
+            ],
+            [
+              7.045267411832254,
+              46.0863387414763
+            ],
+            [
+              7.045267411832254,
+              46.7736612585237
+            ],
+            [
+              6.054732588167746,
+              46.7736612585237
+            ],
+            [
+              6.054732588167746,
+              46.0863387414763
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "geneva",
+        "name": "Lake Geneva",
+        "country": "CH/FR",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 3,
+        "level_date": "2026-09-30",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 3,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.21253934502601624,
+          "20": 0.0005115155363455415,
+          "50": 0.00447129039093852
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-18",
+          "2026-09-19",
+          "2026-09-20",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-25",
+          "2026-09-26",
+          "2026-09-27"
+        ],
+        "n_observed_days": 10,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 588.15,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 1.5173691511154175,
+            "p90_chl_mg_m3": 1.99180269241333,
+            "bloom_area_km2": {
+              "10": 0.09,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 49.34747314453125,
+                "max_prob": 0.44021645188331604
+              },
+              "20": {
+                "expected_area_km2": 0.06607013195753098,
+                "max_prob": 0.03792482241988182
+              },
+              "50": {
+                "expected_area_km2": 1.6999015808105469,
+                "max_prob": 0.062158629298210144
+              }
+            },
+            "ensemble_spread_log10_median": 0.044081710278987885
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 1.495840072631836,
+            "p90_chl_mg_m3": 1.9545669555664062,
+            "bloom_area_km2": {
+              "10": 0.09,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 76.62446594238281,
+                "max_prob": 0.4443032443523407
+              },
+              "20": {
+                "expected_area_km2": 0.25617340207099915,
+                "max_prob": 0.04659589007496834
+              },
+              "50": {
+                "expected_area_km2": 1.8034907579421997,
+                "max_prob": 0.061296939849853516
+              }
+            },
+            "ensemble_spread_log10_median": 0.053496427834033966
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 1.4986145496368408,
+            "p90_chl_mg_m3": 1.9505763053894043,
+            "bloom_area_km2": {
+              "10": 0.09,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 89.32856750488281,
+                "max_prob": 0.40377917885780334
+              },
+              "20": {
+                "expected_area_km2": 0.25949007272720337,
+                "max_prob": 0.03253883495926857
+              },
+              "50": {
+                "expected_area_km2": 2.1032750606536865,
+                "max_prob": 0.05728163570165634
+              }
+            },
+            "ensemble_spread_log10_median": 0.06081927940249443
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 1.488590955734253,
+            "p90_chl_mg_m3": 1.9319905042648315,
+            "bloom_area_km2": {
+              "10": 0.09,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 125.00513458251953,
+                "max_prob": 0.4376293122768402
+              },
+              "20": {
+                "expected_area_km2": 0.3008480668067932,
+                "max_prob": 0.026329100131988525
+              },
+              "50": {
+                "expected_area_km2": 2.629791021347046,
+                "max_prob": 0.053684767335653305
+              }
+            },
+            "ensemble_spread_log10_median": 0.06094685569405556
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "confident",
+        "likely_level": "none",
+        "possible_level": "none",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0,
+            "possible": 0.007804131599081867
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.0
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tana",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.93264800759431,
+              11.638251306817153
+            ],
+            [
+              37.667351992405685,
+              11.638251306817153
+            ],
+            [
+              37.667351992405685,
+              12.361748693182847
+            ],
+            [
+              36.93264800759431,
+              12.361748693182847
+            ],
+            [
+              36.93264800759431,
+              11.638251306817153
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "tana",
+        "name": "Lake Tana",
+        "country": "ET",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.4542296230792999,
+          "20": 0.03809700161218643,
+          "50": 0.04103708267211914
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-17",
+          "2026-09-18",
+          "2026-09-20",
+          "2026-09-21",
+          "2026-09-22",
+          "2026-09-24",
+          "2026-09-25",
+          "2026-09-26"
+        ],
+        "n_observed_days": 10,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 3024.9,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 7.402158260345459,
+            "p90_chl_mg_m3": 10.730724334716797,
+            "bloom_area_km2": {
+              "10": 504.53999999999996,
+              "20": 0.54,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1109.1658935546875,
+                "max_prob": 0.8265081644058228
+              },
+              "20": {
+                "expected_area_km2": 64.35914611816406,
+                "max_prob": 0.41178154945373535
+              },
+              "50": {
+                "expected_area_km2": 81.07086181640625,
+                "max_prob": 0.20138250291347504
+              }
+            },
+            "ensemble_spread_log10_median": 0.014033461920917034
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 7.7802228927612305,
+            "p90_chl_mg_m3": 11.007294654846191,
+            "bloom_area_km2": {
+              "10": 596.6999999999999,
+              "20": 0.0,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1309.6026611328125,
+                "max_prob": 0.7729026675224304
+              },
+              "20": {
+                "expected_area_km2": 107.48311614990234,
+                "max_prob": 0.27158841490745544
+              },
+              "50": {
+                "expected_area_km2": 92.47178649902344,
+                "max_prob": 0.15974247455596924
+              }
+            },
+            "ensemble_spread_log10_median": 0.016670584678649902
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 7.919789791107178,
+            "p90_chl_mg_m3": 11.145605087280273,
+            "bloom_area_km2": {
+              "10": 625.68,
+              "20": 0.09,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1256.8653564453125,
+                "max_prob": 0.7251990437507629
+              },
+              "20": {
+                "expected_area_km2": 102.1031494140625,
+                "max_prob": 0.24902017414569855
+              },
+              "50": {
+                "expected_area_km2": 109.64796447753906,
+                "max_prob": 0.1727026402950287
+              }
+            },
+            "ensemble_spread_log10_median": 0.023809920996427536
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 8.162696838378906,
+            "p90_chl_mg_m3": 11.415075302124023,
+            "bloom_area_km2": {
+              "10": 692.4599999999999,
+              "20": 0.18,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1373.997314453125,
+                "max_prob": 0.7064757347106934
+              },
+              "20": {
+                "expected_area_km2": 115.23990631103516,
+                "max_prob": 0.28227558732032776
+              },
+              "50": {
+                "expected_area_km2": 124.13273620605469,
+                "max_prob": 0.18715587258338928
+              }
+            },
+            "ensemble_spread_log10_median": 0.023845762014389038
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0021124665278191013,
+            "possible": 0.9997322225528117
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.0001487652484379649
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lake_of_the_woods",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.27923875345583,
+              48.68346989346501
+            ],
+            [
+              -94.32076124654417,
+              48.68346989346501
+            ],
+            [
+              -94.32076124654417,
+              49.31653010653499
+            ],
+            [
+              -95.27923875345583,
+              49.31653010653499
+            ],
+            [
+              -95.27923875345583,
+              48.68346989346501
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "lake_of_the_woods",
+        "name": "Lake of the Woods",
+        "country": "CA/US",
+        "status": "ok",
+        "level": "warning",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": 1,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.6271541714668274,
+          "20": 0.12144404649734497,
+          "50": 0.09699413180351257
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-15",
+          "2026-09-16",
+          "2026-09-17",
+          "2026-09-21",
+          "2026-09-22",
+          "2026-09-23",
+          "2026-09-27"
+        ],
+        "n_observed_days": 7,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 2275.38,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 16.51845932006836,
+            "p90_chl_mg_m3": 21.90010643005371,
+            "bloom_area_km2": {
+              "10": 2162.97,
+              "20": 443.34,
+              "50": 1.98
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1408.2698974609375,
+                "max_prob": 0.9330508708953857
+              },
+              "20": {
+                "expected_area_km2": 266.2615966796875,
+                "max_prob": 0.8146395087242126
+              },
+              "50": {
+                "expected_area_km2": 182.70700073242188,
+                "max_prob": 0.4258512854576111
+              }
+            },
+            "ensemble_spread_log10_median": 0.0170564204454422
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 16.638357162475586,
+            "p90_chl_mg_m3": 21.29962158203125,
+            "bloom_area_km2": {
+              "10": 2169.45,
+              "20": 394.38,
+              "50": 0.8099999999999999
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1427.01025390625,
+                "max_prob": 0.9230867624282837
+              },
+              "20": {
+                "expected_area_km2": 276.3312072753906,
+                "max_prob": 0.6169039607048035
+              },
+              "50": {
+                "expected_area_km2": 180.05995178222656,
+                "max_prob": 0.3513387143611908
+              }
+            },
+            "ensemble_spread_log10_median": 0.02322453260421753
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 17.26052474975586,
+            "p90_chl_mg_m3": 21.377134323120117,
+            "bloom_area_km2": {
+              "10": 2165.58,
+              "20": 447.39,
+              "50": 0.54
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1317.818603515625,
+                "max_prob": 0.8835760951042175
+              },
+              "20": {
+                "expected_area_km2": 253.09222412109375,
+                "max_prob": 0.47454190254211426
+              },
+              "50": {
+                "expected_area_km2": 209.1481475830078,
+                "max_prob": 0.3110889196395874
+              }
+            },
+            "ensemble_spread_log10_median": 0.02592575177550316
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 17.456256866455078,
+            "p90_chl_mg_m3": 21.21469497680664,
+            "bloom_area_km2": {
+              "10": 2173.14,
+              "20": 441.9,
+              "50": 0.18
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1313.94482421875,
+                "max_prob": 0.8591626286506653
+              },
+              "20": {
+                "expected_area_km2": 266.0185852050781,
+                "max_prob": 0.46556687355041504
+              },
+              "50": {
+                "expected_area_km2": 220.69813537597656,
+                "max_prob": 0.2957351803779602
+              }
+            },
+            "ensemble_spread_log10_median": 0.027950912714004517
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "confident",
+        "likely_level": "watch",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.12680958784906257,
+            "possible": 0.9943833557471718
+          },
+          "20": {
+            "likely": 0.0004350921604303457,
+            "possible": 0.007198797563483902
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 0.0006724151570287161
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "maracaibo",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.91464541287866,
+              9.438251306817154
+            ],
+            [
+              -71.18535458712134,
+              9.438251306817154
+            ],
+            [
+              -71.18535458712134,
+              10.161748693182847
+            ],
+            [
+              -71.91464541287866,
+              10.161748693182847
+            ],
+            [
+              -71.91464541287866,
+              9.438251306817154
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "maracaibo",
+        "name": "Lake Maracaibo",
+        "country": "VE",
+        "status": "ok",
+        "level": "watch",
+        "level_lead_days": 1,
+        "level_date": "2026-09-28",
+        "min_fraction": 0.1,
+        "first_exceedance_lead_days": {
+          "10": 1,
+          "20": null,
+          "50": null
+        },
+        "peak_fraction_above": {
+          "10": 0.40379926562309265,
+          "20": 0.021366454660892487,
+          "50": 0.03397008031606674
+        },
+        "anchor_date": "2026-09-27",
+        "input_observed_days": [
+          "2026-09-14",
+          "2026-09-15",
+          "2026-09-17",
+          "2026-09-19",
+          "2026-09-21",
+          "2026-09-23",
+          "2026-09-24",
+          "2026-09-25"
+        ],
+        "n_observed_days": 8,
+        "source": "cube",
+        "model_version": "best (map) + ens_met-x3 (p)",
+        "water_area_km2": 6373.71,
+        "forecasts": [
+          {
+            "lead_days": 1,
+            "valid_date": "2026-09-28",
+            "median_chl_mg_m3": 5.629777908325195,
+            "p90_chl_mg_m3": 8.527548789978027,
+            "bloom_area_km2": {
+              "10": 288.27,
+              "20": 2.16,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 1982.08056640625,
+                "max_prob": 0.9061139225959778
+              },
+              "20": {
+                "expected_area_km2": 76.84709167480469,
+                "max_prob": 0.6546916961669922
+              },
+              "50": {
+                "expected_area_km2": 158.25433349609375,
+                "max_prob": 0.3549318313598633
+              }
+            },
+            "ensemble_spread_log10_median": 0.00906528439372778
+          },
+          {
+            "lead_days": 3,
+            "valid_date": "2026-09-30",
+            "median_chl_mg_m3": 5.866532325744629,
+            "p90_chl_mg_m3": 8.157894134521484,
+            "bloom_area_km2": {
+              "10": 224.19,
+              "20": 3.33,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 2365.219482421875,
+                "max_prob": 0.870775580406189
+              },
+              "20": {
+                "expected_area_km2": 134.37432861328125,
+                "max_prob": 0.5088489651679993
+              },
+              "50": {
+                "expected_area_km2": 169.69888305664062,
+                "max_prob": 0.3239041566848755
+              }
+            },
+            "ensemble_spread_log10_median": 0.01050626765936613
+          },
+          {
+            "lead_days": 5,
+            "valid_date": "2026-10-02",
+            "median_chl_mg_m3": 5.835306167602539,
+            "p90_chl_mg_m3": 7.979247093200684,
+            "bloom_area_km2": {
+              "10": 194.94,
+              "20": 2.79,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 2284.714111328125,
+                "max_prob": 0.7989057898521423
+              },
+              "20": {
+                "expected_area_km2": 126.38876342773438,
+                "max_prob": 0.3787594437599182
+              },
+              "50": {
+                "expected_area_km2": 189.26890563964844,
+                "max_prob": 0.2866722643375397
+              }
+            },
+            "ensemble_spread_log10_median": 0.011998087167739868
+          },
+          {
+            "lead_days": 7,
+            "valid_date": "2026-10-04",
+            "median_chl_mg_m3": 5.967136383056641,
+            "p90_chl_mg_m3": 7.974976539611816,
+            "bloom_area_km2": {
+              "10": 191.7,
+              "20": 3.15,
+              "50": 0.0
+            },
+            "exceed_probability": {
+              "10": {
+                "expected_area_km2": 2573.7138671875,
+                "max_prob": 0.7674930095672607
+              },
+              "20": {
+                "expected_area_km2": 136.1833038330078,
+                "max_prob": 0.402152419090271
+              },
+              "50": {
+                "expected_area_km2": 216.5136260986328,
+                "max_prob": 0.30871111154556274
+              }
+            },
+            "ensemble_spread_log10_median": 0.012159214355051517
+          }
+        ],
+        "ensemble_size": 3,
+        "basis": "probabilistic",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action.",
+        "confidence": "uncertain",
+        "likely_level": "none",
+        "possible_level": "watch",
+        "fraction_band": {
+          "10": {
+            "likely": 0.0005789406797610811,
+            "possible": 0.9984608650220986
+          },
+          "20": {
+            "likely": 0.0,
+            "possible": 0.00021180756576624917
+          },
+          "50": {
+            "likely": 0.0,
+            "possible": 2.8241008768833224e-05
+          }
+        },
+        "prob_cutoffs": {
+          "likely": 0.7,
+          "possible": 0.3
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "taupo",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              175.69252132094886,
+              -38.96278691193228
+            ],
+            [
+              176.10747867905116,
+              -38.96278691193228
+            ],
+            [
+              176.10747867905116,
+              -38.63721308806772
+            ],
+            [
+              175.69252132094886,
+              -38.63721308806772
+            ],
+            [
+              175.69252132094886,
+              -38.96278691193228
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "lake_id": "taupo",
+        "name": "Lake Taupo",
+        "country": "NZ",
+        "status": "unavailable",
+        "level": "unavailable",
+        "reason": "no archived observations for taupo in the 14 days before 2026-09-27, and live fetching is disabled",
+        "anchor_date": "2026-09-27",
+        "disclaimer": "Advisory only. Satellite chlorophyll-a is not a direct cyanotoxin measurement; confirm with in-situ sampling before any public health action."
+      }
+    }
+  ]
+}
