@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import re
 import urllib.error
+import urllib.request
 
 import pytest
 
@@ -25,8 +26,14 @@ from habforecast.data import pace
 
 class TestCredentialGate:
     def test_a_download_without_a_token_says_what_to_do(self, monkeypatch):
-        """Not a network error, and not a silent empty result."""
+        """Not a network error, and not a silent empty result.
+
+        Both credential forms are cleared: a developer machine with a real Earthdata
+        entry in ~/.netrc would otherwise take the fallback and reach the network, which
+        this file promises not to do.
+        """
         monkeypatch.delenv("EARTHDATA_TOKEN", raising=False)
+        monkeypatch.setattr(pace, "netrc_login", lambda: None)
         g = pace.Granule(name="x.nc", day=None, url="https://example.invalid/x.nc")
         with pytest.raises(PermissionError, match=re.escape("urs.earthdata.nasa.gov")):
             pace.fetch(g)
@@ -52,6 +59,79 @@ class TestCredentialGate:
         assert pace.token() is None
         monkeypatch.setenv("EARTHDATA_TOKEN", "abc")
         assert pace.token() == "abc"
+
+    def test_a_download_with_neither_credential_names_both_ways_to_fix_it(self, monkeypatch):
+        monkeypatch.delenv("EARTHDATA_TOKEN", raising=False)
+        monkeypatch.setattr(pace, "netrc_login", lambda: None)
+        g = pace.Granule(name="x.nc", day=None, url="https://example.invalid/x.nc")
+        with pytest.raises(PermissionError, match="netrc"):
+            pace.fetch(g)
+
+
+class TestNetrcCredential:
+    """The host this runs on authenticates by ~/.netrc, not by bearer token, so the
+    fallback is the path that actually gets used -- and a credential must never be
+    logged, nor read from anywhere but the user's own file."""
+
+    def test_a_missing_netrc_is_not_an_error(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("USERPROFILE", str(tmp_path))
+        assert pace.netrc_login() is None
+
+    def test_a_malformed_netrc_is_ignored_rather_than_raised(self, monkeypatch, tmp_path):
+        (tmp_path / ".netrc").write_text("this is not a netrc file {{{\n", encoding="utf-8")
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("USERPROFILE", str(tmp_path))
+        assert pace.netrc_login() is None
+
+    def test_an_entry_for_another_host_is_not_used_for_earthdata(self, monkeypatch, tmp_path):
+        (tmp_path / ".netrc").write_text(
+            "machine example.com login someone password secret\n", encoding="utf-8"
+        )
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("USERPROFILE", str(tmp_path))
+        assert pace.netrc_login() is None
+
+    def test_an_earthdata_entry_is_found(self, monkeypatch, tmp_path):
+        (tmp_path / ".netrc").write_text(
+            f"machine {pace.URS_HOST} login someone password secret\n", encoding="utf-8"
+        )
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("USERPROFILE", str(tmp_path))
+        assert pace.netrc_login() == ("someone", "secret")
+
+    def test_the_token_wins_when_both_are_present(self, monkeypatch):
+        """One credential per request, and the explicit one is the one to honour."""
+        monkeypatch.setenv("EARTHDATA_TOKEN", "bearer")
+        monkeypatch.setattr(pace, "netrc_login", lambda: ("someone", "secret"))
+        seen = {}
+
+        def capture(url, timeout=None, token=None):
+            seen["token"] = token
+            return b"payload"
+
+        monkeypatch.setattr(pace, "_get", capture)
+        got = pace.fetch(pace.Granule(name="x", day=None, url="https://x/y.nc"))
+        assert got == b"payload" and seen["token"] == "bearer"
+
+    def test_have_credential_accepts_either_form(self, monkeypatch):
+        monkeypatch.delenv("EARTHDATA_TOKEN", raising=False)
+        monkeypatch.setattr(pace, "netrc_login", lambda: None)
+        assert pace.have_credential() is False
+        monkeypatch.setattr(pace, "netrc_login", lambda: ("a", "b"))
+        assert pace.have_credential() is True
+
+    def test_the_opener_scopes_the_password_to_the_login_host(self):
+        """A DAAC redirect must not be able to harvest the Earthdata password."""
+        opener = pace._netrc_opener("someone", "secret")
+        handler = next(
+            h for h in opener.handlers if isinstance(h, urllib.request.HTTPBasicAuthHandler)
+        )
+        assert handler.passwd.find_user_password(None, f"https://{pace.URS_HOST}") == (
+            "someone",
+            "secret",
+        )
+        assert handler.passwd.find_user_password(None, "https://evil.invalid") == (None, None)
 
 
 class TestResolutionArgument:
