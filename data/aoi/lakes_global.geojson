@@ -15,7 +15,9 @@
         ],
         "utm_epsg": 32617,
         "notes": "Microcystis blooms; 2014 Toledo drinking-water shutdown.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 11.75
       },
       "geometry": {
         "type": "Polygon",
@@ -59,7 +61,9 @@
         ],
         "utm_epsg": 32617,
         "notes": "Recurrent Microcystis; discharges seed coastal blooms.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "warm",
+        "mean_t2m_c": 24.34
       },
       "geometry": {
         "type": "Polygon",
@@ -103,7 +107,9 @@
         ],
         "utm_epsg": 32651,
         "notes": "2007 Wuxi supply crisis; among the most studied bloom lakes.",
-        "continent": "asia"
+        "continent": "asia",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 17.89
       },
       "geometry": {
         "type": "Polygon",
@@ -147,7 +153,9 @@
         ],
         "utm_epsg": 32633,
         "notes": "Shallow, well monitored; weaker blooms than the training set.",
-        "continent": "europe"
+        "continent": "europe",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 12.25
       },
       "geometry": {
         "type": "Polygon",
@@ -191,7 +199,9 @@
         ],
         "utm_epsg": 32736,
         "notes": "Equatorial, year-round; the original held-out lake.",
-        "continent": "africa"
+        "continent": "africa",
+        "thermal_class": "warm",
+        "mean_t2m_c": 22.98
       },
       "geometry": {
         "type": "Polygon",
@@ -235,7 +245,9 @@
         ],
         "utm_epsg": 32614,
         "notes": "Large summer cyanobacteria blooms; nutrient-loaded basin.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "cold",
+        "mean_t2m_c": 2.37
       },
       "geometry": {
         "type": "Polygon",
@@ -279,7 +291,9 @@
         ],
         "utm_epsg": 32617,
         "notes": "Shallow connecting channel above the Erie western basin.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 10.75
       },
       "geometry": {
         "type": "Polygon",
@@ -323,7 +337,9 @@
         ],
         "utm_epsg": 32617,
         "notes": "Shallow embayment with a long HAB record.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "cold",
+        "mean_t2m_c": 8.44
       },
       "geometry": {
         "type": "Polygon",
@@ -367,7 +383,9 @@
         ],
         "utm_epsg": 32616,
         "notes": "Stratified eutrophic bay; recurrent blooms.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "cold",
+        "mean_t2m_c": 8.63
       },
       "geometry": {
         "type": "Polygon",
@@ -411,7 +429,9 @@
         ],
         "utm_epsg": 32612,
         "notes": "Shallow, warm, chronic cyanobacteria advisories.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 12.48
       },
       "geometry": {
         "type": "Polygon",
@@ -455,7 +475,9 @@
         ],
         "utm_epsg": 32615,
         "notes": "Brackish estuarine lake; blooms after river diversions.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "warm",
+        "mean_t2m_c": 21.62
       },
       "geometry": {
         "type": "Polygon",
@@ -499,7 +521,9 @@
         ],
         "utm_epsg": 32631,
         "notes": "Large shallow freshwater lake, heavily managed.",
-        "continent": "europe"
+        "continent": "europe",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 11.28
       },
       "geometry": {
         "type": "Polygon",
@@ -543,7 +567,9 @@
         ],
         "utm_epsg": 32634,
         "notes": "Among the most bloom-prone lagoons in Europe.",
-        "continent": "europe"
+        "continent": "europe",
+        "thermal_class": "cold",
+        "mean_t2m_c": 9.5
       },
       "geometry": {
         "type": "Polygon",
@@ -587,7 +613,9 @@
         ],
         "utm_epsg": 32629,
         "notes": "Severe blooms since 2023; largest lake in the British Isles.",
-        "continent": "europe"
+        "continent": "europe",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 10.61
       },
       "geometry": {
         "type": "Polygon",
@@ -631,7 +659,9 @@
         ],
         "utm_epsg": 32650,
         "notes": "Shallow; blooms comparable to Taihu.",
-        "continent": "asia"
+        "continent": "asia",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 17.93
       },
       "geometry": {
         "type": "Polygon",
@@ -675,7 +705,9 @@
         ],
         "utm_epsg": 32650,
         "notes": "Largest Chinese freshwater lake; extreme seasonal area change.",
-        "continent": "asia"
+        "continent": "asia",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 19.81
       },
       "geometry": {
         "type": "Polygon",
@@ -719,7 +751,9 @@
         ],
         "utm_epsg": 32654,
         "notes": "Shallow and turbid; long monitoring record.",
-        "continent": "asia"
+        "continent": "asia",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 16.67
       },
       "geometry": {
         "type": "Polygon",
@@ -763,7 +797,9 @@
         ],
         "utm_epsg": 32736,
         "notes": "Same lake, opposite shore -- a strict test of local overfitting.",
-        "continent": "africa"
+        "continent": "africa",
+        "thermal_class": "warm",
+        "mean_t2m_c": 23.86
       },
       "geometry": {
         "type": "Polygon",
@@ -807,7 +843,9 @@
         ],
         "utm_epsg": 32735,
         "notes": "Chronic hyperscum; southern hemisphere, small.",
-        "continent": "africa"
+        "continent": "africa",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 19.38
       },
       "geometry": {
         "type": "Polygon",
@@ -851,7 +889,9 @@
         ],
         "utm_epsg": 32754,
         "notes": "Terminal lake of the Murray; southern-hemisphere seasonality.",
-        "continent": "oceania"
+        "continent": "oceania",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 15.8
       },
       "geometry": {
         "type": "Polygon",
@@ -895,7 +935,9 @@
         ],
         "utm_epsg": 32613,
         "notes": "Largest Mexican lake; subtropical highland.",
-        "continent": "north_america"
+        "continent": "north_america",
+        "thermal_class": "warm",
+        "mean_t2m_c": 21.53
       },
       "geometry": {
         "type": "Polygon",
@@ -939,7 +981,9 @@
           11
         ],
         "utm_epsg": 32648,
-        "notes": "Plateau lake, 1,890 m; decades of Microcystis blooms. Hypereutrophic validation lake."
+        "notes": "Plateau lake, 1,890 m; decades of Microcystis blooms. Hypereutrophic validation lake.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 17.49
       },
       "geometry": {
         "type": "Polygon",
@@ -983,7 +1027,9 @@
           10
         ],
         "utm_epsg": 32650,
-        "notes": "Large shallow Huai River lake; recurring summer blooms."
+        "notes": "Large shallow Huai River lake; recurring summer blooms.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 16.86
       },
       "geometry": {
         "type": "Polygon",
@@ -1027,7 +1073,9 @@
           10
         ],
         "utm_epsg": 32647,
-        "notes": "Plateau lake at the meso/eutrophic transition; blooms since the 1990s."
+        "notes": "Plateau lake at the meso/eutrophic transition; blooms since the 1990s.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 17.28
       },
       "geometry": {
         "type": "Polygon",
@@ -1071,7 +1119,9 @@
           10
         ],
         "utm_epsg": 32653,
-        "notes": "Southern basin blooms; long monitoring record."
+        "notes": "Southern basin blooms; long monitoring record.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 16.9
       },
       "geometry": {
         "type": "Polygon",
@@ -1115,7 +1165,9 @@
           12
         ],
         "utm_epsg": 32651,
-        "notes": "Tropical shallow lake; Microcystis fish kills."
+        "notes": "Tropical shallow lake; Microcystis fish kills.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 27.92
       },
       "geometry": {
         "type": "Polygon",
@@ -1159,7 +1211,9 @@
           12
         ],
         "utm_epsg": 32636,
-        "notes": "Sea of Galilee; spring dinoflagellate and summer cyanobacteria blooms."
+        "notes": "Sea of Galilee; spring dinoflagellate and summer cyanobacteria blooms.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 23.54
       },
       "geometry": {
         "type": "Polygon",
@@ -1203,7 +1257,9 @@
           10
         ],
         "utm_epsg": 32635,
-        "notes": "Large shallow transboundary lake; Gloeotrichia and Microcystis blooms."
+        "notes": "Large shallow transboundary lake; Gloeotrichia and Microcystis blooms.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 7.5
       },
       "geometry": {
         "type": "Polygon",
@@ -1247,7 +1303,9 @@
           10
         ],
         "utm_epsg": 32635,
-        "notes": "Shallow, turbid, Limnothrix-dominated."
+        "notes": "Shallow, turbid, Limnothrix-dominated.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 7.4
       },
       "geometry": {
         "type": "Polygon",
@@ -1291,7 +1349,9 @@
           9
         ],
         "utm_epsg": 32633,
-        "notes": "Fragmented basin; eutrophic bays."
+        "notes": "Fragmented basin; eutrophic bays.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 7.75
       },
       "geometry": {
         "type": "Polygon",
@@ -1335,7 +1395,9 @@
           9
         ],
         "utm_epsg": 32633,
-        "notes": "Oder estuary lagoon; dense summer cyanobacteria."
+        "notes": "Oder estuary lagoon; dense summer cyanobacteria.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 10.47
       },
       "geometry": {
         "type": "Polygon",
@@ -1379,7 +1441,9 @@
           9
         ],
         "utm_epsg": 32636,
-        "notes": "Southern shallows of the largest lake in Europe; river-fed blooms."
+        "notes": "Southern shallows of the largest lake in Europe; river-fed blooms.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 6.23
       },
       "geometry": {
         "type": "Polygon",
@@ -1423,7 +1487,9 @@
           10
         ],
         "utm_epsg": 32632,
-        "notes": "Re-oligotrophicated; Planktothrix episodes. Oligotrophic validation lake."
+        "notes": "Re-oligotrophicated; Planktothrix episodes. Oligotrophic validation lake.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 13.34
       },
       "geometry": {
         "type": "Polygon",
@@ -1467,7 +1533,9 @@
           10
         ],
         "utm_epsg": 32632,
-        "notes": "Deep, clear; occasional Planktothrix/Dolichospermum surface blooms."
+        "notes": "Deep, clear; occasional Planktothrix/Dolichospermum surface blooms.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 16.41
       },
       "geometry": {
         "type": "Polygon",
@@ -1511,7 +1579,9 @@
           12
         ],
         "utm_epsg": 32636,
-        "notes": "Equatorial, permanently cyanobacteria-dominated."
+        "notes": "Equatorial, permanently cyanobacteria-dominated.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 25.52
       },
       "geometry": {
         "type": "Polygon",
@@ -1555,7 +1625,9 @@
           11
         ],
         "utm_epsg": 32637,
-        "notes": "Highland tropical lake, source of the Blue Nile."
+        "notes": "Highland tropical lake, source of the Blue Nile.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 21.29
       },
       "geometry": {
         "type": "Polygon",
@@ -1599,7 +1671,9 @@
           10
         ],
         "utm_epsg": 32610,
-        "notes": "Aphanizomenon blooms every summer."
+        "notes": "Aphanizomenon blooms every summer.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 9.71
       },
       "geometry": {
         "type": "Polygon",
@@ -1643,7 +1717,9 @@
           10
         ],
         "utm_epsg": 32616,
-        "notes": "Shallow, agricultural catchment; recurrent blooms."
+        "notes": "Shallow, agricultural catchment; recurrent blooms.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 9.05
       },
       "geometry": {
         "type": "Polygon",
@@ -1687,7 +1763,9 @@
           10
         ],
         "utm_epsg": 32615,
-        "notes": "Southern basin (Big Traverse Bay) blooms."
+        "notes": "Southern basin (Big Traverse Bay) blooms.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 4.67
       },
       "geometry": {
         "type": "Polygon",
@@ -1731,7 +1809,9 @@
           10
         ],
         "utm_epsg": 32610,
-        "notes": "Ultra-oligotrophic: the clear-water end of the training set."
+        "notes": "Ultra-oligotrophic: the clear-water end of the training set.",
+        "thermal_class": "cold",
+        "mean_t2m_c": 8.85
       },
       "geometry": {
         "type": "Polygon",
@@ -1775,7 +1855,9 @@
           12
         ],
         "utm_epsg": 32619,
-        "notes": "Tropical endorheic lake, persistent cyanobacteria."
+        "notes": "Tropical endorheic lake, persistent cyanobacteria.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 25.87
       },
       "geometry": {
         "type": "Polygon",
@@ -1819,7 +1901,9 @@
           12
         ],
         "utm_epsg": 32619,
-        "notes": "Tropical brackish lake; 2004 and later basin-wide cyanobacteria blooms."
+        "notes": "Tropical brackish lake; 2004 and later basin-wide cyanobacteria blooms.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 27.65
       },
       "geometry": {
         "type": "Polygon",
@@ -1863,7 +1947,9 @@
           12
         ],
         "utm_epsg": 32719,
-        "notes": "3,810 m; eutrophied inner bay against an oligotrophic main lake."
+        "notes": "3,810 m; eutrophied inner bay against an oligotrophic main lake.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 10.17
       },
       "geometry": {
         "type": "Polygon",
@@ -1907,7 +1993,9 @@
           4
         ],
         "utm_epsg": 32722,
-        "notes": "Porto Alegre supply; summer cyanobacteria advisories."
+        "notes": "Porto Alegre supply; summer cyanobacteria advisories.",
+        "thermal_class": "warm",
+        "mean_t2m_c": 20.31
       },
       "geometry": {
         "type": "Polygon",
@@ -1951,7 +2039,9 @@
           4
         ],
         "utm_epsg": 32760,
-        "notes": "Large clear caldera lake; southern-hemisphere oligotrophic reference."
+        "notes": "Large clear caldera lake; southern-hemisphere oligotrophic reference.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 13.22
       },
       "geometry": {
         "type": "Polygon",
@@ -1995,7 +2085,9 @@
           4
         ],
         "utm_epsg": 32759,
-        "notes": "Shallow coastal lake; hypertrophic, frequent blooms."
+        "notes": "Shallow coastal lake; hypertrophic, frequent blooms.",
+        "thermal_class": "temperate",
+        "mean_t2m_c": 12.92
       },
       "geometry": {
         "type": "Polygon",
