@@ -54,7 +54,9 @@ serve = ["fastapi>=0.110", "uvicorn[standard]>=0.27", "pydantic>=2.6", "pillow>=
          "prometheus-client>=0.20", "python-multipart>=0.0.9",
          # EUMETSAT Data Store client: the near-real-time OLCI source (data/eumetsat.py).
          # Unused, and harmless, until `eumdac set-credentials` has been run.
-         "eumdac>=3.0"]
+         "eumdac>=3.0",
+         # The app's bulletin PDF (habforecast.bulletin) is drawn server-side.
+         "matplotlib>=3.8"]
 # Torch-free serving of an ONNX export (scripts/export_onnx.py, inference.onnx_backend).
 # The `serve-onnx` Docker target installs the core dependencies *minus* torch/lightning
 # plus these; `onnx` itself is needed only to export, so it lives in `train`.
@@ -71,7 +73,8 @@ geo = ["rasterio>=1.3", "rioxarray>=0.15", "geopandas>=0.14", "shapely>=2.0"]  #
 # pytest also installs jupyterlab, which is 100+ MB of no use to a test run.
 ci = ["pytest>=8.0", "pytest-cov>=4.1", "pytest-mock>=3.12", "pytest-timeout>=2.3", "httpx>=0.27", "ruff>=0.3",
       "mypy>=1.9",
-      "onnx>=1.16", "onnxruntime>=1.18"]  # the ONNX export parity tests
+      "onnx>=1.16", "onnxruntime>=1.18",  # the ONNX export parity tests
+      "matplotlib>=3.8"]  # the bulletin renderer tests
 dev = [
   "habforecast[ci]",
   "pre-commit>=3.6",

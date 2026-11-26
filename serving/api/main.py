@@ -115,6 +115,15 @@ def registry():
 _jobs = JobStore()
 # Results are kept out of the poll payload (they contain PNGs) and fetched separately.
 _results: dict[str, dict] = {}
+# The bulletin PDF is drawn from the forecast *object* (full-resolution fields, the input
+# history, the route), which the JSON result cache does not hold. Kept per result-cache key
+# so a cached re-run of the same area can still produce one, and rendered at most once.
+# Few entries: an object holds every input frame for the area -- tens of MB for a large
+# drawn box -- where a JSON result is a few hundred kB.
+MAX_BULLETIN_INPUTS = 8
+_bulletin_inputs: dict[str, list] = {}  # cache key -> [stored_at, AdhocResult, pdf | None]
+_bulletin_lock = threading.Lock()
+_job_keys: dict[str, str] = {}  # job id -> result-cache key
 
 
 def get_predictor():
@@ -829,6 +838,7 @@ def submit_forecast(req: ForecastRequest) -> dict:
     def work(job) -> dict:
         from habforecast.inference.adhoc import forecast_location
 
+        _job_keys[job.id] = key
         hit = _cached_result(key, ttl)
         if hit is not None:
             job.stage = "reusing the forecast already computed for this area"
@@ -903,6 +913,7 @@ def submit_forecast(req: ForecastRequest) -> dict:
         )
         payload["cached"] = False
         _store_result(key, payload)
+        _store_bulletin_input(key, res)
         _results[job.id] = payload
         return {"ready": True}
 
@@ -914,7 +925,70 @@ def submit_forecast(req: ForecastRequest) -> dict:
     live = _jobs.ids()
     for stale in [jid for jid in _results if jid not in live]:
         _results.pop(stale, None)
+    for stale in [jid for jid in _job_keys if jid not in live]:
+        _job_keys.pop(stale, None)
     return job.as_dict()
+
+
+def _store_bulletin_input(key: str, res) -> None:
+    with _bulletin_lock:
+        _bulletin_inputs[key] = [time.time(), res, None]
+        while len(_bulletin_inputs) > MAX_BULLETIN_INPUTS:
+            oldest = min(_bulletin_inputs, key=lambda k: _bulletin_inputs[k][0])
+            _bulletin_inputs.pop(oldest, None)
+
+
+@app.get(
+    "/api/forecast/jobs/{job_id}/bulletin.pdf",
+    tags=["app"],
+    response_class=Response,
+    responses={200: {"content": {"application/pdf": {}}}},
+)
+def forecast_bulletin(job_id: str) -> Response:
+    """An NCCOS-style bulletin (PDF) for the area a finished job forecast.
+
+    A summary page with the level, the route and every caveat, then the satellite imagery,
+    the bloom forecast and -- for a current forecast -- the wind and mixing outlook
+    (`habforecast.bulletin`). Rendered on first request and kept with the forecast.
+    """
+    job = _jobs.get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="unknown or expired job")
+    if job.status != "done":
+        raise HTTPException(
+            status_code=409, detail="The forecast is not finished yet; try again when it is."
+        )
+    with _bulletin_lock:
+        entry = _bulletin_inputs.get(_job_keys.get(job_id, ""))
+    if entry is None:
+        raise HTTPException(
+            status_code=410,
+            detail="This forecast's inputs are no longer held in memory, so no bulletin can "
+            "be drawn from it. Run the forecast again, then download the bulletin.",
+        )
+    _stored, res, pdf = entry
+    if pdf is None:
+        try:
+            import matplotlib  # noqa: F401
+        except ImportError:
+            # An image built before matplotlib joined the `serve` extra: say so, rather
+            # than a bare 500 the app can only report as "Internal Server Error".
+            raise HTTPException(
+                status_code=503,
+                detail="This server was built without matplotlib, which draws the bulletin. "
+                "Rebuild the API image (docker compose up -d --build api).",
+            ) from None
+        from habforecast.bulletin import area_bulletin_pdf
+
+        pdf = area_bulletin_pdf(res)
+        entry[2] = pdf
+    slug = "".join(c if c.isalnum() else "_" for c in res.aoi.name).strip("_") or "area"
+    name = f"bloom_watch_{slug}_{res.forecast.anchor_date.isoformat()}.pdf"
+    return Response(
+        content=pdf,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{name}"'},
+    )
 
 
 @app.get("/api/forecast/jobs/{job_id}", tags=["app"])

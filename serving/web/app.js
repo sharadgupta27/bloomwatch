@@ -1102,7 +1102,7 @@ async function pollJob(id) {
     const j = await r.json();
     status(`${j.stage} · ${j.elapsed_s}s`, false, j.progress);
     if (j.status === 'error') { status(j.error, true); return; }
-    if (j.status === 'done') { hideStatus(); renderResult(j.result); return; }
+    if (j.status === 'done') { hideStatus(); S.jobId = id; renderResult(j.result); return; }
   }
 }
 
@@ -1167,6 +1167,7 @@ function renderResult(res) {
   map.fitBounds(res.bbox, 0.35);
   selectLead(S.lead);
   $('btn-download').disabled = false;
+  $('btn-bulletin').disabled = !S.jobId;
   // Drawing is finished. Reading the result is what anyone does next with it, and the
   // inspect tool is the only one that is useless before this moment.
   setTool('probe');
@@ -1287,6 +1288,37 @@ $('btn-download').addEventListener('click', async () => {
     status(`Could not build the sheet: ${err.message}`, true);
   } finally {
     $('btn-download').disabled = false;
+  }
+});
+
+/* The bulletin is drawn server-side from the forecast object (full-resolution fields, the
+   input history, the route and its caveats), so it is a download of the job's PDF rather
+   than something composed here. It takes a few seconds -- the wind outlook is fetched then. */
+$('btn-bulletin').addEventListener('click', async () => {
+  if (!S.result || !S.jobId) return;
+  $('btn-bulletin').disabled = true;
+  status('Drawing the bulletin (imagery, forecast, wind & mixing)…');
+  try {
+    const r = await fetch(`/api/forecast/jobs/${S.jobId}/bulletin.pdf`);
+    if (!r.ok) {
+      let detail = r.statusText;
+      try { detail = (await r.json()).detail || detail; } catch { /* not JSON */ }
+      throw new Error(detail);
+    }
+    const blob = await r.blob();
+    const name = (/filename="([^"]+)"/.exec(r.headers.get('Content-Disposition') || '') || [])[1]
+      || `bloom_watch_bulletin_${S.result.anchor_date}.pdf`;
+    const url = URL.createObjectURL(blob);
+    const a = Object.assign(document.createElement('a'), { href: url, download: name });
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    hideStatus();
+  } catch (err) {
+    status(`Could not build the bulletin: ${err.message}`, true);
+  } finally {
+    $('btn-bulletin').disabled = false;
   }
 });
 
