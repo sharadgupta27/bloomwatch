@@ -25,9 +25,13 @@ import pytest
 
 from habforecast.data.aux_layers import (
     AUX_LAYERS,
+    OA06_NM,
+    OA07_NM,
+    OA08_NM,
     OA10_NM,
     OA11_NM,
     OA12_NM,
+    asset_reads,
     clean,
     parse_aux,
 )
@@ -76,6 +80,116 @@ class TestSpectralIndex:
         assert np.allclose(
             AUX_LAYERS["mci"].compute(doubled), 2 * AUX_LAYERS["mci"].compute(bands), atol=1e-7
         )
+
+
+def flat(value=0.03, size=3):
+    """One reflectance value in every band an index might ask for."""
+    names = ("oa06", "oa07", "oa08", "oa10", "oa11", "oa12")
+    return {k: np.full((size, size), value, dtype=np.float32) for k in names}
+
+
+class TestCyanobacteriaIndex:
+    """CI is the only layer claiming to tell cyanobacteria from other algae. The sign is
+    the whole claim, so these tests pin the sign rather than the magnitude."""
+
+    def test_a_flat_spectrum_has_no_shape(self):
+        assert np.allclose(AUX_LAYERS["ci"].compute(flat()), 0.0, atol=1e-7)
+
+    def test_a_linear_ramp_has_no_shape(self):
+        """The baseline is interpolated 665 -> 709, so a straight spectrum reads zero."""
+        r665, r709 = 0.02, 0.05
+        frac = (OA10_NM - OA08_NM) / (OA11_NM - OA08_NM)
+        bands = {
+            "oa08": np.full((3, 3), r665, dtype=np.float32),
+            "oa10": np.full((3, 3), r665 + frac * (r709 - r665), dtype=np.float32),
+            "oa11": np.full((3, 3), r709, dtype=np.float32),
+        }
+        assert np.allclose(AUX_LAYERS["ci"].compute(bands), 0.0, atol=1e-7)
+
+    def test_a_fluorescence_peak_reads_negative(self):
+        """Eukaryotic algae fluoresce at 681 nm. That must not be called cyanobacteria."""
+        bands = {
+            "oa08": np.full((3, 3), 0.02, dtype=np.float32),
+            "oa10": np.full((3, 3), 0.05, dtype=np.float32),
+            "oa11": np.full((3, 3), 0.02, dtype=np.float32),
+        }
+        assert (AUX_LAYERS["ci"].compute(bands) < 0).all()
+
+    def test_a_681_nm_trough_reads_positive(self):
+        """Cyanobacteria lack that fluorescence, so the curvature reverses."""
+        bands = {
+            "oa08": np.full((3, 3), 0.05, dtype=np.float32),
+            "oa10": np.full((3, 3), 0.02, dtype=np.float32),
+            "oa11": np.full((3, 3), 0.05, dtype=np.float32),
+        }
+        assert (AUX_LAYERS["ci"].compute(bands) > 0).all()
+
+    def test_a_dense_eukaryotic_bloom_separates_the_two_indices(self):
+        """The case the pair exists for, and the only one where they must disagree.
+
+        A heavy diatom or green bloom shows *both* a near-infrared peak at 709 nm and a
+        chlorophyll fluorescence peak at 681 nm. MCI sees the first and calls it dense --
+        correctly. CI sees the second and says it is not cyanobacterial. If CI merely
+        echoed MCI's sign here it would be an expensive restatement of it.
+        """
+        bands = {
+            "oa08": np.full((3, 3), 0.02, dtype=np.float32),  # 665 baseline
+            "oa10": np.full((3, 3), 0.06, dtype=np.float32),  # 681 fluorescence peak
+            "oa11": np.full((3, 3), 0.07, dtype=np.float32),  # 709 NIR peak
+            "oa12": np.full((3, 3), 0.02, dtype=np.float32),  # 754 baseline
+        }
+        assert (AUX_LAYERS["mci"].compute(bands) > 0).all(), "dense surface bloom"
+        assert (AUX_LAYERS["ci"].compute(bands) < 0).all(), "but not a cyanobacterial one"
+
+    def test_the_two_indices_agree_when_fluorescence_is_absent(self):
+        """A near-infrared peak with no 681 nm fluorescence is cyanobacteria, and both
+        indices should say so -- they are not meant to disagree in general."""
+        bands = flat()
+        bands["oa11"] = np.full((3, 3), 0.09, dtype=np.float32)
+        assert (AUX_LAYERS["mci"].compute(bands) > 0).all()
+        assert (AUX_LAYERS["ci"].compute(bands) > 0).all()
+
+
+class TestPhycocyanin:
+    def test_a_linear_ramp_has_no_trough(self):
+        r560, r665 = 0.02, 0.06
+        frac = (OA07_NM - OA06_NM) / (OA08_NM - OA06_NM)
+        bands = {
+            "oa06": np.full((3, 3), r560, dtype=np.float32),
+            "oa07": np.full((3, 3), r560 + frac * (r665 - r560), dtype=np.float32),
+            "oa08": np.full((3, 3), r665, dtype=np.float32),
+        }
+        assert np.allclose(AUX_LAYERS["pc620"].compute(bands), 0.0, atol=1e-7)
+
+    def test_absorption_at_620_nm_is_positive(self):
+        """Larger means more bloom, as for every other layer here."""
+        bands = flat(0.04)
+        bands["oa07"] = np.full((3, 3), 0.02, dtype=np.float32)
+        assert (AUX_LAYERS["pc620"].compute(bands) > 0).all()
+
+    def test_it_measures_the_dip_not_the_brightness(self):
+        """Raw Oa07 would track how bright the water is, which the model already sees."""
+        bands = flat(0.04)
+        bands["oa07"] = np.full((3, 3), 0.02, dtype=np.float32)
+        brighter = {k: v * 3 for k, v in bands.items()}
+        assert np.allclose(
+            AUX_LAYERS["pc620"].compute(brighter),
+            3 * AUX_LAYERS["pc620"].compute(bands),
+            atol=1e-7,
+        )
+
+
+class TestReadCost:
+    def test_shared_bands_are_counted_once(self):
+        """Summing ASSET_COST would overstate the spectral set; the reader caches bands."""
+        spectral = ("mci", "ci", "pc620")
+        assert sum(len(AUX_LAYERS[k].sources) for k in spectral) == 9
+        assert asset_reads(spectral) == 6
+
+    def test_a_single_layer_costs_its_own_assets(self):
+        assert asset_reads(("mci",)) == 3
+        assert asset_reads(("tsm",)) == 1
+        assert asset_reads(()) == 0
 
 
 class TestRangeGuard:

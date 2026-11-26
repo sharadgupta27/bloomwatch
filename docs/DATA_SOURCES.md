@@ -113,12 +113,29 @@ no additional credential:
 | **tsm** | `tsm-nn` | suspended sediment — reddens water like a bloom does, and is the commonest false positive in a river plume. |
 | **kd490** | `trsp` | light attenuation: the depth of the lit layer a bloom can grow in, and an independent read on turbidity. |
 
+Three more were added 2026-09-25, aimed at a question the first three cannot answer —
+*what kind* of bloom this is. MCI and TSM separate green water from brown water; nothing
+so far separates a cyanobacterial bloom from a harmless algal one, which is the
+distinction that decides whether a bloom is a public-health problem.
+
+| layer | from | what it adds |
+|---|---|---|
+| **ci** | `oa08/oa10/oa11-reflectance` | the Wynne–Stumpf Cyanobacteria Index (NOAA's operational Lake Erie index), reported sign-flipped so larger means more bloom. Eukaryotic algae fluoresce at 681 nm and cyanobacteria do not, so the curvature there reverses between them. MCI keys on near-infrared brightness and calls any dense surface algae a bloom; CI is what says whether it is the dangerous kind. |
+| **pc620** | `oa06/oa07/oa08-reflectance` | depth of the 620 nm absorption trough below a 560–665 nm baseline. Phycocyanin is the one pigment no eukaryotic alga carries, so this is direct taxonomic evidence rather than an inference from bloom shape. **Exploratory** — the feature is shallow, OLCI's 620 nm band is 10 nm wide, and at 300 m over a small lake the dip may sit inside the noise. |
+| **adg443** | `iop-nn` | absorption by coloured dissolved organic matter and detritus. TSM catches mineral sediment; this catches brown peat-stained water, where nothing is suspended and TSM reads low. A different false positive from the one TSM covers. |
+
+**Read cost is not the sum of the per-layer costs.** The three spectral indices name nine
+asset slots but only six distinct bands (MCI and CI share Oa10/Oa11; CI and pc620 share
+Oa08), and the reader caches each band per scene. Use `aux_layers.asset_reads(keys)` to
+cost an ingest — summing `ASSET_COST` overstates the full spectral set by a third.
+
 Measured on Lake Erie's western basin, 2023 bloom season: each layer covers **42.6% of
 water-days**, identical to chlorophyll's own coverage — they share the swath and the QC
 mask, so they are not a sparser signal, and their ranges are physically sensible
 (MCI −0.006…+0.054; TSM 0.13–300 g m⁻³; Kd490 0.08–10 m⁻¹).
 
-Enable with `pipelines/ingest.py --aux mci,tsm,kd490` and `data.aux=[mci,tsm,kd490]`.
+Enable with `pipelines/ingest.py --aux mci,ci,pc620,tsm,kd490,adg443` and a matching
+`data.aux=[...]`.
 Cubes without them train exactly as before — a missing layer arrives as an all-zero
 channel with an all-zero mask, which the model already reads as "never observed".
 
@@ -126,16 +143,27 @@ channel with an all-zero mask, which the model already reads as "never observed"
 
 The plumbing is built and tested; **whether these layers improve skill is an open
 question, and this document will not answer it until a run does.** The comparison is
-`scripts/aux_experiment.py`: three arms — chlorophyll alone, chlorophyll + MCI, and
-chlorophyll + all three — trained on **the same cubes, the same lakes, the same period and
-the same architecture**, differing only in how many channels reach the trunk. That is a
-cleaner comparison than the resolution experiment could be, because no sensor, retrieval
-or masking changes between arms.
+`scripts/aux_experiment.py`, which runs five arms: chlorophyll alone (`chl-only`), plus
+MCI (`chl-mci`), plus the original three (`chl-aux3`), plus the three spectral indices
+(`chl-taxo`), and plus everything (`chl-all`). All are trained on **the same cubes, the
+same lakes, the same period and the same architecture**, differing only in how many
+channels reach the trunk. That is a cleaner comparison than the resolution experiment
+could be, because no sensor, retrieval or masking changes between arms.
+
+**Each arm runs three seeds.** This project has measured roughly 0.07 of seed-to-seed
+variance in skill, which is larger than any effect three extra channels are likely to
+have, so a single-seed difference between arms is not a result. The script reports mean
+± half-range and an arm wins only if its mean clears the others by more than the spread.
 
 The result that would count is skill against persistence and climatology on the *held-out*
-lakes. A gain on the validation lake alone is what three sparse extra channels being used
-to memorise three training lakes looks like, and is the outcome to expect if this does not
+lakes. A gain on the validation lake alone is what sparse extra channels being used to
+memorise the training lakes looks like, and is the outcome to expect if this does not
 work.
+
+**The blocker is cubes, not code.** Only `cubes_aux` carries auxiliary layers, and it has
+two lakes — not enough for a held-out-lake result. The 46-lake `cubes_global` ingest does
+not pass `--aux`. A real verdict needs a re-ingest of at least the 21-lake
+`lakes.geojson` registry with the full `--aux` set.
 
 ### What was tried and does not work
 
@@ -143,16 +171,30 @@ work.
 |---|---|---|
 | **Water temperature** (NOAA ACSPO, geo-polar blended, Coral Reef Watch) | these are *sea*-surface products and inland water is masked out of them | 630 cells returned over western Lake Erie, **0 valid**, in all three |
 | **VIIRS Kd490 / KdPAR** | no inland coverage at the lake | HTTP 404 for the bounding box |
-| **PACE OCI** | needs an Earthdata Login, and its finest *mapped* rung is 4 km | granule URL → `urs.earthdata.nasa.gov`, **HTTP 401**; L3 published at 0.1° and 4 km |
+| **PACE OCI** | resolution, not access: even Level-2 is ~1.2 km | L3 published at 0.1° and 4 km; L2 swath 1.2 km, so a 12 km lake is 10 px across |
 
 The PACE result deserves stating plainly, because it is the source most people would
-expect to help. It is a real, current mission — the newest L3 granule on 2026-08-30 was
-two days old — and its hyperspectral reflectance is genuinely unique. But this project has
-already measured what a 4 km rung buys on lakes, in a controlled comparison against the
-same sensor at 750 m: **essentially no skill**. PACE's mapped products cannot resolve a
-12 km lake; its 1.2 km Level-2 could help on large water bodies, and is gated.
-`habforecast.data.pace` implements the gated reader and reports all of this from the live
-catalogue (`python -m habforecast.data.pace`).
+expect to help. It is a real, current mission and its hyperspectral reflectance is
+genuinely unique. But this project has already measured what a 4 km rung buys on lakes, in
+a controlled comparison against the same sensor at 750 m: **essentially no skill**.
+
+**Access is no longer the blocker.** As of 2026-09-25 this machine authenticates to
+Earthdata via `~/.netrc`, verified end to end: `PACE_OCI_L2_BGC_NRT` for the previous day
+returned HTTP 200 and 9.9 MB of netCDF. `habforecast.data.pace` now accepts either
+`EARTHDATA_TOKEN` or a `machine urs.earthdata.nasa.gov` netrc entry, and knows the
+Level-2 collections (`l2-aop`, `l2-iop`, `l2-bgc` and their NRT variants).
+
+**Resolution still is.** At 1.2 km a 12 km lake is 10 pixels across, below the ~16 the
+forecaster's third downsample needs, so PACE remains unusable as a forecast *input
+channel* for most of the registry. The role that survives the arithmetic is **reference
+data**: the new `ci` and `pc620` OLCI indices are 300 m proxies for phytoplankton
+community composition, and PACE L2 IOP/AOP actually measures it. On the handful of large
+lakes PACE resolves, it can say whether those proxies track what they claim to — which is
+the one validation those indices otherwise have no way to get. That is a separate exercise
+from the forecaster, and it has not been run.
+
+`python -m habforecast.data.pace --product l2-aop` reports all of this from the live
+catalogue.
 
 ---
 

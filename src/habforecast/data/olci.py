@@ -335,21 +335,34 @@ class OLCIReader:
 
         return pystac.Item.from_dict(payload)
 
-    def _read_aux(self, item, key: str, window) -> np.ndarray:
-        """Read and compute one auxiliary layer over the same pixel window as chlorophyll."""
+    def _read_aux(
+        self, item, key: str, window, cache: dict[str, np.ndarray] | None = None
+    ) -> np.ndarray:
+        """Read and compute one auxiliary layer over the same pixel window as chlorophyll.
+
+        `cache` is shared across the layers of a single scene, because the spectral
+        indices overlap: MCI, CI and the phycocyanin depth between them name six distinct
+        reflectance assets but nine slots, and each slot is a signed HTTP range read of a
+        remote file. Reading a band once per scene rather than once per index is the
+        difference between 9 and 6 fetches for the full spectral set.
+        """
         layer = AUX_LAYERS[key]
         bands: dict[str, np.ndarray] = {}
+        if cache is None:
+            cache = {}
         for asset, dataset in layer.sources.items():
-            if not self.has_asset(item, asset):
-                raise KeyError(f"granule has no asset {asset!r}")
-            with (
-                self._open_asset(item, asset) as fh,
-                h5py.File(fh, "r") as h5,
-            ):
-                # Keyed by the asset stem so a three-band index can name its inputs
-                # (oa10, oa11, oa12) without repeating the asset naming scheme.
-                bands[asset.split("-")[0]] = _read_scaled(h5[dataset], window)
-                bands[asset] = bands[asset.split("-")[0]]
+            if asset not in cache:
+                if not self.has_asset(item, asset):
+                    raise KeyError(f"granule has no asset {asset!r}")
+                with (
+                    self._open_asset(item, asset) as fh,
+                    h5py.File(fh, "r") as h5,
+                ):
+                    cache[asset] = _read_scaled(h5[dataset], window)
+            # Keyed by the asset stem so a three-band index can name its inputs
+            # (oa10, oa11, oa12) without repeating the asset naming scheme.
+            bands[asset.split("-")[0]] = cache[asset]
+            bands[asset] = cache[asset]
         return aux_clean(key, layer.compute(bands))
 
     def read(
@@ -433,9 +446,10 @@ class OLCIReader:
 
         # 6. Auxiliary layers, read only now that the scene is known to be worth it.
         fields: dict[str, np.ndarray] = {"log_chl": chl.astype(np.float32)}
+        band_cache: dict[str, np.ndarray] = {}
         for key in aux:
             try:
-                fields[key] = self._read_aux(item, key, window)
+                fields[key] = self._read_aux(item, key, window, band_cache)
             except Exception as exc:
                 # One missing or unreadable band must not lose the chlorophyll: the aux
                 # channel simply arrives empty, and the mask says so.
