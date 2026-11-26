@@ -359,3 +359,93 @@ def test_oversized_drawn_area_is_a_422_not_a_500(monkeypatch, tmp_path):
     )
     assert r.status_code == 422
     assert "limit" in r.json()["detail"]
+
+
+class TestStoredDataClipping:
+    """An area inside a monitored lake, answered from its archive, holds only that area."""
+
+    def test_box_inside_the_lake_is_clipped_to_the_box(self, lake_setup):
+        from habforecast.inference.adhoc import forecast_from_archive, shape_clip
+
+        p = _predictor(lake_setup)
+        whole = forecast_from_archive(p, "tiny")
+        box = (17.0, 46.0, 17.03, 46.05)  # the western half of the lake
+        part = forecast_from_archive(p, "tiny", clip=shape_clip(bbox=box))
+        assert part.clipped and not whole.clipped
+        assert 0 < part.water_pixels < whole.water_pixels
+        lon, _lat = p.registry["tiny"].grid().lonlat
+        outside = lon > 17.03
+        assert not part.forecast.water[outside].any()
+        assert np.isnan(part.forecast.log_chl[:, outside]).all()
+        inside = part.forecast.water.astype(bool)
+        # Inside the box the numbers are the whole-lake forecast's, unchanged.
+        np.testing.assert_allclose(
+            part.forecast.log_chl[:, inside], whole.forecast.log_chl[:, inside]
+        )
+        for frame in part.history.values():
+            assert np.isnan(frame[outside]).all()
+
+    def test_circle_and_polygon_clip_too(self, lake_setup):
+        from habforecast.inference.adhoc import forecast_from_archive, shape_clip
+
+        p = _predictor(lake_setup)
+        circle = forecast_from_archive(p, "tiny", clip=shape_clip(circle=(46.03, 17.03, 1.5)))
+        ring = [[(17.0, 46.02), (17.06, 46.02), (17.06, 46.05), (17.0, 46.05), (17.0, 46.02)]]
+        poly = forecast_from_archive(p, "tiny", clip=shape_clip(rings=ring))
+        assert circle.water_pixels > 0 and poly.water_pixels > 0
+
+    def test_shape_with_no_lake_water_says_so(self, lake_setup):
+        from habforecast.inference.adhoc import forecast_from_archive, shape_clip
+
+        p = _predictor(lake_setup)
+        with pytest.raises(ValueError, match="contains none of its water"):
+            forecast_from_archive(p, "tiny", clip=shape_clip(bbox=(10.0, 10.0, 10.1, 10.1)))
+
+
+def test_route_preview_reports_stored_data(monkeypatch):
+    import serving.api.main as api
+    from fastapi.testclient import TestClient
+
+    from habforecast.stored import StoredMatch
+
+    m = StoredMatch(
+        "erie_west",
+        "Lake Erie (Western Basin)",
+        1.0,
+        date(2026, 11, 25),
+        True,
+        date(2026, 11, 25),
+        "This area lies inside Lake Erie, so it is forecast "
+        "from the stored archive — nothing is downloaded.",
+    )
+    monkeypatch.setattr(api, "_stored_match", lambda bbox, anchor: m)
+    r = TestClient(api.app).get(
+        "/api/route", params={"west": -83.4, "south": 41.5, "east": -82.7, "north": 42.0}
+    )
+    body = r.json()
+    assert r.status_code == 200 and body["stored"]["usable"]
+    assert body["sources"][0]["product"] == "bloom-watch-archive"
+    assert body["model"]["key"] == "olci-300m-clim"
+
+
+def test_oversized_area_inside_a_stored_lake_is_accepted(monkeypatch):
+    import serving.api.main as api
+    from fastapi.testclient import TestClient
+
+    from habforecast.stored import StoredMatch
+
+    m = StoredMatch(
+        "erie_west",
+        "Lake Erie (Western Basin)",
+        1.0,
+        date(2026, 11, 25),
+        True,
+        date(2026, 11, 25),
+        "inside",
+    )
+    monkeypatch.setattr(api, "_stored_match", lambda bbox, anchor: m)
+    r = TestClient(api.app).post(
+        "/api/forecast/jobs",
+        json={"lat": 41.6, "lon": -83.0, "bbox": [-84.0, 41.0, -82.0, 42.0], "name": "big"},
+    )
+    assert r.status_code == 200  # was 422: the size limit is for downloaded areas

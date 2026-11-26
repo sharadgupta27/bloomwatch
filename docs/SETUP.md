@@ -108,7 +108,11 @@ What to expect:
   about a minute; after that the outlook is read from `data/cache/outlook.json` in 0.2 s
   and rebuilt only when a cube, a checkpoint or the validation summary changes.
 - **Caches** live under `data/cache/` (`statics/` water masks, `outlook.json`, `erddap/`
-  CoastWatch responses). All are safe to delete; they rebuild.
+  CoastWatch responses, `scenes/` downloaded scenes, capped at 2 GB). All are safe to
+  delete; they rebuild.
+- **Stored data first.** An area inside a monitored lake is answered from its archive when
+  the archive holds the date asked for. With the live cubes weeks old, "newest imagery"
+  still downloads; refresh them, or pick a date the archive holds.
 - **Imagery age.** The outlook uses each lake's newest archived day. If the live cubes
   have not been refreshed, every lake is shown as out of date — that is the app being
   honest, not a fault.

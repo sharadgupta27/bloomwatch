@@ -519,7 +519,7 @@ REGISTRY_ARCHIVE_STEP = SourceStep(
 )
 
 
-def registry_route(route: Route, lake_name: str) -> Route:
+def registry_route(route: Route, lake_name: str, note: str | None = None) -> Route:
     """The route for a monitored lake served from its own archive.
 
     Such a lake has the multi-year history the climatology checkpoint needs, so it gets
@@ -535,8 +535,8 @@ def registry_route(route: Route, lake_name: str) -> Route:
         baseline=None,
         reasons=[
             *route.reasons,
-            f"{lake_name} is a monitored lake, so it is forecast from its own archive with "
-            f"{model.label}.",
+            note or f"{lake_name} is a monitored lake, so it is forecast from its own archive.",
+            f"Model: {model.label}, which reads the lake's seasonal climatology.",
         ],
         caveats=[c for c in route.caveats if "has no multi-year archive" not in c],
         alternatives=[],

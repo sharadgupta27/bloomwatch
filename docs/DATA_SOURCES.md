@@ -236,7 +236,7 @@ would read as a coastline if it were not filtered out.
 
 | Water | Product | Model | Why |
 |---|---|---|---|
-| A monitored lake, opened as one (`lake_id`) | its own ingested cube — nothing fetched | `olci-300m-clim` (`best.ckpt`) | it has the multi-year archive the climatology checkpoint needs (`routing.registry_route`); ~1 s |
+| Any area inside a monitored lake (≥ 90% of it), when the archive holds the date | that lake's ingested cube, clipped to the area — nothing fetched | `olci-300m-clim` (`best.ckpt`) | the archive has the multi-year history the climatology checkpoint needs (`habforecast.stored`, `routing.registry_route`); a few seconds |
 | Inland, and coastal within 40 km of shore (Case-2) | OLCI 300 m near-real-time, archive fallback | `olci-300m` | CHL_NN is the retrieval built for optically complex water; band-ratio products mask it away |
 | Open ocean (Case-1) | VIIRS 4 km global, OLCI 4 km fallback | **none** — labelled persistence baseline | the 300 m and 750 m sectors do not reach here, and the 4 km checkpoint measured no skill |
 
@@ -300,9 +300,20 @@ A retry loop was the obvious fix and, on its own, the wrong one: three attempts 
 budget (`GRID_BUDGET_S`, 30 s for a live request), and bulk ingest opts out because its
 windows are legitimately minutes long.
 
-**Monitored lakes skip the network entirely (2026-11-26).** Opening a lake from the app's
-outlook sends its `lake_id`, and the forecast is built from the lake's ingested cube
-(`inference.adhoc.forecast_from_archive`): ~1 s instead of 17 s or more. Per-lake water
+**Stored data answers first (2026-11-27).** Every request — drawn, searched, uploaded or
+sent to the API — is checked against the monitored lakes' archives (`habforecast.stored`).
+An area lying inside one, for a date the archive holds, is built from that lake's cube and
+clipped to the area (`inference.adhoc.forecast_from_archive`): ~4 s for a box over western
+Lake Erie that took minutes of scene downloads before (measured: one EUMETSAT scene, 97 s,
+61 s of it one stalled request). "Newest imagery" from an archive more than 10 days old
+still downloads, and the route panel says which date gives the instant answer. Opening a
+lake from the outlook sends its `lake_id` and gets the whole lake (~1 s).
+
+**Downloaded scenes are kept.** Each scene a live request reads is stored after windowing,
+quality control and resampling (`data/scene_cache.py`, `HAB_SCENE_CACHE`, capped by
+`HAB_SCENE_CACHE_MB`), keyed by scene and grid, so repeating an area — or moving its date by
+a few days, which shares most of the fortnight — reads from disk. A scene rejected as too
+cloudy is remembered as rejected; a failed read is not stored, so it is tried again. Per-lake water
 masks are kept on disk (`HAB_STATIC_CACHE`) and the outlook itself (`HAB_OUTLOOK_CACHE`),
 so a restart serves the outlook in 0.2 s; both are keyed by the cubes' signatures and
 rebuild themselves after a data refresh. The README's *Serving speed* table has the

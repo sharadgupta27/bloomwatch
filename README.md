@@ -35,7 +35,7 @@ API and the map app built on it.
 | **Forecast** | Chlorophyll-a at 300 m, 1, 3, 5 and 7 days ahead, plus advisory levels at 10 / 20 / 50 µg/L |
 | **Skill on a lake never seen in training** (Victoria) | +0.26 → +0.32 against persistence and +0.16 → +0.21 against a seasonal climatology, across leads 1–7 days |
 | **Checked against 1,800 laboratory samples** | The satellite ranks waters well (rank correlation 0.70) but **reads ~1.8× low**, so blooms are under-called. [Details](#against-laboratory-water-samples) |
-| **Speed** | Outlook for all lakes in 0.2 s; a monitored lake's forecast map in ~1 s |
+| **Speed** | Outlook for all lakes in 0.2 s; any area inside a monitored lake in a few seconds, from stored data; a repeated live request read from disk |
 | **Runs on** | A laptop: trained on a 4 GB RTX 3050; serves on CPU, or on ONNX with no PyTorch at all |
 
 ## Why this matters
@@ -77,15 +77,23 @@ the feed never disagree.
 ### Forecast any water body
 
 Search for a place or draw a point, circle, rectangle or polygon (or upload GeoJSON, KML
-or a shapefile), and the app fetches a fortnight of imagery and runs the model. Before
-anything is fetched it classifies the water and shows which data and which model it will
-use, and why:
+or a shapefile) and the app forecasts it. **Stored data is used whenever it can answer**
+(`habforecast.stored`): an area lying inside one of the 46 monitored lakes is forecast
+from that lake's archive, clipped to your shape, in a few seconds — however the area was
+chosen. Otherwise a fortnight of imagery is fetched, and every scene fetched is kept, so
+asking for the same area again reads it from disk (`data/scene_cache.py`). Before anything
+runs, the app shows which data and which model it will use, and why:
 
 | Water selected | Imagery | Model |
 |---|---|---|
-| A monitored lake | Its own ingested archive (nothing downloaded) | 300 m checkpoint **with** the lake's seasonal climatology |
+| Any area inside a monitored lake, when its archive holds the date asked for | The lake's ingested archive, clipped to the area (nothing downloaded) | 300 m checkpoint **with** the lake's seasonal climatology |
 | Any other inland lake, or coastal water within 40 km of shore | Sentinel-3 OLCI 300 m (CHL_NN), near-real-time | 300 m no-history checkpoint; the 750 m one offered where the area is ≥ 16 px at 750 m |
 | Open ocean beyond the shelf | VIIRS / OLCI 4 km | **None** — a labelled persistence baseline |
+
+"When its archive holds the date" matters: asked for the newest imagery while the
+archive is more than 10 days old, the app downloads instead of quietly returning an old
+forecast, and the panel says which date to pick for the instant answer. Areas answered
+from stored data are not subject to the 80 km limit for downloaded areas.
 
 The 750 m checkpoint is the better forecaster, but its band-ratio retrieval masks turbid
 inland water (2.6% valid pixels on Taihu), and turbid inland water is what this tool is for.
@@ -117,9 +125,9 @@ Interactive documentation is at `/docs`; every route is listed there and below.
 | `GET /lakes` | The monitored lakes: names, split, extent, archive length |
 | `GET /forecast?lake_id=…` · `GET /forecast/image` | One lake's forecast (JSON) and map overlay (PNG) |
 | `GET /advisory` · `GET /advisory/feed.xml` | The advisory feed as GeoJSON and RSS |
-| `POST /api/forecast/jobs` → `GET /api/forecast/jobs/{id}` | A forecast for any drawn area, run as a background job; pass `lake_id` to use a monitored lake's archive |
+| `POST /api/forecast/jobs` → `GET /api/forecast/jobs/{id}` | A forecast for any area, run as a background job; answered from stored data when an archive covers it (`lake_id` asks for a whole monitored lake) |
 | `GET /api/forecast/jobs/{id}/bulletin.pdf` | The PDF bulletin for a finished job |
-| `GET /api/route` · `GET /api/models` | Which imagery and model a box would use, and why; every checkpoint with its measured skill |
+| `GET /api/route` · `GET /api/models` | Which data and model a box (and optional `anchor` date) would use, and why — including whether stored data answers; every checkpoint with its measured skill |
 | `GET /api/places` · `POST /api/geometry` | Place search (gazetteer, then OpenStreetMap Nominatim); read an uploaded GeoJSON, KML or shapefile |
 | `GET /api/validation-summary` | The comparison with laboratory samples |
 | `GET /api/insitu` · `GET /api/validation-sites` | Field measurements near a point; water bodies that have them |
@@ -340,6 +348,8 @@ Measured 2026-11-26 on the development laptop:
 | First forecast after a restart | ~27 s | warmed in the background at startup |
 | A lake not yet loaded | 1.5–4.5 s | 0.4–1.1 s |
 | Forecast map for a monitored lake | 17 s+ (satellite download) | **~1 s** (from its archive) |
+| A shape drawn inside a monitored lake (date in the archive) | minutes (25 scene downloads) | **~4 s**, clipped to the shape |
+| Repeating a live (downloaded) request | the same minutes again | scenes read from disk |
 | Outlook for 46 lakes after a restart | ~60 s | **0.2 s** (cached on disk; rebuilt only when data change) |
 
 The time went to importing Lightning on the first forecast (15 s; serving now imports only
@@ -419,6 +429,8 @@ Every setting has a working default.
 | `HAB_ARTIFACTS` | `artifacts` | Where the validation summary and evaluation results are read from |
 | `HAB_STATIC_CACHE` | `data/cache/statics` | Per-lake water masks kept between restarts (empty disables) |
 | `HAB_OUTLOOK_CACHE` | `data/cache/outlook.json` | The built outlook, kept between restarts |
+| `HAB_SCENE_CACHE` | `data/cache/scenes` | Scenes downloaded for live requests, kept for repeats (empty disables) |
+| `HAB_SCENE_CACHE_MB` | `2048` | Size cap for that cache; least recently used scenes go first |
 | `HAB_WARMUP` | `1` | Load the model and build the outlook at startup (`0` disables) |
 | `HAB_HTTP_CACHE` | `data/cache/erddap` | Cached CoastWatch responses (a past fortnight does not change) |
 | `HAB_COAST_REFERENCE` | `data/reference/ne10_ocean.npz` | Ocean polygon the water classifier reads |
@@ -443,7 +455,8 @@ Credentials are never read from the repository: the EUMETSAT Data Store uses
 src/habforecast/
   aoi.py                  per-lake analysis grid (deterministic, UTM)
   data/                   OLCI reader and quality control, resampling, Zarr store, ingest,
-                          EUMETSAT / CoastWatch / PACE sources, weather, auxiliary layers
+                          EUMETSAT / CoastWatch / PACE sources, weather, auxiliary layers,
+                          scene_cache.py (downloaded scenes kept for repeats)
   features/               masked sequence dataset; leave-lake-out and temporal splits
   models/anomaly.py       the served forecaster (persistence-anchored, climatology blend)
   models/forward.py       how a model is called, and flip averaging (torch only)
@@ -454,6 +467,7 @@ src/habforecast/
   inference/              cube-backed and live forecasts, ad-hoc areas, ONNX backend
   advisory.py             forecasts → advisory levels → GeoJSON and RSS
   outlook.py              advisory → plain-language public outlook
+  stored.py               which monitored lake's archive can answer a requested area
   bulletin.py             PDF bulletin pages
   water.py · routing.py   what kind of water, and which data and model to use
   insitu.py               field measurements near a point

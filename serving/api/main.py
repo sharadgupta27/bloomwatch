@@ -206,18 +206,79 @@ def predictor_for(route):
         return loaded
 
 
+def _request_bbox(req, rings) -> tuple[float, float, float, float]:
+    """The lon/lat box around whatever shape a request described."""
+    import math
+
+    from habforecast.geometry import rings_bounds
+
+    if rings:
+        return rings_bounds(rings)
+    if req.bbox:
+        return tuple(req.bbox)
+    dlat = req.radius_km / 111.32
+    dlon = req.radius_km / (111.32 * max(math.cos(math.radians(req.lat)), 0.01))
+    return (req.lon - dlon, req.lat - dlat, req.lon + dlon, req.lat + dlat)
+
+
+def _stored_match(bbox, anchor: date | None):
+    """The monitored lake whose stored archive can answer this area, if any.
+
+    See `habforecast.stored`. None when no lake covers the area or the map model cannot
+    load (then nothing can be answered from storage, and the live path decides).
+    """
+    from habforecast import outlook, stored
+
+    try:
+        predictor = get_predictor()
+    except HTTPException:
+        return None
+    reg = predictor.registry
+    today = datetime.now(UTC).date()
+
+    def newest(lake_id: str):
+        _ds, days = predictor._open_cube(lake_id)
+        return outlook.latest_anchor(days or {}, today)
+
+    lakes = [(lid, reg[lid].name, tuple(reg[lid].bbox)) for lid in reg.lake_ids]
+    return stored.match(tuple(bbox), lakes, newest, anchor, today)
+
+
 def route_for(req, rings):
-    """The product-and-model plan for a request, honouring an explicit model override."""
+    """(area, live route, stored-data match) for a request.
+
+    Every request -- drawn, searched, uploaded or sent to the API -- is first checked
+    against the stored archives (`habforecast.stored`). A usable match is answered from
+    storage; otherwise the live route runs, and the match's reason says why.
+    """
+    from dataclasses import replace
+
     from habforecast.inference.adhoc import build_aoi
     from habforecast.routing import override_model, plan
+    from habforecast.stored import StoredMatch
 
     lake_id = getattr(req, "lake_id", None)
+    chosen = getattr(req, "model", "auto")
+    archive_ok = chosen in ("auto", "olci-300m-clim")
     reg = registry()
+    match = None
     if lake_id and lake_id in reg.lake_ids:
-        # A monitored lake is routed on its registry extent, which may be larger than an
-        # area anyone could draw: its fortnight is already on disk, not to be downloaded.
+        # Opened as a monitored lake (the outlook card): the whole lake, from its archive,
+        # whatever its age -- the card has already said how old that is.
         aoi = reg[lake_id]
+        if archive_ok:
+            match = StoredMatch(
+                lake_id,
+                aoi.name,
+                1.0,
+                None,
+                True,
+                req.anchor,
+                f"{aoi.name} is a monitored lake, so it is forecast from its own archive.",
+            )
     else:
+        if archive_ok:
+            match = _stored_match(_request_bbox(req, rings), req.anchor)
         try:
             aoi = build_aoi(
                 req.lat,
@@ -228,15 +289,20 @@ def route_for(req, rings):
                 req.name,
             )
         except ValueError as exc:  # too large, degenerate, or no shape at all
-            raise HTTPException(status_code=422, detail=str(exc)) from exc
+            # The size limit exists because a drawn area is downloaded. An area the
+            # archive can answer is not, so a large shape inside a big lake is fine.
+            if not (match and match.usable):
+                raise HTTPException(status_code=422, detail=str(exc)) from exc
+            aoi = reg[match.lake_id]
     route = plan(aoi.bbox, req.anchor)
-    chosen = getattr(req, "model", "auto")
     if chosen and chosen != "auto":
         try:
             route = override_model(route, chosen)
         except (KeyError, ValueError) as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return aoi, route
+    if match is not None and not match.usable:
+        route = replace(route, reasons=[*route.reasons, match.reason])
+    return aoi, route, match
 
 
 # --------------------------------------------------------------------------- schema --
@@ -1028,6 +1094,7 @@ def route_preview(
     south: float = Query(..., ge=-90, le=90),
     east: float = Query(..., ge=-180, le=180),
     north: float = Query(..., ge=-90, le=90),
+    anchor: date | None = Query(None, description="the date to forecast from; default newest"),
 ) -> dict:
     """What kind of water this is, and what would be used to forecast it.
 
@@ -1040,7 +1107,19 @@ def route_preview(
 
     if east <= west or north <= south:
         raise HTTPException(status_code=422, detail="bbox must be west<east and south<north")
-    return plan((west, south, east, north)).as_dict()
+    route = plan((west, south, east, north), anchor)
+    match = _stored_match((west, south, east, north), anchor)
+    if match is not None and match.usable:
+        from habforecast.routing import registry_route
+
+        route = registry_route(route, match.lake_name, match.reason)
+    elif match is not None:
+        from dataclasses import replace
+
+        route = replace(route, reasons=[*route.reasons, match.reason])
+    out = route.as_dict()
+    out["stored"] = match.as_dict() if match is not None else None
+    return out
 
 
 @app.get("/api/models", tags=["app"])
@@ -1064,7 +1143,8 @@ def submit_forecast(req: ForecastRequest) -> dict:
     # The route is settled before anything is fetched, because it decides both which
     # checkpoint to load and which product to ask for -- and the two cannot be chosen
     # independently.
-    _aoi, route = route_for(req, rings)
+    _aoi, route, match = route_for(req, rings)
+    use_archive = match is not None and match.usable
     predictor = predictor_for(route)
     key = _cache_key(req, rings)
     ttl = RESULT_TTL_ANCHORED_S if req.anchor else RESULT_TTL_LIVE_S
@@ -1085,21 +1165,28 @@ def submit_forecast(req: ForecastRequest) -> dict:
             job.progress = frac
 
         res = None
-        if req.lake_id and req.model in ("auto", "olci-300m-clim"):
-            # A monitored lake is served from its archive by the registry model, which reads
-            # the lake's climatology -- unless someone pinned another model by hand.
-            from habforecast.inference.adhoc import forecast_from_archive
+        if use_archive:
+            # Stored data answers: no scene is downloaded. A shape inside a lake gets
+            # only its own pixels; a lake opened from the outlook gets the whole lake.
+            from habforecast.inference.adhoc import forecast_from_archive, shape_clip
             from habforecast.routing import registry_route
 
-            reg_predictor = get_predictor()
-            if req.lake_id in reg_predictor.registry.lake_ids:
-                res = forecast_from_archive(
-                    reg_predictor,
-                    req.lake_id,
-                    anchor=req.anchor,
-                    route=registry_route(route, reg_predictor.registry[req.lake_id].name),
-                    progress=progress,
+            whole_lake = bool(req.lake_id)
+            clip = None
+            if not whole_lake:
+                clip = shape_clip(
+                    rings=rings,
+                    bbox=tuple(req.bbox) if req.bbox else None,
+                    circle=(req.lat, req.lon, req.radius_km),
                 )
+            res = forecast_from_archive(
+                get_predictor(),
+                match.lake_id,
+                anchor=match.anchor,
+                route=registry_route(route, match.lake_name, match.reason),
+                progress=progress,
+                clip=clip,
+            )
         if res is None:
             res = forecast_location(
                 predictor,
@@ -1126,7 +1213,8 @@ def submit_forecast(req: ForecastRequest) -> dict:
                 "source_label": res.source_label,
                 "source_latest": res.source_latest.isoformat() if res.source_latest else None,
                 "anchor_age_days": res.anchor_age_days,
-                "clipped": bool(rings),
+                "clipped": bool(rings) or res.clipped,
+                "stored": match.as_dict() if match is not None else None,
                 "scenes_found": res.scenes_found,
                 "scenes_used": res.scenes_used,
                 "observed_days": [d.isoformat() for d in res.observed_days],

@@ -1382,7 +1382,17 @@ function routeHtml(route, preview) {
       (model.beats_climatology ? ', beats seasonal climatology' : ', does not beat climatology')
     : 'the last observed field, carried forward';
   const why = [...(route.reasons || [])];
+  // Whether stored data answers is the one thing here that changes the wait from minutes
+  // to a second, so it is said in the open rather than inside "Why this combination".
+  const st = route.stored;
+  const storedLine = !st ? '' : st.usable
+    ? `<div class="rline stored ok"><span class="rkey">Data</span>
+         <span class="rval">Stored — ${esc(st.lake_name)}</span>
+         <span class="rsub">nothing to download · about a second</span></div>`
+    : `<div class="rline stored"><span class="rkey">Data</span>
+         <span class="rsub">${esc(st.reason)}</span></div>`;
   return `
+    ${storedLine}
     <div class="rline">
       <span class="wclass${cls}">${esc(WATER_LABEL[w.setting] || w.setting || 'area')}</span>
       <span class="rsub">${w.coast_distance_km != null
@@ -1434,11 +1444,20 @@ async function previewRoute() {
   const [west, south, east, north] = aoiBbox(S.aoi);
   const mine = ++routeToken;
   try {
-    const r = await fetch(`/api/route?west=${west}&south=${south}&east=${east}&north=${north}`);
+    const when = $('anchor').value ? `&anchor=${$('anchor').value}` : '';
+    const r = await fetch(`/api/route?west=${west}&south=${south}&east=${east}&north=${north}${when}`);
     if (!r.ok) throw new Error(await r.text());
     const route = await r.json();
     if (mine !== routeToken) return;  // a newer shape was drawn while this was in flight
     S.route = route;
+    // The 80 km limit is for areas that must be downloaded. One answered from stored
+    // data is not, so a large shape inside a big monitored lake can still run.
+    if (route.stored && route.stored.usable && aoiSideKm(S.aoi) > MAX_SIDE_KM) {
+      $('go').disabled = false;
+      $('aoi-warn').innerHTML = `<div class="note" style="margin-top:8px">Larger than the
+        ${MAX_SIDE_KM} km limit for downloaded areas, but it lies inside
+        <strong>${esc(route.stored.lake_name)}</strong>, so it is answered from stored data.</div>`;
+    }
     $('route-preview').innerHTML = routeHtml(route, true);
     $('route-preview').hidden = false;
     fillModelChoices(route);
@@ -1719,3 +1738,7 @@ async function loadValidation() {
 loadOutlook();
 loadValidation();
 if (window.matchMedia('(min-width: 1100px)').matches && !/lake=/.test(location.hash)) openOutlook();
+
+// A different date can change whether stored data answers (the archive ends somewhere),
+// so the preview follows the date field.
+$('anchor').addEventListener('change', () => { if (S.aoi) previewRoute(); });

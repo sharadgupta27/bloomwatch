@@ -51,12 +51,12 @@ import logging
 import threading
 import time
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import UTC, date, datetime, timedelta
 
 import numpy as np
 
-from habforecast.aoi import LakeAOI, adhoc_aoi, adhoc_aoi_from_bbox
+from habforecast.aoi import LakeAOI, LakeGrid, adhoc_aoi, adhoc_aoi_from_bbox
 from habforecast.data.coastwatch import SourceUnavailableError
 from habforecast.geometry import rings_bounds, rings_mask
 from habforecast.inference.predictor import ForecastResult, Predictor
@@ -140,6 +140,9 @@ class AdhocResult:
     # app can show what was chosen and why, rather than presenting a number with no
     # provenance to someone who has to act on it.
     route: Route | None = None
+    # True when the result was cut to a requested shape smaller than its grid (a polygon,
+    # or an area answered from a monitored lake's archive).
+    clipped: bool = False
 
     def caveats(self) -> list[str]:
         """Plain-language warnings the UI must show. Never silently degrade."""
@@ -724,8 +727,12 @@ def forecast_from_archive(
     anchor: date | None = None,
     route: Route | None = None,
     progress: ProgressFn = _noop,
+    clip: Callable[[LakeGrid], np.ndarray] | None = None,
 ) -> AdhocResult | None:
     """The same result `forecast_location` builds, from a registry lake's ingested cube.
+
+    `clip`, given the lake's grid, returns the (H, W) mask of the area actually requested
+    (see `shape_clip`); without it the whole lake is returned.
 
     For the lakes the service already monitors there is nothing to download: the
     fortnight of imagery, quality-controlled through the training pipeline, is on disk,
@@ -757,6 +764,16 @@ def forecast_from_archive(
     progress("done", 1.0)
     aoi = predictor.registry[lake_id]
     grid = aoi.grid()
+    if clip is not None:
+        # Only the user's shape: the lake's other pixels never enter the result, its
+        # statistics or the payload, exactly as the live path clips a drawn polygon.
+        mask = clip(grid)
+        if not (mask & forecast.water.astype(bool)).any():
+            raise ValueError(
+                f"The selected area lies inside {aoi.name}'s extent but contains none of "
+                "its water. Draw over the lake itself."
+            )
+        forecast = _clip_forecast(forecast, mask)
     water = forecast.water.astype(bool)
     start = anchor - timedelta(days=predictor.input_days - 1)
     history: dict[date, np.ndarray] = {}
@@ -788,6 +805,52 @@ def forecast_from_archive(
         route=route,
         aux_expected=tuple(getattr(predictor, "aux_keys", ()) or ()),
         aux_supplied=tuple(getattr(predictor, "aux_keys", ()) or ()),
+        clipped=clip is not None,
+    )
+
+
+def shape_clip(
+    rings: list[list[tuple[float, float]]] | None = None,
+    bbox: tuple[float, float, float, float] | None = None,
+    circle: tuple[float, float, float] | None = None,
+) -> Callable[[LakeGrid], np.ndarray]:
+    """A mask builder for the shape a request described: polygon, box, or (lat, lon, km)."""
+
+    def build(grid: LakeGrid) -> np.ndarray:
+        lon, lat = grid.lonlat
+        if rings:
+            return rings_mask(rings, lon, lat)
+        if bbox is not None:
+            w, s, e, n = bbox
+            return (lon >= w) & (lon <= e) & (lat >= s) & (lat <= n)
+        if circle is not None:
+            clat, clon, km = circle
+            p1, p2 = np.radians(clat), np.radians(lat)
+            dlat, dlon = p2 - p1, np.radians(lon - clon)
+            a = np.sin(dlat / 2) ** 2 + np.cos(p1) * np.cos(p2) * np.sin(dlon / 2) ** 2
+            return 2 * 6371.0088 * np.arcsin(np.sqrt(a)) <= km
+        return np.ones(grid.shape, dtype=bool)
+
+    return build
+
+
+def _clip_forecast(fc: ForecastResult, mask: np.ndarray) -> ForecastResult:
+    """`fc` with everything outside `mask` removed (water False, values NaN)."""
+    water = fc.water.astype(bool) & mask
+
+    def cut(a, lead_axes: int):
+        if a is None:
+            return None
+        m = water.reshape((1,) * lead_axes + water.shape)
+        return np.where(m, a, np.nan).astype(a.dtype)
+
+    return replace(
+        fc,
+        water=water.astype(fc.water.dtype),
+        log_chl=cut(fc.log_chl, 1),
+        exceed_prob=cut(fc.exceed_prob, 2),
+        spread=cut(fc.spread, 1),
+        input_log_chl=cut(fc.input_log_chl, 1),
     )
 
 

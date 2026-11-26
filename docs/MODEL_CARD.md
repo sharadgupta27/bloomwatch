@@ -73,7 +73,7 @@ learned 2.5× the wrong size.
 
 | Checkpoint | Grid | Training bodies | Skill vs persistence (test, d1/d3/d5/d7) | Beats climatology | Served |
 |---|---|---|---|---|---|
-| `models/best.ckpt` (climatology input) | OLCI 300 m | 3 lakes | **+0.255 / +0.283 / +0.298 / +0.318** | **yes** | yes — monitored lakes, which have the archive it reads: `/forecast`, `/advisory`, the outlook, and the app's map for a monitored lake (`lake_id` requests, served from the cube) |
+| `models/best.ckpt` (climatology input) | OLCI 300 m | 3 lakes | **+0.255 / +0.283 / +0.298 / +0.318** | **yes** | yes — monitored lakes, which have the archive it reads: `/forecast`, `/advisory`, the outlook, and any area in the app lying inside a monitored lake, for a date its archive holds (served from the cube, clipped to the area) |
 | `models/ens_met/` (3 seeds, weather input, exceedance head, calibrated) | OLCI 300 m | 3 lakes | +0.219 / +0.276 / +0.246 / +0.284 | yes | yes — **probabilities only**, for the advisory and the outlook's likely…possible band |
 | `models/ens_expanded_met/` | OLCI 300 m | 15 lakes | see `artifacts/eval_ens_expanded_met` | — | no — candidate |
 | `models/ens_global_ml/` (multilevel, calibrated by trophic class) | OLCI 300 m | 46-lake registry | see `artifacts/eval_global_ml` | — | no — passes the promotion gate against `ens_met`; fails against `ens_expanded_met` on PR-AUC @20 at 3 and 7 days |

@@ -256,9 +256,10 @@
 
   <h3>The forecast map</h3>
   <p>Predicted chlorophyll-a at 300 m, 1 to 7 days ahead. Chlorophyll-a measures algae, the
-     standard satellite signal for tracking blooms. For a monitored lake the map comes from
-     its own archive in about a second; for anywhere else you draw, a fortnight of imagery
-     is fetched first.</p>
+     standard satellite signal for tracking blooms. Any area inside a monitored lake —
+     drawn, searched or uploaded — comes from that lake's stored archive in a few seconds,
+     clipped to your shape, as long as the archive holds the date. Anywhere else, a
+     fortnight of imagery is fetched first; it is kept, so asking again is quick.</p>
 
   <h3>How to read the map</h3>
   <p>Colour runs from 1 µg/L (deep blue) to 100 µg/L (red) on a fixed scale, so two lakes
@@ -289,7 +290,7 @@
      sampling before any public-health decision, and follow local advisories. 300 m pixels
      cannot resolve small ponds or narrow rivers. For a drawn area the water mask comes
      from the fortnight fetched, so a cloudy period maps less water than really exists.
-     Drawn areas are capped at 80 km across.</p>
+     Areas that have to be downloaded are capped at 80 km across.</p>
 
   <h3>Keyboard</h3>
   <p><kbd>O</kbd> bloom outlook · <kbd>S</kbd> field data ·

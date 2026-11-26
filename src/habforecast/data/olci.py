@@ -536,22 +536,56 @@ def read_many(
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
+    from habforecast.data import scene_cache
+
     out: list[SceneObservation] = []
     if not items:
         return out
-    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(items)))) as pool:
+    # Scenes this server already read for exactly this grid come from disk
+    # (`data.scene_cache`); only the rest are downloaded.
+    source = type(reader).__name__
+    cutoff = getattr(resampler, "max_distance_m", None)
+    keys = {
+        id(it): (
+            scene_cache.key(source, it.id, grid, cutoff)
+            if getattr(it, "id", None) and cutoff is not None
+            else None
+        )
+        for it in items
+    }
+    todo = []
+    done = 0
+    for it in items:
+        hit = scene_cache.load(keys[id(it)], min_valid_fraction) if keys[id(it)] else None
+        if hit is None:
+            todo.append(it)
+            continue
+        done += 1
+        if hit[0] == "hit":
+            out.append(hit[1])
+        if progress is not None:
+            progress(done, len(items))
+    if not todo:
+        return out
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(todo)))) as pool:
         futures = {
-            pool.submit(reader.read, it, grid, resampler, min_valid_fraction): it for it in items
+            pool.submit(reader.read, it, grid, resampler, min_valid_fraction): it for it in todo
         }
-        for n, fut in enumerate(as_completed(futures), 1):
+        for fut in as_completed(futures):
             it = futures[fut]
+            done += 1
             try:
                 obs = fut.result()
             except Exception as exc:  # one bad granule must not sink the window
                 logger.warning("scene %s failed: %s", getattr(it, "id", "?"), exc)
+                # A failure (timeout, server error) is not stored: next time, try again.
+                if progress is not None:
+                    progress(done, len(items))
                 continue
+            if keys[id(it)]:
+                scene_cache.save(keys[id(it)], obs, min_valid_fraction)
             if obs is not None:
                 out.append(obs)
             if progress is not None:
-                progress(n, len(items))
+                progress(done, len(items))
     return out

@@ -2,8 +2,9 @@
 
 `best.ckpt` is the default (`HAB_CHECKPOINT`) and what every monitored-lake path uses:
 `/forecast`, `/advisory`, `/advisory/feed.xml`, `pipelines/advisory.py`, the public outlook
-(`/api/outlook`), and the app's map when a monitored lake is opened from the outlook (a
-`lake_id` request, served from the lake's cube via `routing.registry_route`). Advisory and
+(`/api/outlook`), and any area in the app that lies inside a monitored lake for a date its
+archive holds -- opened from the outlook, drawn, searched or uploaded (`habforecast.stored`,
+served from the lake's cube via `routing.registry_route`). Advisory and
 outlook *probabilities* come from `ens_met/` (`HAB_PROB_CHECKPOINT`, with weather from
 `HAB_MET_ROOT`). For any other area drawn in `/app`, `habforecast.routing` classifies the
 water body and loads whichever checkpoint was trained on data like it, resolving the file

@@ -838,3 +838,7 @@ body.sites-open .dock-tabs { display: none; }
   position: sticky; bottom: -14px; margin: 12px -16px -14px; padding: 10px 16px 14px;
   background: var(--panel-solid); border-top: 1px solid var(--line);
 }
+
+/* Stored-data line in the route box: green when the archive answers, quiet otherwise. */
+.routebox .rline.stored { padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid var(--line); }
+.routebox .rline.stored.ok .rval { color: var(--good); }
